@@ -9,7 +9,7 @@
 
 Configure Info.plist
 
-```plist
+```xml
 <key>CFBundleURLTypes</key>
 <array>
   <dict>
