@@ -1,7 +1,8 @@
 # flutter_facebook_auth
-
+Flutter plugin to make esay the facebook authentication
 
 ## ***Getting Started***
+IMPORTANT for now only iOS is support. Android support is coming.
 
 
 ## install on iOS 
