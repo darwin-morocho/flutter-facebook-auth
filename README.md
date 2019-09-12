@@ -46,7 +46,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
     For more info go to https://developers.facebook.com/docs/facebook-login/permissions/
 
     return one instance of `LoginResult` class:
-    ```json
+    ```
     { 
       status: 200,
       accessToken: { 
@@ -69,7 +69,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
 
 * `.isLogged()` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
        return one instance of `AccessToken` class:
-    ```json
+    ```
     { 
         expires: 1573493493209, 
         declinedPermissions: [], 
@@ -86,7 +86,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
 * `.getUserData({String fields = "name,email,picture"})` : get the user info only if the user is logged.
 
     Expected response:
-    ```json
+    ```
     {
     email = "dsmr.apps@gmail.com";
     id = 3003332493073668;
