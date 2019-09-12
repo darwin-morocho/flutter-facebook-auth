@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -10,6 +12,7 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  final _fb = FacebookAuth();
   dynamic _userData;
 
   @override
@@ -19,12 +22,12 @@ class _MyAppState extends State<MyApp> {
   }
 
   _checkIfIsLogged() async {
-    final accessToken = await FacebookAuth.isLogged();
+    final accessToken = await _fb.isLogged();
     if (accessToken != null) {
-      print("accessToken: ${accessToken}");
-      // now you can call to  FacebookAuth.getUserData();
-      final userData = await FacebookAuth.getUserData();
-      // final userData = await FacebookAuth.getUserData(fields:"email,birthday");
+      print("accessToken: ${accessToken.toString()}");
+      // now you can call to  _fb.getUserData();
+      final userData = await _fb.getUserData();
+      // final userData = await _fb.getUserData(fields:"email,birthday");
       setState(() {
         _userData = userData;
       });
@@ -32,19 +35,19 @@ class _MyAppState extends State<MyApp> {
   }
 
   _login() async {
-    final result = await FacebookAuth.login();
-    // final result = await FacebookAuth.login(permissions:['email','user_birthday']);
+    final result = await _fb.login();
+    // final result = await _fb.login(permissions:['email','user_birthday']);
     print("login result ${result.toString()}");
-    if (result['status'] == 200) {
-      print("accessToken: ${result['accessToken']}");
+    if (result['status'] == LonginResult.success) {
+      print("accessToken: ${result['accessToken'].toString()}");
       // get the user data
-      final userData = await FacebookAuth.getUserData();
-      // final userData = await FacebookAuth.getUserData(fields:"email,birthday");
+      final userData = await _fb.getUserData();
+      // final userData = await _fb.getUserData(fields:"email,birthday");
       print("userData: ${userData.toString()}");
       setState(() {
         _userData = userData;
       });
-    } else if (result['status'] == 403) {
+    } else if (result['status'] == LonginResult.cancelled) {
       print("login cancelled");
     } else {
       print("login failed");
@@ -52,7 +55,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   _logOut() async {
-    await FacebookAuth.logOut();
+    await _fb.logOut();
     setState(() {
       _userData = null;
     });
@@ -63,12 +66,12 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Facebook Auth'),
+          title: const Text('Facebook Auth Example'),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            Text(_userData != null ? _userData.toString() : "NO LOGGED"),
+            Text(_userData != null ? JsonEncoder.withIndent('  ').convert(_userData) : "NO LOGGED"),
             CupertinoButton(
                 color: Colors.blue,
                 child: Text(

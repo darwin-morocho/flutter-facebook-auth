@@ -32,3 +32,9 @@ android {
         disable 'InvalidPackage'
     }
 }
+
+
+
+dependencies {
+    implementation 'com.facebook.android:facebook-login:[5,6)'
+}
