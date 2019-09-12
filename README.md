@@ -1,5 +1,5 @@
 # flutter_facebook_auth
-Flutter plugin to make esay the facebook authentication
+Flutter plugin to make easy the facebook authentication in your flutter app. iOS and Android is supported.
 
 
 ## **install on Android**
@@ -45,7 +45,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
 
     For more info go to https://developers.facebook.com/docs/facebook-login/permissions/
 
-    expected response:
+    return one instance of `LoginResult` class:
     ```json
     { 
       status: 200,
@@ -54,7 +54,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
         declinedPermissions: [], 
         permissions: [public_profile, email], 
         userId: 3003332493073668, 
-        token: EAATaHWA7VDwBAE5lndhpg17DHFZABzh6QKiAZC42Qljcub9gib52L5CPEXvhk2ZBEa7LlOuytmmkZBfwP7dKW6Xi4tvrTw8DToLOGkBtAZBYeXpBWzkEF6l1hop5Lsk3jJBTZCmanue6irZAah7p0p70uB82Y5UHrAXCO2M2kMcau6CXsYtyys7WZAWV3XaMPnhuVauo5ghtGpnhJvZAtMKqlsgbV5GklPAYZD
+        token: EAAVDwBAE5lndhpg17DHFZABzh6QKiAZC42Qljcub9gib52L5CPEXvhk2ZBEa7LlOuyastmmkZBfwP7dKW6Xi4tvrTw8DToO2M2kMcau6CXsYtyys7WZAWV3XaMPnhuVauo5ghtGpnhJvZAtMKqlsgbV5GklPAYZD
       }
     }
     ```
@@ -68,28 +68,38 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
 * `.logOut()` : close the current facebook session.
 
 * `.isLogged()` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
-       expected response:
+       return one instance of `AccessToken` class:
     ```json
     { 
         expires: 1573493493209, 
         declinedPermissions: [], 
         permissions: [public_profile, email], 
         userId: 3003332493073668, 
-        token: EAATaHWA7VDwBAE5lndhpg17DHFZABzh6QKiAZC42Qljcub9gib52L5CPEXvhk2ZBEa7LlOuytmmkZBfwP7dKW6Xi4tvrTw8DToLOGkBtAZBYeXpBWzkEF6l1hop5Lsk3jJBTZCmanue6irZAah7p0p70uB82Y5UHrAXCO2M2kMcau6CXsYtyys7WZAWV3XaMPnhuVauo5ghtGpnhJvZAtMKqlsgbV5GklPAYZD
+        token: EAATaHWA7VDwBAE5lndhpg17DHFZABzh6QKiAZC42Qljcub9gib52L5CPEXvhk2ZBEa7LlOuytmmkZBfwP7dKW6Xi4XCO2M2kMcau6CXsYtyys7WZAWV3XaMPnhuVauo5ghtGpnhJvZAtMKqlsgbV5GklPAYZD
       }
     ```
+
+  NOTE: `declinedPermissions` and `permissions` are null on iOS, please use the method `permissionsStatus(String token)`
+
+
 
 * `.getUserData({String fields = "name,email,picture"})` : get the user info only if the user is logged.
 
     Expected response:
     ```json
-    { 
-        expires: 1573493493209, 
-        declinedPermissions: [], 
-        permissions: [public_profile, email], 
-        userId: 3003332493073668, 
-        token: EAATaHWA7VDwBAE5lndhpg17DHFZABzh6QKiAZC42Qljcub9gib52L5CPEXvhk2ZBEa7LlOuytmmkZBfwP7dKW6Xi4tvrTw8DToLOGkBtAZBYeXpBWzkEF6l1hop5Lsk3jJBTZCmanue6irZAah7p0p70uB82Y5UHrAXCO2M2kMcau6CXsYtyys7WZAWV3XaMPnhuVauo5ghtGpnhJvZAtMKqlsgbV5GklPAYZD
-      }
+    {
+    email = "dsmr.apps@gmail.com";
+    id = 3003332493073668;
+    name = "Darwin Morocho";
+    picture =     {
+        data =         {
+            height = 50;
+            "is_silhouette" = 0;
+            url = "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3003332493073668&height=50&width=50&ext=1570917120&hash=AeQMSBD5s4QdgLoh";
+            width = 50;
+        };
+    };
+}
     ```
 
 
@@ -109,8 +119,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _fb = FacebookAuth(); // new instance of FacebookAuth
+  final _fb = FacebookAuth();
   dynamic _userData;
+  String _token;
 
   @override
   void initState() {
@@ -118,10 +129,18 @@ class _MyAppState extends State<MyApp> {
     _checkIfIsLogged();
   }
 
+  _printCredentials(AccessToken accessToken) {
+    _token = accessToken.token;
+    print("userId: ${accessToken.userId}");
+    print("token: $_token");
+    print("expires: ${accessToken.expires}");
+    print("permissions: ${accessToken.permissions.toString()}");
+  }
+
   _checkIfIsLogged() async {
     final accessToken = await _fb.isLogged();
     if (accessToken != null) {
-      print("accessToken: ${accessToken.toString()}");
+      _printCredentials(accessToken);
       // now you can call to  _fb.getUserData();
       final userData = await _fb.getUserData();
       // final userData = await _fb.getUserData(fields:"email,birthday");
@@ -135,16 +154,15 @@ class _MyAppState extends State<MyApp> {
     final result = await _fb.login();
     // final result = await _fb.login(permissions:['email','user_birthday']);
     print("login result ${result.toString()}");
-    if (result['status'] == LonginResult.success) {
-      print("accessToken: ${result['accessToken'].toString()}");
+    if (result.status == 200) {
+      _printCredentials(result.accessToken);
       // get the user data
       final userData = await _fb.getUserData();
       // final userData = await _fb.getUserData(fields:"email,birthday");
-      print("userData: ${userData.toString()}");
       setState(() {
         _userData = userData;
       });
-    } else if (result['status'] == LonginResult.cancelled) {
+    } else if (result.status == 403) {
       print("login cancelled");
     } else {
       print("login failed");
@@ -153,9 +171,15 @@ class _MyAppState extends State<MyApp> {
 
   _logOut() async {
     await _fb.logOut();
+    _token = null;
     setState(() {
       _userData = null;
     });
+  }
+
+  _checkPermissions() async {
+    final dynamic response = await _fb.permissionsStatus(_token);
+    print("permissions: ${response.toString()}");
   }
 
   @override
@@ -163,12 +187,20 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Facebook Auth'),
+          title: const Text('Facebook Auth Example'),
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(_userData != null ? _userData.toString() : "NO LOGGED"),
+            _userData != null
+                ? CupertinoButton(
+                    child: Text("Check permissions"),
+                    onPressed: _checkPermissions,
+                    color: Colors.greenAccent,
+                  )
+                : Container(),
+            SizedBox(height: 20),
             CupertinoButton(
                 color: Colors.blue,
                 child: Text(
@@ -185,3 +217,12 @@ class _MyAppState extends State<MyApp> {
 ```
 
 
+## **Using with firebase_auth**
+Just create a credential like
+```dart
+ // this line do auth in firebase with your facebook credential.
+ AuthCredential credential =  FacebookAuthProvider.getCredential(accessToken: _token);
+            
+
+final FirebaseUser user = (await _auth.signInWithCredential(credential)).user;
+```
