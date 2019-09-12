@@ -99,8 +99,9 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
             width = 50;
         };
     };
-}
+    }
     ```
+    
 
 
 
