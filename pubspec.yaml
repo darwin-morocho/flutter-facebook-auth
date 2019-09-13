@@ -1,6 +1,6 @@
 name: flutter_facebook_auth
 description: Plugin to Facebook authentication for iOS and Android in your Flutter app.
-version: 0.1.0
+version: 0.1.1
 author: DARWIN MOROCHO <dsmr.apps@gmail.com>
 homepage: https://github.com/MorochoRochaDarwin/flutter-facebook-auth
 

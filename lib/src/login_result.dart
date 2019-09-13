@@ -1,7 +1,4 @@
 import 'access_token.dart';
-import 'package:json_annotation/json_annotation.dart';
-
-@JsonSerializable()
 class LoginResult {
   final int status;
   final AccessToken accessToken;

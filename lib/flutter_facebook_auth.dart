@@ -19,7 +19,8 @@ class FacebookAuth {
     final result =
         await _channel.invokeMethod("login", {"permissions": permissions});
 
-    return LoginResult.fromJson(Map<String, dynamic>.from(result)); // accessToken
+    return LoginResult.fromJson(
+        Map<String, dynamic>.from(result)); // accessToken
   }
 
   /// [fields] string of fileds like birthday,email,hometown
