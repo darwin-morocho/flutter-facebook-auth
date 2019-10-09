@@ -35,6 +35,9 @@ Configure `Info.plist`
 </array>
 ```
 
+## **Important** 
+The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
+
 ### **METHODS**
 fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronous**.
 
