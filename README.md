@@ -43,7 +43,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
 
 * `.login({List<String> permissions = const ['email', 'public_profile'] })` : request login with a list of permissions.
 
-    The `public_profile` permission allows you read the next fileds 
+    The `public_profile` permission allows you read the next fields 
     `id, first_name, last_name, middle_name, name, name_format, picture, short_name`
 
     For more info go to https://developers.facebook.com/docs/facebook-login/permissions/
@@ -75,14 +75,12 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
     ```
     { 
         expires: 1573493493209, 
-        declinedPermissions: [], 
-        permissions: [public_profile, email], 
         userId: 3003332493073668, 
         token: EAATaHWA7VDwBAE5lndhpg17DHFZABzh6QKiAZC42Qljcub9gib52L5CPEXvhk2ZBEa7LlOuytmmkZBfwP7dKW6Xi4XCO2M2kMcau6CXsYtyys7WZAWV3XaMPnhuVauo5ghtGpnhJvZAtMKqlsgbV5GklPAYZD
       }
     ```
 
-  NOTE: `declinedPermissions` and `permissions` are null on iOS, please use the method `permissionsStatus(String token)`
+*`.permissions(String token)`: get the granted and declined permissions.
 
 
 
@@ -123,7 +121,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _fb = FacebookAuth();
   dynamic _userData;
   String _token;
 
@@ -133,21 +130,22 @@ class _MyAppState extends State<MyApp> {
     _checkIfIsLogged();
   }
 
-  _printCredentials(AccessToken accessToken) {
-    _token = accessToken.token;
-    print("userId: ${accessToken.userId}");
+  _printCredentials(LoginResult result) {
+    _token = result.accessToken.token;
+    print("userId: ${result.accessToken.userId}");
     print("token: $_token");
-    print("expires: ${accessToken.expires}");
-    print("permissions: ${accessToken.permissions.toString()}");
+    print("expires: ${result.accessToken.expires}");
+    print("grantedPermission: ${result.grantedPermissions}");
+    print("declinedPermissions: ${result.declinedPermissions}");
   }
 
   _checkIfIsLogged() async {
-    final accessToken = await _fb.isLogged();
+    final accessToken = await FacebookAuth.instance.isLogged;
     if (accessToken != null) {
-      _printCredentials(accessToken);
-      // now you can call to  _fb.getUserData();
-      final userData = await _fb.getUserData();
-      // final userData = await _fb.getUserData(fields:"email,birthday");
+      print("is Logged");
+      // now you can call to  FacebookAuth.instance.getUserData();
+      final userData = await FacebookAuth.instance.getUserData();
+      // final userData = await FacebookAuth.instance.getUserData(fields:"email,birthday");
       setState(() {
         _userData = userData;
       });
@@ -155,14 +153,13 @@ class _MyAppState extends State<MyApp> {
   }
 
   _login() async {
-    final result = await _fb.login();
-    // final result = await _fb.login(permissions:['email','user_birthday']);
-    print("login result ${result.toString()}");
+    final result = await FacebookAuth.instance.login();
+    // final result = await FacebookAuth.instance.login(permissions:['email','user_birthday']);
     if (result.status == 200) {
-      _printCredentials(result.accessToken);
+      _printCredentials(result);
       // get the user data
-      final userData = await _fb.getUserData();
-      // final userData = await _fb.getUserData(fields:"email,birthday");
+      final userData = await FacebookAuth.instance.getUserData();
+      // final userData = await FacebookAuth.instance.getUserData(fields:"email,birthday");
       setState(() {
         _userData = userData;
       });
@@ -174,7 +171,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   _logOut() async {
-    await _fb.logOut();
+    await FacebookAuth.instance.logOut();
     _token = null;
     setState(() {
       _userData = null;
@@ -182,7 +179,8 @@ class _MyAppState extends State<MyApp> {
   }
 
   _checkPermissions() async {
-    final dynamic response = await _fb.permissionsStatus(_token);
+    final dynamic response =
+        await FacebookAuth.instance.permissionsStatus(_token);
     print("permissions: ${response.toString()}");
   }
 
@@ -206,12 +204,13 @@ class _MyAppState extends State<MyApp> {
                 : Container(),
             SizedBox(height: 20),
             CupertinoButton(
-                color: Colors.blue,
-                child: Text(
-                  _userData != null ? "LOGOUT" : "LOGIN",
-                  style: TextStyle(color: Colors.white),
-                ),
-                onPressed: _userData != null ? _logOut : _login),
+              color: Colors.blue,
+              child: Text(
+                _userData != null ? "LOGOUT" : "LOGIN",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: _userData != null ? _logOut : _login,
+            ),
           ],
         ),
       ),
@@ -222,9 +221,20 @@ class _MyAppState extends State<MyApp> {
 
 
 ## **Using with firebase_auth**
-Just create a credential like
 ```dart
- // this line do auth in firebase with your facebook credential.
+import 'package:firebase_auth/firebase_auth.dart';
+.
+.
+.
+.
+
+
+final FirebaseAuth _auth = FirebaseAuth.instance;
+.
+.
+.
+
+ // this line do auth in firebase with your facebook credential. Just pass your facebook token (String)
  AuthCredential credential =  FacebookAuthProvider.getCredential(accessToken: _token);
             
 

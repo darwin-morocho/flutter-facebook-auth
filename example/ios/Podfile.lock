@@ -1,60 +1,44 @@
 PODS:
-  - FacebookCore (0.9.0):
-    - FBSDKCoreKit (~> 5.0)
-  - FacebookLogin (0.9.0):
-    - FacebookCore (~> 0.9.0)
-    - FBSDKCoreKit (~> 5.0)
-    - FBSDKLoginKit (~> 5.0)
-  - FacebookShare (0.9.0):
-    - FacebookCore (~> 0.9.0)
-    - FBSDKCoreKit (~> 5.0)
-    - FBSDKShareKit (~> 5.0)
-  - FBSDKCoreKit (5.5.0):
-    - FBSDKCoreKit/Basics (= 5.5.0)
-    - FBSDKCoreKit/Core (= 5.5.0)
-  - FBSDKCoreKit/Basics (5.5.0)
-  - FBSDKCoreKit/Core (5.5.0):
+  - FBSDKCoreKit (6.3.0):
+    - FBSDKCoreKit/Basics (= 6.3.0)
+    - FBSDKCoreKit/Core (= 6.3.0)
+  - FBSDKCoreKit/Basics (6.3.0)
+  - FBSDKCoreKit/Core (6.3.0):
     - FBSDKCoreKit/Basics
-  - FBSDKLoginKit (5.5.0):
-    - FBSDKCoreKit (~> 5.0)
-  - FBSDKShareKit (5.5.0):
-    - FBSDKCoreKit (~> 5.0)
+  - FBSDKCoreKit/Swift (6.3.0):
+    - FBSDKCoreKit/Core
+  - FBSDKLoginKit/Login (6.3.0):
+    - FBSDKCoreKit (~> 6.3.0)
+  - FBSDKLoginKit/Swift (6.3.0):
+    - FBSDKCoreKit/Swift (~> 6.3.0)
+    - FBSDKLoginKit/Login
   - Flutter (1.0.0)
-  - flutter_facebook_auth (0.0.1):
-    - FacebookCore
-    - FacebookLogin
-    - FacebookShare
+  - flutter_facebook_auth (0.2.0):
+    - FBSDKCoreKit/Swift
+    - FBSDKLoginKit/Swift
     - Flutter
 
 DEPENDENCIES:
-  - Flutter (from `.symlinks/flutter/ios`)
+  - Flutter (from `Flutter`)
   - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
-    - FacebookCore
-    - FacebookLogin
-    - FacebookShare
     - FBSDKCoreKit
     - FBSDKLoginKit
-    - FBSDKShareKit
 
 EXTERNAL SOURCES:
   Flutter:
-    :path: ".symlinks/flutter/ios"
+    :path: Flutter
   flutter_facebook_auth:
     :path: ".symlinks/plugins/flutter_facebook_auth/ios"
 
 SPEC CHECKSUMS:
-  FacebookCore: ba86524b66cfa86d0f8e65d08faa8504a9f732dd
-  FacebookLogin: 6cee9fd6e1fe976fe8f7eec199e27b28b14f5d63
-  FacebookShare: 85968ad1b1606c4944fb154924e425fd29184ea5
-  FBSDKCoreKit: 7ade9cfea30eef2f6cf105a1aa904f89ea68fb7d
-  FBSDKLoginKit: bb28062f24e79590c44ba03297ca9bea4b6436d2
-  FBSDKShareKit: 6316a2dcd2fbc419c87281aa4c50ad0b6ed431e7
-  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
-  flutter_facebook_auth: 1e219d4fecba385c98400a100524aa05beeed8c9
+  FBSDKCoreKit: 5d55c8f3007c9c49b793617b9102e46355fc7e17
+  FBSDKLoginKit: d46aa04d9bb9990a4deb6441736fae24a8c94496
+  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
+  flutter_facebook_auth: a63fc41100a6494584bef37a677e0f70670d9674
 
-PODFILE CHECKSUM: b6a0a141693093b304368d08511b46cf3d1d0ac5
+PODFILE CHECKSUM: e45c292f618eeca3034958d33b444b6e1249b55f
 
 COCOAPODS: 1.7.3

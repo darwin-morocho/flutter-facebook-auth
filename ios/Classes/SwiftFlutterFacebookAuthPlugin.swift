@@ -78,10 +78,17 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
             
             if(error==nil){
                 let fbloginresult : LoginManagerLoginResult = result!
+                
                 if(fbloginresult.isCancelled) {
                     self.finishWithResult(data: ["status":403])
                 } else {
-                    self.finishWithResult(data: ["status":200, "accessToken": self.getAccessToken(accessToken: fbloginresult.token!)])
+                    print("permissions",fbloginresult.grantedPermissions)
+                    self.finishWithResult(data: [
+                        "status":200,
+                        "accessToken": self.getAccessToken(accessToken: fbloginresult.token!),
+                        "grantedPermissions": Array(fbloginresult.grantedPermissions),
+                        "declinedPermissions": Array(fbloginresult.declinedPermissions)
+                    ])
                 }
             } else{
                 self.finishWithError(message: "error make sure that your  Info.plist is configured")
@@ -144,8 +151,11 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
     }
     
     
+    
+    
     private func getAccessToken(accessToken: AccessToken) -> [String : Any] {
-   
+            
+        print("permissions",accessToken.permissions)
         let data = [
             "token": accessToken.tokenString,
             "userId": accessToken.userID,

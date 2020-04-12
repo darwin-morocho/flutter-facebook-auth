@@ -27,9 +27,8 @@ import io.flutter.plugin.common.PluginRegistry;
 
 public class FacebookAuth {
 
-    private PluginRegistry.Registrar registrar;
+
     private final CallbackManager callbackManager;
-    private MethodChannel.Result pendingResult;
     private LoginManager loginManager;
     private Activity activity;
     private FacebookLoginResultDelegate resultDelegate;
@@ -112,8 +111,6 @@ public class FacebookAuth {
             put("token", accessToken.getToken());
             put("userId", accessToken.getUserId());
             put("expires", accessToken.getExpires().getTime());
-            put("permissions", new ArrayList<>(accessToken.getPermissions()));
-            put("declinedPermissions", new ArrayList<>(accessToken.getDeclinedPermissions()));
         }};
     }
 
@@ -133,6 +130,8 @@ class FacebookLoginResultDelegate implements FacebookCallback<LoginResult>, Plug
     public void onSuccess(LoginResult loginResult) {
         HashMap<String, Object> res = new HashMap<>();
         res.put("status", 200);
+        res.put("grantedPermissions", new ArrayList<>(loginResult.getRecentlyGrantedPermissions()));
+        res.put("declinedPermissions", new ArrayList<>(loginResult.getRecentlyDeniedPermissions()));
         res.put("accessToken", FacebookAuth.getAccessToken(loginResult.getAccessToken()));
         finishWithResult(res);
     }
