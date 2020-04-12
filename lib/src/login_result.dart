@@ -14,8 +14,6 @@ class LoginResult {
   });
 
   factory LoginResult.fromJson(Map<String, dynamic> json) {
-    print("login result $json");
-
     final accessToken = json['accessToken'] == null
         ? null
         : AccessToken.fromJson(Map<String, dynamic>.from(json['accessToken']));
