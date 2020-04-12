@@ -70,7 +70,7 @@ fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronou
 
 * `.logOut()` : close the current facebook session.
 
-* `.isLogged()` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
+* `.isLogged` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
        return one instance of `AccessToken` class:
     ```
     { 

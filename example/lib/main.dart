@@ -69,7 +69,7 @@ class _MyAppState extends State<MyApp> {
 
   _checkPermissions() async {
     final dynamic response =
-        await FacebookAuth.instance.permissionsStatus(_token);
+        await FacebookAuth.instance.permissions(_token);
     print("permissions: ${response.toString()}");
   }
 
