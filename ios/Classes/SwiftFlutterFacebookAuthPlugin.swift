@@ -153,8 +153,6 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
     
     
     private func getAccessToken(accessToken: AccessToken) -> [String : Any] {
-        
-        print("permissions",accessToken.permissions)
         let data = [
             "token": accessToken.tokenString,
             "userId": accessToken.userID,
