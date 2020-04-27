@@ -71,7 +71,7 @@ import FBSDKCoreKit // <--- ADD THIS LINE
 
 ```
 
-for Objective-C
+for Objective-C (correctly works is not granted because this plugin was writen on swift)
 
 ```objc
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
