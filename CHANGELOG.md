@@ -10,3 +10,6 @@
 
 ## 0.2.2
 - Added documentation for ApplicationDelegate.shared on iOS
+
+## 0.2.2+1
+- Updated Readme.md
