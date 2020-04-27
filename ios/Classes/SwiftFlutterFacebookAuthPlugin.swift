@@ -14,10 +14,9 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
     public static func register(with registrar: FlutterPluginRegistrar) {
         let channel = FlutterMethodChannel(name: "flutter_facebook_auth", binaryMessenger: registrar.messenger())
         let instance = SwiftFlutterFacebookAuthPlugin()
-        
         registrar.addMethodCallDelegate(instance, channel: channel)
-        
     }
+    
     
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         
@@ -36,8 +35,8 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
                 return
             }
             if AccessToken.isCurrentAccessTokenActive {
-             let accessToken =   getAccessToken(accessToken: AccessToken.current!)
-              finishWithResult(data: accessToken as Dictionary)
+                let accessToken =   getAccessToken(accessToken: AccessToken.current!)
+                finishWithResult(data: accessToken as Dictionary)
             }else{
                 finishWithResult(data: nil)
             }
@@ -154,7 +153,7 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
     
     
     private func getAccessToken(accessToken: AccessToken) -> [String : Any] {
-            
+        
         print("permissions",accessToken.permissions)
         let data = [
             "token": accessToken.tokenString,

@@ -10,6 +10,12 @@ Go to https://developers.facebook.com/docs/facebook-login/android/?locale=en and
 
 
 ## **install on iOS** 
+In your Podfile uncomment the next line (You need set the minimum target to 9.0 or higher)
+```
+platform :ios, '9.0'
+```
+
+
 Configure `Info.plist`
 
 ```xml
@@ -38,8 +44,65 @@ Configure `Info.plist`
 ## **Important** 
 The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
 
+
+## **Important**
+To enable the login with the native facebook app on iOS you need add some code in your `ios/Runner/AppDelegate.swift`
+```swift
+import UIKit
+import Flutter
+import FBSDKCoreKit // <--- ADD THIS LINE
+
+@UIApplicationMain
+@objc class AppDelegate: FlutterAppDelegate {
+    override func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?
+    ) -> Bool {
+        ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)// <--- ADD THIS LINE
+        GeneratedPluginRegistrant.register(with: self)
+        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    
+    // <--- OVERRIDE THIS METHOD WITH THIS CODE
+    override func application( _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool { ApplicationDelegate.shared.application( app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation] )
+    }
+}
+
+```
+
+for Objective-C
+
+```objc
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+
+
+- (BOOL)application:(UIApplication *)application 
+    didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+  
+  [[ApplicationDelegate sharedInstance] application:application
+    didFinishLaunchingWithOptions:launchOptions];
+  // Add any custom logic here.
+  return YES;
+}
+
+- (BOOL)application:(UIApplication *)application 
+            openURL:(NSURL *)url 
+            options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
+
+  BOOL handled = [[ApplicationDelegate sharedInstance] application:application
+    openURL:url
+    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
+  ];
+  // Add any custom logic here.
+  return handled;
+}
+```
+
+
 ### **METHODS**
-fisrt create a new instance of FacebookAuth. NOTE: all methods are **asynchronous**.
+Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 
 * `.login({List<String> permissions = const ['email', 'public_profile'] })` : request login with a list of permissions.
 

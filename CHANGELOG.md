@@ -2,8 +2,11 @@
 - iOS version
 
 ## 0.2.0
-- updated Facebook Core version to remove deprecated UIWebView on iOS.
+- Updated Facebook Core version to remove deprecated UIWebView on iOS.
 - Updated methods.
 
 ## 0.2.1
-- removed dangerous log
+- Removed dangerous log
+
+## 0.2.2
+- Added documentation for ApplicationDelegate.shared on iOS
