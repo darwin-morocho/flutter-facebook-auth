@@ -15,12 +15,6 @@ import FBSDKCoreKit // <--- ADD THIS LINE
     
 
     // <--- OVERRIDE THIS METHOD WITH THIS CODE
-    override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        if let facebookAppId: String = Bundle.main.object(forInfoDictionaryKey: "FacebookAppID") as? String {
-            if url.scheme != nil && url.scheme!.hasPrefix("fb\(facebookAppId)") && url.host ==  "authorize" {
-                return ApplicationDelegate.shared.application(app, open: url, options: options)
-           }
-        }
-        return false
+    override func application( _ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:] ) -> Bool { ApplicationDelegate.shared.application( app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation] )
     }
 }
