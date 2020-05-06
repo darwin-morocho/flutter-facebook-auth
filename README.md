@@ -71,6 +71,11 @@ import FBSDKCoreKit // <--- ADD THIS LINE
 
 ```
 
+## If you are login with other provider like twitter you need **Handling Log in Redirect** too
+Check the example to implement facebook auth and twitter auth in the same flutter app in the branch twitter. Check the example here [dart code](https://github.com/darwin-morocho/flutter-facebook-auth/blob/twitter/example/lib/main.dart) and [AppDelegate.swift](https://github.com/darwin-morocho/flutter-facebook-auth/blob/twitter/example/ios/Runner/AppDelegate.swift)
+
+
+---
 for Objective-C (correctly works is not granted because this plugin was written with swift)
 
 ```objc

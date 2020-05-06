@@ -19,6 +19,8 @@ dev_dependencies:
 
   flutter_facebook_auth:
     path: ../
+  flutter_twitter_login:
+    git: https://github.com/Kiruel/flutter_twitter_login.git
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

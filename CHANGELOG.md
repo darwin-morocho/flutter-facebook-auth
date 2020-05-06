@@ -13,3 +13,6 @@
 
 ## 0.2.2+1
 - Updated Readme.md
+
+## 0.2.2+2
+- Updated Docs to allow login with facebook and twitter in the same flutter app

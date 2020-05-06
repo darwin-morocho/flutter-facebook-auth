@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,6 +13,12 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   dynamic _userData;
   String _token;
+  final twitterLogin = new TwitterLogin(
+    consumerKey: 'ZqSwcbTXyG3kVlgt6yWDwBsGh',
+    consumerSecret: 'jqEDQxjugc5f5R7Ba7FeVwL14eyabPxH0aL7YTlqP6OgcXLOt5',
+  );
+
+  String twitterStatus = "No Logged";
 
   @override
   void initState() {
@@ -68,9 +75,27 @@ class _MyAppState extends State<MyApp> {
   }
 
   _checkPermissions() async {
-    final dynamic response =
-        await FacebookAuth.instance.permissions(_token);
+    final dynamic response = await FacebookAuth.instance.permissions(_token);
     print("permissions: ${response.toString()}");
+  }
+
+  _twitterLogin() async {
+    final TwitterLoginResult result = await twitterLogin.authorize();
+
+    switch (result.status) {
+      case TwitterLoginStatus.loggedIn:
+        var session = result.session;
+        twitterStatus = "twitter login ok";
+        break;
+      case TwitterLoginStatus.cancelledByUser:
+        twitterStatus = "twitter login cancelled";
+        break;
+      case TwitterLoginStatus.error:
+        twitterStatus = "twitter login error";
+        break;
+    }
+
+    setState(() {});
   }
 
   @override
@@ -99,6 +124,16 @@ class _MyAppState extends State<MyApp> {
                 style: TextStyle(color: Colors.white),
               ),
               onPressed: _userData != null ? _logOut : _login,
+            ),
+            SizedBox(height: 50),
+            Text("twitter: $twitterStatus"),
+            CupertinoButton(
+              color: Colors.green,
+              child: Text(
+                "LOGIN WITH TWITTER",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: this._twitterLogin,
             ),
           ],
         ),
