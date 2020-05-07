@@ -36,12 +36,13 @@ class _MyAppState extends State<MyApp> {
   }
 
   _checkIfIsLogged() async {
-    final accessToken = await FacebookAuth.instance.isLogged;
+    final AccessToken accessToken = await FacebookAuth.instance.isLogged;
     if (accessToken != null) {
       print("is Logged");
       // now you can call to  FacebookAuth.instance.getUserData();
       final userData = await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(fields:"email,birthday");
+      _token = accessToken.token;
       setState(() {
         _userData = userData;
       });
@@ -79,8 +80,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   _checkPermissions() async {
-    final dynamic response = await FacebookAuth.instance.permissions(_token);
-    print("permissions: ${response.toString()}");
+    final FacebookAuthPermissions response =
+        await FacebookAuth.instance.permissions(_token);
+    print("permissions granted: ${response.granted}");
+    print("permissions declined: ${response.declined}");
   }
 
   // _twitterLogin() async {

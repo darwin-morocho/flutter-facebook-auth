@@ -64,13 +64,13 @@ class FacebookAuth {
     final res = await http.get(url);
     final parsed = jsonDecode(res.body);
 
-    var granted = [];
-    var declined = [];
+    List<String> granted = [];
+    List<String> declined = [];
 
     if (res.statusCode == 200) {
       for (final item in parsed['data'] as List) {
-        final permission = item['permission'];
-        final status = item['status'];
+        final String permission = item['permission'];
+        final String status = item['status'];
         if (status == 'granted') {
           granted.add(permission);
         } else {

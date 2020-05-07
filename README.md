@@ -211,6 +211,7 @@ class _MyAppState extends State<MyApp> {
     final accessToken = await FacebookAuth.instance.isLogged;
     if (accessToken != null) {
       print("is Logged");
+      _token = accessToken.token;
       // now you can call to  FacebookAuth.instance.getUserData();
       final userData = await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(fields:"email,birthday");
@@ -253,9 +254,10 @@ class _MyAppState extends State<MyApp> {
   }
 
   _checkPermissions() async {
-    final dynamic response =
-        await FacebookAuth.instance.permissionsStatus(_token);
-    print("permissions: ${response.toString()}");
+   final FacebookAuthPermissions response =
+        await FacebookAuth.instance.permissions(_token);
+    print("permissions granted: ${response.granted}");
+    print("permissions declined: ${response.declined}");
   }
 
   @override

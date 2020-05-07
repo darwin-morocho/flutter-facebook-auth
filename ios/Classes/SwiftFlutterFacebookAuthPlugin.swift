@@ -35,7 +35,7 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
                 return
             }
             if AccessToken.isCurrentAccessTokenActive {
-                let accessToken =   getAccessToken(accessToken: AccessToken.current!)
+                let accessToken = getAccessToken(accessToken: AccessToken.current!)
                 finishWithResult(data: accessToken as Dictionary)
             }else{
                 finishWithResult(data: nil)
