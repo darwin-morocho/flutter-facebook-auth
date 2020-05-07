@@ -223,18 +223,24 @@ class _MyAppState extends State<MyApp> {
   _login() async {
     final result = await FacebookAuth.instance.login();
     // final result = await FacebookAuth.instance.login(permissions:['email','user_birthday']);
-    if (result.status == 200) {
-      _printCredentials(result);
-      // get the user data
-      final userData = await FacebookAuth.instance.getUserData();
-      // final userData = await FacebookAuth.instance.getUserData(fields:"email,birthday");
-      setState(() {
-        _userData = userData;
-      });
-    } else if (result.status == 403) {
-      print("login cancelled");
-    } else {
-      print("login failed");
+     final result = await FacebookAuth.instance.login();
+    // final result = await FacebookAuth.instance.login(permissions:['email','user_birthday']);
+
+    switch (result.status) {
+      case FacebookAuthLoginResponse.ok: // result.status == 200
+        _printCredentials(result);
+        // get the user data
+        final userData = await FacebookAuth.instance.getUserData();
+        // final userData = await _fb.getUserData(fields:"email,birthday");
+        setState(() {
+          _userData = userData;
+        });
+        break;
+      case FacebookAuthLoginResponse.cancelled: // result.status == 403
+        print("login cancelled");
+        break;
+      default: // result.status == 500
+        print("login failed");
     }
   }
 

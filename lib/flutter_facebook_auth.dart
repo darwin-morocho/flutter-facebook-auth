@@ -9,10 +9,17 @@ import 'src/login_result.dart';
 export 'src/login_result.dart';
 export 'src/access_token.dart';
 
+class FacebookAuthLoginResponse {
+  static const ok = 200;
+  static const cancelled = 403;
+  static const error = 500;
+}
+
 class FacebookAuth {
-  FacebookAuth._init(); // private constructor for singletons
+  FacebookAuth._internal(); // private constructor for singletons
   final MethodChannel _channel = MethodChannel('flutter_facebook_auth');
-  static FacebookAuth get instance => FacebookAuth._init();
+  static FacebookAuth _instance = FacebookAuth._internal();
+  static FacebookAuth get instance => _instance;
 
   /// [permissions] permissions like ["email","public_profile"]
   Future<LoginResult> login({
