@@ -1,4 +1,4 @@
-## 0.2.2+2
+## 0.2.2+3
 - Removed dangerous log
 
 ## 0.2.2+2
