@@ -51,7 +51,6 @@ class FacebookAuth {
   Future<AccessToken> get isLogged async {
     final result = await _channel.invokeMethod("isLogged");
     if (result != null) {
-      print("isLogged result $result");
       return AccessToken.fromJson(Map<String, dynamic>.from(result));
     }
     return null;
