@@ -30,21 +30,18 @@ public class FacebookAuth {
 
     private final CallbackManager callbackManager;
     private LoginManager loginManager;
-    private Activity activity;
-    private FacebookLoginResultDelegate resultDelegate;
+    FacebookLoginResultDelegate resultDelegate;
 
 
-    FacebookAuth(PluginRegistry.Registrar registrar) {
-        this.activity = registrar.activity();
+    FacebookAuth() {
         loginManager = LoginManager.getInstance();
         callbackManager = CallbackManager.Factory.create();
         resultDelegate = new FacebookLoginResultDelegate(callbackManager);
         loginManager.registerCallback(callbackManager, resultDelegate);
-        registrar.addActivityResultListener(resultDelegate);
     }
 
 
-    public void login(List<String> permissions, MethodChannel.Result result) {
+    public void login(Activity activity, List<String> permissions, MethodChannel.Result result) {
         boolean isOK = resultDelegate.setPendingResult("login", result);
 
         if (isOK) {
@@ -68,7 +65,7 @@ public class FacebookAuth {
     }
 
 
-    public void getUserData(String fileds, final MethodChannel.Result result) {
+    public void getUserData(String fields, final MethodChannel.Result result) {
 
         boolean isOK = resultDelegate.setPendingResult("getUserData", result);
         if (isOK) {
@@ -86,7 +83,7 @@ public class FacebookAuth {
                         }
                     });
             Bundle parameters = new Bundle();
-            parameters.putString("fields", fileds);
+            parameters.putString("fields", fields);
             request.setParameters(parameters);
             request.executeAsync();
         }

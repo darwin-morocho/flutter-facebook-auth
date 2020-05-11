@@ -1,3 +1,6 @@
+## 0.2.3
+- Updated to Supporting the new Android plugins APIs 
+
 ## 0.2.2+3
 - Removed dangerous log 
 

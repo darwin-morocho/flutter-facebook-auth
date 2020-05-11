@@ -17,7 +17,7 @@ class FacebookAuthLoginResponse {
 
 class FacebookAuth {
   FacebookAuth._internal(); // private constructor for singletons
-  final MethodChannel _channel = MethodChannel('flutter_facebook_auth');
+  final MethodChannel _channel = MethodChannel('ec.dina/flutter_facebook_auth');
   static FacebookAuth _instance = FacebookAuth._internal();
   static FacebookAuth get instance => _instance;
 

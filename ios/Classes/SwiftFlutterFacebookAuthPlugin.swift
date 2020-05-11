@@ -12,7 +12,7 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
     
     
     public static func register(with registrar: FlutterPluginRegistrar) {
-        let channel = FlutterMethodChannel(name: "flutter_facebook_auth", binaryMessenger: registrar.messenger())
+        let channel = FlutterMethodChannel(name: "ec.dina/flutter_facebook_auth", binaryMessenger: registrar.messenger())
         let instance = SwiftFlutterFacebookAuthPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
     }
