@@ -1,3 +1,6 @@
+## 0.2.4
+- Updated documentation and isLogged method to catch posible exceptions 
+
 ## 0.2.3
 - Updated to Supporting the new Android plugins APIs 
 

@@ -1,7 +1,11 @@
 import 'access_token.dart';
 
+/// this class is used to covert the platform channels responses to dart
 class LoginResult {
+  /// 200, 403, 500
   final int status;
+
+  /// access tolen with extra data
   final AccessToken accessToken;
   final List<String> declinedPermissions;
   final List<String> grantedPermissions;

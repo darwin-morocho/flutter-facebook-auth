@@ -15,11 +15,14 @@ class FacebookAuthLoginResponse {
   static const error = 500;
 }
 
+/// class used to login with facebook
 class FacebookAuth {
   FacebookAuth._internal(); // private constructor for singletons
   final MethodChannel _channel = MethodChannel('ec.dina/flutter_facebook_auth');
   static FacebookAuth _instance = FacebookAuth._internal();
-  static FacebookAuth get instance => _instance;
+
+  static FacebookAuth get instance =>
+      _instance; // return the same instance of FacebookAuth
 
   /// [permissions] permissions like ["email","public_profile"]
   Future<LoginResult> login({
@@ -43,17 +46,22 @@ class FacebookAuth {
   }
 
   /// Sign Out
-  Future<dynamic> logOut() async {
+  Future<void> logOut() async {
     await _channel.invokeMethod("logOut");
   }
 
   /// if the user is logged return one instance of AccessToken
   Future<AccessToken> get isLogged async {
-    final result = await _channel.invokeMethod("isLogged");
-    if (result != null) {
-      return AccessToken.fromJson(Map<String, dynamic>.from(result));
+    try {
+      final result = await _channel.invokeMethod("isLogged");
+      if (result != null) {
+        return AccessToken.fromJson(Map<String, dynamic>.from(result));
+      }
+      return null;
+    } catch (e) {
+      print(e);
+      return null;
     }
-    return null;
   }
 
   /// check what permisions was granted or declined while login process
