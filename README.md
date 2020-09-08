@@ -81,40 +81,17 @@ Check if you already have CFBundleURLTypes or LSApplicationQueriesSchemes keys i
 Example with Google and Facebook implemetation:
 ```xml
 <key>CFBundleURLTypes</key>
-	<array>
-		<dict>
-			<key>CFBundleTypeRole</key>
-			<string>Editor</string>
-			<key>CFBundleURLSchemes</key>
-			<array>
-				<string>fb[APP_ID]</string>
-				<string>com.googleusercontent.apps.[APP_SPECIFIC_URL]</string>
-			</array>
-		</dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>[APP_ID]</string>
-	<key>FacebookDisplayName</key>
-	<string>[APP_NAME]</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>fbapi</string>
-		<string>fbapi20130214</string>
-		<string>fbapi20130410</string>
-		<string>fbapi20130702</string>
-		<string>fbapi20131010</string>
-		<string>fbapi20131219</string>
-		<string>fbapi20140410</string>
-		<string>fbapi20140116</string>
-		<string>fbapi20150313</string>
-		<string>fbapi20150629</string>
-		<string>fbapi20160328</string>
-		<string>fbauth</string>
-		<string>fb-messenger-share-api</string>
-		<string>fbauth2</string>
-		<string>fbshareextension</string>
-	</array>
-</dict>
+<array>
+	<dict>
+		<key>CFBundleTypeRole</key>
+		<string>Editor</string>
+		<key>CFBundleURLSchemes</key>
+		<array>
+			<string>fb{your-app-id}</string>
+			<string>com.googleusercontent.apps.{your-app-specific-url}</string>
+		</array>
+	</dict>
+</array>
 ```
 
 ## If you are login with other provider like twitter you need **Handling Log in Redirect** too
