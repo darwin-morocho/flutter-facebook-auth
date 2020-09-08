@@ -82,15 +82,15 @@ Example with Google and Facebook implemetation:
 ```xml
 <key>CFBundleURLTypes</key>
 <array>
-	<dict>
-		<key>CFBundleTypeRole</key>
-		<string>Editor</string>
-		<key>CFBundleURLSchemes</key>
-		<array>
-			<string>fb{your-app-id}</string>
-			<string>com.googleusercontent.apps.{your-app-specific-url}</string>
-		</array>
-	</dict>
+  <dict>
+    <key>CFBundleTypeRole</key>
+    <string>Editor</string>
+    <key>CFBundleURLSchemes</key>
+    <array>
+      <string>fb{your-app-id}</string>
+      <string>com.googleusercontent.apps.{your-app-specific-url}</string>
+    </array>
+  </dict>
 </array>
 ```
 
