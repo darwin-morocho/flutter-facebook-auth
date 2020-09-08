@@ -74,12 +74,12 @@ import FBSDKCoreKit // <--- ADD THIS LINE
 }
 
 ```
-## If you have implement in your app another providers you should merge values in Info.plist 
+## If you have implement another providers (Like Google) in your app you should merge values in Info.plist 
 
 Check if you already have CFBundleURLTypes or LSApplicationQueriesSchemes keys in your Info.plist. If you have, you should merge their values, instead of adding a duplicate key.
 
 Example with Google and Facebook implemetation:
-```
+```xml
 <key>CFBundleURLTypes</key>
 	<array>
 		<dict>
