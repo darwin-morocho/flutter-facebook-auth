@@ -68,7 +68,6 @@ public class FlutterFacebookAuthPlugin implements MethodCallHandler, FlutterPlug
 
     @Override
     public void onMethodCall(MethodCall call, Result result) {
-        Log.i("facebook:", "sasasas");
         switch (call.method) {
             case "login":
                 List<String> permissions = call.argument("permissions");
