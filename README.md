@@ -24,6 +24,7 @@ flutter_facebook_auth: ^1.0.0
 Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/docs/facebook-login/android/?locale=en)
 
 1.  Select an App or Create a New App
+
        <img src="https://user-images.githubusercontent.com/15864336/98711287-cedfdc80-2352-11eb-9eb3-761f43ba4f7e.png" width="400" />
 2. Skip the step 2 (Download the Facebook App)
 3. Skip the step 3 (Integrate the Facebook SDK)
@@ -127,9 +128,12 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
  ```
 
 5. Associate Your Package Name and Default Class with Your App
-           <img src="https://user-images.githubusercontent.com/15864336/98712455-54b05780-2354-11eb-9509-aa2846af1a2d.png" width="400" />
+
+    <img src="https://user-images.githubusercontent.com/15864336/98712455-54b05780-2354-11eb-9509-aa2846af1a2d.png" width="400" />
+
 6. Provide the Development and Release Key Hashes for Your App
-           <img src="https://user-images.githubusercontent.com/15864336/98712555-73aee980-2354-11eb-9c25-c1ef3760fce1.png" width="400" />
+    
+    <img src="https://user-images.githubusercontent.com/15864336/98712555-73aee980-2354-11eb-9c25-c1ef3760fce1.png" width="400" />
     
     To find info to how to generate you key hash go to https://developers.facebook.com/docs/facebook-login/android?locale=en_US#6--provide-the-development-and-release-key-hashes-for-your-app
     
@@ -176,6 +180,7 @@ The plugin is written in `Swift`, so your project needs to have Swift support en
     <img src="https://user-images.githubusercontent.com/15864336/98708485-38f68280-234f-11eb-9d1a-7c970d04642a.png" width="400" />
 
     You can find you `Bundle Identifier` in Xcode (Runner - Target Runner - General)
+
     ![image](https://user-images.githubusercontent.com/15864336/98708171-e1581700-234e-11eb-8f94-23c0db55e8f0.png)
 
 
@@ -183,6 +188,7 @@ The plugin is written in `Swift`, so your project needs to have Swift support en
 - In the Step 4 you need configure your `Info.plist` file inside `ios/Runner/Info.plist`
 
     From Xcode you can open your `Info.plist` as `Source Code` now add the next code and replace `{your-app-id}` with your facebook app Id.
+
     <img src="https://user-images.githubusercontent.com/15864336/98708650-66433080-234f-11eb-81c6-2297b9e6f7a7.png" width="400" />
 
 
