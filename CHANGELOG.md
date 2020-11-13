@@ -1,3 +1,6 @@
+## 1.0.0+3
+- Format code.
+
 ## 1.0.0+2
 - Added dartdoc comments.
 
