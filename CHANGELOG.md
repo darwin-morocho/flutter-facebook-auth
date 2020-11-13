@@ -1,3 +1,7 @@
+## 1.0.0+2
+- Added dartdoc comments.
+
+
 ## 1.0.0+1
 - Updated documentation.
 
