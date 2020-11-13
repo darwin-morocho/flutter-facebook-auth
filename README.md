@@ -7,25 +7,31 @@
 </p>
 
 ---
+## **Sumary** ##
+- [Installation](https://pub.dev/packages/flutter_facebook_auth#installation)
+- [Android set up](https://pub.dev/packages/flutter_facebook_auth#ios)
+- [iOS set up](https://pub.dev/packages/flutter_facebook_auth#ios)
+- [Methods](https://pub.dev/packages/flutter_facebook_auth#methods)
+- [Example](https://pub.dev/packages/flutter_facebook_auth#example)
+- [Using with firebase_auth](https://pub.dev/packages/flutter_facebook_auth#using-with-firebase_auth)
 
-# flutter_facebook_auth
-
-Flutter plugin to make easy the facebook authentication in your flutter app. iOS and Android are supported.
 
 
-## Installation
+---
+## **Installation** ##
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
-```
+```yaml
 flutter_facebook_auth: ^1.0.0
 ```
-
-### **Android**
+---
+### **Android** ##
 
 Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/docs/facebook-login/android/?locale=en)
 
 1.  Select an App or Create a New App
 
        <img src="https://user-images.githubusercontent.com/15864336/98711287-cedfdc80-2352-11eb-9eb3-761f43ba4f7e.png" width="400" />
+
 2. Skip the step 2 (Download the Facebook App)
 3. Skip the step 3 (Integrate the Facebook SDK)
 4. Edit **Your Resources and Manifest** add this config in your android project
@@ -144,8 +150,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
 
 
 
-<br/>
-<br/>
+---
 
 
 Also if you want to add support for **express login** on Android go to 
@@ -155,7 +160,7 @@ https://developers.facebook.com/docs/facebook-login/android/#expresslogin
 
 ---
 
-### **iOS**
+### **iOS** ##
 
 > **You need Swift support**<br/>
 The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
@@ -176,10 +181,11 @@ The plugin is written in `Swift`, so your project needs to have Swift support en
 
 - In the step 3 (Register and Configure Your App with Facebook) you need add your `Bundle Identifier`
 
-
     <img src="https://user-images.githubusercontent.com/15864336/98708485-38f68280-234f-11eb-9d1a-7c970d04642a.png" width="400" />
 
+
     You can find you `Bundle Identifier` in Xcode (Runner - Target Runner - General)
+
 
     ![image](https://user-images.githubusercontent.com/15864336/98708171-e1581700-234e-11eb-8f94-23c0db55e8f0.png)
 
@@ -268,7 +274,7 @@ for Objective-C projects (correctly works is not granted because this plugin was
 ---
 
 
-### **METHODS**
+### **METHODS** ##
 
 Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 
@@ -364,7 +370,7 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
   }
   ```
 
-### **EXAMPLE**
+### **EXAMPLE** ##
 
 ```dart
 import 'dart:convert';
@@ -513,7 +519,7 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
-## **Using with firebase_auth**
+## **Using with firebase_auth** ##
 
 ```dart
 import 'package:firebase_auth/firebase_auth.dart';
