@@ -9,7 +9,7 @@
 ---
 ## **Sumary** ##
 - [Installation](https://pub.dev/packages/flutter_facebook_auth#installation)
-- [Android set up](https://pub.dev/packages/flutter_facebook_auth#ios)
+- [Android set up](https://pub.dev/packages/flutter_facebook_auth#android)
 - [iOS set up](https://pub.dev/packages/flutter_facebook_auth#ios)
 - [Methods](https://pub.dev/packages/flutter_facebook_auth#methods)
 - [Example](https://pub.dev/packages/flutter_facebook_auth#example)
