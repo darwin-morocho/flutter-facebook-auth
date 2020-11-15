@@ -1,3 +1,5 @@
+## 1.0.0+4
+- Updated documentation.
 ## 1.0.0+3
 - Format code.
 

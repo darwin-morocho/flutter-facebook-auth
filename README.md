@@ -16,7 +16,7 @@
 - [Using with firebase_auth](https://pub.dev/packages/flutter_facebook_auth#using-with-firebase_auth)
 
 
-
+> See a complete video tutorial using `flutter_facebook_auth` (Spanish Only) https://www.youtube.com/watch?v=X-x5pHQ4Gz8&list=PLV0nOzdUS5XuWMzOCGZQPwCEZ1m5aZEo5
 ---
 ## **Installation** ##
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
