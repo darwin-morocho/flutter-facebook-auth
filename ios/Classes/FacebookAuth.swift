@@ -15,18 +15,14 @@ class FacebookAuth: NSObject {
     let loginManager : LoginManager = LoginManager()
     var pendingResult: FlutterResult? = nil
     
-    public func addHandle(channel:FlutterMethodChannel){
-        channel.setMethodCallHandler(self.handle)
-    }
-    
     
     /*
      handle the platform channel
      */
-    private func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let args = call.arguments as? [String: Any]
         switch call.method{
-            
+        
         case "login":
             let permissions = args?["permissions"] as! [String]
             self.login(permissions: permissions, flutterResult: result)
@@ -51,7 +47,7 @@ class FacebookAuth: NSObject {
             result(nil)
             
         default:
-            sendErrorToClient(result: result, errorCode: "NOT_IMPLEMENTED", message: "No such method \(call.method)")
+            result(FlutterMethodNotImplemented)
         }
     }
     
@@ -69,20 +65,23 @@ class FacebookAuth: NSObject {
         
         let viewController: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!
         
-        loginManager.logIn(permissions: permissions, from: viewController, handler: { (result, error) -> Void in
-            if(error==nil){
-                let fbloginresult : LoginManagerLoginResult = result!
-                if(fbloginresult.isCancelled) {// if the user cancelled the login
-                    self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
-                } else { // if the login was successful
-                    self.finishWithResult(data:self.getAccessToken(accessToken: fbloginresult.token!))
-                }
-            } else{// if we have an error
-                self.finishWithError(errorCode: "FAILED", message: error!.localizedDescription)
-            }
-            
-        })
+        let parsedPermissions =  permissions.map {val in Permission(stringLiteral: val)}
         
+        loginManager.logIn(permissions: parsedPermissions, viewController: viewController){
+            res in
+            
+            switch res {
+            case let .success(_, _, token):
+                self.finishWithResult(data:self.getAccessToken(accessToken: token ))
+                
+            case .cancelled:
+                self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
+                
+            case let .failed(error):
+                self.finishWithError(errorCode: "FAILED", message: error.localizedDescription)
+            }
+        }
+
     }
     
     
@@ -146,7 +145,7 @@ class FacebookAuth: NSObject {
             "graphDomain":accessToken.graphDomain,
             "grantedPermissions":accessToken.permissions.map {item in item.name},
             "declinedPermissions":accessToken.declinedPermissions.map {item in item.name},
-            ] as [String : Any]
+        ] as [String : Any]
         return data;
     }
 }

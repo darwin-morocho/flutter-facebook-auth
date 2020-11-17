@@ -1,5 +1,11 @@
+## 1.0.1
+- Updated on iOS FBSDKCoreKit to ~> 8.2.0
+- Updated on iOS FBSDKLoginKit to ~> 8.2.0
+
 ## 1.0.0+4
 - Updated documentation.
+
+
 ## 1.0.0+3
 - Format code.
 

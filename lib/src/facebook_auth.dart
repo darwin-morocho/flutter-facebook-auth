@@ -51,7 +51,7 @@ class FacebookAuth {
   ///
   /// [fields] string of fields like birthday,email,hometown
   Future<Map<String, dynamic>> getUserData(
-      {String fields = "name,email,picture"}) async {
+      {String fields = "name,email,picture.width(200)"}) async {
     try {
       final result =
           await _channel.invokeMethod("getUserData", {"fields": fields});

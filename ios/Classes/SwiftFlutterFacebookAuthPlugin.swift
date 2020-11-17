@@ -11,13 +11,12 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
         let instance = SwiftFlutterFacebookAuthPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)
         registrar.addApplicationDelegate(instance)
-        instance.facebookAuth.addHandle(channel: channel)
     }
     
-//    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-//        result("iOS " + UIDevice.current.systemVersion)
-//    }
-//
+    public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+        self.facebookAuth.handle(call, result: result)
+    }
+
     
     
     /// START ALLOW HANDLE NATIVE FACEBOOK APP
