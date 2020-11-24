@@ -7,7 +7,9 @@
 </p>
 
 ---
-## **Sumary** ##
+
+## **Sumary**
+
 - [Installation](https://pub.dev/packages/flutter_facebook_auth#installation)
 - [Android set up](https://pub.dev/packages/flutter_facebook_auth#android)
 - [iOS set up](https://pub.dev/packages/flutter_facebook_auth#ios)
@@ -15,16 +17,21 @@
 - [Example](https://pub.dev/packages/flutter_facebook_auth#example)
 - [Using with firebase_auth](https://pub.dev/packages/flutter_facebook_auth#using-with-firebase_auth)
 
-
 > See a complete video tutorial using `flutter_facebook_auth` (Spanish Only) https://www.youtube.com/watch?v=X-x5pHQ4Gz8&list=PLV0nOzdUS5XuWMzOCGZQPwCEZ1m5aZEo5
+
 ---
-## **Installation** ##
+
+## **Installation**
+
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
+
 ```yaml
 flutter_facebook_auth: ^1.0.0
 ```
+
 ---
-### **Android** ##
+
+### **Android**
 
 Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/docs/facebook-login/android/?locale=en)
 
@@ -32,145 +39,146 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
 
        <img src="https://user-images.githubusercontent.com/15864336/98711287-cedfdc80-2352-11eb-9eb3-761f43ba4f7e.png" width="400" />
 
-2. Skip the step 2 (Download the Facebook App)
-3. Skip the step 3 (Integrate the Facebook SDK)
-4. Edit **Your Resources and Manifest** add this config in your android project
-* Open your /app/res/values/strings.xml file.
-* Add the following (replace `{your-app-id}` with your facebook app Id):
-    ```xml
-    <string name="facebook_app_id">{your-app-id}</string>
-    <string name="fb_login_protocol_scheme">fb{your-app-id}</string>
-    ```
+2.  Skip the step 2 (Download the Facebook App)
+3.  Skip the step 3 (Integrate the Facebook SDK)
+4.  Edit **Your Resources and Manifest** add this config in your android project
 
-    Here one example of `strings.xml`
-    ```xml
-    <?xml version="1.0" encoding="utf-8"?>
-    <resources>
-        <string name="app_name">Flutter Facebook Auth Example</string>
-        <string name="facebook_app_id">1365719610250300</string>
-        <string name="fb_login_protocol_scheme">fb1365719610250300</string>
-    </resources>
-    ```
-* Open the `/app/manifest/AndroidManifest.xml` file.
-* Add the following uses-permission element after the application element
-    ```xml
-    <uses-permission android:name="android.permission.INTERNET"/>
-    ```
-* Add the following meta-data element, an activity for Facebook, and an activity and intent filter for Chrome Custom Tabs inside your application element
- ```xml
- <meta-data android:name="com.facebook.sdk.ApplicationId" 
-        android:value="@string/facebook_app_id"/>
-    
-    <activity android:name="com.facebook.FacebookActivity"
-        android:configChanges=
-                "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-        android:label="@string/app_name" />
-    <activity
-        android:name="com.facebook.CustomTabActivity"
-        android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.VIEW" />
-            <category android:name="android.intent.category.DEFAULT" />
-            <category android:name="android.intent.category.BROWSABLE" />
-            <data android:scheme="@string/fb_login_protocol_scheme" />
-        </intent-filter>
-    </activity>
- ```
+- Open your /app/res/values/strings.xml file.
+- Add the following (replace `{your-app-id}` with your facebook app Id):
 
- Here one example of `AndroidManifest.xml`
- ```xml
- <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="app.meedu.flutter_facebook_auth_example">
-    <uses-permission android:name="android.permission.INTERNET" />
-    <application
-        android:name="io.flutter.app.FlutterApplication"
-        android:icon="@mipmap/ic_launcher"
-        android:label="facebook auth">
+  ```xml
+  <string name="facebook_app_id">{your-app-id}</string>
+  <string name="fb_login_protocol_scheme">fb{your-app-id}</string>
+  ```
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
-        <activity
-            android:name="com.facebook.CustomTabActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+  Here one example of `strings.xml`
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+  ```xml
+  <?xml version="1.0" encoding="utf-8"?>
+  <resources>
+      <string name="app_name">Flutter Facebook Auth Example</string>
+      <string name="facebook_app_id">1365719610250300</string>
+      <string name="fb_login_protocol_scheme">fb1365719610250300</string>
+  </resources>
+  ```
 
-                <data android:scheme="@string/fb_login_protocol_scheme" />
-            </intent-filter>
-        </activity>
+- Open the `/app/manifest/AndroidManifest.xml` file.
+- Add the following uses-permission element after the application element
+  ```xml
+  <uses-permission android:name="android.permission.INTERNET"/>
+  ```
+- Add the following meta-data element, an activity for Facebook, and an activity and intent filter for Chrome Custom Tabs inside your application element
+
+```xml
+<meta-data android:name="com.facebook.sdk.ApplicationId"
+       android:value="@string/facebook_app_id"/>
+
+   <activity android:name="com.facebook.FacebookActivity"
+       android:configChanges=
+               "keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+       android:label="@string/app_name" />
+   <activity
+       android:name="com.facebook.CustomTabActivity"
+       android:exported="true">
+       <intent-filter>
+           <action android:name="android.intent.action.VIEW" />
+           <category android:name="android.intent.category.DEFAULT" />
+           <category android:name="android.intent.category.BROWSABLE" />
+           <data android:scheme="@string/fb_login_protocol_scheme" />
+       </intent-filter>
+   </activity>
+```
+
+Here one example of `AndroidManifest.xml`
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+   package="app.meedu.flutter_facebook_auth_example">
+   <uses-permission android:name="android.permission.INTERNET" />
+   <application
+       android:name="io.flutter.app.FlutterApplication"
+       android:icon="@mipmap/ic_launcher"
+       android:label="facebook auth">
+
+       <meta-data
+           android:name="com.facebook.sdk.ApplicationId"
+           android:value="@string/facebook_app_id" />
+       <activity
+           android:name="com.facebook.FacebookActivity"
+           android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
+           android:label="@string/app_name" />
+       <activity
+           android:name="com.facebook.CustomTabActivity"
+           android:exported="true">
+           <intent-filter>
+               <action android:name="android.intent.action.VIEW" />
+
+               <category android:name="android.intent.category.DEFAULT" />
+               <category android:name="android.intent.category.BROWSABLE" />
+
+               <data android:scheme="@string/fb_login_protocol_scheme" />
+           </intent-filter>
+       </activity>
 
 
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-            android:hardwareAccelerated="true"
-            android:launchMode="singleTop"
-            android:theme="@style/LaunchTheme"
-            android:windowSoftInputMode="adjustResize">
-            <meta-data
-                android:name="io.flutter.embedding.android.NormalTheme"
-                android:resource="@style/NormalTheme" />
-            <meta-data
-                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-                android:resource="@drawable/launch_background" />
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <meta-data
-            android:name="flutterEmbedding"
-            android:value="2" />
-    </application>
+       <activity
+           android:name=".MainActivity"
+           android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+           android:hardwareAccelerated="true"
+           android:launchMode="singleTop"
+           android:theme="@style/LaunchTheme"
+           android:windowSoftInputMode="adjustResize">
+           <meta-data
+               android:name="io.flutter.embedding.android.NormalTheme"
+               android:resource="@style/NormalTheme" />
+           <meta-data
+               android:name="io.flutter.embedding.android.SplashScreenDrawable"
+               android:resource="@drawable/launch_background" />
+           <intent-filter>
+               <action android:name="android.intent.action.MAIN" />
+               <category android:name="android.intent.category.LAUNCHER" />
+           </intent-filter>
+       </activity>
+       <meta-data
+           android:name="flutterEmbedding"
+           android:value="2" />
+   </application>
 </manifest>
- ```
+```
 
 5. Associate Your Package Name and Default Class with Your App
 
-    <img src="https://user-images.githubusercontent.com/15864336/98712455-54b05780-2354-11eb-9509-aa2846af1a2d.png" width="400" />
+<img src="https://user-images.githubusercontent.com/15864336/98712455-54b05780-2354-11eb-9509-aa2846af1a2d.png" width="400" />
 
 6. Provide the Development and Release Key Hashes for Your App
-    
-    <img src="https://user-images.githubusercontent.com/15864336/98712555-73aee980-2354-11eb-9c25-c1ef3760fce1.png" width="400" />
-    
-    To find info to how to generate you key hash go to https://developers.facebook.com/docs/facebook-login/android?locale=en_US#6--provide-the-development-and-release-key-hashes-for-your-app
-    
-    > Note: if your application uses [Google Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756?visit_id=637406280862877202-1623101210&rd=1) then you should get certificate SHA-1 fingerprint from Google Play Console and convert it to base64
 
-    > You should add key hashes for every build variants like release, debug, CI/CD, etc.
+   <img src="https://user-images.githubusercontent.com/15864336/98712555-73aee980-2354-11eb-9c25-c1ef3760fce1.png" width="400" />
 
+   To find info to how to generate you key hash go to https://developers.facebook.com/docs/facebook-login/android?locale=en_US#6--provide-the-development-and-release-key-hashes-for-your-app
 
+   > Note: if your application uses [Google Play App Signing](https://support.google.com/googleplay/android-developer/answer/9842756?visit_id=637406280862877202-1623101210&rd=1) then you should get certificate SHA-1 fingerprint from Google Play Console and convert it to base64
 
+   > You should add key hashes for every build variants like release, debug, CI/CD, etc.
 
 ---
 
-
-Also if you want to add support for **express login** on Android go to 
+Also if you want to add support for **express login** on Android go to
 https://developers.facebook.com/docs/facebook-login/android/#expresslogin
 
 > Check the example project to see a correct set up.
 
 ---
 
-### **iOS** ##
+### **iOS**
 
 > **You need Swift support**<br/>
-The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
+> The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
 
+- In your Podfile uncomment the next line (You need set the minimum target to 9.0 or higher)
 
--  In your Podfile uncomment the next line (You need set the minimum target to 9.0 or higher)
-
-    ```
-    platform :ios, '9.0'
-    ```
+  ```
+  platform :ios, '9.0'
+  ```
 
 - Go to **[Facebook Login for iOS - Quickstart
 ](https://developers.facebook.com/docs/facebook-login/ios)** and select or create your app.
@@ -183,20 +191,15 @@ The plugin is written in `Swift`, so your project needs to have Swift support en
 
     <img src="https://user-images.githubusercontent.com/15864336/98708485-38f68280-234f-11eb-9d1a-7c970d04642a.png" width="400" />
 
+  You can find you `Bundle Identifier` in Xcode (Runner - Target Runner - General)
 
-    You can find you `Bundle Identifier` in Xcode (Runner - Target Runner - General)
-
-
-    ![image](https://user-images.githubusercontent.com/15864336/98708171-e1581700-234e-11eb-8f94-23c0db55e8f0.png)
-
-
+  ![image](https://user-images.githubusercontent.com/15864336/98708171-e1581700-234e-11eb-8f94-23c0db55e8f0.png)
 
 - In the Step 4 you need configure your `Info.plist` file inside `ios/Runner/Info.plist`
 
-    From Xcode you can open your `Info.plist` as `Source Code` now add the next code and replace `{your-app-id}` with your facebook app Id.
+  From Xcode you can open your `Info.plist` as `Source Code` now add the next code and replace `{your-app-id}` with your facebook app Id.
 
     <img src="https://user-images.githubusercontent.com/15864336/98708650-66433080-234f-11eb-81c6-2297b9e6f7a7.png" width="400" />
-
 
 ```xml
 <key>CFBundleURLTypes</key>
@@ -243,6 +246,7 @@ Example with Google and Facebook implemetation:
 ```
 
 To use any of the Facebook dialogs (e.g., Login, Share, App Invites, etc.) that can perform an app switch to Facebook apps, your application's Info.plist also needs to include: <dict>...</dict>)
+
 ```xml
 <key>LSApplicationQueriesSchemes</key>
 <array>
@@ -264,17 +268,13 @@ To use any of the Facebook dialogs (e.g., Login, Share, App Invites, etc.) that 
 </array>
 ```
 
-
-
-
 ## NOTE
 
 for Objective-C projects (correctly works is not granted because this plugin was written with swift)
 
 ---
 
-
-### **METHODS** ##
+### **METHODS**
 
 Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 
@@ -289,10 +289,9 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
       // get the user data
       final userData = await FacebookAuth.instance.getUserData();
       print(auserData);
-    } catch (e, s) {
-      if (e is FacebookAuthException) {
-        print(e.message);
-        switch (e.errorCode) {
+    } on FacebookAuthException catch () {
+      print(e.message);
+      switch (e.errorCode) {
           case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
             print("You have a previous login operation in progress");
             break;
@@ -302,23 +301,22 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
           case FacebookAuthErrorCode.FAILED:
             print("login failed");
             break;
-        }
       }
     }
   }
 ```
 
-  > The `public_profile` permission allows you read the next fields
-  `id, first_name, last_name, middle_name, name, name_format, picture, short_name`
+> The `public_profile` permission allows you read the next fields
+> `id, first_name, last_name, middle_name, name, name_format, picture, short_name`
 
-  > For more info go to https://developers.facebook.com/docs/facebook-login/permissions/
-
+> For more info go to https://developers.facebook.com/docs/facebook-login/permissions/
 
 - `.logOut()` : close the current facebook session.
 
 - `.isLogged` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
 
-    Expected response one instance of `AccessToken` class:
+  Expected response one instance of `AccessToken` class:
+
   ```json
   {
     "userId": "300333249307438",
@@ -328,14 +326,12 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
     "applicationId": "1365719610250300",
     "graphDomain": "facebook",
     "isExpired": false,
-    "grantedPermissions": [
-      "email",
-      "user_link"
-    ],
+    "grantedPermissions": ["email", "user_link"],
     "declinedPermissions": []
   }
   ```
-  Example 
+
+  Example
 
   ```dart
   Future<void> _checkIfIsLogged() async {
@@ -353,24 +349,25 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 
 > Only call this method if you have an user Logged
 
-  Expected response `Map<String,dynamic>`:
-  ```
-  {
-  email = "dsmr.apps@gmail.com";
-  id = 3003332493073668;
-  name = "Darwin Morocho";
-  picture =     {
-      data =         {
-          height = 50;
-          "is_silhouette" = 0;
-          url = "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3003332493073668&height=50&width=50&ext=1570917120&hash=AeQMSBD5s4QdgLoh";
-          width = 50;
-      };
-  };
-  }
-  ```
+Expected response `Map<String,dynamic>`:
 
-### **EXAMPLE** ##
+```
+{
+email = "dsmr.apps@gmail.com";
+id = 3003332493073668;
+name = "Darwin Morocho";
+picture =     {
+    data =         {
+        height = 50;
+        "is_silhouette" = 0;
+        url = "https://platform-lookaside.fbsbx.com/platform/profilepic/?asid=3003332493073668&height=50&width=50&ext=1570917120&hash=AeQMSBD5s4QdgLoh";
+        width = 50;
+    };
+};
+}
+```
+
+### **EXAMPLE**
 
 ```dart
 import 'dart:convert';
@@ -429,42 +426,47 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> _login() async {
     try {
+      // show a circular progress indicator
       setState(() {
         _checking = true;
       });
-      _accessToken = await FacebookAuth.instance.login();
+      _accessToken = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
       // _accessToken = await FacebookAuth.instance.login(
       //   permissions: ['email', 'user_birthday', 'user_friends', 'user_gender', 'user_link'],
       // );
-      _checking = false;
       _printCredentials();
       // get the user data
+      // by default we get the userId, email,name and picture
       final userData = await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
       _userData = userData;
-      setState(() {});
+    } on FacebookAuthException catch (e) {
+      // if the facebook login fails
+      print(e.message); // print the error message in console
+      // check the error type
+      switch (e.errorCode) {
+        case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
+          print("You have a previous login operation in progress");
+          break;
+        case FacebookAuthErrorCode.CANCELLED:
+          print("login cancelled");
+          break;
+        case FacebookAuthErrorCode.FAILED:
+          print("login failed");
+          break;
+      }
     } catch (e, s) {
+      // print in the logs the unknown errors
       print(e);
       print(s);
-      if (e is FacebookAuthException) {
-        print(e.message);
-        switch (e.errorCode) {
-          case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
-            print("You have a previous login operation in progress");
-            break;
-          case FacebookAuthErrorCode.CANCELLED:
-            print("login cancelled");
-            break;
-          case FacebookAuthErrorCode.FAILED:
-            print("login failed");
-            break;
-        }
-      }
+    } finally {
+      // update the view
       setState(() {
         _checking = false;
       });
     }
   }
+
 
   Future<void> _logOut() async {
     await FacebookAuth.instance.logOut();
@@ -519,7 +521,7 @@ class _MyAppState extends State<MyApp> {
 }
 ```
 
-## **Using with firebase_auth** ##
+## **Using with firebase_auth**
 
 ```dart
 import 'package:firebase_auth/firebase_auth.dart';
