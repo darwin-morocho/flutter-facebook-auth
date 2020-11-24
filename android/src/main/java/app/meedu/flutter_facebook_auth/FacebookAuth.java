@@ -8,6 +8,7 @@ import com.facebook.CallbackManager;
 import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.LoginStatusCallback;
+import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 
 import org.json.JSONObject;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
 
 
@@ -43,6 +45,40 @@ public class FacebookAuth {
         if (isOk) {
             loginManager.logIn(activity, permissions);
         }
+    }
+
+
+    /**
+     * set the login behavior to use native app, webview, dialogs, etc
+     *
+     * @param behavior
+     */
+    public void setLoginBehavior(String behavior) {
+        Log.i("behavior::", behavior);
+        switch (behavior) {
+            case "NATIVE_ONLY":
+                loginManager.setLoginBehavior(LoginBehavior.NATIVE_ONLY);
+                break;
+            case "KATANA_ONLY":
+                loginManager.setLoginBehavior(LoginBehavior.KATANA_ONLY);
+                break;
+            case "WEB_ONLY":
+                loginManager.setLoginBehavior(LoginBehavior.WEB_ONLY);
+                break;
+            case "WEB_VIEW_ONLY":
+                loginManager.setLoginBehavior(LoginBehavior.WEB_VIEW_ONLY);
+                break;
+            case "DIALOG_ONLY":
+                loginManager.setLoginBehavior(LoginBehavior.DIALOG_ONLY);
+                break;
+            case "DEVICE_AUTH":
+                loginManager.setLoginBehavior(LoginBehavior.DEVICE_AUTH);
+                break;
+            default:
+                loginManager.setLoginBehavior(LoginBehavior.NATIVE_WITH_FALLBACK);
+        }
+
+
     }
 
     /**
@@ -131,7 +167,7 @@ public class FacebookAuth {
 
 
     /**
-     * @param accessToken a instance of Facebook SDK AccessToken
+     * @param accessToken an instance of Facebook SDK AccessToken
      * @return a HashMap data
      */
     static HashMap<String, Object> getAccessToken(final AccessToken accessToken) {

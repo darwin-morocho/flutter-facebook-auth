@@ -1,8 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/src/access_token.dart';
 import 'dart:io' show Platform;
+import 'package:flutter_facebook_auth/src/login_behavior.dart';
+import 'facebook_auth_exception.dart';
 
 /// class to make calls to the facebook login SDK
 class FacebookAuth {
@@ -17,11 +18,18 @@ class FacebookAuth {
   /// make a login request using the facebook SDK
   ///
   /// [permissions] permissions like ["email","public_profile"]
-  Future<AccessToken> login(
-      {List<String> permissions = const ['email', 'public_profile']}) async {
+  ///
+  /// [loginBehavior] (only Android) use this param to set the UI for the authentication,
+  /// like webview, native app, or a dialog.
+  Future<AccessToken> login({
+    List<String> permissions = const ['email', 'public_profile'],
+    String loginBehavior = LoginBehavior.DIALOG_ONLY,
+  }) async {
     try {
-      final result =
-          await _channel.invokeMethod("login", {"permissions": permissions});
+      final result = await _channel.invokeMethod("login", {
+        "permissions": permissions,
+        "loginBehavior": loginBehavior,
+      });
       return AccessToken.fromJson(Map<String, dynamic>.from(result));
     } on PlatformException catch (e) {
       throw FacebookAuthException(e.code, e.message);
@@ -50,8 +58,9 @@ class FacebookAuth {
   /// retrive the user information using the GraphAPI
   ///
   /// [fields] string of fields like birthday,email,hometown
-  Future<Map<String, dynamic>> getUserData(
-      {String fields = "name,email,picture.width(200)"}) async {
+  Future<Map<String, dynamic>> getUserData({
+    String fields = "name,email,picture.width(200)",
+  }) async {
     try {
       final result =
           await _channel.invokeMethod("getUserData", {"fields": fields});
@@ -76,23 +85,4 @@ class FacebookAuth {
     }
     return null;
   }
-}
-
-/// class to save the error data when usign the facebook SDK
-///
-class FacebookAuthException implements Exception {
-  /// the error code
-  final String errorCode; // CANCELLED, FAILED, OPERATION_IN_PROGRESS
-
-  /// the error message
-  final String message;
-
-  FacebookAuthException(this.errorCode, this.message);
-}
-
-/// class with the FacebookAuth error codes
-abstract class FacebookAuthErrorCode {
-  static const CANCELLED = "CANCELLED";
-  static const FAILED = "FAILED";
-  static const OPERATION_IN_PROGRESS = "OPERATION_IN_PROGRESS";
 }

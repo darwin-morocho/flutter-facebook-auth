@@ -1,3 +1,7 @@
+## 1.0.2
+- Added loginBehavior (Android) to allow select the auth UI like webview, native app or dialogs.
+
+
 ## 1.0.1
 - Updated on iOS FBSDKCoreKit to ~> 8.2.0
 - Updated on iOS FBSDKLoginKit to ~> 8.2.0
