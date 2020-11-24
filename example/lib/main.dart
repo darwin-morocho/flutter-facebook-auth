@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
       });
       _accessToken = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
 
-      // loginBehavior is only supported for Android devices, for ios it will be igonred
+      // loginBehavior is only supported for Android devices, for ios it will be ignored
       // _accessToken = await FacebookAuth.instance.login(
       //   permissions: ['email', 'public_profile', 'user_birthday', 'user_friends', 'user_gender', 'user_link'],
       //   loginBehavior:
