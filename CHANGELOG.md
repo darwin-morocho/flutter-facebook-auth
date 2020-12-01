@@ -1,3 +1,5 @@
+## 1.0.2+1
+- Updated documentation.
 ## 1.0.2
 - Added loginBehavior (Android) to allow select the auth UI like webview, native app or dialogs.
 

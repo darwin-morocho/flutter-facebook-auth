@@ -8,12 +8,10 @@ import 'facebook_auth_exception.dart';
 /// class to make calls to the facebook login SDK
 class FacebookAuth {
   FacebookAuth._internal(); // private constructor for singletons
-  final MethodChannel _channel =
-      MethodChannel('app.meedu/flutter_facebook_auth');
+  final MethodChannel _channel = MethodChannel('app.meedu/flutter_facebook_auth');
   static FacebookAuth _instance = FacebookAuth._internal();
 
-  static FacebookAuth get instance =>
-      _instance; // return the same instance of FacebookAuth
+  static FacebookAuth get instance => _instance; // return the same instance of FacebookAuth
 
   /// make a login request using the facebook SDK
   ///
@@ -62,11 +60,10 @@ class FacebookAuth {
     String fields = "name,email,picture.width(200)",
   }) async {
     try {
-      final result =
-          await _channel.invokeMethod("getUserData", {"fields": fields});
-      return Platform.isAndroid
-          ? jsonDecode(result)
-          : Map<String, dynamic>.from(result); //null  or dynamic data
+      final result = await _channel.invokeMethod("getUserData", {
+        "fields": fields,
+      });
+      return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
     } on PlatformException catch (e) {
       throw FacebookAuthException(e.code, e.message);
     }
