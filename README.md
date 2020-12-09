@@ -10,15 +10,15 @@
 
 ## **Sumary**
 
-- [Installation](https://pub.dev/packages/flutter_facebook_auth#installation)
-- [Android set up](https://pub.dev/packages/flutter_facebook_auth#android)
-- [iOS set up](https://pub.dev/packages/flutter_facebook_auth#ios)
-- [Methods](https://pub.dev/packages/flutter_facebook_auth#methods)
-- [Example](https://pub.dev/packages/flutter_facebook_auth#example)
-- [Using with firebase_auth](https://pub.dev/packages/flutter_facebook_auth#using-with-firebase_auth)
+- [Installation](#installation)
+- [Android set up](#android)
+- [iOS set up](#ios)
+- [Methods](#methods)
+- [Example](#example)
+- [Using with firebase_auth](#using-with-firebase_auth)
 
+---
 > See a complete video tutorial using `flutter_facebook_auth` (Spanish Only) https://www.youtube.com/watch?v=X-x5pHQ4Gz8&list=PLV0nOzdUS5XuWMzOCGZQPwCEZ1m5aZEo5
-
 ---
 
 ## **Installation**
@@ -29,6 +29,7 @@ First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 flutter_facebook_auth: ^1.0.0
 ```
 
+> When you install this plugin you need configure the plugin on Android and iOS before run the project . If you don't do it you will have a **No implementation found** error because the Facebook sdk will try to find the configuration. If you don't need the plugin yet please remove or comment it.
 ---
 
 ### **Android**
@@ -290,7 +291,6 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
       final userData = await FacebookAuth.instance.getUserData();
       print(auserData);
     } on FacebookAuthException catch (e) {
-      print(e.message);
       switch (e.errorCode) {
           case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
             print("You have a previous login operation in progress");
@@ -337,7 +337,6 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
   Future<void> _checkIfIsLogged() async {
     final AccessToken accessToken = await FacebookAuth.instance.isLogged;
     if (accessToken != null) {
-      print("is Logged:::: ${prettyPrint(accessToken.toJson())}");
       // now you can call to  FacebookAuth.instance.getUserData();
       final userData = await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
