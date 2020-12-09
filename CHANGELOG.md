@@ -1,3 +1,6 @@
+## 1.0.2+2
+- Updated documentation.
+
 ## 1.0.2+1
 - Updated documentation.
 ## 1.0.2
