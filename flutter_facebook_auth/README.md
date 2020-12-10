@@ -1,4 +1,7 @@
-<p align="left">
+
+![image](https://user-images.githubusercontent.com/15864336/101826370-e7334a80-3afc-11eb-97ae-85dfc4261a45.png)
+
+<p align="center">
   <a href="https://pub.dev/packages/flutter_facebook_auth"><img alt="pub version" src="https://img.shields.io/pub/v/flutter_facebook_auth?color=%2300b0ff&label=flutter_facebook_auth&style=flat-square"></a>
   
   <img alt="last commit" src="https://img.shields.io/github/last-commit/the-meedu-app/flutter-facebook-auth?color=%23ffa000&style=flat-square"/> 

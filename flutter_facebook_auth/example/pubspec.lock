@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.7.5"
+  args:
+    dependency: transitive
+    description:
+      name: args
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.6.0"
   async:
     dependency: transitive
     description:
@@ -114,10 +121,17 @@ packages:
   flutter_facebook_auth_web:
     dependency: transitive
     description:
-      path: "../../flutter_facebook_auth_web"
-      relative: true
-    source: path
+      name: flutter_facebook_auth_web
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.0.0"
+  flutter_markdown:
+    dependency: "direct main"
+    description:
+      name: flutter_markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.5.1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -136,7 +150,7 @@ packages:
     source: hosted
     version: "1.1.1"
   http:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: http
       url: "https://pub.dartlang.org"
@@ -163,6 +177,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.6.3-nullsafety.3"
+  markdown:
+    dependency: transitive
+    description:
+      name: markdown
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0"
   matcher:
     dependency: transitive
     description:
@@ -301,6 +322,48 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.3.0-nullsafety.5"
+  url_launcher:
+    dependency: "direct main"
+    description:
+      name: url_launcher
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "5.7.10"
+  url_launcher_linux:
+    dependency: transitive
+    description:
+      name: url_launcher_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+4"
+  url_launcher_macos:
+    dependency: transitive
+    description:
+      name: url_launcher_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+9"
+  url_launcher_platform_interface:
+    dependency: transitive
+    description:
+      name: url_launcher_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.9"
+  url_launcher_web:
+    dependency: transitive
+    description:
+      name: url_launcher_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.1.5+1"
+  url_launcher_windows:
+    dependency: transitive
+    description:
+      name: url_launcher_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.1+3"
   vector_math:
     dependency: transitive
     description:
@@ -324,4 +387,4 @@ packages:
     version: "0.1.2"
 sdks:
   dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.17.0 <2.0.0"
+  flutter: ">=1.22.0 <2.0.0"

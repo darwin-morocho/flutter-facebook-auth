@@ -13,6 +13,9 @@ dependencies:
     sdk: flutter
   google_fonts: ^1.1.1
   animate_do: ^1.7.5
+  url_launcher: ^5.7.10
+  flutter_markdown: ^0.5.1
+  http: ^0.12.2
   flutter_facebook_auth:
     path: ../
 
@@ -29,8 +32,9 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
-
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
+  assets:
+    - assets/android.png
+    - assets/ios.png
+    - assets/web.png
+    - assets/github.png

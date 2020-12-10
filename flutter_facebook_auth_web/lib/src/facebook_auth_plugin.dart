@@ -38,7 +38,8 @@ class FlutterFacebookAuthPlugin {
         return await _auth.getUserData(fields);
 
       case 'login':
-        final List<String> permissions = List<String>.from(call.arguments['permissions']);
+        final List<String> permissions =
+            List<String>.from(call.arguments['permissions']);
         return await _auth.login(permissions);
 
       case 'logOut':
@@ -47,7 +48,8 @@ class FlutterFacebookAuthPlugin {
       default:
         throw PlatformException(
           code: 'Unimplemented',
-          message: 'flutter_facebook_auth for web doesn\'t implement \'${call.method}\'',
+          message:
+              'flutter_facebook_auth for web doesn\'t implement \'${call.method}\'',
         );
     }
   }
