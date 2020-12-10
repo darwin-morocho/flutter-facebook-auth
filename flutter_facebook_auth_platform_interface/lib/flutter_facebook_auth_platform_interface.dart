@@ -6,14 +6,20 @@ import 'src/method_channel_facebook_auth.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 export 'src/access_token.dart';
-export 'src/method_channel_facebook_auth.dart';
 export 'src/login_behavior.dart';
 export 'src/facebook_auth_error_code.dart';
 export 'src/facebook_auth_exception.dart';
 
+/// The interface that implementations of flutter_facebook_auth must implement.
+///
+/// Platform implementations should extend this class rather than implement it as `flutter_facebook_auth`
+/// does not consider newly added methods to be breaking changes. Extending this class
+/// (using `extends`) ensures that the subclass will get the default implementation, while
+/// platform implementations that `implements` this interface will be broken by newly added
+/// [FacebookAuthPlatform] methods.
 abstract class FacebookAuthPlatform extends PlatformInterface {
   static FacebookAuthPlatform _instance = FacebookAuth();
-  static FacebookAuth get instance => _instance; // return the same instance of FacebookAuthPlatform
+  static FacebookAuthPlatform get instance => _instance; // return the same instance of FacebookAuthPlatform
 
   /// make a login request using the facebook SDK
   ///

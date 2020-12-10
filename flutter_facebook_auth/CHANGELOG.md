@@ -1,3 +1,7 @@
+## 1.0.3
+- Added web support.
+- Added Platform interface
+
 ## 1.0.2+2
 - Updated documentation.
 

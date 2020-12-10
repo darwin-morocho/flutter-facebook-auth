@@ -1,5 +1,8 @@
-export 'src/access_token.dart';
-export 'src/facebook_auth.dart';
-export 'src/login_behavior.dart';
-export 'src/facebook_auth_error_code.dart';
-export 'src/facebook_auth_exception.dart';
+import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
+export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
+
+/// Generic class that extends of FacebookAuthPlatform interface
+class FacebookAuth extends FacebookAuthPlatform {
+  FacebookAuth._internal();
+  static FacebookAuth get instance => FacebookAuthPlatform.instance;
+}

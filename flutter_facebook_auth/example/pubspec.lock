@@ -103,7 +103,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "1.0.2+2"
+    version: "1.0.3"
+  flutter_facebook_auth_platform_interface:
+    dependency: transitive
+    description:
+      path: "../../flutter_facebook_auth_platform_interface"
+      relative: true
+    source: path
+    version: "1.0.0"
   flutter_facebook_auth_web:
     dependency: transitive
     description:
