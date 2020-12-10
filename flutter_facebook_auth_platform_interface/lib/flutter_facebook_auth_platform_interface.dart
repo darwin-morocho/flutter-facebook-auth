@@ -19,7 +19,8 @@ export 'src/facebook_auth_exception.dart';
 /// [FacebookAuthPlatform] methods.
 abstract class FacebookAuthPlatform extends PlatformInterface {
   static FacebookAuthPlatform _instance = FacebookAuth();
-  static FacebookAuthPlatform get instance => _instance; // return the same instance of FacebookAuthPlatform
+  static FacebookAuthPlatform get instance =>
+      _instance; // return the same instance of FacebookAuthPlatform
 
   /// make a login request using the facebook SDK
   ///

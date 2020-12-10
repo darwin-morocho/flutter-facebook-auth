@@ -107,9 +107,9 @@ packages:
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
-      path: "../../flutter_facebook_auth_platform_interface"
-      relative: true
-    source: path
+      name: flutter_facebook_auth_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
     version: "1.0.0"
   flutter_facebook_auth_web:
     dependency: transitive
