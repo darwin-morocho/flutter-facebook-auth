@@ -1,11 +1,12 @@
 import 'dart:convert';
-
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_facebook_auth_example/documentation/web_app.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(kIsWeb ? WebApp() : AuthExample());
 }
 
 String prettyPrint(Map json) {
@@ -14,12 +15,12 @@ String prettyPrint(Map json) {
   return pretty;
 }
 
-class MyApp extends StatefulWidget {
+class AuthExample extends StatefulWidget {
   @override
   _MyAppState createState() => _MyAppState();
 }
 
-class _MyAppState extends State<MyApp> {
+class _MyAppState extends State<AuthExample> {
   Map<String, dynamic> _userData;
   AccessToken _accessToken;
   bool _checking = true;
