@@ -90,8 +90,8 @@ class _MyBannerState extends State<MyBanner> {
                 width: 150,
               ),
               Text(
-                "flutter facebook auth",
-                style: GoogleFonts.roboto(
+                "flutter_facebook_auth",
+                style: GoogleFonts.abel(
                   fontSize: 50,
                   color: Colors.white,
                 ),
@@ -119,7 +119,7 @@ class _MyBannerState extends State<MyBanner> {
               ],
               SizedBox(height: 30),
               Text(
-                "Supported plaforms",
+                "Supported platforms",
                 style: TextStyle(color: Colors.white),
               ),
               SizedBox(height: 5),

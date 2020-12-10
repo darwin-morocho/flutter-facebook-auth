@@ -11,7 +11,7 @@ class WebApp extends StatelessWidget {
       home: Homepage(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        textTheme: GoogleFonts.robotoCondensedTextTheme(),
+        textTheme: GoogleFonts.abelTextTheme(),
       ),
     );
   }

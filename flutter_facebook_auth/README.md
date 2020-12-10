@@ -1,5 +1,5 @@
+![image](https://user-images.githubusercontent.com/15864336/101827170-f5ce3180-3afd-11eb-9a60-5933a15f337b.png)
 
-![image](https://user-images.githubusercontent.com/15864336/101826370-e7334a80-3afc-11eb-97ae-85dfc4261a45.png)
 
 <p align="center">
   <a href="https://pub.dev/packages/flutter_facebook_auth"><img alt="pub version" src="https://img.shields.io/pub/v/flutter_facebook_auth?color=%2300b0ff&label=flutter_facebook_auth&style=flat-square"></a>
@@ -19,6 +19,7 @@
 - [Methods](#methods)
 - [Example](#example)
 - [Using with firebase_auth](#using-with-firebase_auth)
+- [Support for flutter Web](#)
 
 ---
 > See a complete video tutorial using `flutter_facebook_auth` (Spanish Only) https://www.youtube.com/watch?v=X-x5pHQ4Gz8&list=PLV0nOzdUS5XuWMzOCGZQPwCEZ1m5aZEo5
@@ -547,3 +548,58 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 // FirebaseUser is deprecated
 final User user = (await _auth.signInWithCredential(credential)).user;
 ```
+
+
+## **Add Support to flutter Web**
+Donwload the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin-morocho/flutter-facebook-auth/master/flutter_facebook_auth/example/web/flutter_facebook_auth.js) file and put it into your `web` folder.
+
+<img  src="https://user-images.githubusercontent.com/15864336/101827813-bf44e680-3afe-11eb-9176-4e6ec9528d0c.png" width="300" />
+
+Now you need define your `FACEBOOK_APP_ID` and the `flutter_facebook_auth.js` script in your `index.html` in the `head` section.
+
+```html
+  <script>
+      const FACEBOOK_APP_ID = "YOUR_FACEBOOK_APP_ID";
+  </script>
+  <script src="flutter_facebook_auth.js" defer></script>
+```
+Example
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <base href="/" />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <meta name="description" content="Demonstrates how to use the flutter_facebook_auth plugin." />
+
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="flutter_facebook_auth_example" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
+
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <title>flutter_facebook_auth_example</title>
+    <link rel="manifest" href="manifest.json" />
+    <script>
+      const FACEBOOK_APP_ID = "1329834903456798";
+    </script>
+    <script src="flutter_facebook_auth.js" defer></script>
+  </head>
+  <body>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("flutter-first-frame", function () {
+          navigator.serviceWorker.register("flutter_service_worker.js");
+        });
+      }
+    </script>
+    <script src="main.dart.js" type="application/javascript"></script>
+  </body>
+</html>
+
+```
+
