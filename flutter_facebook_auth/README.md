@@ -19,7 +19,7 @@
 - [Methods](#methods)
 - [Example](#example)
 - [Using with firebase_auth](#using-with-firebase_auth)
-- [Support for flutter Web](#)
+- [Support for flutter Web](#add-support-to-flutter-web)
 
 ---
 > See a complete video tutorial using `flutter_facebook_auth` (Spanish Only) https://www.youtube.com/watch?v=X-x5pHQ4Gz8&list=PLV0nOzdUS5XuWMzOCGZQPwCEZ1m5aZEo5
