@@ -61,7 +61,7 @@ packages:
       path: "../flutter_facebook_auth_platform_interface"
       relative: true
     source: path
-    version: "0.0.1"
+    version: "1.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
