@@ -10,9 +10,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_web_plugins:
-    sdk: flutter
-  js: ^0.6.1
+  flutter_facebook_auth_web:
+    path: ../flutter_facebook_auth_web
+    
 
 dev_dependencies:
   flutter_test:
@@ -34,7 +34,7 @@ flutter:
         pluginClass: FlutterFacebookAuthPlugin
       ios:
         pluginClass: FlutterFacebookAuthPlugin
-      web: 
-        pluginClass: FlutterFacebookAuthPlugin
-        fileName: flutter_facebook_auth_web.dart
+      web:
+        default_package: flutter_facebook_auth_web
+        
 

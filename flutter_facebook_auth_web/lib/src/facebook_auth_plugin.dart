@@ -6,8 +6,8 @@ import 'dart:async';
 import 'dart:html' as html show window;
 
 import 'package:flutter/services.dart';
-import 'package:flutter_facebook_auth/web/facebook_auth_web.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'facebook_auth_web.dart';
 
 /// A web implementation of the FlutterFacebookAuth plugin.
 class FlutterFacebookAuthPlugin {
