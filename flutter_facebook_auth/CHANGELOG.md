@@ -1,6 +1,6 @@
-## 1.0.3
-- Added web support.
-- Added Platform interface
+### 2.0.0-web.1
+-  Pre-release version to support for flutter web.
+
 
 ## 1.0.2+2
 - Updated documentation.

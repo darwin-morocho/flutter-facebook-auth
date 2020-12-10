@@ -551,7 +551,9 @@ final User user = (await _auth.signInWithCredential(credential)).user;
 
 
 ## **Add Support to flutter Web**
-Donwload the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin-morocho/flutter-facebook-auth/master/flutter_facebook_auth/example/web/flutter_facebook_auth.js) file and put it into your `web` folder.
+> Check a web demo [here](https://darwin-morocho.github.io/flutter-facebook-auth/)
+
+Download the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin-morocho/flutter-facebook-auth/master/flutter_facebook_auth/example/web/flutter_facebook_auth.js) file and put it into your `web` folder.
 
 <img  src="https://user-images.githubusercontent.com/15864336/101827813-bf44e680-3afe-11eb-9176-4e6ec9528d0c.png" width="300" />
 
