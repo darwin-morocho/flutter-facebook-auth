@@ -1,0 +1,40 @@
+name: flutter_facebook_auth_example
+description: Demonstrates how to use the flutter_facebook_auth plugin.
+
+# The following line prevents the package from being accidentally published to
+# pub.dev using `pub publish`. This is preferred for private packages.
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+environment:
+  sdk: ">=2.10.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^1.1.1
+  animate_do: ^1.7.5
+  url_launcher: ^5.7.10
+  flutter_markdown: ^0.5.1
+  http: ^0.12.2
+  flutter_facebook_auth:
+    path: ../
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/android.png
+    - assets/ios.png
+    - assets/web.png
+    - assets/github.png
