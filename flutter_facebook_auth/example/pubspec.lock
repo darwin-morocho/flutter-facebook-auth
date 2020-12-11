@@ -110,7 +110,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "2.0.0-web.6"
+    version: "2.0.0-web.7"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:

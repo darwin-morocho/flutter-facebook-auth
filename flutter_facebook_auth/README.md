@@ -553,6 +553,12 @@ final User user = (await _auth.signInWithCredential(credential)).user;
 ## **Add Support to flutter Web**
 > Check a web demo [here](https://flutter-facebook-auth.web.app/)
 
+🚫 *IMPORTANT:* the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with a error message in your web console.
+
+👉 The `isLogged` method only works in live mode using `https` and you must add your **OAuth redirect URL**  in your *facebook developer console*.
+
+---
+
 Download the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin-morocho/flutter-facebook-auth/master/flutter_facebook_auth/example/web/flutter_facebook_auth.js) file and put it into your `web` folder.
 
 <img  src="https://user-images.githubusercontent.com/15864336/101827813-bf44e680-3afe-11eb-9176-4e6ec9528d0c.png" width="300" />

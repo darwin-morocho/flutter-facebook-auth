@@ -1,3 +1,6 @@
+### 2.0.0-web.7
+-  Updated documentation
+
 ### 2.0.0-web.6
 -  Updated flutter_facebook_auth_web:^1.0.4
 
