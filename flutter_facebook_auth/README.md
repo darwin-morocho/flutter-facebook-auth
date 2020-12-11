@@ -557,13 +557,23 @@ Download the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin
 
 <img  src="https://user-images.githubusercontent.com/15864336/101827813-bf44e680-3afe-11eb-9176-4e6ec9528d0c.png" width="300" />
 
-Now you need define your `FACEBOOK_APP_ID` and the `flutter_facebook_auth.js` script in your `index.html` in the `head` section.
+Now you need define your `FACEBOOK_APP_ID` and the `flutter_facebook_auth.js` script in your `index.html` at the top of your body tag.
 
 ```html
   <script>
-      const FACEBOOK_APP_ID = "YOUR_FACEBOOK_APP_ID";
-  </script>
-  <script src="flutter_facebook_auth.js" defer></script>
+      var FACEBOOK_APP_ID = "YOUR_FACEBOOK_APP_ID";
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: FACEBOOK_APP_ID,
+          cookie: true,
+          xfbml: true,
+          version: "v9.0",
+        });
+        FB.AppEvents.logPageView();
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js" ></script>
+    <script src="flutter_facebook_auth.js" type="application/javascript" ></script>
 ```
 Example
 ```html
@@ -586,12 +596,22 @@ Example
 
     <title>flutter_facebook_auth_example</title>
     <link rel="manifest" href="manifest.json" />
-    <script>
-      const FACEBOOK_APP_ID = "1329834903456798";
-    </script>
-    <script src="flutter_facebook_auth.js" defer></script>
   </head>
   <body>
+      <script>
+      var FACEBOOK_APP_ID = "1329834902365798";
+      window.fbAsyncInit = function () {
+        FB.init({
+          appId: FACEBOOK_APP_ID,
+          cookie: true,
+          xfbml: true,
+          version: "v9.0",
+        });
+        FB.AppEvents.logPageView();
+      };
+    </script>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    <script src="flutter_facebook_auth.js" type="application/javascript"></script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("flutter-first-frame", function () {

@@ -12,6 +12,8 @@ class MyBanner extends StatefulWidget {
 }
 
 class _MyBannerState extends State<MyBanner> {
+  final FacebookAuth _facebookAuth = FacebookAuth.instance;
+
   Map<String, dynamic> _userData;
   AccessToken _accessToken;
   bool _checking = true;
@@ -24,14 +26,14 @@ class _MyBannerState extends State<MyBanner> {
 
   /// uses the facebook SDK to check if a user has an active session
   Future<void> _checkIfIsLogged() async {
-    final AccessToken accessToken = await FacebookAuth.instance.isLogged;
+    final AccessToken accessToken = await _facebookAuth.isLogged;
     _checking = false;
     print("is Logged:::: ${accessToken != null}");
     if (accessToken != null) {
       // if the user is logged
       // now you can call to  FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData();
-      _userData = await FacebookAuth.instance.getUserData();
+      _userData = await _facebookAuth.getUserData();
       _accessToken = accessToken;
     }
     setState(() {});
@@ -40,8 +42,9 @@ class _MyBannerState extends State<MyBanner> {
   _login() async {
     try {
       _checking = true;
-      _accessToken = await FacebookAuth.instance.login();
-      _userData = await FacebookAuth.instance.getUserData();
+      setState(() {});
+      _accessToken = await _facebookAuth.login();
+      _userData = await _facebookAuth.getUserData();
     } on FacebookAuthException catch (e) {
       print(e.errorCode);
     } finally {
@@ -53,7 +56,7 @@ class _MyBannerState extends State<MyBanner> {
   void _logOut() async {
     _checking = true;
     setState(() {});
-    await FacebookAuth.instance.logOut();
+    await _facebookAuth.logOut();
     _accessToken = null;
     _userData = null;
     _checking = false;

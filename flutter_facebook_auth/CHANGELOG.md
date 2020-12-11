@@ -1,3 +1,13 @@
+### 2.0.0-web.4
+-  Updated flutter_facebook_auth_web:^1.0.2
+
+### 2.0.0-web.3
+-  Updated flutter_facebook_auth_web.
+
+### 2.0.0-web.2
+-  Updated Readme.
+
+
 ### 2.0.0-web.1
 -  Pre-release version to support for flutter web.
 
