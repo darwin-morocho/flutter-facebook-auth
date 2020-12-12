@@ -558,7 +558,7 @@ flutter_facebook_auth: ^2.0.0-web.7
 
 > Check a web demo [here](https://flutter-facebook-auth.web.app/)
 
-🚫 *IMPORTANT:* the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with a error message in your web console.
+🚫 *IMPORTANT:* the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with an error message in your web console.
 
 👉 The `isLogged` method only works in live mode using `https` and you must add your **OAuth redirect URL**  in your *facebook developer console*.
 
