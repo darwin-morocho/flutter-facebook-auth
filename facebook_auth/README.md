@@ -30,7 +30,7 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^2.0.0-web.7
+flutter_facebook_auth: ^1.0.2+2
 ```
 
 > When you install this plugin you need configure the plugin on Android and iOS before run the project . If you don't do it you will have a **No implementation found** error because the Facebook sdk will try to find the configuration. If you don't need the plugin yet please remove or comment it.
@@ -551,6 +551,11 @@ final User user = (await _auth.signInWithCredential(credential)).user;
 
 
 ## **Add Support to flutter Web**
+You need to use the pre-release version of this plugin
+```yaml
+flutter_facebook_auth: ^2.0.0-web.7
+```
+
 > Check a web demo [here](https://flutter-facebook-auth.web.app/)
 
 🚫 *IMPORTANT:* the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with a error message in your web console.
