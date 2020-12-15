@@ -48,7 +48,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
 3.  Skip the step 3 (Integrate the Facebook SDK)
 4.  Edit **Your Resources and Manifest** add this config in your android project
 
-- Open your /app/res/values/strings.xml file.
+- Open your /android/app/src/main/res/values/strings.xml file, or create one if it doesn't exists.
 - Add the following (replace `{your-app-id}` with your facebook app Id):
 
   ```xml
