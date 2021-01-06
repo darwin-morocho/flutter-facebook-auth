@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_facebook_auth_example/documentation/home/widgets/readme.dart';
 import '../../widgets/banner.dart';
 import './widgets/readme.dart';
 

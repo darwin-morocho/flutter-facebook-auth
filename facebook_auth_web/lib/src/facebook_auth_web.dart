@@ -4,6 +4,7 @@ library facebook_auth.js;
 
 import 'dart:convert';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth_web/src/interface.dart';
 import 'package:js/js.dart';
 import 'package:js/js_util.dart';
 
@@ -16,7 +17,7 @@ class FacebookAuth {
   external logout();
 }
 
-class FacebookAuthWeb {
+class FacebookAuthWeb implements FacebookAuthWebInterface {
   final _auth = FacebookAuth();
 
   /// parse the web response to a Map
@@ -41,6 +42,7 @@ class FacebookAuthWeb {
   /// make a login request using the facebook javascript SDK
   ///
   /// [permissions] permissions like ["email","public_profile"]
+  @override
   Future<Map<String, dynamic>> login(List<String> permissions) async {
     String scope = '';
     permissions.forEach((e) {
@@ -69,6 +71,7 @@ class FacebookAuthWeb {
   }
 
   /// check if a user is logged and return an accessToken data
+  @override
   Future<Map<String, dynamic>> isLogged() async {
     final promise = _auth.isLogged();
     final String jsData = await promiseToFuture(promise);
@@ -88,6 +91,7 @@ class FacebookAuthWeb {
   /// get the user profile information
   ///
   /// [fields] string of fields like birthday,email,hometown
+  @override
   Future<Map<String, dynamic>> getUserData(String fields) async {
     final promise = _auth.getUserData(fields);
     final String response = await promiseToFuture(promise);
@@ -95,6 +99,7 @@ class FacebookAuthWeb {
   }
 
   /// close the current active session
+  @override
   Future<void> logOut() async {
     final promise = _auth.logout();
     await promiseToFuture(promise);

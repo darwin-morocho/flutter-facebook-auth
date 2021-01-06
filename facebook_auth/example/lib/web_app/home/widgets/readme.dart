@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_markdown/flutter_markdown.dart';
-import 'package:markdown/markdown.dart' as md;
 import 'package:url_launcher/url_launcher.dart';
-import 'package:http/http.dart' as http;
 
 class Readme extends StatefulWidget {
   @override
@@ -10,25 +7,6 @@ class Readme extends StatefulWidget {
 }
 
 class _ReadmeState extends State<Readme> {
-  String _data;
-
-  @override
-  void initState() {
-    super.initState();
-    _load();
-  }
-
-  _load() async {
-    final url =
-        "https://raw.githubusercontent.com/darwin-morocho/flutter-facebook-auth/master/flutter_facebook_auth/README.md";
-
-    final response = await http.get(url);
-    if (response.statusCode == 200) {
-      _data = response.body;
-      setState(() {});
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(

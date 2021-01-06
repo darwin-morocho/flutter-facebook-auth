@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_facebook_auth_example/documentation/web_app.dart';
+import 'package:flutter_facebook_auth_example/web_app/web_app.dart';
 
 void main() {
   runApp(kIsWeb ? WebApp() : AuthExample());

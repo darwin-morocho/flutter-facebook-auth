@@ -1,3 +1,6 @@
+### 2.0.0
+-  Added support for flutter web.
+
 ### 2.0.0-web.9
 -  Updated flutter_facebook_auth.js url.
 
