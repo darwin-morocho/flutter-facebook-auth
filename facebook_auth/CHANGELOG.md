@@ -1,3 +1,5 @@
+### 2.0.0+1
+-  Updated readme.md.
 ### 2.0.0
 -  Added support for flutter web.
 
