@@ -541,12 +541,23 @@ final FirebaseAuth _auth = FirebaseAuth.instance;
 .
 .
 .
+  Future<UserCredential> signInWithFacebook() async {
+    try {
+      final AccessToken accessToken = await FacebookAuth.instance.login();
 
- // this line do auth in firebase with your facebook credential. Just pass your facebook token (String)
- final OAuthCredential credential =  FacebookAuthProvider.credential( _accessToken.token); // _token is your facebook access token as a string
-
-// FirebaseUser is deprecated
-final User user = (await _auth.signInWithCredential(credential)).user;
+      // Create a credential from the access token
+      final FacebookAuthCredential credential = FacebookAuthProvider.credential(
+        accessToken.token,
+      );
+      // Once signed in, return the UserCredential
+      return await FirebaseAuth.instance.signInWithCredential(credential);
+    } on FacebookAuthException catch (e) {
+      // handle the FacebookAuthException
+    } on FirebaseAuthException catch (e) {
+      // handle the FirebaseAuthException
+    } finally {}
+    return null;
+  }
 ```
 
 

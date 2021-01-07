@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import '../flutter_facebook_auth_platform_interface.dart';
 import 'access_token.dart';
 import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
 import 'login_behavior.dart';
 import 'facebook_auth_exception.dart';
 
 /// class to make calls to the facebook login SDK
 class FacebookAuth extends FacebookAuthPlatform {
-  final MethodChannel _channel =
-      MethodChannel('app.meedu/flutter_facebook_auth');
+  @visibleForTesting
+  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -24,7 +24,7 @@ class FacebookAuth extends FacebookAuthPlatform {
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   }) async {
     try {
-      final result = await _channel.invokeMethod("login", {
+      final result = await channel.invokeMethod("login", {
         "permissions": permissions,
         "loginBehavior": loginBehavior,
       });
@@ -45,7 +45,7 @@ class FacebookAuth extends FacebookAuthPlatform {
   Future<AccessToken> expressLogin() async {
     if (Platform.isAndroid) {
       try {
-        final result = await _channel.invokeMethod("expressLogin");
+        final result = await channel.invokeMethod("expressLogin");
         return AccessToken.fromJson(Map<String, dynamic>.from(result));
       } on PlatformException catch (e) {
         throw FacebookAuthException(e.code, e.message);
@@ -62,15 +62,13 @@ class FacebookAuth extends FacebookAuthPlatform {
     String fields = "name,email,picture.width(200)",
   }) async {
     try {
-      final result = await _channel.invokeMethod("getUserData", {
+      final result = await channel.invokeMethod("getUserData", {
         "fields": fields,
       });
       if (kIsWeb) {
         return Map<String, dynamic>.from(result);
       } else {
-        return Platform.isAndroid
-            ? jsonDecode(result)
-            : Map<String, dynamic>.from(result); //null  or dynamic data
+        return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
       }
     } on PlatformException catch (e) {
       throw FacebookAuthException(e.code, e.message);
@@ -80,13 +78,13 @@ class FacebookAuth extends FacebookAuthPlatform {
   /// Sign Out from Facebook
   @override
   Future<void> logOut() async {
-    await _channel.invokeMethod("logOut");
+    await channel.invokeMethod("logOut");
   }
 
   /// if the user is logged return one instance of AccessToken
   @override
   Future<AccessToken> get isLogged async {
-    final result = await _channel.invokeMethod("isLogged");
+    final result = await channel.invokeMethod("isLogged");
     if (result != null) {
       return AccessToken.fromJson(Map<String, dynamic>.from(result));
     }
