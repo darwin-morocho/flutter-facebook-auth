@@ -1,3 +1,5 @@
+### 2.0.1
+-  Support for FB SDK 9.0.0 on iOS.
 ### 2.0.0+1
 -  Updated readme.md.
 ### 2.0.0

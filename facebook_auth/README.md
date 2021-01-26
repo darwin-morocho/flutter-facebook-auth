@@ -30,7 +30,7 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^2.0.0
+flutter_facebook_auth: ^2.0.1
 ```
 
 > When you install this plugin you need configure the plugin on Android and iOS before run the project . If you don't do it you will have a **No implementation found** error because the Facebook sdk will try to find the configuration. If you don't need the plugin yet please remove or comment it.
@@ -176,6 +176,9 @@ https://developers.facebook.com/docs/facebook-login/android/#expresslogin
 
 ### **iOS**
 
+> for Objective-C projects (correctly works is not granted because this plugin was written with swift)
+
+
 > **You need Swift support**<br/>
 > The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
 
@@ -272,11 +275,6 @@ To use any of the Facebook dialogs (e.g., Login, Share, App Invites, etc.) that 
   <string>fbshareextension</string>
 </array>
 ```
-
-## NOTE
-
-for Objective-C projects (correctly works is not granted because this plugin was written with swift)
-
 ---
 
 ### **METHODS**
@@ -328,7 +326,6 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
     "expires": "2021-01-09T09:06:10.749",
     "lastRefresh": "2020-11-10T11:44:05.749",
     "applicationId": "1365719610250300",
-    "graphDomain": "facebook",
     "isExpired": false,
     "grantedPermissions": ["email", "user_link"],
     "declinedPermissions": []

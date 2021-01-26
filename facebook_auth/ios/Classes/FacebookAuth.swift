@@ -65,23 +65,16 @@ class FacebookAuth: NSObject {
         
         let viewController: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!
         
-        let parsedPermissions =  permissions.map {val in Permission(stringLiteral: val)}
         
-        loginManager.logIn(permissions: parsedPermissions, viewController: viewController){
-            res in
-            
-            switch res {
-            case let .success(_, _, token):
-                self.finishWithResult(data:self.getAccessToken(accessToken: token ))
-                
-            case .cancelled:
+        loginManager.logIn(permissions: permissions, from: viewController, handler: { (result,error)->Void in
+            if error != nil{
+                self.finishWithError(errorCode: "FAILED", message: error!.localizedDescription)
+            }else if result!.isCancelled{
                 self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
-                
-            case let .failed(error):
-                self.finishWithError(errorCode: "FAILED", message: error.localizedDescription)
+            }else{
+                self.finishWithResult(data:self.getAccessToken(accessToken:  result!.token! ))
             }
-        }
-
+        })
     }
     
     
@@ -142,7 +135,6 @@ class FacebookAuth: NSObject {
             "lastRefresh":Int64((accessToken.refreshDate.timeIntervalSince1970*1000).rounded()),
             "applicationId":accessToken.appID,
             "isExpired":accessToken.isExpired,
-            "graphDomain":accessToken.graphDomain,
             "grantedPermissions":accessToken.permissions.map {item in item.name},
             "declinedPermissions":accessToken.declinedPermissions.map {item in item.name},
         ] as [String : Any]

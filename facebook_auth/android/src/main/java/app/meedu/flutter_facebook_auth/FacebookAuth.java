@@ -177,7 +177,6 @@ public class FacebookAuth {
             put("expires", accessToken.getExpires().getTime());
             put("applicationId", accessToken.getApplicationId());
             put("lastRefresh", accessToken.getLastRefresh().getTime());
-            put("graphDomain", accessToken.getGraphDomain());
             put("isExpired", accessToken.isExpired());
             put("grantedPermissions", new ArrayList<>(accessToken.getPermissions()));
             put("declinedPermissions", new ArrayList<>(accessToken.getDeclinedPermissions()));
