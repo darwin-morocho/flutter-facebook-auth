@@ -1,3 +1,6 @@
+### 2.0.2
+-  Removed unnecessary kotlin file on Android.
+
 ### 2.0.1
 -  Support for FB SDK 9.0.0 on iOS.
 ### 2.0.0+1
