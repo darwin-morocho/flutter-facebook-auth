@@ -18,7 +18,11 @@ export 'src/facebook_auth_exception.dart';
 /// platform implementations that `implements` this interface will be broken by newly added
 /// [FacebookAuthPlatform] methods.
 abstract class FacebookAuthPlatform extends PlatformInterface {
-  static FacebookAuthPlatform _instance = FacebookAuth();
+  static final _instance = FacebookAuth();
+  static const _token = Object();
+
+  FacebookAuthPlatform() : super(token: _token);
+
   static FacebookAuthPlatform get instance =>
       _instance; // return the same instance of FacebookAuthPlatform
 
@@ -28,7 +32,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   ///
   /// [loginBehavior] (only Android) use this param to set the UI for the authentication,
   /// like webview, native app, or a dialog.
-  Future<AccessToken> login({
+  Future<AccessToken?> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   }) async {
@@ -42,7 +46,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   /// This avoid creating duplicate accounts or failing to log in at all. To support the changes in Android 11,
   /// first add the following code to the queries element in your /app/manifest/AndroidManifest.xml file.
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
-  Future<AccessToken> expressLogin() async {
+  Future<AccessToken?> expressLogin() async {
     throw UnimplementedError('expressLogin() has not been implemented.');
   }
 
@@ -61,7 +65,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   }
 
   /// if the user is logged return one instance of AccessToken
-  Future<AccessToken> get isLogged async {
-    throw UnimplementedError('isLogged has not been implemented.');
+  Future<AccessToken?> get accessToken async {
+    throw UnimplementedError('accessToken has not been implemented.');
   }
 }

@@ -21,8 +21,8 @@ class AuthExample extends StatefulWidget {
 }
 
 class _MyAppState extends State<AuthExample> {
-  Map<String, dynamic> _userData;
-  AccessToken _accessToken;
+  Map<String, dynamic>? _userData;
+  AccessToken? _accessToken;
   bool _checking = true;
 
   @override
@@ -33,7 +33,7 @@ class _MyAppState extends State<AuthExample> {
 
   /// uses the facebook SDK to check if a user has an active session
   Future<void> _checkIfIsLogged() async {
-    final AccessToken accessToken = await FacebookAuth.instance.isLogged;
+    final accessToken = await FacebookAuth.instance.accessToken;
     setState(() {
       _checking = false;
     });
@@ -53,7 +53,7 @@ class _MyAppState extends State<AuthExample> {
   /// print the access token data in the console
   void _printCredentials() {
     print(
-      prettyPrint(_accessToken.toJson()),
+      prettyPrint(_accessToken!.toJson()),
     );
   }
 
@@ -63,7 +63,8 @@ class _MyAppState extends State<AuthExample> {
       setState(() {
         _checking = true;
       });
-      _accessToken = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
+      _accessToken = await FacebookAuth.instance
+          .login(); // by the fault we request the email and the public profile
 
       // loginBehavior is only supported for Android devices, for ios it will be ignored
       // _accessToken = await FacebookAuth.instance.login(
@@ -129,12 +130,14 @@ class _MyAppState extends State<AuthExample> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        _userData != null ? prettyPrint(_userData) : "NO LOGGED",
+                        _userData != null
+                            ? prettyPrint(_userData!)
+                            : "NO LOGGED",
                       ),
                       SizedBox(height: 20),
                       _accessToken != null
                           ? Text(
-                              prettyPrint(_accessToken.toJson()),
+                              prettyPrint(_accessToken!.toJson()),
                             )
                           : Container(),
                       SizedBox(height: 20),

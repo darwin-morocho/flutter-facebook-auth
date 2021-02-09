@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'my_btn.dart';
 
@@ -14,8 +13,8 @@ class MyBanner extends StatefulWidget {
 class _MyBannerState extends State<MyBanner> {
   final FacebookAuth _facebookAuth = FacebookAuth.instance;
 
-  Map<String, dynamic> _userData;
-  AccessToken _accessToken;
+  Map<String, dynamic>? _userData;
+  AccessToken? _accessToken;
   bool _checking = true;
 
   @override
@@ -26,15 +25,13 @@ class _MyBannerState extends State<MyBanner> {
 
   /// uses the facebook SDK to check if a user has an active session
   Future<void> _checkIfIsLogged() async {
-    final AccessToken accessToken = await _facebookAuth.isLogged;
     _checking = false;
-    print("is Logged:::: ${accessToken != null}");
-    if (accessToken != null) {
+    print("is Logged:::: ${_accessToken != null}");
+    if (_accessToken != null) {
       // if the user is logged
       // now you can call to  FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData();
       _userData = await _facebookAuth.getUserData();
-      _accessToken = accessToken;
     }
     setState(() {});
   }
@@ -69,7 +66,8 @@ class _MyBannerState extends State<MyBanner> {
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          colorFilter: ColorFilter.mode(Colors.blueAccent.withOpacity(0.8), BlendMode.color),
+          colorFilter: ColorFilter.mode(
+              Colors.blueAccent.withOpacity(0.8), BlendMode.color),
           fit: BoxFit.cover,
           image: NetworkImage(
             "https://apperle.dawoud.org/neomi/images/background/osman-rana-253127-unsplash.jpg",
@@ -94,7 +92,7 @@ class _MyBannerState extends State<MyBanner> {
               ),
               Text(
                 "flutter_facebook_auth",
-                style: GoogleFonts.abel(
+                style: TextStyle(
                   fontSize: 50,
                   color: Colors.white,
                 ),
@@ -108,10 +106,11 @@ class _MyBannerState extends State<MyBanner> {
                 ),
               ),
               SizedBox(height: 20),
-              if (_userData == null) MyBtn("Try the sing in with Facebook", onPressed: _login),
+              if (_userData == null)
+                MyBtn("Try the sing in with Facebook", onPressed: _login),
               if (_userData != null) ...[
                 Text(
-                  "Hi ${_userData['name']}",
+                  "Hi ${_userData!['name']}",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 18,
@@ -191,7 +190,8 @@ class _MyBannerState extends State<MyBanner> {
               angle: 45 * math.pi / 180,
               child: InkWell(
                 onTap: () async {
-                  final url = "https://github.com/darwin-morocho/flutter-facebook-auth";
+                  final url =
+                      "https://github.com/darwin-morocho/flutter-facebook-auth";
                   if (await canLaunch(url)) {
                     launch(url);
                   }

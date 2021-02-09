@@ -11,7 +11,7 @@ void main() {
     const MethodChannel channel = MethodChannel(
       'app.meedu/flutter_facebook_auth',
     );
-    FacebookAuth facebookAuth;
+    late FacebookAuth facebookAuth;
     setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
@@ -21,7 +21,7 @@ void main() {
           case "expressLogin":
             isLogged = true;
             return MockData.accessToken;
-          case "isLogged":
+          case "getAccessToken":
             return isLogged ? MockData.accessToken : null;
           case "logOut":
             isLogged = false;
@@ -29,25 +29,25 @@ void main() {
 
           case "getUserData":
             final String fields = call.arguments['fields'];
-            return (await MockData.getUserData(fields)) ?? PlatformException(code: "FAILED", message: "Failes");
+            return await MockData.getUserData(fields);
         }
       });
       facebookAuth = FacebookAuth.instance;
     });
 
     test('login request', () async {
-      expect(await facebookAuth.isLogged, null);
-      final AccessToken accessToken = await facebookAuth.login();
+      expect(await facebookAuth.accessToken, null);
+      final AccessToken? accessToken = await facebookAuth.login();
       expect(accessToken, isNotNull);
-      expect(await facebookAuth.isLogged, isA<AccessToken>());
+      expect(await facebookAuth.accessToken, isA<AccessToken>());
       final Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(userData.containsKey("email"), true);
       await facebookAuth.logOut();
-      expect(await facebookAuth.isLogged, null);
+      expect(await facebookAuth.accessToken, null);
     });
 
     test('express login', () async {
-      expect(await facebookAuth.isLogged, null);
+      expect(await facebookAuth.accessToken, null);
       try {
         await facebookAuth.expressLogin();
       } catch (e) {

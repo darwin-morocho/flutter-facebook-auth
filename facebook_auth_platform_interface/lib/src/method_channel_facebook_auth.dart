@@ -10,7 +10,8 @@ import 'facebook_auth_exception.dart';
 /// class to make calls to the facebook login SDK
 class FacebookAuth extends FacebookAuthPlatform {
   @visibleForTesting
-  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
+  MethodChannel channel =
+      const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -42,7 +43,7 @@ class FacebookAuth extends FacebookAuthPlatform {
   /// first add the following code to the queries element in your /app/manifest/AndroidManifest.xml file.
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
   @override
-  Future<AccessToken> expressLogin() async {
+  Future<AccessToken?> expressLogin() async {
     if (Platform.isAndroid) {
       try {
         final result = await channel.invokeMethod("expressLogin");
@@ -68,7 +69,9 @@ class FacebookAuth extends FacebookAuthPlatform {
       if (kIsWeb) {
         return Map<String, dynamic>.from(result);
       } else {
-        return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
+        return Platform.isAndroid
+            ? jsonDecode(result)
+            : Map<String, dynamic>.from(result); //null  or dynamic data
       }
     } on PlatformException catch (e) {
       throw FacebookAuthException(e.code, e.message);
@@ -83,8 +86,8 @@ class FacebookAuth extends FacebookAuthPlatform {
 
   /// if the user is logged return one instance of AccessToken
   @override
-  Future<AccessToken> get isLogged async {
-    final result = await channel.invokeMethod("isLogged");
+  Future<AccessToken?> get accessToken async {
+    final result = await channel.invokeMethod("getAccessToken");
     if (result != null) {
       return AccessToken.fromJson(Map<String, dynamic>.from(result));
     }

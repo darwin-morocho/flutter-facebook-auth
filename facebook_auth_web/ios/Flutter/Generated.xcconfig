@@ -1,13 +1,11 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/darwin/development/flutter
-FLUTTER_APPLICATION_PATH=/Users/darwin/Documents/meedu/flutter_facebook_auth/flutter_facebook_auth_web
+FLUTTER_ROOT=/Users/samuelmarkoe/workspace/flutter
+FLUTTER_APPLICATION_PATH=/Users/samuelmarkoe/workspace/flutter-facebook-auth/facebook_auth_web
 FLUTTER_TARGET=lib/main.dart
 FLUTTER_BUILD_DIR=build
 SYMROOT=${SOURCE_ROOT}/../build/ios
-OTHER_LDFLAGS=$(inherited) -framework Flutter
-FLUTTER_FRAMEWORK_DIR=/Users/darwin/development/flutter/bin/cache/artifacts/engine/ios
-FLUTTER_BUILD_NAME=1.0.4
-FLUTTER_BUILD_NUMBER=1.0.4
+FLUTTER_BUILD_NAME=2.0.0.0
+FLUTTER_BUILD_NUMBER=2.0.0.0
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=false
 TREE_SHAKE_ICONS=false

@@ -8,10 +8,10 @@ class FlutterFacebookAuthPlugin {
   final FacebookAuthWeb _auth = FacebookAuthWeb();
 
   static void registerWith(Registrar registrar) {
-    final MethodChannel channel = MethodChannel(
+    final channel = MethodChannel(
       'app.meedu/flutter_facebook_auth',
       const StandardMethodCodec(),
-      registrar.messenger,
+      registrar,
     );
 
     final pluginInstance = FlutterFacebookAuthPlugin();
@@ -23,16 +23,15 @@ class FlutterFacebookAuthPlugin {
   /// https://flutter.dev/go/federated-plugins
   Future<dynamic> handleMethodCall(MethodCall call) async {
     switch (call.method) {
-      case 'isLogged':
-        return await _auth.isLogged();
+      case 'getAccessToken':
+        return await _auth.getAccessToken();
 
       case 'getUserData':
-        final String fields = call.arguments['fields'];
+        final fields = call.arguments['fields'];
         return await _auth.getUserData(fields);
 
       case 'login':
-        final List<String> permissions =
-            List<String>.from(call.arguments['permissions']);
+        final permissions = List<String>.from(call.arguments['permissions']);
         return await _auth.login(permissions);
 
       case 'logOut':

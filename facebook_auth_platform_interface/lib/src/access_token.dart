@@ -1,30 +1,30 @@
 /// Class that contains the facebook access token data
 class AccessToken {
   /// DateTime with the expires date of this token
-  final DateTime expires;
+  final DateTime? expires;
 
   /// DateTime with the last refresh date of this token
-  final DateTime lastRefresh;
+  final DateTime? lastRefresh;
 
   /// the facebook user id
-  final String userId;
+  final String? userId;
 
   /// token provided by facebook to make api calls to the GRAPH API
-  final String token;
+  final String? token;
 
   // the facebook application Id
-  final String applicationId;
+  final String? applicationId;
 
-  final String graphDomain;
+  final String? graphDomain;
 
   /// list of string with the rejected permission by the user
-  final List<String> declinedPermissions;
+  final List<String>? declinedPermissions;
 
   /// list of string with the approved permission by the user
-  final List<String> grantedPermissions;
+  final List<String>? grantedPermissions;
 
   // is `true` when the token is expired
-  final bool isExpired;
+  final bool? isExpired;
 
   /// constrcutor
   AccessToken({
@@ -62,14 +62,14 @@ class AccessToken {
 
   /// convert this instance to one Map
   Map<String, dynamic> toJson() => {
-        'userId': this.userId,
-        'token': this.token,
-        'expires': this.expires.toIso8601String(),
-        'lastRefresh': this.lastRefresh.toIso8601String(),
-        'applicationId': this.applicationId,
-        'graphDomain': this.graphDomain,
-        'isExpired': this.isExpired,
-        'grantedPermissions': this.grantedPermissions,
-        'declinedPermissions': this.declinedPermissions,
+        'userId': userId,
+        'token': token,
+        'expires': expires?.toIso8601String(),
+        'lastRefresh': lastRefresh?.toIso8601String(),
+        'applicationId': applicationId,
+        'graphDomain': graphDomain,
+        'isExpired': isExpired,
+        'grantedPermissions': grantedPermissions,
+        'declinedPermissions': declinedPermissions,
       };
 }
