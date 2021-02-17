@@ -47,8 +47,8 @@ public class FlutterFacebookAuthPlugin implements FlutterPlugin, MethodCallHandl
                 facebookAuth.expressLogin(this.activityPluginBinding.getActivity(), result);
                 break;
 
-            case "isLogged":
-                facebookAuth.isLogged(result);
+            case "getAccessToken":
+                facebookAuth.getAccessToken(result);
                 break;
 
             case "getUserData":

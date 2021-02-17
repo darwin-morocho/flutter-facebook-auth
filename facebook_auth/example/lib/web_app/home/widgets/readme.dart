@@ -49,7 +49,8 @@ class _ReadmeState extends State<Readme> {
 class Link extends StatelessWidget {
   final Widget child;
   final String url;
-  const Link({Key key, @required this.child, @required this.url}) : super(key: key);
+  const Link({Key? key, required this.child, required this.url})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

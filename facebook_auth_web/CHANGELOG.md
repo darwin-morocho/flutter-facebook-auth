@@ -1,3 +1,5 @@
+### 2.0.0-nullsafety.0
+-  Migrated library to null safety.
 ## 1.0.6
 - Added mock FlutterFacebookAuthPlugin class.
 

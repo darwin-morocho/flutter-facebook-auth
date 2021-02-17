@@ -10,7 +10,7 @@ String prettyPrint(Map json) {
 }
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key key}) : super(key: key);
+  const Homepage({Key? key}) : super(key: key);
 
   @override
   _HomepageState createState() => _HomepageState();

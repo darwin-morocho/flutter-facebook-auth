@@ -1,3 +1,6 @@
+### 3.0.0-nullsafety.0
+-  Migrated library to null safety.
+
 ### 2.0.2
 -  Removed unnecessary kotlin file on Android.
 
@@ -88,13 +91,13 @@
 - Updated documentation
 
 ## 0.2.4
-- Updated documentation and isLogged method to catch posible exceptions 
+- Updated documentation and isLogged method to catch posible exceptions
 
 ## 0.2.3
-- Updated to Supporting the new Android plugins APIs 
+- Updated to Supporting the new Android plugins APIs
 
 ## 0.2.2+3
-- Removed dangerous log 
+- Removed dangerous log
 
 ## 0.2.2+2
 - Updated Docs to allow login with facebook and twitter in the same flutter app

@@ -17,7 +17,7 @@ class FacebookAuth extends FacebookAuthPlatform {
   /// [loginBehavior] (only Android) use this param to set the UI for the authentication,
   /// like webview, native app, or a dialog.
   @override
-  Future<AccessToken> login({
+  Future<AccessToken?> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   }) {
@@ -35,7 +35,7 @@ class FacebookAuth extends FacebookAuthPlatform {
   /// first add the following code to the queries element in your /app/manifest/AndroidManifest.xml file.
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
   @override
-  Future<AccessToken> expressLogin() {
+  Future<AccessToken?> expressLogin() {
     return FacebookAuthPlatform.instance.expressLogin();
   }
 
@@ -51,7 +51,8 @@ class FacebookAuth extends FacebookAuthPlatform {
 
   /// if the user is logged return one instance of AccessToken
   @override
-  Future<AccessToken> get isLogged => FacebookAuthPlatform.instance.isLogged;
+  Future<AccessToken?> get accessToken =>
+      FacebookAuthPlatform.instance.accessToken;
 
   /// Sign Out from Facebook
   @override

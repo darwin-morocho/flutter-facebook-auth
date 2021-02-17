@@ -5,7 +5,7 @@ class FacebookAuthException implements Exception {
   final String errorCode; // CANCELLED, FAILED, OPERATION_IN_PROGRESS
 
   /// the error message
-  final String message;
+  final String? message;
 
   FacebookAuthException(this.errorCode, this.message);
 }

@@ -12,7 +12,7 @@ import 'package:js/js_util.dart';
 class FacebookAuth {
   external FacebookAuth();
   external login(String scope);
-  external isLogged();
+  external getAccessToken();
   external getUserData(String fields);
   external logout();
 }
@@ -44,15 +44,15 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
   /// [permissions] permissions like ["email","public_profile"]
   @override
   Future<Map<String, dynamic>> login(List<String> permissions) async {
-    String scope = '';
+    var scope = '';
     permissions.forEach((e) {
       scope += "$e,";
     });
     scope = scope.substring(0, scope.length - 1);
     final promise = _auth.login(scope);
-    final String jsData = await promiseToFuture(promise);
+    final jsData = await promiseToFuture(promise);
     final response = jsonDecode(jsData);
-    final String status = response['status'];
+    final status = response['status'];
     switch (status) {
       case "connected":
         final data = response['accessToken'];
@@ -72,11 +72,11 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
 
   /// check if a user is logged and return an accessToken data
   @override
-  Future<Map<String, dynamic>> isLogged() async {
-    final promise = _auth.isLogged();
-    final String jsData = await promiseToFuture(promise);
+  Future<Map<String, dynamic>> getAccessToken() async {
+    final promise = _auth.getAccessToken();
+    final jsData = await promiseToFuture(promise);
     final response = jsonDecode(jsData);
-    final String status = response['status'];
+    final status = response['status'];
     switch (status) {
       case "connected":
         final data = response['accessToken'];
@@ -84,7 +84,8 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
         return accessToken;
 
       default:
-        return null;
+        throw PlatformException(
+            code: "FAILED", message: "Facebook login status check failed");
     }
   }
 
@@ -94,7 +95,7 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
   @override
   Future<Map<String, dynamic>> getUserData(String fields) async {
     final promise = _auth.getUserData(fields);
-    final String response = await promiseToFuture(promise);
+    final response = await promiseToFuture(promise);
     return jsonDecode(response);
   }
 

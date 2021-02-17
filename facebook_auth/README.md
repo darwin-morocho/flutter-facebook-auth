@@ -3,8 +3,8 @@
 
 <p align="center">
   <a href="https://pub.dev/packages/flutter_facebook_auth"><img alt="pub version" src="https://img.shields.io/pub/v/flutter_facebook_auth?color=%2300b0ff&label=flutter_facebook_auth&style=flat-square"></a>
-  
-  <img alt="last commit" src="https://img.shields.io/github/last-commit/the-meedu-app/flutter-facebook-auth?color=%23ffa000&style=flat-square"/> 
+
+  <img alt="last commit" src="https://img.shields.io/github/last-commit/the-meedu-app/flutter-facebook-auth?color=%23ffa000&style=flat-square"/>
   <img alt="license" src="https://img.shields.io/github/license/the-meedu-app/flutter-facebook-auth?style=flat-square"/>
   <img alt="stars" src="https://img.shields.io/github/stars/the-meedu-app/flutter-facebook-auth?style=social"/>
 </p>
@@ -315,7 +315,7 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 
 - `.logOut()` : close the current facebook session.
 
-- `.isLogged` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
+- `.accessToken` : check if the user has an active facebook session. The response will be `null` if the user is not logged.
 
   Expected response one instance of `AccessToken` class:
 
@@ -336,7 +336,7 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 
   ```dart
   Future<void> _checkIfIsLogged() async {
-    final AccessToken accessToken = await FacebookAuth.instance.isLogged;
+    final AccessToken accessToken = await FacebookAuth.instance.accessToken;
     if (accessToken != null) {
       // now you can call to  FacebookAuth.instance.getUserData();
       final userData = await FacebookAuth.instance.getUserData();
@@ -402,7 +402,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _checkIfIsLogged() async {
-    final AccessToken accessToken = await FacebookAuth.instance.isLogged;
+    final accessToken = await FacebookAuth.instance.acessToken;
     setState(() {
       _checking = false;
     });
@@ -557,7 +557,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 🚫 *IMPORTANT:* the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with an error message in your web console.
 
-👉 The `isLogged` method only works in live mode using `https` and you must add your **OAuth redirect URL**  in your *facebook developer console*.
+👉 The `accessToken` method only works in live mode using `https` and you must add your **OAuth redirect URL**  in your *facebook developer console*.
 
 ---
 

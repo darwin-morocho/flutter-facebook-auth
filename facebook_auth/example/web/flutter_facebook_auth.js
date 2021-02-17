@@ -83,7 +83,7 @@ function FacebookAuth() {
     });
   };
 
-  FacebookAuth.prototype.isLogged = function () {
+  FacebookAuth.prototype.getAccessToken = function () {
     return new Promise(function (resolve) {
       FB.getLoginStatus(function (response) {
         handleAuthResponse(response, resolve);

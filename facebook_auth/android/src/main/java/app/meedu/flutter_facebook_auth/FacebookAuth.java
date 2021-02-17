@@ -82,11 +82,11 @@ public class FacebookAuth {
     }
 
     /**
-     * Check Login Status
+     * Gets current access token, if one exists
      *
      * @param result flutter method channel result to send the response to the client
      */
-    public void isLogged(MethodChannel.Result result) {
+    public void getAccessToken(MethodChannel.Result result) {
         AccessToken accessToken = AccessToken.getCurrentAccessToken();
         boolean isLoggedIn = accessToken != null && !accessToken.isExpired();
         if (isLoggedIn) {
