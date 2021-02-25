@@ -30,11 +30,15 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^2.0.1
+flutter_facebook_auth: ^3.0.0-nullsafety.0
 ```
-
-> When you install this plugin you need configure the plugin on Android and iOS before run the project . If you don't do it you will have a **No implementation found** error because the Facebook sdk will try to find the configuration. If you don't need the plugin yet please remove or comment it.
 ---
+### 🚫 **IMPORTANT** 🚫
+
+When you install this plugin you need configure the plugin on Android and iOS before run the project . If you don't do it you will have a **No implementation found** error because the Facebook sdk will try to find the configuration. If you don't need the plugin yet please remove or comment it.
+
+---
+
 
 ### **Android**
 

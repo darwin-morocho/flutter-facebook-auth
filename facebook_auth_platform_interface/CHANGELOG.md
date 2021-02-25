@@ -1,3 +1,6 @@
+### 2.0.0-nullsafety.1
+-  Removed legacy library.
+
 ### 2.0.0-nullsafety.0
 -  Migrated library to null safety.
 

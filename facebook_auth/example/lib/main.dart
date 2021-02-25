@@ -63,8 +63,7 @@ class _MyAppState extends State<AuthExample> {
       setState(() {
         _checking = true;
       });
-      _accessToken = await FacebookAuth.instance
-          .login(); // by the fault we request the email and the public profile
+      _accessToken = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
 
       // loginBehavior is only supported for Android devices, for ios it will be ignored
       // _accessToken = await FacebookAuth.instance.login(
@@ -130,9 +129,7 @@ class _MyAppState extends State<AuthExample> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        _userData != null
-                            ? prettyPrint(_userData!)
-                            : "NO LOGGED",
+                        _userData != null ? prettyPrint(_userData!) : "NO LOGGED",
                       ),
                       SizedBox(height: 20),
                       _accessToken != null

@@ -1,9 +1,8 @@
-library flutter_facebook_auth_platform_interface;
+import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'src/access_token.dart';
 import 'src/login_behavior.dart';
 import 'src/method_channel_facebook_auth.dart';
-import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 export 'src/access_token.dart';
 export 'src/login_behavior.dart';

@@ -66,8 +66,7 @@ class _MyBannerState extends State<MyBanner> {
       width: double.infinity,
       decoration: BoxDecoration(
         image: DecorationImage(
-          colorFilter: ColorFilter.mode(
-              Colors.blueAccent.withOpacity(0.8), BlendMode.color),
+          colorFilter: ColorFilter.mode(Colors.blueAccent.withOpacity(0.8), BlendMode.color),
           fit: BoxFit.cover,
           image: NetworkImage(
             "https://apperle.dawoud.org/neomi/images/background/osman-rana-253127-unsplash.jpg",
@@ -106,8 +105,7 @@ class _MyBannerState extends State<MyBanner> {
                 ),
               ),
               SizedBox(height: 20),
-              if (_userData == null)
-                MyBtn("Try the sing in with Facebook", onPressed: _login),
+              if (_userData == null) MyBtn("Try the sing in with Facebook", onPressed: _login),
               if (_userData != null) ...[
                 Text(
                   "Hi ${_userData!['name']}",
@@ -190,8 +188,7 @@ class _MyBannerState extends State<MyBanner> {
               angle: 45 * math.pi / 180,
               child: InkWell(
                 onTap: () async {
-                  final url =
-                      "https://github.com/darwin-morocho/flutter-facebook-auth";
+                  final url = "https://github.com/darwin-morocho/flutter-facebook-auth";
                   if (await canLaunch(url)) {
                     launch(url);
                   }

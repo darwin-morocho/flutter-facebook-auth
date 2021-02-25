@@ -1,6 +1,6 @@
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
-export 'package:flutter_facebook_auth_web/flutter_facebook_auth_web.dart';
 
 /// Generic class that extends of FacebookAuthPlatform interface
 class FacebookAuth extends FacebookAuthPlatform {
@@ -49,10 +49,12 @@ class FacebookAuth extends FacebookAuthPlatform {
     return FacebookAuthPlatform.instance.getUserData(fields: fields);
   }
 
+  @deprecated
+  Future<AccessToken?> get isLogged => FacebookAuthPlatform.instance.accessToken;
+
   /// if the user is logged return one instance of AccessToken
   @override
-  Future<AccessToken?> get accessToken =>
-      FacebookAuthPlatform.instance.accessToken;
+  Future<AccessToken?> get accessToken => FacebookAuthPlatform.instance.accessToken;
 
   /// Sign Out from Facebook
   @override
