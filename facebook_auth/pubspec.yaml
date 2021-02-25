@@ -5,7 +5,7 @@ homepage: https://github.com/darwin-morocho/flutter-facebook-auth
 
 environment:
   sdk: ">=2.12.0-0 <3.0.0"
-  flutter: ">=1.20.0 <2.0.0"
+  flutter: ">=1.20.0"
 
 dependencies:
   flutter:
@@ -13,7 +13,7 @@ dependencies:
   flutter_facebook_auth_platform_interface: ^2.0.0-nullsafety.1
   # flutter_facebook_auth_platform_interface:
   #   path: ../facebook_auth_platform_interface
-  flutter_facebook_auth_web: ^2.0.0-nullsafety.0
+  flutter_facebook_auth_web: ^2.0.0-nullsafety.1
 
 dev_dependencies:
   flutter_test:

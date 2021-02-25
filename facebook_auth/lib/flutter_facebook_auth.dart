@@ -50,11 +50,13 @@ class FacebookAuth extends FacebookAuthPlatform {
   }
 
   @deprecated
-  Future<AccessToken?> get isLogged => FacebookAuthPlatform.instance.accessToken;
+  Future<AccessToken?> get isLogged =>
+      FacebookAuthPlatform.instance.accessToken;
 
   /// if the user is logged return one instance of AccessToken
   @override
-  Future<AccessToken?> get accessToken => FacebookAuthPlatform.instance.accessToken;
+  Future<AccessToken?> get accessToken =>
+      FacebookAuthPlatform.instance.accessToken;
 
   /// Sign Out from Facebook
   @override

@@ -1,3 +1,6 @@
+### 2.0.0-nullsafety.1
+-  Updated dart sdk >=2.12.0-0 <3.0.0.
+
 ### 2.0.0-nullsafety.0
 -  Migrated library to null safety.
 ## 1.0.6
