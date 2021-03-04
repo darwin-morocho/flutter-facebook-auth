@@ -47,14 +47,14 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "3.0.0-nullsafety.0"
+    version: "3.0.0-nullsafety.1"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
       name: flutter_facebook_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.0.0-nullsafety.1"
+    version: "2.0.0-nullsafety.2"
   flutter_facebook_auth_web:
     dependency: transitive
     description:

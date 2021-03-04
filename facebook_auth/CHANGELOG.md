@@ -1,3 +1,6 @@
+### 3.0.0-nullsafety.1
+- flutter_facebook_auth_platform_interface: ^2.0.0-nullsafety.2
+
 ### 3.0.0-nullsafety.0
 -  Migrated library to null safety.
 

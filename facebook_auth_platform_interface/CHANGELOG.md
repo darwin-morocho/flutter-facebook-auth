@@ -1,3 +1,6 @@
+### 2.0.0-nullsafety.2
+-  plugin_platform_interface: ^2.0.0
+
 ### 2.0.0-nullsafety.1
 -  Removed legacy library.
 

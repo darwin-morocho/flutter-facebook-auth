@@ -50,6 +50,8 @@ class FacebookAuth extends FacebookAuthPlatform {
   }
 
   @deprecated
+
+  /// deprecated in favor to accessToken method
   Future<AccessToken?> get isLogged =>
       FacebookAuthPlatform.instance.accessToken;
 
