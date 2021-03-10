@@ -1,3 +1,6 @@
+### 3.0.0+1
+- Updated README. 
+
 ### 3.0.0
 - Added support for flutter 2 and null safety. 
 ### 3.0.0-nullsafety.1
