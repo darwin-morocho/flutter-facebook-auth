@@ -1,3 +1,6 @@
+### 2.0.0
+-  Release the null safety version.
+
 ### 2.0.0-nullsafety.2
 -  plugin_platform_interface: ^2.0.0
 
