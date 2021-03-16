@@ -1,13 +1,13 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'src/access_token.dart';
+import 'src/method_cahnnel.dart';
 import 'src/login_behavior.dart';
-import 'src/method_channel_facebook_auth.dart';
-
 export 'src/access_token.dart';
 export 'src/login_behavior.dart';
 export 'src/facebook_auth_error_code.dart';
 export 'src/facebook_auth_exception.dart';
+export 'src/method_cahnnel.dart';
 
 /// The interface that implementations of flutter_facebook_auth must implement.
 ///
@@ -17,13 +17,18 @@ export 'src/facebook_auth_exception.dart';
 /// platform implementations that `implements` this interface will be broken by newly added
 /// [FacebookAuthPlatform] methods.
 abstract class FacebookAuthPlatform extends PlatformInterface {
-  static final _instance = FacebookAuth();
   static const _token = Object();
-
   FacebookAuthPlatform() : super(token: _token);
 
-  static FacebookAuthPlatform get instance =>
-      _instance; // return the same instance of FacebookAuthPlatform
+  static FacebookAuthPlatform _instance = MethodCahnnelFacebookAuth();
+
+  // ignore: unnecessary_getters_setters
+  static FacebookAuthPlatform get instance => _instance;
+
+  // ignore: unnecessary_getters_setters
+  static set instance(FacebookAuthPlatform i) {
+    _instance = i;
+  }
 
   /// make a login request using the facebook SDK
   ///
@@ -31,12 +36,10 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   ///
   /// [loginBehavior] (only Android) use this param to set the UI for the authentication,
   /// like webview, native app, or a dialog.
-  Future<AccessToken?> login({
+  Future<AccessToken> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
-  }) async {
-    throw UnimplementedError('login() has not been implemented.');
-  }
+  });
 
   /// Express login logs people in with their Facebook account across devices and platform.
   /// If a person logs into your app on Android and then changes devices,
@@ -45,26 +48,18 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   /// This avoid creating duplicate accounts or failing to log in at all. To support the changes in Android 11,
   /// first add the following code to the queries element in your /app/manifest/AndroidManifest.xml file.
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
-  Future<AccessToken?> expressLogin() async {
-    throw UnimplementedError('expressLogin() has not been implemented.');
-  }
+  Future<AccessToken?> expressLogin();
 
   /// retrive the user information using the GraphAPI
   ///
   /// [fields] string of fields like birthday,email,hometown
   Future<Map<String, dynamic>> getUserData({
     String fields = "name,email,picture.width(200)",
-  }) async {
-    throw UnimplementedError('getUserData() has not been implemented.');
-  }
+  });
 
   /// Sign Out from Facebook
-  Future<void> logOut() async {
-    throw UnimplementedError('logOut() has not been implemented.');
-  }
+  Future<void> logOut();
 
   /// if the user is logged return one instance of AccessToken
-  Future<AccessToken?> get accessToken async {
-    throw UnimplementedError('accessToken has not been implemented.');
-  }
+  Future<AccessToken?> get accessToken;
 }

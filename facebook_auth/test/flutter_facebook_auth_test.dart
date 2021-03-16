@@ -41,6 +41,7 @@ void main() {
       final AccessToken? accessToken = await facebookAuth.login();
       expect(accessToken, isNotNull);
       expect(await facebookAuth.accessToken, isA<AccessToken>());
+      expect(await facebookAuth.isLogged, isA<AccessToken>());
       final Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(userData.containsKey("email"), true);
       await facebookAuth.logOut();

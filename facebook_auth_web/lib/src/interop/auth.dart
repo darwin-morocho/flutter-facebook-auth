@@ -1,24 +1,12 @@
-// ignore: missing_js_lib_annotation
-@JS()
-library facebook_auth.js;
-
 import 'dart:convert';
+
 import 'package:flutter/services.dart';
-import 'package:flutter_facebook_auth_web/src/interface.dart';
-import 'package:js/js.dart';
 import 'package:js/js_util.dart';
+import 'facebook_auth_interop.dart';
 
-@JS('FacebookAuth')
-class FacebookAuth {
-  external FacebookAuth();
-  external login(String scope);
-  external getAccessToken();
-  external getUserData(String fields);
-  external logout();
-}
-
-class FacebookAuthWeb implements FacebookAuthWebInterface {
-  final _auth = FacebookAuth();
+class Auth {
+  final FbInterface _fb;
+  Auth([FbInterface? fb]) : _fb = fb ?? FB();
 
   /// parse the web response to a Map
   Map<String, dynamic> _getAccessToken(dynamic data) {
@@ -39,19 +27,29 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
     };
   }
 
+  Future<Map<String, dynamic>> _getResponse(Object promise) async {
+    final jsData = await promiseToFuture(promise);
+    return jsonDecode(jsData);
+  }
+
   /// make a login request using the facebook javascript SDK
   ///
   /// [permissions] permissions like ["email","public_profile"]
-  @override
   Future<Map<String, dynamic>> login(List<String> permissions) async {
     var scope = '';
     permissions.forEach((e) {
       scope += "$e,";
     });
     scope = scope.substring(0, scope.length - 1);
-    final promise = _auth.login(scope);
-    final jsData = await promiseToFuture(promise);
-    final response = jsonDecode(jsData);
+
+    late Map<String, dynamic> response;
+    if (_fb is FB) {
+      final promise = _fb.login(scope);
+      response = await _getResponse(promise);
+    } else {
+      response = _fb.login(scope);
+    }
+
     final status = response['status'];
     switch (status) {
       case "connected":
@@ -60,22 +58,23 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
         return accessToken;
 
       case "unknown":
-        throw PlatformException(
-            code: "CANCELLED",
-            message: "User has cancelled login with facebook");
+        throw PlatformException(code: "CANCELLED", message: "User has cancelled login with facebook");
 
       default:
-        throw PlatformException(
-            code: "FAILED", message: "Facebook login failed");
+        throw PlatformException(code: "FAILED", message: "Facebook login failed");
     }
   }
 
   /// check if a user is logged and return an accessToken data
-  @override
   Future<Map<String, dynamic>> getAccessToken() async {
-    final promise = _auth.getAccessToken();
-    final jsData = await promiseToFuture(promise);
-    final response = jsonDecode(jsData);
+    late Map<String, dynamic> response;
+    if (_fb is FB) {
+      final promise = _fb.getAccessToken();
+      response = await _getResponse(promise);
+    } else {
+      response = _fb.getAccessToken();
+    }
+
     final status = response['status'];
     switch (status) {
       case "connected":
@@ -84,25 +83,31 @@ class FacebookAuthWeb implements FacebookAuthWebInterface {
         return accessToken;
 
       default:
-        throw PlatformException(
-            code: "FAILED", message: "Facebook login status check failed");
+        throw PlatformException(code: "FAILED", message: "Facebook login status check failed");
     }
   }
 
   /// get the user profile information
   ///
   /// [fields] string of fields like birthday,email,hometown
-  @override
   Future<Map<String, dynamic>> getUserData(String fields) async {
-    final promise = _auth.getUserData(fields);
-    final response = await promiseToFuture(promise);
-    return jsonDecode(response);
+    late Map<String, dynamic> response;
+    if (_fb is FB) {
+      final promise = _fb.getUserData(fields);
+      response = await _getResponse(promise);
+    } else {
+      response = Map<String, dynamic>.from(_fb.getUserData(fields));
+    }
+    return response;
   }
 
   /// close the current active session
-  @override
   Future<void> logOut() async {
-    final promise = _auth.logout();
-    await promiseToFuture(promise);
+    if (_fb is FB) {
+      final promise = _fb.logOut();
+      await promiseToFuture(promise);
+    } else {
+      _fb.logOut();
+    }
   }
 }

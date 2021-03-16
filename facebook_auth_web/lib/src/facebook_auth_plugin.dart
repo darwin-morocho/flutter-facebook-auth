@@ -1,48 +1,55 @@
 import 'dart:async';
 import 'package:flutter/services.dart';
+import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
+import 'package:flutter_facebook_auth_web/src/interop/auth.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'facebook_auth_web.dart';
 
 /// A web implementation of the FlutterFacebookAuth plugin.
-class FlutterFacebookAuthPlugin {
-  final FacebookAuthWeb _auth = FacebookAuthWeb();
+class FacebookAuthPlugin extends FacebookAuthPlatform {
+  final Auth _auth;
+
+  FacebookAuthPlugin([Auth? auth]) : _auth = auth ?? Auth();
 
   static void registerWith(Registrar registrar) {
-    final channel = MethodChannel(
-      'app.meedu/flutter_facebook_auth',
-      const StandardMethodCodec(),
-      registrar,
-    );
-
-    final pluginInstance = FlutterFacebookAuthPlugin();
-    channel.setMethodCallHandler(pluginInstance.handleMethodCall);
+    FacebookAuthPlatform.instance = FacebookAuthPlugin();
   }
 
-  /// Handles method calls over the MethodChannel of this plugin.
-  /// Note: Check the "federated" architecture for a new way of doing this:
-  /// https://flutter.dev/go/federated-plugins
-  Future<dynamic> handleMethodCall(MethodCall call) async {
-    switch (call.method) {
-      case 'getAccessToken':
-        return await _auth.getAccessToken();
+  @override
+  Future<AccessToken?> get accessToken async {
+    try {
+      final result = await _auth.getAccessToken();
+      return AccessToken.fromJson(Map<String, dynamic>.from(result));
+    } catch (_) {
+      return null;
+    }
+  }
 
-      case 'getUserData':
-        final fields = call.arguments['fields'];
-        return await _auth.getUserData(fields);
+  @override
+  Future<AccessToken?> expressLogin() {
+    throw UnimplementedError();
+  }
 
-      case 'login':
-        final permissions = List<String>.from(call.arguments['permissions']);
-        return await _auth.login(permissions);
+  @override
+  Future<Map<String, dynamic>> getUserData({
+    String fields = "name,email,picture.width(200)",
+  }) =>
+      _auth.getUserData(fields);
 
-      case 'logOut':
-        return await _auth.logOut();
+  @override
+  Future<void> logOut() {
+    return _auth.logOut();
+  }
 
-      default:
-        throw PlatformException(
-          code: 'Unimplemented',
-          message:
-              'flutter_facebook_auth for web doesn\'t implement \'${call.method}\'',
-        );
+  @override
+  Future<AccessToken> login({
+    List<String> permissions = const ['email', 'public_profile'],
+    String loginBehavior = LoginBehavior.DIALOG_ONLY,
+  }) async {
+    try {
+      final result = await _auth.login(permissions);
+      return AccessToken.fromJson(Map<String, dynamic>.from(result));
+    } on PlatformException catch (e) {
+      throw FacebookAuthException(e.code, e.message);
     }
   }
 }
