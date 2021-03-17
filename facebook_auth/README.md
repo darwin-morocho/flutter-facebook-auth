@@ -295,7 +295,7 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
       print(accessToken.toJson());
       // get the user data
       final userData = await FacebookAuth.instance.getUserData();
-      print(auserData);
+      print(userData);
     } on FacebookAuthException catch (e) {
       switch (e.errorCode) {
           case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
