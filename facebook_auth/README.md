@@ -290,23 +290,23 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 ```dart
   Future<void> _login() async {
     try {
-        // by default the login method has the next permissions ['email','public_profile']
-      AccessToken accessToken = await FacebookAuth.instance.login();
+      // by default the login method has the next permissions ['email','public_profile']
+      AccessToken accessToken = (await FacebookAuth.instance.login())!;
       print(accessToken.toJson());
       // get the user data
       final userData = await FacebookAuth.instance.getUserData();
-      print(auserData);
+      print(userData);
     } on FacebookAuthException catch (e) {
       switch (e.errorCode) {
-          case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
-            print("You have a previous login operation in progress");
-            break;
-          case FacebookAuthErrorCode.CANCELLED:
-            print("login cancelled");
-            break;
-          case FacebookAuthErrorCode.FAILED:
-            print("login failed");
-            break;
+        case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
+          print("You have a previous login operation in progress");
+          break;
+        case FacebookAuthErrorCode.CANCELLED:
+          print("login cancelled");
+          break;
+        case FacebookAuthErrorCode.FAILED:
+          print("login failed");
+          break;
       }
     }
   }
