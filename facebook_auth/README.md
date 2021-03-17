@@ -30,7 +30,7 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^3.0.0
+flutter_facebook_auth: ^3.1.0
 ```
 ---
 ### 🚫 **IMPORTANT** 🚫
@@ -395,8 +395,8 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  Map<String, dynamic> _userData;
-  AccessToken _accessToken;
+  Map<String, dynamic>? _userData;
+  AccessToken? _accessToken;
   bool _checking = true;
 
   @override
@@ -537,11 +537,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 .
   Future<UserCredential?> signInWithFacebook() async {
     try {
-      final AccessToken accessToken = (await FacebookAuth.instance.login())!;
+      final AccessToken accessToken = await FacebookAuth.instance.login();
 
       // Create a credential from the access token
       final OAuthCredential credential = FacebookAuthProvider.credential(
-        accessToken.token!,
+        accessToken.token,
       );
       // Once signed in, return the UserCredential
       return await FirebaseAuth.instance.signInWithCredential(credential);

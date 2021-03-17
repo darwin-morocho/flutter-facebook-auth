@@ -17,12 +17,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
 
 
 public class FacebookAuth {
-    private LoginManager loginManager;
+    private final LoginManager loginManager;
     FacebookLoginResultDelegate resultDelegate;
 
     FacebookAuth() {
@@ -51,34 +50,33 @@ public class FacebookAuth {
     /**
      * set the login behavior to use native app, webview, dialogs, etc
      *
-     * @param behavior
+     * @param behavior string that defines the ui type for login
      */
     public void setLoginBehavior(String behavior) {
-        Log.i("behavior::", behavior);
+        LoginBehavior loginBehavior;
         switch (behavior) {
             case "NATIVE_ONLY":
-                loginManager.setLoginBehavior(LoginBehavior.NATIVE_ONLY);
+                loginBehavior = LoginBehavior.NATIVE_ONLY;
                 break;
             case "KATANA_ONLY":
-                loginManager.setLoginBehavior(LoginBehavior.KATANA_ONLY);
+                loginBehavior = LoginBehavior.KATANA_ONLY;
                 break;
             case "WEB_ONLY":
-                loginManager.setLoginBehavior(LoginBehavior.WEB_ONLY);
+                loginBehavior = LoginBehavior.WEB_ONLY;
                 break;
             case "WEB_VIEW_ONLY":
-                loginManager.setLoginBehavior(LoginBehavior.WEB_VIEW_ONLY);
+                loginBehavior = LoginBehavior.WEB_VIEW_ONLY;
                 break;
             case "DIALOG_ONLY":
-                loginManager.setLoginBehavior(LoginBehavior.DIALOG_ONLY);
+                loginBehavior = LoginBehavior.DIALOG_ONLY;
                 break;
             case "DEVICE_AUTH":
-                loginManager.setLoginBehavior(LoginBehavior.DEVICE_AUTH);
+                loginBehavior = LoginBehavior.DEVICE_AUTH;
                 break;
             default:
-                loginManager.setLoginBehavior(LoginBehavior.NATIVE_WITH_FALLBACK);
+                loginBehavior = LoginBehavior.NATIVE_WITH_FALLBACK;
         }
-
-
+        loginManager.setLoginBehavior(loginBehavior);
     }
 
     /**

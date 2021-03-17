@@ -2,15 +2,11 @@ package app.meedu.flutter_facebook_auth;
 
 
 import android.content.Intent;
-
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
-
 import java.util.HashMap;
-
-import io.flutter.Log;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.PluginRegistry;
 
@@ -29,7 +25,6 @@ class FacebookLoginResultDelegate implements FacebookCallback<LoginResult>, Plug
 
     @Override
     public void onSuccess(LoginResult loginResult) {
-        Log.i("LOGIN::::","OKKKKKK");
         final HashMap<String, Object> accessToken = FacebookAuth.getAccessToken(loginResult.getAccessToken());
         finishWithResult(accessToken);// send response to the client
     }

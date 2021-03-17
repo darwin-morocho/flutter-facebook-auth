@@ -1,3 +1,7 @@
+### 3.1.0+1
+- Updated README.
+- Updated flutter_facebook_auth_web and flutter_facebook_auth_platform_interface.
+
 ### 3.1.0-dev.0
 - Updated web example.
 - Updated flutter_facebook_auth.js file.

@@ -11,7 +11,6 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler;
 import io.flutter.plugin.common.MethodChannel.Result;
-import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /**
  * FlutterFacebookAuthPlugin
@@ -19,7 +18,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 public class FlutterFacebookAuthPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
 
     private static final String CHANNEL_NAME = "app.meedu/flutter_facebook_auth";
-    private FacebookAuth facebookAuth = new FacebookAuth();
+    private final FacebookAuth facebookAuth = new FacebookAuth();
     private ActivityPluginBinding activityPluginBinding;
 
     /// The MethodChannel that will the communication between Flutter and native Android

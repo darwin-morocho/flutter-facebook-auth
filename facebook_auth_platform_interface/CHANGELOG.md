@@ -1,3 +1,6 @@
+### 2.1.1
+- Updated the AccessToken class.
+
 
 ### 2.1.0-dev.0
 - Renamed FacebookAuthPlatformInterface to FacebookAuthPlatform.
