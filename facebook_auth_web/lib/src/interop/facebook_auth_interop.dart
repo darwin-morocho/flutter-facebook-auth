@@ -3,7 +3,7 @@ library facebook_auth.js;
 
 import 'package:js/js.dart';
 
-@JS('FB')
+@JS('FacebookAuth')
 class FB implements FbInterface {
   external factory FB();
   external getAccessToken();

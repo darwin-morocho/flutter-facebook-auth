@@ -29,7 +29,8 @@ var handleAuthResponse = function (response, resolve) {
       var userID = response.authResponse.userID;
       var expiresIn = response.authResponse.expiresIn;
       var graphDomain = response.authResponse.graphDomain;
-      var data_access_expiration_time = response.authResponse.data_access_expiration_time;
+      var data_access_expiration_time =
+        response.authResponse.data_access_expiration_time;
 
       getGrantedAndDeclinedPermissions(function (data) {
         var granted = data.granted;
@@ -99,7 +100,7 @@ function FacebookAuth() {
     });
   };
 
-  FacebookAuth.prototype.logout = function () {
+  FacebookAuth.prototype.logOut = function () {
     return new Promise(function (resolve) {
       FB.logout(function (response) {
         resolve(null);

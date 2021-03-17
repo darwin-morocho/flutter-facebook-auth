@@ -10,7 +10,7 @@ import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_p
 import 'mock/mock_data.dart';
 
 /// create a new instance of FacebookAuthPlugin with Mock Data
-FacebookAuthPlugin getPlugin() => FacebookAuthPlugin(
+FlutterFacebookAuthPlugin getPlugin() => FlutterFacebookAuthPlugin(
       Auth(FbMock()),
     );
 

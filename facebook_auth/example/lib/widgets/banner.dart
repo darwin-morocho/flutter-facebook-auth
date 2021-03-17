@@ -42,6 +42,7 @@ class _MyBannerState extends State<MyBanner> {
       setState(() {});
       _accessToken = await _facebookAuth.login();
       _userData = await _facebookAuth.getUserData();
+      print(_userData);
     } on FacebookAuthException catch (e) {
       print(e.errorCode);
     } finally {
@@ -107,6 +108,12 @@ class _MyBannerState extends State<MyBanner> {
               SizedBox(height: 20),
               if (_userData == null) MyBtn("Try the sing in with Facebook", onPressed: _login),
               if (_userData != null) ...[
+                ClipOval(
+                  child: Image.network(
+                    _userData!['picture']['data']['url'],
+                    width: 80,
+                  ),
+                ),
                 Text(
                   "Hi ${_userData!['name']}",
                   style: TextStyle(

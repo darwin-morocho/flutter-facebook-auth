@@ -5,13 +5,13 @@ import 'package:flutter_facebook_auth_web/src/interop/auth.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
 /// A web implementation of the FlutterFacebookAuth plugin.
-class FacebookAuthPlugin extends FacebookAuthPlatform {
+class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   final Auth _auth;
 
-  FacebookAuthPlugin([Auth? auth]) : _auth = auth ?? Auth();
+  FlutterFacebookAuthPlugin([Auth? auth]) : _auth = auth ?? Auth();
 
   static void registerWith(Registrar registrar) {
-    FacebookAuthPlatform.instance = FacebookAuthPlugin();
+    FacebookAuthPlatform.instance = FlutterFacebookAuthPlugin();
   }
 
   @override

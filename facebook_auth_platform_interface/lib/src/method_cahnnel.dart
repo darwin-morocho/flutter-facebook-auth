@@ -43,7 +43,8 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
   @override
   Future<AccessToken?> expressLogin() async {
-    if (Platform.isAndroid) {
+    final tesing = Platform.environment.containsKey('FLUTTER_TEST');
+    if (Platform.isAndroid || tesing) {
       try {
         final result = await channel.invokeMethod("expressLogin");
         return AccessToken.fromJson(Map<String, dynamic>.from(result));
