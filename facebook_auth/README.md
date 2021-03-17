@@ -535,13 +535,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 .
 .
 .
-  Future<UserCredential> signInWithFacebook() async {
+  Future<UserCredential?> signInWithFacebook() async {
     try {
-      final AccessToken accessToken = await FacebookAuth.instance.login();
+      final AccessToken accessToken = (await FacebookAuth.instance.login())!;
 
       // Create a credential from the access token
-      final FacebookAuthCredential credential = FacebookAuthProvider.credential(
-        accessToken.token,
+      final OAuthCredential credential = FacebookAuthProvider.credential(
+        accessToken.token!,
       );
       // Once signed in, return the UserCredential
       return await FirebaseAuth.instance.signInWithCredential(credential);
