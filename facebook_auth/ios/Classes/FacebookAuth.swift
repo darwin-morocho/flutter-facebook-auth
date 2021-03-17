@@ -21,7 +21,12 @@ class FacebookAuth: NSObject {
      */
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let args = call.arguments as? [String: Any]
+        
+        
+      
         switch call.method{
+        
+        
 
         case "login":
             let permissions = args?["permissions"] as! [String]

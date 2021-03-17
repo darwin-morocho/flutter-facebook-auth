@@ -30,7 +30,7 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^3.1.0
+flutter_facebook_auth: ^3.1.1
 ```
 ---
 ### 🚫 **IMPORTANT** 🚫

@@ -1,3 +1,6 @@
+### 3.1.1
+- Fixed log "FBSDKGraphRequestConnection cannot be started before Facebook SDK initialized" on iOS.
+
 ### 3.1.0+1
 - Updated README.
 - Updated flutter_facebook_auth_web and flutter_facebook_auth_platform_interface.
@@ -11,7 +14,7 @@
 - Updated README. 
 
 ### 3.0.0
-- Added support for flutter 2 and null safety. 
+- Added support for flutter 2 and null safety. Thansk [@samlythemanly](https://github.com/samlythemanly). 
 ### 3.0.0-nullsafety.1
 - flutter_facebook_auth_platform_interface: ^2.0.0-nullsafety.2
 

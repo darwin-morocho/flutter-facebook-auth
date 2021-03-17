@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 import 'my_btn.dart';
 
 class MyBanner extends StatefulWidget {
@@ -25,8 +26,8 @@ class _MyBannerState extends State<MyBanner> {
 
   /// uses the facebook SDK to check if a user has an active session
   Future<void> _checkIfIsLogged() async {
+    _accessToken = await _facebookAuth.accessToken;
     _checking = false;
-    print("is Logged:::: ${_accessToken != null}");
     if (_accessToken != null) {
       // if the user is logged
       // now you can call to  FacebookAuth.instance.getUserData();

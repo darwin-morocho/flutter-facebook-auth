@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import '../../widgets/banner.dart';
+import '../banner.dart';
 import './widgets/readme.dart';
 
 String prettyPrint(Map json) {
