@@ -58,10 +58,13 @@ class Auth {
         return accessToken;
 
       case "unknown":
-        throw PlatformException(code: "CANCELLED", message: "User has cancelled login with facebook");
+        throw PlatformException(
+            code: "CANCELLED",
+            message: "User has cancelled login with facebook");
 
       default:
-        throw PlatformException(code: "FAILED", message: "Facebook login failed");
+        throw PlatformException(
+            code: "FAILED", message: "Facebook login failed");
     }
   }
 
@@ -83,7 +86,8 @@ class Auth {
         return accessToken;
 
       default:
-        throw PlatformException(code: "FAILED", message: "Facebook login status check failed");
+        throw PlatformException(
+            code: "FAILED", message: "Facebook login status check failed");
     }
   }
 

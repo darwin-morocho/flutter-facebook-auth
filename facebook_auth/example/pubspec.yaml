@@ -21,9 +21,6 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
 
-dependency_overrides:
-  plugin_platform_interface: ^1.1.0-nullsafety.2
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 

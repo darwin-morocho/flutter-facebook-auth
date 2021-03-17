@@ -10,7 +10,8 @@ import 'facebook_auth_exception.dart';
 /// class to make calls to the facebook login SDK
 class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
   @visibleForTesting
-  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
+  MethodChannel channel =
+      const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -69,7 +70,9 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
       if (kIsWeb) {
         return Map<String, dynamic>.from(result);
       } else {
-        return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
+        return Platform.isAndroid
+            ? jsonDecode(result)
+            : Map<String, dynamic>.from(result); //null  or dynamic data
       }
     } on PlatformException catch (e) {
       throw FacebookAuthException(e.code, e.message);

@@ -1,3 +1,8 @@
+### 2.1.0-dev.0
+- Added Unit test.
+- Removed MethodChannel.
+- Updated flutter_facebook_auth_platform_interface: ^2.1.0-dev.0
+
 ### 2.0.0-nullsafety.1
 -  Updated dart sdk >=2.12.0-0 <3.0.0.
 

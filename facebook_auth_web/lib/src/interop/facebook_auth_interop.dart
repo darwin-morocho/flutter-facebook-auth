@@ -12,17 +12,17 @@ class FB implements FbInterface {
   external logOut();
 }
 
-@JS()
-class Promise<T> {
-  external Promise(
-    void Function(void Function(T result) resolve, Function reject) executor,
-  );
+// @JS()
+// class Promise<T> {
+//   external Promise(
+//     void Function(void Function(T result) resolve, Function reject) executor,
+//   );
 
-  external Promise then(
-    void Function(T result) onFulfilled, [
-    Function? onRejected,
-  ]);
-}
+//   external Promise then(
+//     void Function(T result) onFulfilled, [
+//     Function? onRejected,
+//   ]);
+// }
 
 abstract class FbInterface {
   getAccessToken();

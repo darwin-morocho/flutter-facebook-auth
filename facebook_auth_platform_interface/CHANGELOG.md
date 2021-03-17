@@ -1,3 +1,8 @@
+
+### 2.1.0-dev.0
+- Renamed FacebookAuthPlatformInterface to FacebookAuthPlatform.
+- Added unit test.
+
 ### 2.0.0
 -  Release the null safety version.
 
