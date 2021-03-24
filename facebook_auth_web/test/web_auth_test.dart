@@ -22,8 +22,9 @@ void main() {
       expect(await plugin.accessToken, null);
       Map<String, dynamic> userData = await plugin.getUserData();
       expect(userData.containsKey('name'), false);
-      final AccessToken accessToken = await plugin.login();
-      expect(accessToken, isNotNull);
+      final result = await plugin.login();
+      expect(result.status, LoginStatus.success);
+      expect(result.accessToken, isNotNull);
       expect(await plugin.accessToken, isNotNull);
       userData = await plugin.getUserData();
       expect(userData.containsKey('name'), true);

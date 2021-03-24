@@ -25,7 +25,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   }
 
   @override
-  Future<AccessToken?> expressLogin() {
+  Future<LoginResult> expressLogin() {
     throw UnimplementedError();
   }
 
@@ -41,15 +41,16 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   }
 
   @override
-  Future<AccessToken> login({
+  Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   }) async {
     try {
       final result = await _auth.login(permissions);
-      return AccessToken.fromJson(Map<String, dynamic>.from(result));
+      final token = AccessToken.fromJson(Map<String, dynamic>.from(result));
+      return LoginResult(status: LoginStatus.success, accessToken: token);
     } on PlatformException catch (e) {
-      throw FacebookAuthException(e.code, e.message);
+      return LoginResult.getResultFromException(e);
     }
   }
 }

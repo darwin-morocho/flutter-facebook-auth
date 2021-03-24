@@ -1,13 +1,13 @@
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
-
+import 'src/login_result.dart';
 import 'src/access_token.dart';
 import 'src/method_cahnnel.dart';
 import 'src/login_behavior.dart';
 export 'src/access_token.dart';
 export 'src/login_behavior.dart';
 export 'src/facebook_auth_error_code.dart';
-export 'src/facebook_auth_exception.dart';
 export 'src/method_cahnnel.dart';
+export 'src/login_result.dart';
 
 /// The interface that implementations of flutter_facebook_auth must implement.
 ///
@@ -36,7 +36,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   ///
   /// [loginBehavior] (only Android) use this param to set the UI for the authentication,
   /// like webview, native app, or a dialog.
-  Future<AccessToken> login({
+  Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   });
@@ -48,7 +48,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   /// This avoid creating duplicate accounts or failing to log in at all. To support the changes in Android 11,
   /// first add the following code to the queries element in your /app/manifest/AndroidManifest.xml file.
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
-  Future<AccessToken?> expressLogin();
+  Future<LoginResult> expressLogin();
 
   /// retrive the user information using the GraphAPI
   ///

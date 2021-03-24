@@ -1,6 +1,5 @@
 ![image](https://user-images.githubusercontent.com/15864336/101827170-f5ce3180-3afd-11eb-9a60-5933a15f337b.png)
 
-
 <p align="center">
   <a href="https://pub.dev/packages/flutter_facebook_auth"><img alt="pub version" src="https://img.shields.io/pub/v/flutter_facebook_auth?color=%2300b0ff&label=flutter_facebook_auth&style=flat-square"></a>
 
@@ -20,9 +19,12 @@
 - [Example](#example)
 - [Using with firebase_auth](#using-with-firebase_auth)
 - [Support for flutter Web](#add-support-for-flutter-web)
+- [Migration Guide](#migration-guide)
 
 ---
+
 > See a complete video tutorial using `flutter_facebook_auth` (Spanish Only) https://www.youtube.com/watch?v=X-x5pHQ4Gz8&list=PLV0nOzdUS5XuWMzOCGZQPwCEZ1m5aZEo5
+
 ---
 
 ## **Installation**
@@ -30,15 +32,16 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^3.1.1
+flutter_facebook_auth: ^3.2.0
 ```
+
 ---
+
 ### 🚫 **IMPORTANT** 🚫
 
 When you install this plugin you need configure the plugin on Android and iOS before run the project . If you don't do it you will have a **No implementation found** error because the Facebook sdk will try to find the configuration. If you don't need the plugin yet please remove or comment it.
 
 ---
-
 
 ### **Android**
 
@@ -182,7 +185,6 @@ https://developers.facebook.com/docs/facebook-login/android/#expresslogin
 
 > for Objective-C projects (correctly works is not granted because this plugin was written with swift)
 
-
 > **You need Swift support**<br/>
 > The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
 
@@ -279,6 +281,7 @@ To use any of the Facebook dialogs (e.g., Login, Share, App Invites, etc.) that 
   <string>fbshareextension</string>
 </array>
 ```
+
 ---
 
 ### **METHODS**
@@ -288,27 +291,21 @@ Just use `FacebookAuth.instance`. NOTE: all methods are **asynchronous**.
 - `FacebookAuth.instance.login()` : request login with a list of permissions.
 
 ```dart
-  Future<void> _login() async {
-    try {
-      // by default the login method has the next permissions ['email','public_profile']
-      AccessToken accessToken = (await FacebookAuth.instance.login())!;
-      print(accessToken.toJson());
+  Future<AccessToken?> _login() async {
+     final LoginResult result = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
+    if (result.status == LoginStatus.success) {
       // get the user data
+      // by default we get the userId, email,name and picture
       final userData = await FacebookAuth.instance.getUserData();
+      // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
       print(userData);
-    } on FacebookAuthException catch (e) {
-      switch (e.errorCode) {
-        case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
-          print("You have a previous login operation in progress");
-          break;
-        case FacebookAuthErrorCode.CANCELLED:
-          print("login cancelled");
-          break;
-        case FacebookAuthErrorCode.FAILED:
-          print("login failed");
-          break;
-      }
+      return result.accessToken;
     }
+
+    print(result.status);
+    print(result.message);
+    return null;
+
   }
 ```
 
@@ -429,49 +426,31 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _login() async {
-    try {
-      // show a circular progress indicator
-      setState(() {
-        _checking = true;
-      });
-      _accessToken = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
-      // loginBehavior is only supported for Android devices, for ios it will be ignored
-      // _accessToken = await FacebookAuth.instance.login(
-      //   permissions: ['email', 'public_profile', 'user_birthday', 'user_friends', 'user_gender', 'user_link'],
-      //   loginBehavior:
-      //       LoginBehavior.DIALOG_ONLY, // (only android) show an authentication dialog instead of redirecting to facebook app
-      // );
+    final LoginResult result = await FacebookAuth.instance.login(); // by the fault we request the email and the public profile
+
+    // loginBehavior is only supported for Android devices, for ios it will be ignored
+    // final result = await FacebookAuth.instance.login(
+    //   permissions: ['email', 'public_profile', 'user_birthday', 'user_friends', 'user_gender', 'user_link'],
+    //   loginBehavior: LoginBehavior
+    //       .DIALOG_ONLY, // (only android) show an authentication dialog instead of redirecting to facebook app
+    // );
+
+    if (result.status == LoginStatus.success) {
+      _accessToken = result.accessToken;
       _printCredentials();
       // get the user data
       // by default we get the userId, email,name and picture
       final userData = await FacebookAuth.instance.getUserData();
       // final userData = await FacebookAuth.instance.getUserData(fields: "email,birthday,friends,gender,link");
       _userData = userData;
-    } on FacebookAuthException catch (e) {
-      // if the facebook login fails
-      print(e.message); // print the error message in console
-      // check the error type
-      switch (e.errorCode) {
-        case FacebookAuthErrorCode.OPERATION_IN_PROGRESS:
-          print("You have a previous login operation in progress");
-          break;
-        case FacebookAuthErrorCode.CANCELLED:
-          print("login cancelled");
-          break;
-        case FacebookAuthErrorCode.FAILED:
-          print("login failed");
-          break;
-      }
-    } catch (e, s) {
-      // print in the logs the unknown errors
-      print(e);
-      print(s);
-    } finally {
-      // update the view
-      setState(() {
-        _checking = false;
-      });
+    } else {
+      print(result.status);
+      print(result.message);
     }
+
+    setState(() {
+      _checking = false;
+    });
   }
 
 
@@ -536,32 +515,24 @@ import 'package:firebase_auth/firebase_auth.dart';
 .
 .
   Future<UserCredential?> signInWithFacebook() async {
-    try {
-      final AccessToken accessToken = await FacebookAuth.instance.login();
-
+    final LoginResult result = await FacebookAuth.instance.login();
+    if(result.status == LoginStatus.success){
       // Create a credential from the access token
-      final OAuthCredential credential = FacebookAuthProvider.credential(
-        accessToken.token,
-      );
+      final OAuthCredential credential = FacebookAuthProvider.credential(result.accessToken!);
       // Once signed in, return the UserCredential
       return await FirebaseAuth.instance.signInWithCredential(credential);
-    } on FacebookAuthException catch (e) {
-      // handle the FacebookAuthException
-    } on FirebaseAuthException catch (e) {
-      // handle the FirebaseAuthException
-    } finally {}
+    }
     return null;
   }
 ```
-
 
 ## **Add Support for flutter Web**
 
 > Check a web demo [here](https://flutter-facebook-auth.web.app/)
 
-🚫 *IMPORTANT:* the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with an error message in your web console.
+🚫 _IMPORTANT:_ the facebook javascript SDK is only allowed to use with `https` but you can test the plugin in your localhost with an error message in your web console.
 
-👉 The `accessToken` method only works in live mode using `https` and you must add your **OAuth redirect URL**  in your *facebook developer console*.
+👉 The `accessToken` method only works in live mode using `https` and you must add your **OAuth redirect URL** in your _facebook developer console_.
 
 ---
 
@@ -572,22 +543,29 @@ Download the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin
 Now you need to define your `FACEBOOK_APP_ID` and the `flutter_facebook_auth.js` script in your `index.html` at the top of your body tag.
 
 ```html
-  <script>
-      var FACEBOOK_APP_ID = "YOUR_FACEBOOK_APP_ID";
-      window.fbAsyncInit = function () {
-        FB.init({
-          appId: FACEBOOK_APP_ID,
-          cookie: true,
-          xfbml: true,
-          version: "v9.0",
-        });
-        FB.AppEvents.logPageView();
-      };
-    </script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js" ></script>
-    <script src="flutter_facebook_auth.js" type="application/javascript" ></script>
+<script>
+  var FACEBOOK_APP_ID = "YOUR_FACEBOOK_APP_ID";
+  window.fbAsyncInit = function () {
+    FB.init({
+      appId: FACEBOOK_APP_ID,
+      cookie: true,
+      xfbml: true,
+      version: "v9.0",
+    });
+    FB.AppEvents.logPageView();
+  };
+</script>
+<script
+  async
+  defer
+  crossorigin="anonymous"
+  src="https://connect.facebook.net/en_US/sdk.js"
+></script>
+<script src="flutter_facebook_auth.js" type="application/javascript"></script>
 ```
+
 Example
+
 ```html
 <!DOCTYPE html>
 <html>
@@ -596,12 +574,18 @@ Example
 
     <meta charset="UTF-8" />
     <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
-    <meta name="description" content="Demonstrates how to use the flutter_facebook_auth plugin." />
+    <meta
+      name="description"
+      content="Demonstrates how to use the flutter_facebook_auth plugin."
+    />
 
     <!-- iOS meta tags & icons -->
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    <meta name="apple-mobile-web-app-title" content="flutter_facebook_auth_example" />
+    <meta
+      name="apple-mobile-web-app-title"
+      content="flutter_facebook_auth_example"
+    />
     <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
     <link rel="icon" type="image/png" href="favicon.png" />
@@ -610,7 +594,7 @@ Example
     <link rel="manifest" href="manifest.json" />
   </head>
   <body>
-      <script>
+    <script>
       var FACEBOOK_APP_ID = "1329834902365798";
       window.fbAsyncInit = function () {
         FB.init({
@@ -622,8 +606,16 @@ Example
         FB.AppEvents.logPageView();
       };
     </script>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-    <script src="flutter_facebook_auth.js" type="application/javascript"></script>
+    <script
+      async
+      defer
+      crossorigin="anonymous"
+      src="https://connect.facebook.net/en_US/sdk.js"
+    ></script>
+    <script
+      src="flutter_facebook_auth.js"
+      type="application/javascript"
+    ></script>
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("flutter-first-frame", function () {
@@ -634,6 +626,37 @@ Example
     <script src="main.dart.js" type="application/javascript"></script>
   </body>
 </html>
+```
 
+
+## **Migration Guide**
+Now the this flugin uses the swift facebook sdk 9.1.0 and the android facebook sdk 9.1.0
+
+If you have a previous version of `flutter_facebook_auth: 3.2.0` you need remove that version from your `pubspec.yaml`
+
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+  url_launcher: ^6.0.2
+  flutter_facebook_auth: 3.1.1 # <-- REMOVE THIS
+```
+Now run the command `flutter pub get`.
+Next you need remove the previos version of the facebook sdk from your **Podfile.lock** (only iOS) just run the next command 
+```
+cd ios && pod install
+```
+The above command will remove the old dependencies from the **Podfile.lock** file. Now add the new version of this plugin in your `pubspec.yaml`
+
+
+> The **FacebookAuthException** class was removed now you need to use the LoginResult class to check if your login was successful.
+```dart
+ final LoginResult result = await FacebookAuth.instance.login();
+ if (result.status == LoginStatus.success) {
+    final accessToken = result.accessToken;
+  } else {
+    print(result.status);
+    print(result.message);
+  }
 ```
 

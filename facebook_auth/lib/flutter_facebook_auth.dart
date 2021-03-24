@@ -12,11 +12,6 @@ class FacebookAuth implements FacebookAuthPlatform {
 
   FacebookAuthPlatform _ = FacebookAuthPlatform.instance;
 
-  @deprecated
-
-  /// deprecated in favor to accessToken method
-  Future<AccessToken?> get isLogged => this.accessToken;
-
   /// if the user is logged return one instance of AccessToken
   @override
   Future<AccessToken?> get accessToken => _.accessToken;
@@ -29,7 +24,7 @@ class FacebookAuth implements FacebookAuthPlatform {
   /// first add the following code to the queries element in your /app/manifest/AndroidManifest.xml file.
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
   @override
-  Future<AccessToken?> expressLogin() => _.expressLogin();
+  Future<LoginResult> expressLogin() => _.expressLogin();
 
   /// retrive the user information using the GraphAPI
   ///
@@ -51,7 +46,7 @@ class FacebookAuth implements FacebookAuthPlatform {
   /// [loginBehavior] (only Android) use this param to set the UI for the authentication,
   /// like webview, native app, or a dialog.
   @override
-  Future<AccessToken> login({
+  Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   }) =>

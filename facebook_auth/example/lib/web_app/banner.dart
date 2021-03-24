@@ -38,18 +38,15 @@ class _MyBannerState extends State<MyBanner> {
   }
 
   _login() async {
-    try {
-      _checking = true;
-      setState(() {});
-      _accessToken = await _facebookAuth.login();
+    _checking = true;
+    setState(() {});
+    final result = await _facebookAuth.login();
+    if (result.status == LoginStatus.success) {
       _userData = await _facebookAuth.getUserData();
       print(_userData);
-    } on FacebookAuthException catch (e) {
-      print(e.errorCode);
-    } finally {
-      _checking = false;
-      setState(() {});
     }
+    _checking = false;
+    setState(() {});
   }
 
   void _logOut() async {

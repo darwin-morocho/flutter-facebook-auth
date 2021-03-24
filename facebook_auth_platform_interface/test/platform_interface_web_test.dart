@@ -2,6 +2,7 @@
 
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
+import 'package:flutter_facebook_auth_platform_interface/src/login_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'mock_data.dart';
@@ -38,15 +39,23 @@ void main() {
       Map<String, dynamic> userData = await FacebookAuthPlatform.instance.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
-      accessToken = await instance.login();
-      expect(accessToken, isNotNull);
-      final accessTokenAsJson = accessToken.toJson();
-      expect(accessTokenAsJson.containsKey('token'), true);
+      final loginResult = await instance.login();
+      if (loginResult.status == LoginStatus.success) {
+        accessToken = loginResult.accessToken;
+        expect(accessToken, isNotNull);
+        final accessTokenAsJson = accessToken!.toJson();
+        expect(accessTokenAsJson.containsKey('token'), true);
+        userData = await instance.getUserData();
+        expect(userData.containsKey("email"), true);
+        await instance.logOut();
+        expect(await instance.accessToken, null);
+      }
+    });
 
-      userData = await instance.getUserData();
-      expect(userData.containsKey("email"), true);
-      await instance.logOut();
-      expect(await instance.accessToken, null);
+    test('express login failed', () async {
+      final instance = FacebookAuthPlatform.instance;
+      final loginResult = await instance.expressLogin();
+      expect(loginResult.status == LoginStatus.failed, true);
     });
   });
 }

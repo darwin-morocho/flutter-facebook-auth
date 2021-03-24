@@ -1,3 +1,9 @@
+### 3.2.0
+- Removed FacebookAuthException class.
+- Added LoginResult class.
+- Updated README.
+- Updated example.
+
 ### 3.1.1
 - Fixed log "FBSDKGraphRequestConnection cannot be started before Facebook SDK initialized" on iOS.
 

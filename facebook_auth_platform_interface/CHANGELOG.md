@@ -1,3 +1,7 @@
+### 2.2.0
+- Removed FacebookAuthException class.
+- Added LoginResult class.
+
 ### 2.1.1
 - Updated the AccessToken class.
 

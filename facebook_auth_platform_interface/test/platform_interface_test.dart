@@ -1,5 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
+import 'package:flutter_facebook_auth_platform_interface/src/login_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'mock_data.dart';
@@ -28,28 +29,22 @@ void main() {
     });
 
     test('login failed', () async {
-      try {
-        final instance = FacebookAuthPlatform.instance;
-        await instance.login();
-      } catch (e) {
-        expect(e, isA<FacebookAuthException>());
-      }
+      final instance = FacebookAuthPlatform.instance;
+      final result = await instance.login();
+      expect(result.status, LoginStatus.failed);
     });
 
     test('express login failed', () async {
-      try {
-        final instance = FacebookAuthPlatform.instance;
-        await instance.expressLogin();
-      } catch (e) {
-        expect(e, isA<FacebookAuthException>());
-      }
+      final instance = FacebookAuthPlatform.instance;
+      final result = await instance.expressLogin();
+      expect(result.status, LoginStatus.failed);
     });
     test('get user date failed', () async {
       try {
         final instance = FacebookAuthPlatform.instance;
         await instance.getUserData();
       } catch (e) {
-        expect(e, isA<FacebookAuthException>());
+        expect(e, isA<PlatformException>());
       }
     });
   });
@@ -86,16 +81,19 @@ void main() {
       Map<String, dynamic> userData = await FacebookAuthPlatform.instance.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
-      accessToken = await instance.login();
-      expect(accessToken, isNotNull);
-      final accessTokenAsJson = accessToken.toJson();
-      expect(accessTokenAsJson.containsKey('token'), true);
-      expect(await instance.accessToken, isA<AccessToken>());
-      expect((await instance.expressLogin()), isA<AccessToken>());
-      userData = await instance.getUserData();
-      expect(userData.containsKey("email"), true);
-      await instance.logOut();
-      expect(await instance.accessToken, null);
+      final loginResult = await instance.login();
+      if (loginResult.status == LoginStatus.success) {
+        accessToken = loginResult.accessToken;
+        expect(accessToken, isNotNull);
+        final accessTokenAsJson = accessToken!.toJson();
+        expect(accessTokenAsJson.containsKey('token'), true);
+        expect(await instance.accessToken, isA<AccessToken>());
+        expect((await instance.expressLogin()), isA<LoginResult>());
+        userData = await instance.getUserData();
+        expect(userData.containsKey("email"), true);
+        await instance.logOut();
+        expect(await instance.accessToken, null);
+      }
     });
   });
 }

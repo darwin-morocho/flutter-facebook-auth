@@ -38,10 +38,11 @@ void main() {
 
     test('login request', () async {
       expect(await facebookAuth.accessToken, null);
-      final AccessToken? accessToken = await facebookAuth.login();
-      expect(accessToken, isNotNull);
+
+      final result = await facebookAuth.login();
+      expect(result.status, LoginStatus.success);
+      expect(result.accessToken, isNotNull);
       expect(await facebookAuth.accessToken, isA<AccessToken>());
-      expect(await facebookAuth.isLogged, isA<AccessToken>());
       final Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(userData.containsKey("email"), true);
       await facebookAuth.logOut();
@@ -50,11 +51,8 @@ void main() {
 
     test('express login', () async {
       expect(await facebookAuth.accessToken, null);
-      try {
-        await facebookAuth.expressLogin();
-      } catch (e) {
-        expect(e, isA<FacebookAuthException>());
-      }
+      final result = await facebookAuth.expressLogin();
+      expect(result.status, LoginStatus.success);
     });
   });
 }
