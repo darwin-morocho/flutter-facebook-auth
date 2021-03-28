@@ -534,9 +534,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 👉 The `accessToken` method only works in live mode using `https` and you must add your **OAuth redirect URL** in your _facebook developer console_.
 
----
-
-<img  src="https://user-images.githubusercontent.com/15864336/101827813-bf44e680-3afe-11eb-9176-4e6ec9528d0c.png" width="300" />
 
 Now you need to add the Facebook JavaScript SDK in your `index.html` at the top of your body tag.
 
