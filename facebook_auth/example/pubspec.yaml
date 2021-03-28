@@ -12,6 +12,9 @@ dependencies:
   flutter:
     sdk: flutter
   url_launcher: ^6.0.2
+  meedu: ^2.0.1
+  flutter_meedu: ^2.0.1
+  google_fonts: ^2.0.0
   flutter_facebook_auth:
     path: ../
 
@@ -30,3 +33,4 @@ flutter:
     - assets/ios.png
     - assets/web.png
     - assets/github.png
+    - assets/typing.png

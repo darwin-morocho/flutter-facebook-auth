@@ -32,7 +32,7 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^3.3.0
+flutter_facebook_auth: ^3.3.1
 ```
 
 ---
@@ -183,10 +183,8 @@ https://developers.facebook.com/docs/facebook-login/android/#expresslogin
 
 ### **iOS**
 
-> for Objective-C projects (correctly works is not granted because this plugin was written with swift)
+🚫 For Objective-C projects this plugin won't work because this plugin was written in swift. So you need to use swift as a default language for your flutter project (Check how to change to swift [here](https://github.com/darwin-morocho/flutter-facebook-auth/issues/41#issuecomment-761702248)).
 
-> **You need Swift support**<br/>
-> The plugin is written in `Swift`, so your project needs to have Swift support enabled. If you've created the project using `flutter create -i swift [projectName]` you are all set. If not, you can enable Swift support by opening the project with XCode, then choose `File -> New -> File -> Swift File`. XCode will ask you if you wish to create Bridging Header, click yes.
 
 - In your Podfile uncomment the next line (You need set the minimum target to 9.0 or higher)
 

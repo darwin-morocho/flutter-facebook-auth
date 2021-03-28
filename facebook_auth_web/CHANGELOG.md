@@ -1,3 +1,13 @@
+### 2.4.0+1
+- Removed logs.
+
+### 2.4.0
+- Updated flutter_facebook_auth_platform_interface: ^2.4.0
+- Added get permissions for web applications.
+
+### 2.3.1
+- Added tests for each interop.
+
 ### 2.3.0
 - Added FB interop.
 - Added webInitialize method.

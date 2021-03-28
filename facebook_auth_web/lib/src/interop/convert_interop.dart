@@ -8,6 +8,7 @@ import 'dart:convert';
 @JS('JSON.stringify')
 external String stringify(Object obj);
 
-convert(dynamic object) {
+/// convert the a javascript object to a valid map
+Map<String, dynamic> convert(dynamic object) {
   return jsonDecode(stringify(object));
 }

@@ -1,0 +1,32 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "mobile",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "web html",
+            "type": "dart",
+            "request": "launch",
+            "args": [
+                "-d",
+                "chrome",
+                "--web-renderer",
+                "html"
+            ]
+        },
+        {
+            "name": "web canvaskit",
+            "type": "dart",
+            "request": "launch",
+            "args": [
+                "-d",
+                "chrome",
+                "--web-renderer",
+                "canvaskit"
+            ]
+        }
+    ]
+}

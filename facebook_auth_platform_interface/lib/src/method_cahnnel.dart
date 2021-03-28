@@ -101,4 +101,16 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     required bool xfbml,
     required String version,
   }) {}
+
+  @override
+  Future<FacebookPermissions?> get permissions async {
+    final AccessToken? accessToken = await this.accessToken;
+    if (accessToken != null) {
+      return FacebookPermissions(
+        granted: accessToken.grantedPermissions!,
+        declined: accessToken.declinedPermissions!,
+      );
+    }
+    return null;
+  }
 }

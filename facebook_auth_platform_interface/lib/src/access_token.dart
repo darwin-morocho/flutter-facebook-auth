@@ -17,11 +17,11 @@ class AccessToken {
 
   final String? graphDomain;
 
-  /// list of string with the rejected permission by the user
-  final List<String> declinedPermissions;
+  /// list of string with the rejected permission by the user (on Web is null)
+  final List<String>? declinedPermissions;
 
-  /// list of string with the approved permission by the user
-  final List<String> grantedPermissions;
+  /// list of string with the approved permission by the user (on Web is null)
+  final List<String>? grantedPermissions;
 
   // is `true` when the token is expired
   final bool isExpired;

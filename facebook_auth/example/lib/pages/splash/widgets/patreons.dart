@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class Readme extends StatefulWidget {
-  @override
-  _ReadmeState createState() => _ReadmeState();
-}
+class Patreons extends StatelessWidget {
+  const Patreons({Key? key}) : super(key: key);
 
-class _ReadmeState extends State<Readme> {
   @override
   Widget build(BuildContext context) {
     return ConstrainedBox(
@@ -49,8 +46,7 @@ class _ReadmeState extends State<Readme> {
 class Link extends StatelessWidget {
   final Widget child;
   final String url;
-  const Link({Key? key, required this.child, required this.url})
-      : super(key: key);
+  const Link({Key? key, required this.child, required this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

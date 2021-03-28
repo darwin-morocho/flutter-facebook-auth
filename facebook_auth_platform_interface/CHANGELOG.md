@@ -1,3 +1,7 @@
+### 2.4.0
+- Added FacebookPermissions.
+- Added get permissions for web applications.
+
 ### 2.3.0
 - Added webInitialize method for web.
 

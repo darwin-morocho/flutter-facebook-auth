@@ -3,20 +3,22 @@ library facebook_auth.js;
 
 import 'package:js/js.dart';
 
+typedef FbCallback = void Function(dynamic response);
+
 @JS('init')
 external init(InitOptions options);
 
 @JS('login')
-external login(Function(dynamic response) fn, LoginOptions options);
+external login(FbCallback fn, LoginOptions options);
 
 @JS('getLoginStatus')
-external getLoginStatus(Function(dynamic response) fn);
+external getLoginStatus(FbCallback fn);
 
 @JS('api')
-external api(String request, Function(dynamic response) fn);
+external api(String request, FbCallback fn);
 
 @JS('logout')
-external logout(Function(dynamic response) fn);
+external logout(FbCallback fn);
 
 @JS()
 @anonymous

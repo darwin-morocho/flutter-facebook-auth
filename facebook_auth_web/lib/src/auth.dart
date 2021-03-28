@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 
 import 'package:js/js.dart';
@@ -72,6 +73,23 @@ class Auth {
   /// get the user profile information
   ///
   /// [fields] string of fields like birthday,email,hometown
+  ///
+  /// The facebook SDK will return a JSON like
+  /// ```
+  /// {
+  ///  "name": "Open Graph Test User",
+  ///  "email": "open_jygexjs_user@tfbnw.net",
+  ///  "picture": {
+  ///    "data": {
+  ///      "height": 126,
+  ///      "is_silhouette": true,
+  ///      "url": "https://scontent.fuio21-1.fna.fbcdn.net/v/t1.30497-1/s200x200/84628273_176159830277856_972693363922829312_n.jpg",
+  ///      "width": 200
+  ///    }
+  ///  },
+  ///  "id": "136742241592917"
+  ///}
+  ///```
   Future<Map<String, dynamic>> getUserData(String fields) {
     Completer<Map<String, dynamic>> c = Completer();
     fb.api(
@@ -100,43 +118,89 @@ class Auth {
     return c.future;
   }
 
+  /// handle the login or getLoginStatus response
+  ///
+  /// this method convert the javascript response a valid dart Map and the status
+  /// is equals to connected the login or getLoginStatus was success
+  ///
+  ///
+  /// The facebook SDK will return a JSON like
+  /// ```
+  /// {
+  ///   status:"connected",
+  ///   authResponse:{
+  ///     "userId": "136742241592917",
+  ///     "token": "3jNDpzq2L78XUkdYNuMJgzo1WVUa4Cc7z2M029srT",
+  ///     "data_access_expiration_time": 1610201170749,
+  ///     "graphDomain": "facebook",
+  ///     "isExpired": false,
+  ///   }
+  /// }
+  /// ```
   Future<LoginResult> _handleResponse(dynamic _) async {
-    final response = convert(_);
-    final String? status = response['status'];
-    if (status == null) {
-      return LoginResult(status: LoginStatus.failed);
-    }
-    if (status == 'connected') {
-      final authResponse = response['authResponse'];
-      final permissions = await _getGrantedAndDeclinedPermissions();
-      final expires = DateTime.now()
-          .add(
-            Duration(seconds: authResponse['data_access_expiration_time']),
-          )
-          .millisecondsSinceEpoch;
+    try {
+      final Map<String, dynamic> response = convert(_);
+      final String? status = response['status'];
+      if (status == null) {
+        return LoginResult(status: LoginStatus.failed);
+      }
+      if (status == 'connected') {
+        final Map<String, dynamic> authResponse = response['authResponse'];
 
-      return LoginResult(
-        status: LoginStatus.success,
-        accessToken: AccessToken(
-          applicationId: Auth.appId,
-          grantedPermissions: permissions.granted,
-          declinedPermissions: permissions.declined,
-          userId: authResponse['userID'],
-          expires: DateTime.fromMillisecondsSinceEpoch(expires),
-          lastRefresh: DateTime.now(),
-          token: authResponse['accessToken'],
-          isExpired: false,
-          graphDomain: authResponse['graphDomain'],
-        ),
-      );
-    } else if (status == 'unknown') {
-      return LoginResult(status: LoginStatus.cancelled);
+        final expires = DateTime.now()
+            .add(
+              Duration(seconds: authResponse['data_access_expiration_time']),
+            )
+            .millisecondsSinceEpoch;
+
+        // create a Login Result with an accessToken
+        return LoginResult(
+          status: LoginStatus.success,
+          accessToken: AccessToken(
+            applicationId: Auth.appId,
+            grantedPermissions:
+                null, // on web we don't have this data in the login response
+            declinedPermissions:
+                null, // on web we don't have this data in the login response
+            userId: authResponse['userID'],
+            expires: DateTime.fromMillisecondsSinceEpoch(expires),
+            lastRefresh: DateTime.now(),
+            token: authResponse['accessToken'],
+            isExpired: false,
+            graphDomain: authResponse['graphDomain'],
+          ),
+        );
+      } else if (status == 'unknown') {
+        return LoginResult(status: LoginStatus.cancelled);
+      }
+      return LoginResult(status: LoginStatus.failed);
+    } catch (e) {
+      if (e is PlatformException) {
+        return LoginResult(status: LoginStatus.failed, message: e.message);
+      }
+      return LoginResult(status: LoginStatus.failed, message: "unknown error");
     }
-    return LoginResult(status: LoginStatus.failed);
   }
 
-  Future<_GrantedAndDeclined> _getGrantedAndDeclinedPermissions() {
-    Completer<_GrantedAndDeclined> c = Completer();
+  /// get the granted and declined permission for the current facebook session
+  ///
+  /// The facebook SDK will return a JSON like
+  /// ```
+  /// {
+  ///  'data': [
+  ///    {
+  ///      "permission": "email",
+  ///      "status": "granted",
+  ///    },
+  ///    {
+  ///      "permission": "photos",
+  ///      "status": "declined",
+  ///    }
+  ///  ],
+  ///}
+  /// ```
+  Future<FacebookPermissions> getGrantedAndDeclinedPermissions() {
+    Completer<FacebookPermissions> c = Completer();
     fb.api(
       "/me/permissions",
       allowInterop(
@@ -144,6 +208,11 @@ class Auth {
           List<String> granted = [];
           List<String> declined = [];
           final response = convert(_);
+          if (response['error'] != null) {
+            throw PlatformException(
+                code: "REQUEST_LIMIT", message: response['error']['message']);
+          }
+
           for (final item in response['data'] as List) {
             final String permission = item['permission'];
             if (item['status'] == 'granted') {
@@ -152,18 +221,12 @@ class Auth {
               declined.add(permission);
             }
           }
-
           c.complete(
-            _GrantedAndDeclined(granted: granted, declined: declined),
+            FacebookPermissions(granted: granted, declined: declined),
           );
         },
       ),
     );
     return c.future;
   }
-}
-
-class _GrantedAndDeclined {
-  final List<String> granted, declined;
-  _GrantedAndDeclined({required this.granted, required this.declined});
 }

@@ -1,7 +1,5 @@
-import 'package:flutter_facebook_auth_web/src/interop/facebook_auth_interop.dart';
-
 abstract class MockData {
-  static const Map<String, dynamic> accessToken = {
+  static const accessToken = {
     "userId": "136742241592917",
     "token":
         "EAAS5elFDcaYBAB4KyXaxBtEBjkgYpAEZAZAFuV6VHxxfC29l6ZCjgEmYKVguY3Uos5fQ0blVON2WccIvLCQ72EFHDa0ZAmludHCbGN3jNDpzq2L78X74dYTYBAokZAzFWZBwg2biPlEboXkZCWjNWubmE3TES5er3yxZArstszCbQtfue1ECxkjzHhwUkdYNuMJgzo1WVUa4Cc7z2M029srT",
@@ -10,11 +8,9 @@ abstract class MockData {
     "applicationId": "1329834907365798",
     "graphDomain": "facebook",
     "isExpired": false,
-    "grantedPermissions": ["email", "user_link"],
-    "declinedPermissions": [],
   };
 
-  static const Map<String, dynamic> userData = {
+  static const userData = {
     "name": "Open Graph Test User",
     "email": "open_jygexjs_user@tfbnw.net",
     "picture": {
@@ -28,40 +24,17 @@ abstract class MockData {
     },
     "id": "136742241592917"
   };
-}
 
-class FbMock {
-  bool _isLogged = false;
-
-  @override
-  getAccessToken() {
-    return !_isLogged
-        ? {
-            "status": "not_authorized",
-          }
-        : {
-            "status": "connected",
-            "accessToken": MockData.accessToken,
-          };
-  }
-
-  @override
-  getUserData(String fields) {
-    return _isLogged ? MockData.userData : {};
-  }
-
-  @override
-  logOut() {
-    _isLogged = false;
-    return null;
-  }
-
-  @override
-  login(String scope) {
-    this._isLogged = true;
-    return <String, dynamic>{
-      "status": "connected",
-      "accessToken": MockData.accessToken,
-    };
-  }
+  static const permissions = {
+    'data': [
+      {
+        "permission": "email",
+        "status": "granted",
+      },
+      {
+        "permission": "photos",
+        "status": "declined",
+      }
+    ],
+  };
 }

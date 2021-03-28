@@ -1,3 +1,4 @@
+import 'package:flutter_facebook_auth_platform_interface/src/facebook_permissions.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 import 'src/login_result.dart';
 import 'src/access_token.dart';
@@ -8,6 +9,7 @@ export 'src/login_behavior.dart';
 export 'src/facebook_auth_error_code.dart';
 export 'src/method_cahnnel.dart';
 export 'src/login_result.dart';
+export 'src/facebook_permissions.dart';
 
 /// The interface that implementations of flutter_facebook_auth must implement.
 ///
@@ -70,4 +72,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
 
   /// if the user is logged return one instance of AccessToken
   Future<AccessToken?> get accessToken;
+
+  /// get the permissions for the current access token
+  Future<FacebookPermissions?> get permissions;
 }
