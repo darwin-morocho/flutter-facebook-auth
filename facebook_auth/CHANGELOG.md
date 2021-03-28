@@ -1,3 +1,7 @@
+### 3.3.0+2
+- Updated README.
+### 3.3.0+1
+- Removed interop file image.
 ### 3.3.0
 - Removed `flutter_facebook_auth.js` file.
 - Added webInitialize method.

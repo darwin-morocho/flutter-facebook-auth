@@ -572,18 +572,6 @@ Example
     <link rel="manifest" href="manifest.json" />
   </head>
   <body>
-    <script>
-      var FACEBOOK_APP_ID = "1329834902365798";
-      window.fbAsyncInit = function () {
-        FB.init({
-          appId: FACEBOOK_APP_ID,
-          cookie: true,
-          xfbml: true,
-          version: "v9.0",
-        });
-        FB.AppEvents.logPageView();
-      };
-    </script>
     <!-- START FACEBOOK SDK -->
     <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
      <!-- END FACEBOOK SDK  -->
