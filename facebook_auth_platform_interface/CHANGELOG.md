@@ -1,3 +1,6 @@
+### 2.3.0
+- Added webInitialize method for web.
+
 ### 2.2.0
 - Removed FacebookAuthException class.
 - Added LoginResult class.

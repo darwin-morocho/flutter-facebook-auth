@@ -1,3 +1,6 @@
+### 3.3.0
+- Removed `flutter_facebook_auth.js` file.
+- Added webInitialize method.
 ### 3.2.0
 - Removed FacebookAuthException class.
 - Added LoginResult class.

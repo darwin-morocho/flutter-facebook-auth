@@ -32,7 +32,7 @@
 First, add `flutter_facebook_auth` as a dependency in your pubspec.yaml file.
 
 ```yaml
-flutter_facebook_auth: ^3.2.0
+flutter_facebook_auth: ^3.3.0
 ```
 
 ---
@@ -642,6 +642,8 @@ Next you need remove the previos version of the facebook sdk from your **Podfile
 cd ios && pod install
 ```
 The above command will remove the old dependencies from the **Podfile.lock** file. Now add the new version of this plugin in your `pubspec.yaml`
+
+> For web the `flutter_facebook_auth.js` file is not more need it and in your `index.html` you only need to add the facebook sdk script (check the new [documentation](#add-support-for-flutter-web)).
 
 
 > The **FacebookAuthException** class was removed now you need to use the LoginResult class to check if your login was successful.

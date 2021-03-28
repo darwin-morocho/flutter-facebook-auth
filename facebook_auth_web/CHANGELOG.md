@@ -1,3 +1,8 @@
+### 2.3.0
+- Added FB interop.
+- Added webInitialize method.
+- Updated flutter_facebook_auth_platform_interface: ^2.3.0
+
 ### 2.2.0
 - Updated flutter_facebook_auth_platform_interface: ^2.2.0
 
