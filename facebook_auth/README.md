@@ -536,32 +536,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 
 ---
 
-Download the [flutter_facebook_auth.js](https://raw.githubusercontent.com/darwin-morocho/flutter-facebook-auth/master/facebook_auth/example/web/flutter_facebook_auth.js) file and put it into your `web` folder.
-
 <img  src="https://user-images.githubusercontent.com/15864336/101827813-bf44e680-3afe-11eb-9176-4e6ec9528d0c.png" width="300" />
 
-Now you need to define your `FACEBOOK_APP_ID` and the `flutter_facebook_auth.js` script in your `index.html` at the top of your body tag.
+Now you need to add the Facebook JavaScript SDK in your `index.html` at the top of your body tag.
 
 ```html
-<script>
-  var FACEBOOK_APP_ID = "YOUR_FACEBOOK_APP_ID";
-  window.fbAsyncInit = function () {
-    FB.init({
-      appId: FACEBOOK_APP_ID,
-      cookie: true,
-      xfbml: true,
-      version: "v9.0",
-    });
-    FB.AppEvents.logPageView();
-  };
-</script>
-<script
-  async
-  defer
-  crossorigin="anonymous"
-  src="https://connect.facebook.net/en_US/sdk.js"
-></script>
-<script src="flutter_facebook_auth.js" type="application/javascript"></script>
+<!-- ADD THIS SCRIPT -->
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 ```
 
 Example
@@ -606,16 +587,9 @@ Example
         FB.AppEvents.logPageView();
       };
     </script>
-    <script
-      async
-      defer
-      crossorigin="anonymous"
-      src="https://connect.facebook.net/en_US/sdk.js"
-    ></script>
-    <script
-      src="flutter_facebook_auth.js"
-      type="application/javascript"
-    ></script>
+    <!-- START FACEBOOK SDK -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+     <!-- END FACEBOOK SDK  -->
     <script>
       if ("serviceWorker" in navigator) {
         window.addEventListener("flutter-first-frame", function () {
@@ -626,6 +600,27 @@ Example
     <script src="main.dart.js" type="application/javascript"></script>
   </body>
 </html>
+```
+
+Now go to your `main.dart` file and in your `main` function initialize the facebook SDK.
+```dart 
+import 'package:flutter/foundation.dart' show kIsWeb;  
+.
+.
+.
+void main() {
+  // check if is running on Web
+  if (kIsWeb) {
+    // initialiaze the facebook javascript SDK
+    FacebookAuth.instance.webInitialize(
+      appId: "1329834907365798",//<-- YOUR APP_ID
+      cookie: true,
+      xfbml: true,
+      version: "v9.0",
+    );
+  }
+  runApp(MyApp());
+}
 ```
 
 

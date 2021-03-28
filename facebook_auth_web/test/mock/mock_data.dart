@@ -30,7 +30,7 @@ abstract class MockData {
   };
 }
 
-class FbMock implements FbInterface {
+class FbMock {
   bool _isLogged = false;
 
   @override

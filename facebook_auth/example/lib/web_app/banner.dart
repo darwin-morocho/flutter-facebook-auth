@@ -41,9 +41,10 @@ class _MyBannerState extends State<MyBanner> {
     _checking = true;
     setState(() {});
     final result = await _facebookAuth.login();
+    print("👀 ${result.status}");
     if (result.status == LoginStatus.success) {
       _userData = await _facebookAuth.getUserData();
-      print(_userData);
+      print("👀 $_userData");
     }
     _checking = false;
     setState(() {});

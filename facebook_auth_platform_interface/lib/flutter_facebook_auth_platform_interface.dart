@@ -30,6 +30,14 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     _instance = i;
   }
 
+  /// initialiaze the facebook javascript sdk
+  void webInitialize({
+    required String appId,
+    required bool cookie,
+    required bool xfbml,
+    required String version,
+  });
+
   /// make a login request using the facebook SDK
   ///
   /// [permissions] permissions like ["email","public_profile"]

@@ -10,8 +10,7 @@ import 'login_behavior.dart';
 /// class to make calls to the facebook login SDK
 class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
   @visibleForTesting
-  MethodChannel channel =
-      const MethodChannel('app.meedu/flutter_facebook_auth');
+  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -55,8 +54,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
         return LoginResult.getResultFromException(e);
       }
     }
-    return LoginResult(
-        status: LoginStatus.failed, message: 'Method only allowed on Android');
+    return LoginResult(status: LoginStatus.failed, message: 'Method only allowed on Android');
   }
 
   /// retrive the user information using the GraphAPI
@@ -72,9 +70,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     if (kIsWeb) {
       return Map<String, dynamic>.from(result);
     } else {
-      return Platform.isAndroid
-          ? jsonDecode(result)
-          : Map<String, dynamic>.from(result); //null  or dynamic data
+      return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
     }
   }
 
@@ -93,4 +89,12 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     }
     return null;
   }
+
+  @override
+  void webInitialize({
+    required String appId,
+    required bool cookie,
+    required bool xfbml,
+    required String version,
+  }) {}
 }

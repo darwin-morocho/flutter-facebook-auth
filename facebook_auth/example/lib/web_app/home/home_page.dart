@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import '../banner.dart';
-import './widgets/readme.dart';
 
 String prettyPrint(Map json) {
   JsonEncoder encoder = new JsonEncoder.withIndent('  ');
@@ -24,8 +23,8 @@ class _HomepageState extends State<Homepage> {
         child: Column(
           children: [
             MyBanner(),
-            SizedBox(height: 20),
-            Readme(),
+            // SizedBox(height: 20),
+            // Readme(),
           ],
         ),
       ),

@@ -58,16 +58,16 @@ packages:
   flutter_facebook_auth_platform_interface:
     dependency: "direct main"
     description:
-      name: flutter_facebook_auth_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../facebook_auth_platform_interface"
+      relative: true
+    source: path
     version: "2.2.0"
   flutter_facebook_auth_web:
     dependency: "direct main"
     description:
-      name: flutter_facebook_auth_web
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../facebook_auth_web"
+      relative: true
+    source: path
     version: "2.2.0"
   flutter_test:
     dependency: "direct dev"

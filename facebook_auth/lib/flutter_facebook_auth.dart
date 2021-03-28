@@ -51,4 +51,20 @@ class FacebookAuth implements FacebookAuthPlatform {
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
   }) =>
       _.login(permissions: permissions, loginBehavior: loginBehavior);
+
+  /// call this method (ONLY FOR WEB) to initialize the facebook javascript sdk
+  @override
+  void webInitialize({
+    required String appId,
+    required bool cookie,
+    required bool xfbml,
+    required String version,
+  }) {
+    _.webInitialize(
+      appId: appId,
+      cookie: cookie,
+      xfbml: xfbml,
+      version: version,
+    );
+  }
 }

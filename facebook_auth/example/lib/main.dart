@@ -6,6 +6,15 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_facebook_auth_example/web_app/web_app.dart';
 
 void main() {
+  if (kIsWeb) {
+    // initialiaze the facebook javascript SDK
+    FacebookAuth.instance.webInitialize(
+      appId: "1329834907365798",
+      cookie: true,
+      xfbml: true,
+      version: "v9.0",
+    );
+  }
   runApp(kIsWeb ? WebApp() : AuthExample());
 }
 
