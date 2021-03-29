@@ -61,7 +61,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "3.3.1"
+    version: "3.3.1+1"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
@@ -75,7 +75,7 @@ packages:
       name: flutter_facebook_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.4.0+1"
+    version: "2.4.0+2"
   flutter_meedu:
     dependency: "direct main"
     description:

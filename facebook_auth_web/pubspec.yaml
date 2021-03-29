@@ -1,6 +1,6 @@
 name: flutter_facebook_auth_web
 description: web support for flutter_facebook_auth
-version: 2.4.0+1
+version: 2.4.0+2
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_web
 
 environment:

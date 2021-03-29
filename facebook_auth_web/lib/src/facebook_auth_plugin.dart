@@ -165,7 +165,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
           List<String> declined = [];
           final response = convert(_);
           if (response['error'] != null) {
-            throw PlatformException(code: "REQUEST_LIMIT", message: response['error']['message']);
+            throw PlatformException(
+                code: "REQUEST_LIMIT", message: response['error']['message']);
           }
 
           for (final item in response['data'] as List) {
@@ -222,8 +223,10 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
         status: LoginStatus.success,
         accessToken: AccessToken(
           applicationId: this._appId,
-          grantedPermissions: null, // on web we don't have this data in the login response
-          declinedPermissions: null, // on web we don't have this data in the login response
+          grantedPermissions:
+              null, // on web we don't have this data in the login response
+          declinedPermissions:
+              null, // on web we don't have this data in the login response
           userId: authResponse['userID'],
           expires: expires,
           lastRefresh: DateTime.now(),

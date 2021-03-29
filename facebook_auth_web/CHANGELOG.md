@@ -1,3 +1,6 @@
+### 2.4.0+2
+- Removed Auth class.
+
 ### 2.4.0+1
 - Removed logs.
 

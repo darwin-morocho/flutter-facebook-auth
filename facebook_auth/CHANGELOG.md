@@ -1,3 +1,6 @@
+### 3.3.1+1
+- Updated README.
+
 ### 3.3.1
 - Updated AccessToken class.
 - Added FacebookPermissions.
