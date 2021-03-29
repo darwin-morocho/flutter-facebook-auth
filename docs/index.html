@@ -23,13 +23,14 @@
   </head>
   <body>
     <nav>
-      <a href="https://meedu.app">Powered By?</a>
+      <a target="_blank" href="https://meedu.app">Powered By?</a>
       <a
-        href="https://github.com/the-meedu-app/flutter-meedu-player/tree/master/plugin/example"
+        target="_blank"
+        href="https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth/example"
         >Examples</a
       >
       <a target="_blank" href="https://www.buymeacoffee.com/meedu">
-        <b>👊 Buy me a coffee</b>
+        <b>☕️ Buy me a coffee</b>
       </a>
     </nav>
     <div id="app"></div>
@@ -44,15 +45,14 @@
         loadSidebar: true,
         mergeNavbar: true,
         subMaxLevel: 2,
-        repo: "https://github.com/darwin-morocho/flutter-meedu",
+        repo: "https://github.com/darwin-morocho/flutter-facebook-auth",
         plugins: [
           EditOnGithubPlugin.create(
-            "https://github.com/darwin-morocho/flutter-meedu/tree/master/docs/",
+            "https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/docs/",
             undefined,
             "Edit on GitHub"
           ),
         ],
-        fallbackLanguages: ["en", "es"],
         auto2top: true,
       };
     </script>
@@ -68,7 +68,7 @@
       const gitalk = new Gitalk({
         clientID: "846e6b4b302a4e1ebb16",
         clientSecret: "2407dee9cfb6c52ee436e4b12d685fd35fe043bc",
-        repo: "https://github.com/darwin-morocho/flutter-facebook-auth",
+        repo: "flutter-facebook-auth",
         owner: "darwin-morocho",
         admin: [
           "Github repo collaborators, only these guys can initialize github issues",

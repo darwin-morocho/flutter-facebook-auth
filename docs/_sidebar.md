@@ -6,3 +6,4 @@
 - [Get the user information](pages/user-information.md)
 - [Complete example](pages/example.md)
 - [Migration guide](pages/migration-guide.md)
+- [Using with Firebase Auth](pages/firebase-auth.md)
