@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>flutter_facebook_auth</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta
+      name="description"
+      content="The easiest way to add facebook login to your flutter app, get user information, profile picture and more. Web support included."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css"
+    />
+    <link
+      rel="stylesheet"
+      href="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.css"
+    />
+  </head>
+  <body>
+    <nav>
+      <a href="https://meedu.app">Powered By?</a>
+      <a
+        href="https://github.com/the-meedu-app/flutter-meedu-player/tree/master/plugin/example"
+        >Examples</a
+      >
+      <a target="_blank" href="https://www.buymeacoffee.com/meedu">
+        <b>👊 Buy me a coffee</b>
+      </a>
+    </nav>
+    <div id="app"></div>
+    <script src="https://unpkg.com/docsify-edit-on-github/index.js"></script>
+    <script>
+      window.$docsify = {
+        el: "#app",
+        themeColor: "#3F90FF",
+        autoHeader: true,
+        homepage: "pages/home.md",
+        name: "flutter_facebook_auth",
+        loadSidebar: true,
+        mergeNavbar: true,
+        subMaxLevel: 2,
+        repo: "https://github.com/darwin-morocho/flutter-meedu",
+        plugins: [
+          EditOnGithubPlugin.create(
+            "https://github.com/darwin-morocho/flutter-meedu/tree/master/docs/",
+            undefined,
+            "Edit on GitHub"
+          ),
+        ],
+        fallbackLanguages: ["en", "es"],
+        auto2top: true,
+      };
+    </script>
+    <!-- Docsify v4 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+    <script src="https://unpkg.com/prismjs/components/prism-yaml.min.js"></script>
+    <script src="https://unpkg.com/prismjs/components/prism-dart.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/gitalk.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.js"></script>
+    <script>
+      const gitalk = new Gitalk({
+        clientID: "846e6b4b302a4e1ebb16",
+        clientSecret: "2407dee9cfb6c52ee436e4b12d685fd35fe043bc",
+        repo: "https://github.com/darwin-morocho/flutter-facebook-auth",
+        owner: "darwin-morocho",
+        admin: [
+          "Github repo collaborators, only these guys can initialize github issues",
+        ],
+        // facebook-like distraction free mode
+        distractionFreeMode: false,
+      });
+    </script>
+  </body>
+</html>
