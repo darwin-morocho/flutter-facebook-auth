@@ -25,15 +25,15 @@
 - Login on iOS, Android and Web.
 - Express login on Android.
 - Granted and declined permissions.
-- User information.
+- User information, picture profile and more.
 - Provide an access token to make request to the Graph API.
 
 
 ## Install
 
-Add the following to your pubspec.yaml
+Add the following to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_facebook_auth: ^3.3.1
+  flutter_facebook_auth: ^3.3.2
 ```

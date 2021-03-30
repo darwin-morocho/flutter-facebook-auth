@@ -1,3 +1,6 @@
+### 2.4.1
+- Fixed unhandled exception for "exceeded the rate limit".
+
 ### 2.4.0+2
 - Removed Auth class.
 

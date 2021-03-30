@@ -156,30 +156,33 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   /// ```
   @override
   Future<FacebookPermissions?> get permissions {
-    Completer<FacebookPermissions> c = Completer();
+    Completer<FacebookPermissions?> c = Completer();
     fb.api(
       "/me/permissions",
       allowInterop(
         (_) {
-          List<String> granted = [];
-          List<String> declined = [];
-          final response = convert(_);
-          if (response['error'] != null) {
-            throw PlatformException(
-                code: "REQUEST_LIMIT", message: response['error']['message']);
-          }
-
-          for (final item in response['data'] as List) {
-            final String permission = item['permission'];
-            if (item['status'] == 'granted') {
-              granted.add(permission);
-            } else {
-              declined.add(permission);
+          try {
+            List<String> granted = [];
+            List<String> declined = [];
+            final response = convert(_);
+            _checkResponseError(response);
+            for (final item in response['data'] as List) {
+              final String permission = item['permission'];
+              if (item['status'] == 'granted') {
+                granted.add(permission);
+              } else {
+                declined.add(permission);
+              }
             }
+            c.complete(
+              FacebookPermissions(granted: granted, declined: declined),
+            );
+          } on PlatformException catch (e) {
+            print(
+              StackTrace.fromString(e.message ?? 'unknown error'),
+            );
+            c.complete(null);
           }
-          c.complete(
-            FacebookPermissions(granted: granted, declined: declined),
-          );
         },
       ),
     );
@@ -206,38 +209,52 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   /// }
   /// ```
   Future<LoginResult> _handleResponse(dynamic _) async {
-    final Map<String, dynamic> response = convert(_);
-    final String? status = response['status'];
-    if (status == null) {
-      return LoginResult(status: LoginStatus.failed);
-    }
-    if (status == 'connected') {
-      final Map<String, dynamic> authResponse = response['authResponse'];
+    try {
+      final Map<String, dynamic> response = convert(_);
+      _checkResponseError(response);
+      final String? status = response['status'];
 
-      final expires = DateTime.now().add(
-        Duration(seconds: authResponse['data_access_expiration_time']),
-      );
+      if (status == null) {
+        return LoginResult(status: LoginStatus.failed);
+      }
+      if (status == 'connected') {
+        final Map<String, dynamic> authResponse = response['authResponse'];
 
-      // create a Login Result with an accessToken
-      return LoginResult(
-        status: LoginStatus.success,
-        accessToken: AccessToken(
-          applicationId: this._appId,
-          grantedPermissions:
-              null, // on web we don't have this data in the login response
-          declinedPermissions:
-              null, // on web we don't have this data in the login response
-          userId: authResponse['userID'],
-          expires: expires,
-          lastRefresh: DateTime.now(),
-          token: authResponse['accessToken'],
-          isExpired: false,
-          graphDomain: authResponse['graphDomain'],
-        ),
-      );
-    } else if (status == 'unknown') {
-      return LoginResult(status: LoginStatus.cancelled);
+        final expires = DateTime.now().add(
+          Duration(seconds: authResponse['data_access_expiration_time']),
+        );
+
+        // create a Login Result with an accessToken
+        return LoginResult(
+          status: LoginStatus.success,
+          accessToken: AccessToken(
+            applicationId: this._appId,
+            grantedPermissions:
+                null, // on web we don't have this data in the login response
+            declinedPermissions:
+                null, // on web we don't have this data in the login response
+            userId: authResponse['userID'],
+            expires: expires,
+            lastRefresh: DateTime.now(),
+            token: authResponse['accessToken'],
+            isExpired: false,
+            graphDomain: authResponse['graphDomain'],
+          ),
+        );
+      } else if (status == 'unknown') {
+        return LoginResult(status: LoginStatus.cancelled);
+      }
+      return LoginResult(status: LoginStatus.failed, message: 'unknown error');
+    } on PlatformException catch (e) {
+      return LoginResult(status: LoginStatus.failed, message: e.message);
     }
-    return LoginResult(status: LoginStatus.failed);
+  }
+
+  /// check if the response has an error
+  void _checkResponseError(Map<String, dynamic> response) {
+    if (response['error'] != null) {
+      throw PlatformException(
+          code: "REQUEST_ERROR", message: response['error']['message']);
+    }
   }
 }

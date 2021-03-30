@@ -1,3 +1,6 @@
+### 3.3.2
+- Fixed unhandled exception for "exceeded the rate limit" on web.
+
 ### 3.3.1+1
 - Updated README.
 
