@@ -17,7 +17,7 @@ platform :ios, '9.0'
 
     <img src="https://user-images.githubusercontent.com/15864336/98708485-38f68280-234f-11eb-9d1a-7c970d04642a.png"  />
 
-  You can find you `Bundle Identifier` in Xcode (Runner - Target Runner - General)
+  You can find your `Bundle Identifier` in Xcode (Runner - Target Runner - General)
 
   ![image](https://user-images.githubusercontent.com/15864336/98708171-e1581700-234e-11eb-8f94-23c0db55e8f0.png)
 
