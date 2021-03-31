@@ -13,7 +13,7 @@ Now you need to add the Facebook JavaScript SDK in your `index.html` at the top 
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 ```
 
-xample
+Example
 
 ```html
 <!DOCTYPE html>
