@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
   }
 
   Future<void> _checkIfIsLogged() async {
-    final accessToken = await FacebookAuth.instance.acessToken;
+    final accessToken = await FacebookAuth.instance.accessToken;
     setState(() {
       _checking = false;
     });
