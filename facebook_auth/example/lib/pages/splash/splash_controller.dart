@@ -1,52 +1,60 @@
-import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:meedu/state.dart';
+import 'dart:convert';
 
-class SplashController extends SimpleController {
+import 'package:flutter/widgets.dart';
+import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
+String prettyPrint(Map json) {
+  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+  String pretty = encoder.convert(json);
+  return pretty;
+}
+
+class SplashController extends ChangeNotifier {
   final FacebookAuth _facebookAuth;
-  bool? _isLogged;
+  bool _isLogged;
   bool _fetching = false;
 
   bool get fetching => _fetching;
-  bool? get isLogged => _isLogged;
+  bool get isLogged => _isLogged;
 
-  Map<String, dynamic>? _userData;
-  Map<String, dynamic>? get userData => _userData;
+  Map<String, dynamic> _userData;
+  Map<String, dynamic> get userData => _userData;
 
-  SplashController(this._facebookAuth);
-
-  @override
-  void onAfterFirstLayout() {
+  SplashController(this._facebookAuth) {
     _init();
   }
 
   void _init() async {
     _isLogged = await this._facebookAuth.accessToken != null;
-    if (_isLogged!) {
+    if (_isLogged) {
       _userData = await _facebookAuth.getUserData();
     }
-    update();
+    notifyListeners();
   }
 
   Future<bool> login() async {
     _fetching = true;
-    update(['login-view']);
-    final result = await _facebookAuth.login();
+    notifyListeners();
+    final result = await _facebookAuth.login(
+      permissions: ['email', 'public_profile', 'user_birthday'],
+    );
 
     _isLogged = result.status == LoginStatus.success;
-    if (_isLogged!) {
-      _userData = await _facebookAuth.getUserData();
+    if (_isLogged) {
+      _userData = await _facebookAuth.getUserData(fields: "name,email,picture.width(200),birthday");
+      print(prettyPrint(_userData));
     }
     _fetching = false;
-    update(['login-view']);
-    return _isLogged!;
+    notifyListeners();
+    return _isLogged;
   }
 
   Future<void> logout() async {
     _fetching = true;
-    update(['login-view']);
+    notifyListeners();
     await _facebookAuth.logOut();
     _fetching = false;
     _isLogged = false;
-    update(['login-view']);
+    notifyListeners();
   }
 }

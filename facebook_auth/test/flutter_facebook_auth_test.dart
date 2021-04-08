@@ -12,7 +12,7 @@ void main() {
     const MethodChannel channel = MethodChannel(
       'app.meedu/flutter_facebook_auth',
     );
-    late FacebookAuth facebookAuth;
+    FacebookAuth facebookAuth;
     setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
@@ -45,9 +45,9 @@ void main() {
       expect(await facebookAuth.accessToken, isA<AccessToken>());
       final Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(userData.containsKey("email"), true);
-      final FacebookPermissions? permissions = await facebookAuth.permissions;
+      final FacebookPermissions permissions = await facebookAuth.permissions;
       expect(permissions, isNotNull);
-      expect(permissions!.granted.length > 0, true);
+      expect(permissions.granted.length > 0, true);
       expect(permissions.declined.length == 0, true);
       await facebookAuth.logOut();
       expect(await facebookAuth.accessToken, null);

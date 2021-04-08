@@ -1,3 +1,5 @@
+### 2.4.0-no-nullsafety
+- Version to project without null safety.
 ### 2.4.0
 - Added FacebookPermissions.
 - Added get permissions for web applications.

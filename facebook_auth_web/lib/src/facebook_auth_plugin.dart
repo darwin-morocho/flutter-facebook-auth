@@ -5,6 +5,7 @@ import 'package:js/js.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'interop/facebook_auth_interop.dart' as fb;
 import 'interop/convert_interop.dart';
+import 'package:meta/meta.dart' show required;
 
 /// A web implementation of the FlutterFacebookAuth plugin.
 class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
@@ -18,7 +19,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   ///
   /// check if a user is logged and return an accessToken data
   @override
-  Future<AccessToken?> get accessToken async {
+  Future<AccessToken> get accessToken async {
     Completer<LoginResult> completer = Completer();
     fb.getLoginStatus(
       allowInterop(
@@ -121,10 +122,10 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   /// calls the FB.init interop
   @override
   void webInitialize({
-    required String appId,
-    required bool cookie,
-    required bool xfbml,
-    required String version,
+    @required String appId,
+    @required bool cookie,
+    @required bool xfbml,
+    @required String version,
   }) {
     this._appId = appId;
     fb.init(
@@ -155,8 +156,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   ///}
   /// ```
   @override
-  Future<FacebookPermissions?> get permissions {
-    Completer<FacebookPermissions?> c = Completer();
+  Future<FacebookPermissions> get permissions {
+    Completer<FacebookPermissions> c = Completer();
     fb.api(
       "/me/permissions",
       allowInterop(
@@ -212,7 +213,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     try {
       final Map<String, dynamic> response = convert(_);
       _checkResponseError(response);
-      final String? status = response['status'];
+      final String status = response['status'];
 
       if (status == null) {
         return LoginResult(status: LoginStatus.failed);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Patreons extends StatelessWidget {
-  const Patreons({Key? key}) : super(key: key);
+  const Patreons({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -46,7 +46,7 @@ class Patreons extends StatelessWidget {
 class Link extends StatelessWidget {
   final Widget child;
   final String url;
-  const Link({Key? key, required this.child, required this.url}) : super(key: key);
+  const Link({Key key, @required this.child, @required this.url}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

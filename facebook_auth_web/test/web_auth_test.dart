@@ -12,7 +12,7 @@ FlutterFacebookAuthPlugin getPlugin() => FlutterFacebookAuthPlugin();
 
 void main() {
   group('web authentication', () {
-    late bool isLogged = false;
+    bool isLogged = false;
     setUp(
       () {
         fbMock = FbMock();
@@ -88,9 +88,9 @@ void main() {
       expect(result.accessToken != null, true);
 
       // check the granted and declined permissions
-      final FacebookPermissions? permissions = await plugin.permissions;
+      final FacebookPermissions permissions = await plugin.permissions;
       expect(permissions, isNotNull);
-      expect(permissions!.granted.length == 1, true);
+      expect(permissions.granted.length == 1, true);
       expect(permissions.declined.length == 1, true);
 
       // get the user data

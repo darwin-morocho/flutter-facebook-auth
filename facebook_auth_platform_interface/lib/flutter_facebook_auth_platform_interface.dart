@@ -1,5 +1,6 @@
 import 'package:flutter_facebook_auth_platform_interface/src/facebook_permissions.dart';
 import 'package:plugin_platform_interface/plugin_platform_interface.dart';
+import 'package:meta/meta.dart' show required;
 import 'src/login_result.dart';
 import 'src/access_token.dart';
 import 'src/method_cahnnel.dart';
@@ -34,10 +35,10 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
 
   /// initialiaze the facebook javascript sdk
   void webInitialize({
-    required String appId,
-    required bool cookie,
-    required bool xfbml,
-    required String version,
+    @required String appId,
+    @required bool cookie,
+    @required bool xfbml,
+    @required String version,
   });
 
   /// make a login request using the facebook SDK
@@ -71,8 +72,8 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   Future<void> logOut();
 
   /// if the user is logged return one instance of AccessToken
-  Future<AccessToken?> get accessToken;
+  Future<AccessToken> get accessToken;
 
   /// get the permissions for the current access token
-  Future<FacebookPermissions?> get permissions;
+  Future<FacebookPermissions> get permissions;
 }

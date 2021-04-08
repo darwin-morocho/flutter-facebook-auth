@@ -13,7 +13,7 @@
 - Login on iOS, Android and Web.
 - Express login on Android.
 - Granted and declined permissions.
-- User information.
+- User information, picture profile and more.
 - Provide an access token to make request to the Graph API.
 
 Full documentation 👉 https://facebook.meedu.app

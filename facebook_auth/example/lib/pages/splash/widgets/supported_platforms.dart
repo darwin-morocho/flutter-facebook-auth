@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class SupportedPlatforms extends StatelessWidget {
-  const SupportedPlatforms({Key? key}) : super(key: key);
+  const SupportedPlatforms({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

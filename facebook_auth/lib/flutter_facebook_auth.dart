@@ -1,5 +1,6 @@
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
+import 'package:meta/meta.dart' show required;
 export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 
 /// Generic class that extends of FacebookAuthPlatform interface
@@ -14,7 +15,7 @@ class FacebookAuth implements FacebookAuthPlatform {
 
   /// if the user is logged return one instance of AccessToken
   @override
-  Future<AccessToken?> get accessToken => _.accessToken;
+  Future<AccessToken> get accessToken => _.accessToken;
 
   /// Express login logs people in with their Facebook account across devices and platform.
   /// If a person logs into your app on Android and then changes devices,
@@ -73,10 +74,10 @@ class FacebookAuth implements FacebookAuthPlatform {
   /// call this method (ONLY FOR WEB) to initialize the facebook javascript sdk
   @override
   void webInitialize({
-    required String appId,
-    required bool cookie,
-    required bool xfbml,
-    required String version,
+    @required String appId,
+    @required bool cookie,
+    @required bool xfbml,
+    @required String version,
   }) {
     _.webInitialize(
       appId: appId,
@@ -90,5 +91,5 @@ class FacebookAuth implements FacebookAuthPlatform {
   ///
   /// It could be null if you exceed the request limit
   @override
-  Future<FacebookPermissions?> get permissions => _.permissions;
+  Future<FacebookPermissions> get permissions => _.permissions;
 }

@@ -1,22 +1,20 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:provider/provider.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/splash_controller.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/loading.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/login_button.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/patreons.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/supported_platforms.dart';
 import 'package:flutter_facebook_auth_example/utils/max_width.dart';
-import 'package:flutter_facebook_auth_example/widgets/rounded_button.dart';
-import 'package:flutter_meedu/state.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class LoginView extends SimpleWidget<SplashController> {
+class LoginView extends StatelessWidget {
   @override
-  String get id => 'login-view';
-
-  @override
-  Widget buildChild(BuildContext context, SplashController controller) {
-    final isLogged = controller.isLogged!;
+  Widget build(BuildContext context) {
+    final controller = context.watch<SplashController>();
+    final isLogged = controller.isLogged;
     return SafeArea(
       child: Align(
         child: Stack(
@@ -32,6 +30,7 @@ class LoginView extends SimpleWidget<SplashController> {
                 children: [
                   Text(
                     "Welcome back!".toUpperCase(),
+                    textAlign: TextAlign.center,
                     style: GoogleFonts.chango(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,
@@ -59,7 +58,7 @@ class LoginView extends SimpleWidget<SplashController> {
                     ),
                   ),
                   SizedBox(height: 10),
-                  Patreons(),
+                  if (kIsWeb) Patreons(),
                   SizedBox(height: 30),
                   ConstrainedBox(
                     constraints: BoxConstraints(
@@ -74,12 +73,12 @@ class LoginView extends SimpleWidget<SplashController> {
                         if (isLogged && controller.userData != null) ...[
                           ClipOval(
                             child: Image.network(
-                              controller.userData!['picture']['data']['url'],
+                              controller.userData['picture']['data']['url'],
                               width: 80,
                             ),
                           ),
                           Text(
-                            "Hi ${controller.userData!['name']}",
+                            "Hi ${controller.userData['name']}",
                             style: TextStyle(
                               color: Colors.black,
                               fontSize: 18,

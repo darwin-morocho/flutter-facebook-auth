@@ -77,7 +77,7 @@ void main() {
 
     test('authenticated', () async {
       final instance = FacebookAuthPlatform.instance;
-      AccessToken? accessToken = await FacebookAuthPlatform.instance.accessToken;
+      AccessToken accessToken = await FacebookAuthPlatform.instance.accessToken;
       Map<String, dynamic> userData = await FacebookAuthPlatform.instance.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
@@ -85,7 +85,7 @@ void main() {
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
-        final accessTokenAsJson = accessToken!.toJson();
+        final accessTokenAsJson = accessToken.toJson();
         expect(accessTokenAsJson.containsKey('token'), true);
         expect(await instance.accessToken, isA<AccessToken>());
         expect((await instance.expressLogin()), isA<LoginResult>());

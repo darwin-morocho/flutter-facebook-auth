@@ -1,3 +1,5 @@
+### 2.4.1-no-nullsafety
+- Version to project without null safety.
 ### 2.4.1
 - Fixed unhandled exception for "exceeded the rate limit".
 
