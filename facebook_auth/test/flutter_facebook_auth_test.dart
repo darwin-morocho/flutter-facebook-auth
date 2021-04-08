@@ -38,7 +38,7 @@ void main() {
 
     test('login request', () async {
       expect(await facebookAuth.accessToken, null);
-
+      facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
       final result = await facebookAuth.login();
       expect(result.status, LoginStatus.success);
       expect(result.accessToken, isNotNull);
