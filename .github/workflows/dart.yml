@@ -39,6 +39,6 @@ jobs:
         run: cd facebook_auth_web && flutter test --platform chrome
 
       - name: Upload coverage to Codecov 
-        uses: facebook_auth_platform_interface/codecov/codecov-action@v1 
+        uses: codecov/codecov-action@v1 
         with: 
-        file: coverage/lcov.info
+        file: facebook_auth_platform_interface/coverage/lcov.info
