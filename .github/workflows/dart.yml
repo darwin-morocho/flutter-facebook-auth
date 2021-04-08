@@ -23,22 +23,22 @@ jobs:
       - name: Install facebook_auth dependencies 
         run: cd facebook_auth && flutter pub get
 
-      - name: Run facebook_auth tests --coverage
-        run: cd facebook_auth && flutter test
+      - name: Run facebook_auth tests
+        run: cd facebook_auth && flutter test --coverage
       
-      - name: Install facebook_auth_platform_interface dependencies 
-        run: cd facebook_auth_platform_interface && flutter pub get
+      - name: Install facebook_auth_platform_interface dependencies
+        run: cd facebook_auth_platform_interface && flutter pub get --coverage
 
-      - name: Run facebook_auth_platform_interface tests --coverage
-        run: cd facebook_auth_platform_interface && flutter test
+      - name: Run facebook_auth_platform_interface tests
+        run: cd facebook_auth_platform_interface && flutter test --coverage
 
       - name: Install facebook_auth_web dependencies 
         run: cd facebook_auth_web && flutter pub get
 
-      - name: Run facebook_auth_platform_interface tests --coverage
-        run: cd facebook_auth_web && flutter test --platform chrome
+      - name: Run facebook_auth_platform_interface tests 
+        run: cd facebook_auth_web && flutter test --platform chrome --coverage
 
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v1 
         with:
-          files: ./facebook_auth_platform_interface/coverage/lcov.info
+          files: ./facebook_auth/coverage/lcov.info, ./facebook_auth_platform_interface/coverage/lcov.info
