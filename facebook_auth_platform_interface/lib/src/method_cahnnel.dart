@@ -4,14 +4,13 @@ import 'login_result.dart';
 import '../flutter_facebook_auth_platform_interface.dart';
 import 'access_token.dart';
 import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show kIsWeb, visibleForTesting;
+import 'package:flutter/foundation.dart' show visibleForTesting;
 import 'login_behavior.dart';
 
 /// class to make calls to the facebook login SDK
 class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
   @visibleForTesting
-  MethodChannel channel =
-      const MethodChannel('app.meedu/flutter_facebook_auth');
+  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -55,8 +54,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
         return LoginResult.getResultFromException(e);
       }
     }
-    return LoginResult(
-        status: LoginStatus.failed, message: 'Method only allowed on Android');
+    return LoginResult(status: LoginStatus.failed, message: 'Method only allowed on Android');
   }
 
   /// retrive the user information using the GraphAPI
@@ -69,13 +67,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     final result = await channel.invokeMethod("getUserData", {
       "fields": fields,
     });
-    if (kIsWeb) {
-      return Map<String, dynamic>.from(result);
-    } else {
-      return Platform.isAndroid
-          ? jsonDecode(result)
-          : Map<String, dynamic>.from(result); //null  or dynamic data
-    }
+    return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
   }
 
   /// Sign Out from Facebook

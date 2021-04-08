@@ -1,3 +1,5 @@
+### 2.4.1
+- Removed kIsWeb on MethodChannel.
 ### 2.4.0
 - Added FacebookPermissions.
 - Added get permissions for web applications.
