@@ -41,5 +41,4 @@ jobs:
       - name: Upload coverage to Codecov 
         uses: facebook_auth_platform_interface/codecov/codecov-action@v1 
         with: 
-        token: ${{ secrets.CODECOV_TOKEN }} 
         file: coverage/lcov.info
