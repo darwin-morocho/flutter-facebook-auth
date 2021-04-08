@@ -27,7 +27,7 @@ jobs:
         run: cd facebook_auth && flutter test --coverage
       
       - name: Install facebook_auth_platform_interface dependencies
-        run: cd facebook_auth_platform_interface && flutter pub get --coverage
+        run: cd facebook_auth_platform_interface && flutter pub get
 
       - name: Run facebook_auth_platform_interface tests
         run: cd facebook_auth_platform_interface && flutter test --coverage
