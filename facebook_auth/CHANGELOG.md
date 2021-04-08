@@ -1,3 +1,7 @@
+### 3.3.2+2
+- Updated to `flutter_facebook_auth_platform_interface:^ 2.4.1`
+- Updated to `flutter_facebook_auth_web: ^2.4.1+1`
+
 ### 3.3.2+1
 - Added code coverage badge in documentation.
 ### 3.3.2
