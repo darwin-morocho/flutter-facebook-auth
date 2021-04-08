@@ -1,3 +1,5 @@
+### 3.3.2+1
+- Added code coverage badge in documentation.
 ### 3.3.2
 - Fixed unhandled exception for "exceeded the rate limit" on web.
 
