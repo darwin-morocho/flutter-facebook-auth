@@ -18,8 +18,6 @@
   </div>
 </div>
 
-
-
 ## Features
 
 - Login on iOS, Android and Web.
@@ -28,12 +26,25 @@
 - User information, picture profile and more.
 - Provide an access token to make request to the Graph API.
 
-
 ## Install
 
 Add the following to your `pubspec.yaml`
+
+<!-- tabs:start -->
+
+#### ** Null Safety **
 
 ```yaml
 dependencies:
   flutter_facebook_auth: ^3.3.2
 ```
+
+#### ** Without Null Safety **
+If your flutter app does not use **Null Safety** use this version
+
+```yaml
+dependencies:
+  flutter_facebook_auth: ^3.3.2-no-nullsafety
+```
+
+<!-- tabs:end -->

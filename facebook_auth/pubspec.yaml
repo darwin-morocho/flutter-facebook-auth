@@ -20,6 +20,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  coverage: "^0.7.0"
+  codecov: "^1.0.0"
 
 
 flutter:

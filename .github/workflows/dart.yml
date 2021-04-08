@@ -23,17 +23,23 @@ jobs:
       - name: Install facebook_auth dependencies 
         run: cd facebook_auth && flutter pub get
 
-      - name: Run facebook_auth tests
+      - name: Run facebook_auth tests --coverage
         run: cd facebook_auth && flutter test
       
       - name: Install facebook_auth_platform_interface dependencies 
         run: cd facebook_auth_platform_interface && flutter pub get
 
-      - name: Run facebook_auth_platform_interface tests
+      - name: Run facebook_auth_platform_interface tests --coverage
         run: cd facebook_auth_platform_interface && flutter test
 
       - name: Install facebook_auth_web dependencies 
         run: cd facebook_auth_web && flutter pub get
 
-      - name: Run facebook_auth_platform_interface tests
+      - name: Run facebook_auth_platform_interface tests --coverage
         run: cd facebook_auth_web && flutter test --platform chrome
+
+      - name: Upload coverage to Codecov 
+        uses: facebook_auth_platform_interface/codecov/codecov-action@v1 
+        with: 
+        token: ${{ secrets.CODECOV_TOKEN }} 
+        file: coverage/lcov.info

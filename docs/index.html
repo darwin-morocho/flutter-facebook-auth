@@ -23,7 +23,9 @@
       <a href="/" class="active-ln">🇺🇸<b class="hide-768"> English</b></a>
       <a href="es/">🇪🇸<span class="hide-768">Español</span></a>
       <div class="divider hide-768"></div>
-      <a target="_blank" class="hide-768" href="https://meedu.app">Powered By?</a>
+      <a target="_blank" class="hide-768" href="https://meedu.app"
+        >Powered By?</a
+      >
       <a
         target="_blank"
         href="https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth/example"
@@ -54,6 +56,13 @@
           ),
         ],
         auto2top: true,
+        tabs: {
+          persist: true, // default
+          sync: true, // default
+          theme: "classic", // default
+          tabComments: true, // default
+          tabHeadings: true, // default
+        },
       };
     </script>
     <!-- Docsify v4 -->
@@ -62,5 +71,6 @@
     <script src="https://unpkg.com/prismjs/components/prism-dart.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-copy-code"></script>
     <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
   </body>
 </html>
