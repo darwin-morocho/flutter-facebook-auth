@@ -36,7 +36,7 @@ jobs:
         run: cd facebook_auth_web && flutter pub get
 
       - name: Run facebook_auth_platform_interface tests 
-        run: cd facebook_auth_web && flutter test --platform chrome --coverage
+        run: cd facebook_auth_web && flutter test --platform chrome
 
       - uses: actions/checkout@master
       - uses: codecov/codecov-action@v1 
