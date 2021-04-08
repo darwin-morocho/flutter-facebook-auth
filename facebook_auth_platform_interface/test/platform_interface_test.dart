@@ -95,5 +95,20 @@ void main() {
         expect(await instance.accessToken, null);
       }
     });
+
+    test('permissions test', () async {
+      final instance = FacebookAuthPlatform.instance;
+      await instance.login();
+      final grantedPermissions = (await instance.permissions)!.granted;
+      expect(grantedPermissions.contains("email"), true);
+      expect(grantedPermissions.contains("user_link"), true);
+    });
+
+    test('express login sucess', () async {
+      final instance = FacebookAuthPlatform.instance;
+      instance.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
+      final loginResult = await instance.expressLogin();
+      expect(loginResult.status == LoginStatus.success, true);
+    });
   });
 }

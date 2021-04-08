@@ -15,6 +15,7 @@ parsers:
 ignore:
   - "**/example/"
   - "examples"
+  - "docs/"
   - "facebook_auth_web/"
   - "**/*.g.dart"
   - "**/*.freezed.dart"
