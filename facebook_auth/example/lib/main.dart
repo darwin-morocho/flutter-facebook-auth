@@ -1,10 +1,12 @@
 import 'dart:convert';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'my_app.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
     // initialiaze the facebook javascript SDK
     FacebookAuth.instance.webInitialize(
@@ -14,6 +16,7 @@ void main() {
       version: "v9.0",
     );
   }
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 

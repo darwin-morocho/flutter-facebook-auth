@@ -42,16 +42,23 @@
       crossorigin="anonymous"
       src="https://connect.facebook.net/en_US/sdk.js"
     ></script>
-    <!-- This script installs service_worker.js to provide PWA functionality to
-       application. For more information, see:
-       https://developers.google.com/web/fundamentals/primers/service-workers -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
     <script>
-      if ("serviceWorker" in navigator) {
-        window.addEventListener("flutter-first-frame", function () {
-          navigator.serviceWorker.register("flutter_service_worker.js");
-        });
-      }
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyAWPr_1mrgZ6C2XPIcNZ-KDFLuCgw3gG0g",
+        authDomain: "flutter-fauth-example.firebaseapp.com",
+        projectId: "flutter-fauth-example",
+        storageBucket: "flutter-fauth-example.appspot.com",
+        messagingSenderId: "398495014315",
+        appId: "1:398495014315:web:999955e180627ff658c6ee",
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
     </script>
+
     <script src="main.dart.js" type="application/javascript"></script>
   </body>
 </html>
