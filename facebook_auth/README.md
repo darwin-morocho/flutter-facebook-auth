@@ -19,3 +19,5 @@
 - Provide an access token to make request to the Graph API.
 
 Full documentation 👉 https://facebook.meedu.app
+
+✅ Don't forget to leave your like if this plugin was useful for you.

@@ -1,3 +1,6 @@
+### 2.4.2
+- Removed empty list on declinedPermissions and grantedPermissions.
+
 ### 2.4.1
 - Removed kIsWeb on MethodChannel.
 ### 2.4.0

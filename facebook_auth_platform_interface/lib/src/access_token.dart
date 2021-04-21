@@ -51,12 +51,8 @@ class AccessToken {
       applicationId: json['applicationId'],
       graphDomain: json['graphDomain'],
       isExpired: json['isExpired'],
-      declinedPermissions: json['declinedPermissions'] != null
-          ? List<String>.from(json['declinedPermissions'])
-          : [],
-      grantedPermissions: json['grantedPermissions'] != null
-          ? List<String>.from(json['grantedPermissions'])
-          : [],
+      declinedPermissions: json['declinedPermissions'] != null ? List<String>.from(json['declinedPermissions']) : null,
+      grantedPermissions: json['grantedPermissions'] != null ? List<String>.from(json['grantedPermissions']) : null,
     );
   }
 

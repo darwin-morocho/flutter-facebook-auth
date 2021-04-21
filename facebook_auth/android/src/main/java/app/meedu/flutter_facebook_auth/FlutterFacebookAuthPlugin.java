@@ -16,7 +16,6 @@ import io.flutter.plugin.common.MethodChannel.Result;
  * FlutterFacebookAuthPlugin
  */
 public class FlutterFacebookAuthPlugin implements FlutterPlugin, MethodCallHandler, ActivityAware {
-
     private static final String CHANNEL_NAME = "app.meedu/flutter_facebook_auth";
     private final FacebookAuth facebookAuth = new FacebookAuth();
     private ActivityPluginBinding activityPluginBinding;

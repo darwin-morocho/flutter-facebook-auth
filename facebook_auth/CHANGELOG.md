@@ -1,3 +1,5 @@
+### 3.3.3
+- Added control to solve "User logged in as a different facebook user" on Android.
 ### 3.3.2+2
 - Updated to `flutter_facebook_auth_platform_interface:^ 2.4.1`
 - Updated to `flutter_facebook_auth_web: ^2.4.1+1`

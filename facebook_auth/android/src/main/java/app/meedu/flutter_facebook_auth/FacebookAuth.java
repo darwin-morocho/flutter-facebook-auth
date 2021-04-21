@@ -20,15 +20,18 @@ import java.util.List;
 import io.flutter.plugin.common.MethodChannel;
 
 
-public class FacebookAuth {
+public class FacebookAuth implements OnReLoginListener {
     private final LoginManager loginManager;
     FacebookLoginResultDelegate resultDelegate;
+    private Activity activity;
+    private List<String> permissions;
 
     FacebookAuth() {
         loginManager = LoginManager.getInstance();
         CallbackManager callbackManager = CallbackManager.Factory.create();
         resultDelegate = new FacebookLoginResultDelegate(callbackManager);
         loginManager.registerCallback(callbackManager, resultDelegate);
+        resultDelegate.onReLoginListener = this;
     }
 
 
@@ -40,6 +43,8 @@ public class FacebookAuth {
      * @param result      flutter method channel result to send the response to the client
      */
     void login(Activity activity, List<String> permissions, MethodChannel.Result result) {
+        this.activity = activity;
+        this.permissions = permissions;
         final boolean isOk = resultDelegate.setPendingResult(result);
         if (isOk) {
             loginManager.logIn(activity, permissions);
@@ -180,5 +185,14 @@ public class FacebookAuth {
             put("declinedPermissions", new ArrayList<>(accessToken.getDeclinedPermissions()));
         }};
     }
-}
 
+
+    /**
+     * this function is called when we have a previous session but with a different account
+     * this solves the next error "User logged in as a different facebook user"
+     */
+    @Override
+    public void onReLogin() {
+        loginManager.logIn(activity, permissions);
+    }
+}
