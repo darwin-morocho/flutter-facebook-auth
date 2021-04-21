@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/splash_controller.dart';
 import 'package:flutter_facebook_auth_example/widgets/rounded_button.dart';
-import 'package:flutter_meedu/state.dart';
+import 'package:provider/provider.dart';
 
 class LoginButton extends StatelessWidget {
   const LoginButton({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SimpleBuilder<SplashController>(
-      id: 'login-view',
-      builder: (_) {
-        final isLogged = _.isLogged!;
+    return Consumer<SplashController>(
+      builder: (_, controller, __) {
+        final isLogged = controller.isLogged!;
         return RoundedButton(
           onPressed: () async {
             if (isLogged) {
-              await _.logout();
+              await controller.logout();
             } else {
-              final isOk = await _.login();
+              final isOk = await controller.login();
               if (!isOk) {
                 final SnackBar snackBar = SnackBar(
                   content: Text(

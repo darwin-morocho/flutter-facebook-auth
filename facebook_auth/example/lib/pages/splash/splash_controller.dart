@@ -1,7 +1,7 @@
+import 'package:flutter/widgets.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:meedu/state.dart';
 
-class SplashController extends SimpleController {
+class SplashController extends ChangeNotifier {
   final FacebookAuth _facebookAuth;
   bool? _isLogged;
   bool _fetching = false;
@@ -12,10 +12,7 @@ class SplashController extends SimpleController {
   Map<String, dynamic>? _userData;
   Map<String, dynamic>? get userData => _userData;
 
-  SplashController(this._facebookAuth);
-
-  @override
-  void onAfterFirstLayout() {
+  SplashController(this._facebookAuth) {
     _init();
   }
 
@@ -24,12 +21,12 @@ class SplashController extends SimpleController {
     if (_isLogged!) {
       _userData = await _facebookAuth.getUserData();
     }
-    update();
+    notifyListeners();
   }
 
   Future<bool> login() async {
     _fetching = true;
-    update(['login-view']);
+    notifyListeners();
     final result = await _facebookAuth.login();
 
     _isLogged = result.status == LoginStatus.success;
@@ -37,16 +34,16 @@ class SplashController extends SimpleController {
       _userData = await _facebookAuth.getUserData();
     }
     _fetching = false;
-    update(['login-view']);
+    notifyListeners();
     return _isLogged!;
   }
 
   Future<void> logout() async {
     _fetching = true;
-    update(['login-view']);
+    notifyListeners();
     await _facebookAuth.logOut();
     _fetching = false;
     _isLogged = false;
-    update(['login-view']);
+    notifyListeners();
   }
 }

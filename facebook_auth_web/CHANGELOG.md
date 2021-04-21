@@ -1,3 +1,6 @@
+### 2.4.1+1
+- Updated flutter_facebook_auth_platform_interface: ^2.4.1
+
 ### 2.4.1
 - Fixed unhandled exception for "exceeded the rate limit".
 

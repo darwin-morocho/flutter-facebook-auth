@@ -2,30 +2,32 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/login_view.dart';
+import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'splash_controller.dart';
-import 'package:flutter_meedu/state.dart';
 import 'dart:math' as math;
 
-class SplashPage extends ProviderPage<SplashController> {
+class SplashPage extends StatelessWidget {
   @override
-  SplashController create(_) {
-    return SplashController(FacebookAuth.instance);
-  }
-
-  @override
-  Widget buildPage(BuildContext context, SplashController controller) {
-    return SimpleBuilder<SplashController>(
-      builder: (_) => Scaffold(
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
+      create: (_) => SplashController(FacebookAuth.instance),
+      builder: (context, _) => Scaffold(
         body: Stack(
           children: [
-            _.isLogged == null
-                ? Center(
+            Consumer<SplashController>(
+              builder: (_, controller, __) {
+                final isLogged = controller.isLogged;
+                if (isLogged == null) {
+                  return Center(
                     child: CupertinoActivityIndicator(
                       radius: 20,
                     ),
-                  )
-                : LoginView(),
+                  );
+                }
+                return LoginView();
+              },
+            ),
             Positioned(
               right: -100,
               top: -40,
