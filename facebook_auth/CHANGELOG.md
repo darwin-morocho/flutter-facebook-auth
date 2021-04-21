@@ -1,3 +1,6 @@
+### 3.3.3+1
+- Updated documentation.
+
 ### 3.3.3
 - Added control to solve "User logged in as a different facebook user" on Android.
 ### 3.3.2+2
