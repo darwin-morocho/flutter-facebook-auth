@@ -17,8 +17,8 @@ Pod::Spec.new do |s|
   s.dependency 'Flutter'
 
 
-  s.dependency 'FBSDKCoreKit', '~> 9.1.0'
-  s.dependency 'FBSDKLoginKit', '~> 9.1.0'
+  s.dependency 'FBSDKCoreKit', '~> 9.3.0'
+  s.dependency 'FBSDKLoginKit', '~> 9.3.0'
   s.platform = :ios, '9.0'
 
   # Flutter.framework does not contain a i386 slice.
