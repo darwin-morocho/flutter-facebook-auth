@@ -11,6 +11,21 @@ import 'mock/mock_interop.dart';
 FlutterFacebookAuthPlugin getPlugin() => FlutterFacebookAuthPlugin();
 
 void main() {
+  group('initialization', () {
+    test('not initialized', () async {
+      final plugin = getPlugin();
+      final initialized = plugin.isWebSdkInitialized;
+      expect(initialized, false);
+      final result = await plugin.login();
+      expect(result.status == LoginStatus.failed, true);
+    });
+
+    test('is initialized', () {
+      fbMock = FbMock();
+      final initialized = getPlugin().isWebSdkInitialized;
+      expect(initialized, true);
+    });
+  });
   group('web authentication', () {
     late bool isLogged = false;
     setUp(

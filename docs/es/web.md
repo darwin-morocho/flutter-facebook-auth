@@ -69,7 +69,7 @@ void main() {
   // check if is running on Web
   if (kIsWeb) {
     // initialiaze the facebook javascript SDK
-    FacebookAuth.instance.webInitialize(
+    FacebookAuth.i.webInitialize(
       appId: "1329834907365798",//<-- YOUR APP_ID
       cookie: true,
       xfbml: true,

@@ -109,4 +109,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     }
     return null;
   }
+
+  @override
+  bool get isWebSdkInitialized => true;
 }

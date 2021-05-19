@@ -12,6 +12,7 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => SplashController(FacebookAuth.instance),
+      lazy: false,
       builder: (context, _) => Scaffold(
         body: Stack(
           children: [

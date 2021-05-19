@@ -17,6 +17,7 @@ class SplashController extends ChangeNotifier {
   }
 
   void _init() async {
+    print("isWebSdkInitialized ${this._facebookAuth.isWebSdkInitialized}");
     _isLogged = await this._facebookAuth.accessToken != null;
     if (_isLogged!) {
       _userData = await _facebookAuth.getUserData();

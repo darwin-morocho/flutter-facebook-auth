@@ -1,3 +1,6 @@
+### 2.5.0
+- Added isWebSdkInitialized;
+
 ### 2.4.2
 - Removed empty list on declinedPermissions and grantedPermissions.
 

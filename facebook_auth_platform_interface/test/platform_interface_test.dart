@@ -30,6 +30,7 @@ void main() {
 
     test('login failed', () async {
       final instance = FacebookAuthPlatform.instance;
+      expect(instance.isWebSdkInitialized, true);
       final result = await instance.login();
       expect(result.status, LoginStatus.failed);
     });

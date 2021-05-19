@@ -40,6 +40,10 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     required String version,
   });
 
+  /// use this to know window.FB is not undefined
+  /// on Android and iOS is always true
+  bool get isWebSdkInitialized;
+
   /// make a login request using the facebook SDK
   ///
   /// [permissions] permissions like ["email","public_profile"]

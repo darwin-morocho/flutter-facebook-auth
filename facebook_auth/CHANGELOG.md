@@ -1,3 +1,6 @@
+
+### 3.3.4
+- Added boolean isWebSdkInitialized;
 ### 3.3.3+1
 - Updated documentation.
 

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 import 'package:js/js.dart';
+import 'dart:js' as js;
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'interop/facebook_auth_interop.dart' as fb;
 import 'interop/convert_interop.dart';
@@ -9,6 +10,9 @@ import 'interop/convert_interop.dart';
 /// A web implementation of the FlutterFacebookAuth plugin.
 class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   String _appId = ''; // applicationId
+
+  /// returns true when window.FB is not undefined
+  bool _initialized = false;
 
   static void registerWith(Registrar registrar) {
     FacebookAuthPlatform.instance = FlutterFacebookAuthPlugin();
@@ -19,6 +23,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   /// check if a user is logged and return an accessToken data
   @override
   Future<AccessToken?> get accessToken async {
+    if (!_initialized) return null;
+
     Completer<LoginResult> completer = Completer();
     fb.getLoginStatus(
       allowInterop(
@@ -62,7 +68,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   @override
   Future<Map<String, dynamic>> getUserData({
     String fields = "name,email,picture.width(200)",
-  }) {
+  }) async {
+    if (!_initialized) return {"error": "window.FB is undefined"};
     Completer<Map<String, dynamic>> c = Completer();
     fb.api(
       "/me?fields=$fields",
@@ -79,7 +86,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
 
   /// calls the FB.logout interop
   @override
-  Future<void> logOut() {
+  Future<void> logOut() async {
+    if (!_initialized) return;
     Completer<void> c = Completer();
     fb.logout(allowInterop(
       (_) {
@@ -96,7 +104,13 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     String loginBehavior = LoginBehavior.DIALOG_ONLY,
-  }) {
+  }) async {
+    if (!_initialized) {
+      return LoginResult(
+        status: LoginStatus.failed,
+        message: 'window.FB is undefined',
+      );
+    }
     String scope = permissions.join(",");
     Completer<LoginResult> completer = Completer();
     fb.login(
@@ -127,14 +141,28 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     required String version,
   }) {
     this._appId = appId;
-    fb.init(
-      fb.InitOptions(
-        appId: appId,
-        version: version,
-        cookie: cookie,
-        xfbml: xfbml,
-      ),
-    );
+
+    try {
+      if (js.context['FB'] == null) {
+        throw Exception(
+          """
+Facebook Javascript SDK not found. Make sure you already have added the facebook script in your index.html
+or maybe you have a content blocker enabled.
+          """,
+        );
+      }
+      fb.init(
+        fb.InitOptions(
+          appId: appId,
+          version: version,
+          cookie: cookie,
+          xfbml: xfbml,
+        ),
+      );
+      _initialized = true;
+    } catch (e) {
+      print(e);
+    }
   }
 
   /// get the granted and declined permission for the current facebook session
@@ -155,7 +183,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   ///}
   /// ```
   @override
-  Future<FacebookPermissions?> get permissions {
+  Future<FacebookPermissions?> get permissions async {
+    if (!_initialized) return null;
     Completer<FacebookPermissions?> c = Completer();
     fb.api(
       "/me/permissions",
@@ -257,4 +286,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
           code: "REQUEST_ERROR", message: response['error']['message']);
     }
   }
+
+  @override
+  bool get isWebSdkInitialized => _initialized;
 }

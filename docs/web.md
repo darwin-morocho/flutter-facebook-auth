@@ -79,3 +79,6 @@ void main() {
   runApp(MyApp());
 }
 ```
+
+
+>! On Web if the facebook SDK was not initialized by missing configuration or  content blockers all methods of this plugin will return null or a fail status depending of the method. You can check if the SDK was initialized using ` FacebookAuth.i.isWebSdkInitialized`.

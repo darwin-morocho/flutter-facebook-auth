@@ -4,11 +4,12 @@ export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_p
 
 /// Generic class that extends of FacebookAuthPlatform interface
 class FacebookAuth implements FacebookAuthPlatform {
-  FacebookAuth._internal(); // private constructor for singletons
-  static FacebookAuth _instance = FacebookAuth._internal();
-
+  FacebookAuth._(); // private constructor for singletons
   /// return the same instance of FacebookAuth
-  static FacebookAuth get instance => _instance;
+  static FacebookAuth instance = FacebookAuth._();
+
+  /// you can use FacebookAuth.instance or FacebookAuth.i
+  static FacebookAuth get i => instance;
 
   FacebookAuthPlatform _ = FacebookAuthPlatform.instance;
 
@@ -91,4 +92,9 @@ class FacebookAuth implements FacebookAuthPlatform {
   /// It could be null if you exceed the request limit
   @override
   Future<FacebookPermissions?> get permissions => _.permissions;
+
+  /// use this to know window.FB is not undefined
+  /// on Android and iOS is always true
+  @override
+  bool get isWebSdkInitialized => _.isWebSdkInitialized;
 }

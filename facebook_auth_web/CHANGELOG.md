@@ -1,3 +1,10 @@
+
+### 2.5.0+1
+- Print log when the facebook sdk was not initialized.
+
+### 2.5.0
+- Added isWebSdkInitialized;
+
 ### 2.4.2
 - Updated flutter_facebook_auth_platform_interface: ^2.4.2
 ### 2.4.1+1
