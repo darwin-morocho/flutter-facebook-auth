@@ -61,21 +61,21 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "3.3.4"
+    version: "3.4.0"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
       name: flutter_facebook_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0"
+    version: "2.6.0"
   flutter_facebook_auth_web:
     dependency: transitive
     description:
       name: flutter_facebook_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.0+1"
+    version: "2.6.0"
   flutter_web_plugins:
     dependency: transitive
     description: flutter

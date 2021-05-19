@@ -1,4 +1,5 @@
-
+### 2.6.0
+- Updated flutter_facebook_auth_platform_interface: ^2.6.0
 ### 2.5.0+1
 - Print log when the facebook sdk was not initialized.
 

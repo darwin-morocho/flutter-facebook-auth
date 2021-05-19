@@ -24,7 +24,8 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   static FacebookAuthPlatform get instance => _instance;
 
   @visibleForTesting
-  static FacebookAuthPlatform getInstance() => FacebookAuthPlatformImplementation();
+  static FacebookAuthPlatform getInstance() =>
+      FacebookAuthPlatformImplementation();
 
   // ignore: unnecessary_getters_setters
   static set instance(FacebookAuthPlatform i) {

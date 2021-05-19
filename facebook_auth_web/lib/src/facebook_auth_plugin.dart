@@ -103,7 +103,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   @override
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
-    String loginBehavior = LoginBehavior.DIALOG_ONLY,
+    LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
   }) async {
     if (!_initialized) {
       return LoginResult(

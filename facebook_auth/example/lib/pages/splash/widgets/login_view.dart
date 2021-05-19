@@ -12,9 +12,6 @@ import 'package:provider/provider.dart';
 
 class LoginView extends StatelessWidget {
   @override
-  String get id => 'login-view';
-
-  @override
   Widget build(BuildContext context) {
     return Consumer<SplashController>(builder: (_, controller, __) {
       final isLogged = controller.isLogged!;

@@ -1,4 +1,10 @@
 
+### 3.4.0
+- Updated to `flutter_facebook_auth_platform_interface:^ 2.6.0`
+- Updated to `flutter_facebook_auth_web: ^2.6.0`
+- Removed LoginBehavior and FacebookAuthErrorCode class.
+- Added LoginBehavior enum.
+
 ### 3.3.4
 - Added boolean isWebSdkInitialized;
 ### 3.3.3+1

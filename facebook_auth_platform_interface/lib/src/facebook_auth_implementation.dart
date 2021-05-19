@@ -1,7 +1,8 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
 import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show visibleForTesting, defaultTargetPlatform, TargetPlatform;
+import 'package:flutter/foundation.dart'
+    show visibleForTesting, defaultTargetPlatform, TargetPlatform;
 
 import 'facebook_auth_plaftorm.dart';
 import 'facebook_permissions.dart';
@@ -12,7 +13,8 @@ import 'login_behavior.dart';
 /// class to make calls to the facebook login SDK
 class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
   @visibleForTesting
-  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
+  MethodChannel channel =
+      const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -71,7 +73,9 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     final result = await channel.invokeMethod("getUserData", {
       "fields": fields,
     });
-    return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
+    return Platform.isAndroid
+        ? jsonDecode(result)
+        : Map<String, dynamic>.from(result); //null  or dynamic data
   }
 
   /// Sign Out from Facebook
