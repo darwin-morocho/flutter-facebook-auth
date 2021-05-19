@@ -13,12 +13,9 @@ void main() {
     late FacebookAuth facebookAuth;
     late bool isLogged;
 
-    setUpAll(() {
+    setUp(() {
       isLogged = false;
       facebookAuth = FacebookAuth.getInstance();
-    });
-
-    setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
           case "login":

@@ -15,10 +15,9 @@ void main() {
     );
 
     late FacebookAuthPlatform facebookAuth;
-    setUpAll(() {
-      facebookAuth = FacebookAuthPlatform.getInstance();
-    });
+
     setUp(() {
+      facebookAuth = FacebookAuthPlatform.getInstance();
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
           case "login":
@@ -57,12 +56,10 @@ void main() {
     );
     late bool isLogged;
     late FacebookAuthPlatform facebookAuth;
-    setUpAll(() {
-      isLogged = false;
-      facebookAuth = FacebookAuthPlatform.getInstance();
-    });
 
     setUp(() {
+      isLogged = false;
+      facebookAuth = FacebookAuthPlatform.getInstance();
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
           case "login":

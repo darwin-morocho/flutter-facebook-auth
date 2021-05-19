@@ -14,8 +14,9 @@ void main() {
     const MethodChannel channel = MethodChannel(
       'app.meedu/flutter_facebook_auth',
     );
-    bool isLogged = false;
+    late bool isLogged;
     setUp(() {
+      isLogged = false;
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
           case "login":
