@@ -1,22 +1,32 @@
-abstract class LoginBehavior {
-  /// Specifies that login should attempt login in using the Facebook App, and if that does not work fall back to web dialog auth. This is the default behavior.
-  static const NATIVE_WITH_FALLBACK = "NATIVE_WITH_FALLBACK";
+/// defines the login ui Behavior on Android
+enum LoginBehavior {
+  nativeWithFallback,
+  nativeOnly,
+  katanaOnly,
+  webOnly,
+  dialogOnly,
+  webViewOnly,
+  deviceAuth,
+}
 
-  /// Specifies that login should only attempt to login using the Facebook App. If the Facebook App cannot be used then the login fails.
-  static const NATIVE_ONLY = "NATIVE_ONLY";
+/// parse the [LoginBehavior] to a String to be passed to the native code.
+String getLoginBehaviorAsString(LoginBehavior behavior) {
+  switch (behavior) {
+    case LoginBehavior.nativeWithFallback:
+      return "NATIVE_WITH_FALLBACK";
+    case LoginBehavior.nativeOnly:
+      return "NATIVE_ONLY";
+    case LoginBehavior.katanaOnly:
+      return "KATANA_ONLY";
+    case LoginBehavior.webOnly:
+      return "WEB_ONLY";
+    case LoginBehavior.dialogOnly:
+      return "WEB_VIEW_ONLY";
 
-  /// Specifies that login should only attempt to use Katana Proxy Login.
-  static const KATANA_ONLY = "KATANA_ONLY";
+    case LoginBehavior.webViewOnly:
+      return "DIALOG_ONLY";
 
-  /// Specifies that only the web dialog auth should be used.
-  static const WEB_ONLY = "WEB_ONLY";
-
-  /// Specifies that only the web view dialog auth should be used
-  static const WEB_VIEW_ONLY = "WEB_VIEW_ONLY";
-
-  /// Specifies that only the web dialog auth (from anywhere) should be used
-  static const DIALOG_ONLY = "DIALOG_ONLY";
-
-  /// Specifies that device login authentication flow should be used.
-  static const DEVICE_AUTH = "DEVICE_AUTH";
+    case LoginBehavior.deviceAuth:
+      return "DEVICE_AUTH";
+  }
 }

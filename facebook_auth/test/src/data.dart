@@ -29,24 +29,5 @@ abstract class MockData {
       },
       "id": "136742241592917"
     };
-    // try {
-    //   final dio = Dio();
-    //   final response = await dio.get(
-    //     "https://graph.facebook.com/me",
-    //     queryParameters: {
-    //       "fields": fields,
-    //       "access_token":
-    //           "EAAS5elFDcaYBAB4KyXaxBtEBjkgYpAEZAZAFuV6VHxxfC29l6ZCjgEmYKVguY3Uos5fQ0blVON2WccIvLCQ72EFHDa0ZAmludHCbGN3jNDpzq2L78X74dYTYBAokZAzFWZBwg2biPlEboXkZCWjNWubmE3TES5er3yxZArstszCbQtfue1ECxkjzHhwUkdYNuMJgzo1WVUa4Cc7z2M029srT",
-    //     },
-    //   );
-    //   return response.data;
-    // } on DioError catch (e) {
-    //   print(e.error);
-    //   print(e.request.baseUrl);
-    //   print(e.request.path);
-    //   print(e.request.queryParameters);
-    //   print(e.response);
-    // }
-    // return null;
   }
 }

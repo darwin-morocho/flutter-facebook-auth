@@ -1,8 +1,10 @@
 // ignore: import_of_legacy_library_into_null_safe
+import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 
-/// Generic class that extends of FacebookAuthPlatform interface
+/// this class implements the FacebookAuthPlatform interface
+/// and calls to the native APIs on Android, iOS and web.
 class FacebookAuth implements FacebookAuthPlatform {
   FacebookAuth._(); // private constructor for singletons
   /// return the same instance of FacebookAuth
@@ -12,6 +14,10 @@ class FacebookAuth implements FacebookAuthPlatform {
   static FacebookAuth get i => instance;
 
   FacebookAuthPlatform _ = FacebookAuthPlatform.instance;
+
+  /// return a new instance of FacebookAuth for testing
+  @visibleForTesting
+  static FacebookAuth getInstance() => FacebookAuth._();
 
   /// if the user is logged return one instance of AccessToken
   @override
@@ -93,7 +99,7 @@ class FacebookAuth implements FacebookAuthPlatform {
   @override
   Future<FacebookPermissions?> get permissions => _.permissions;
 
-  /// use this to know window.FB is not undefined
+  /// use this to know if the facebook sdk was initializated on Web
   /// on Android and iOS is always true
   @override
   bool get isWebSdkInitialized => _.isWebSdkInitialized;

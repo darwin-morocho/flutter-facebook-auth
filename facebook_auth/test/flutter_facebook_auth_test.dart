@@ -7,11 +7,17 @@ import 'src/data.dart';
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
   group('authentication', () {
-    bool isLogged = false;
     const MethodChannel channel = MethodChannel(
       'app.meedu/flutter_facebook_auth',
     );
     late FacebookAuth facebookAuth;
+    late bool isLogged;
+
+    setUpAll(() {
+      isLogged = false;
+      facebookAuth = FacebookAuth.getInstance();
+    });
+
     setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
@@ -32,7 +38,6 @@ void main() {
             return await MockData.getUserData(fields);
         }
       });
-      facebookAuth = FacebookAuth.i;
     });
 
     test('login request', () async {

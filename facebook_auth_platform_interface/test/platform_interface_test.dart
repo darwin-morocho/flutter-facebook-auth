@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 import 'package:flutter_facebook_auth_platform_interface/src/login_result.dart';
@@ -13,8 +14,10 @@ void main() {
       'app.meedu/flutter_facebook_auth',
     );
 
-    FacebookAuthPlatform.instance = MethodCahnnelFacebookAuth();
-
+    late FacebookAuthPlatform facebookAuth;
+    setUpAll(() {
+      facebookAuth = FacebookAuthPlatform.getInstance();
+    });
     setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
@@ -29,15 +32,13 @@ void main() {
     });
 
     test('login failed', () async {
-      final instance = FacebookAuthPlatform.instance;
-      expect(instance.isWebSdkInitialized, true);
-      final result = await instance.login();
+      expect(facebookAuth.isWebSdkInitialized, true);
+      final result = await facebookAuth.login();
       expect(result.status, LoginStatus.failed);
     });
 
     test('express login failed', () async {
-      final instance = FacebookAuthPlatform.instance;
-      final result = await instance.expressLogin();
+      final result = await facebookAuth.expressLogin();
       expect(result.status, LoginStatus.failed);
     });
     test('get user date failed', () async {
@@ -54,7 +55,13 @@ void main() {
     const MethodChannel channel = MethodChannel(
       'app.meedu/flutter_facebook_auth',
     );
-    bool isLogged = false;
+    late bool isLogged;
+    late FacebookAuthPlatform facebookAuth;
+    setUpAll(() {
+      isLogged = false;
+      facebookAuth = FacebookAuthPlatform.getInstance();
+    });
+
     setUp(() {
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
@@ -77,38 +84,36 @@ void main() {
     });
 
     test('authenticated', () async {
-      final instance = FacebookAuthPlatform.instance;
       AccessToken? accessToken = await FacebookAuthPlatform.instance.accessToken;
       Map<String, dynamic> userData = await FacebookAuthPlatform.instance.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
-      final loginResult = await instance.login();
+      final loginResult = await facebookAuth.login();
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
         final accessTokenAsJson = accessToken!.toJson();
         expect(accessTokenAsJson.containsKey('token'), true);
-        expect(await instance.accessToken, isA<AccessToken>());
-        expect((await instance.expressLogin()), isA<LoginResult>());
-        userData = await instance.getUserData();
+        expect(await facebookAuth.accessToken, isA<AccessToken>());
+        expect((await facebookAuth.expressLogin()), isA<LoginResult>());
+        userData = await facebookAuth.getUserData();
         expect(userData.containsKey("email"), true);
-        await instance.logOut();
-        expect(await instance.accessToken, null);
+        await facebookAuth.logOut();
+        expect(await facebookAuth.accessToken, null);
       }
     });
 
     test('permissions test', () async {
-      final instance = FacebookAuthPlatform.instance;
-      await instance.login();
-      final grantedPermissions = (await instance.permissions)!.granted;
+      await facebookAuth.login();
+      final grantedPermissions = (await facebookAuth.permissions)!.granted;
       expect(grantedPermissions.contains("email"), true);
       expect(grantedPermissions.contains("user_link"), true);
     });
 
     test('express login sucess', () async {
-      final instance = FacebookAuthPlatform.instance;
-      instance.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
-      final loginResult = await instance.expressLogin();
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
+      facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
+      final loginResult = await facebookAuth.expressLogin();
       expect(loginResult.status == LoginStatus.success, true);
     });
   });

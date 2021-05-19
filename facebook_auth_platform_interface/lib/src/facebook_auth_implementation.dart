@@ -1,17 +1,18 @@
 import 'dart:convert';
 import 'package:flutter/services.dart';
-import 'login_result.dart';
-import '../flutter_facebook_auth_platform_interface.dart';
-import 'access_token.dart';
 import 'dart:io' show Platform;
-import 'package:flutter/foundation.dart' show visibleForTesting;
+import 'package:flutter/foundation.dart' show visibleForTesting, defaultTargetPlatform, TargetPlatform;
+
+import 'facebook_auth_plaftorm.dart';
+import 'facebook_permissions.dart';
+import 'login_result.dart';
+import 'access_token.dart';
 import 'login_behavior.dart';
 
 /// class to make calls to the facebook login SDK
-class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
+class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
   @visibleForTesting
-  MethodChannel channel =
-      const MethodChannel('app.meedu/flutter_facebook_auth');
+  MethodChannel channel = const MethodChannel('app.meedu/flutter_facebook_auth');
 
   /// make a login request using the facebook SDK
   ///
@@ -22,12 +23,12 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
   @override
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
-    String loginBehavior = LoginBehavior.DIALOG_ONLY,
+    LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
   }) async {
     try {
       final result = await channel.invokeMethod("login", {
         "permissions": permissions,
-        "loginBehavior": loginBehavior,
+        "loginBehavior": getLoginBehaviorAsString(loginBehavior),
       });
       final token = AccessToken.fromJson(Map<String, dynamic>.from(result));
       return LoginResult(status: LoginStatus.success, accessToken: token);
@@ -45,8 +46,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
   /// For more info go to https://developers.facebook.com/docs/facebook-login/android
   @override
   Future<LoginResult> expressLogin() async {
-    final tesing = Platform.environment.containsKey('FLUTTER_TEST');
-    if (Platform.isAndroid || tesing) {
+    if (defaultTargetPlatform == TargetPlatform.android) {
       try {
         final result = await channel.invokeMethod("expressLogin");
         final token = AccessToken.fromJson(Map<String, dynamic>.from(result));
@@ -56,7 +56,9 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
       }
     }
     return LoginResult(
-        status: LoginStatus.failed, message: 'Method only allowed on Android');
+      status: LoginStatus.failed,
+      message: 'Method only allowed on Android',
+    );
   }
 
   /// retrive the user information using the GraphAPI
@@ -69,9 +71,7 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     final result = await channel.invokeMethod("getUserData", {
       "fields": fields,
     });
-    return Platform.isAndroid
-        ? jsonDecode(result)
-        : Map<String, dynamic>.from(result); //null  or dynamic data
+    return Platform.isAndroid ? jsonDecode(result) : Map<String, dynamic>.from(result); //null  or dynamic data
   }
 
   /// Sign Out from Facebook
@@ -110,6 +110,8 @@ class MethodCahnnelFacebookAuth extends FacebookAuthPlatform {
     return null;
   }
 
+  /// use this to know if the facebook sdk was initializated on Web
+  /// on Android and iOS is always true
   @override
   bool get isWebSdkInitialized => true;
 }
