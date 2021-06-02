@@ -35,7 +35,7 @@ void main() {
     });
 
     test('login ok', () async {
-      final instance = FacebookAuthPlatform.instance;
+      final instance = FacebookAuthPlatform.getInstance();
       AccessToken? accessToken = await FacebookAuthPlatform.instance.accessToken;
       Map<String, dynamic> userData = await FacebookAuthPlatform.instance.getUserData();
       expect(accessToken, null);
@@ -54,7 +54,7 @@ void main() {
     });
 
     test('express login failed', () async {
-      final instance = FacebookAuthPlatform.instance;
+      final instance = FacebookAuthPlatform.getInstance();
       final loginResult = await instance.expressLogin();
       expect(loginResult.status == LoginStatus.failed, true);
     });

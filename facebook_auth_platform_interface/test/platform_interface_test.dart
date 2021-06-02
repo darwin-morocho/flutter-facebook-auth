@@ -1,13 +1,20 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 import 'package:flutter_facebook_auth_platform_interface/src/login_result.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import 'mock_data.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  setUp(() {
+    debugDefaultTargetPlatformOverride = TargetPlatform.android;
+  });
 
   group('authentication failed', () {
     const MethodChannel channel = MethodChannel(
@@ -75,17 +82,20 @@ void main() {
             return null;
 
           case "getUserData":
-            return isLogged ? MockData.userData : {};
+            final isAndroid = defaultTargetPlatform == TargetPlatform.android;
+            final result = isLogged ? MockData.userData : {};
+
+            return isAndroid ? jsonEncode(result) : result;
         }
       });
     });
 
     test('authenticated', () async {
-      AccessToken? accessToken = await FacebookAuthPlatform.instance.accessToken;
-      Map<String, dynamic> userData = await FacebookAuthPlatform.instance.getUserData();
+      AccessToken? accessToken = await facebookAuth.accessToken;
+      Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
-      final loginResult = await facebookAuth.login();
+      final loginResult = await facebookAuth.login(loginBehavior: LoginBehavior.webViewOnly);
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
@@ -101,17 +111,30 @@ void main() {
     });
 
     test('permissions test', () async {
-      await facebookAuth.login();
+      await facebookAuth.login(loginBehavior: LoginBehavior.deviceAuth);
       final grantedPermissions = (await facebookAuth.permissions)!.granted;
       expect(grantedPermissions.contains("email"), true);
       expect(grantedPermissions.contains("user_link"), true);
     });
 
     test('express login sucess', () async {
-      debugDefaultTargetPlatformOverride = TargetPlatform.android;
-      facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
       final loginResult = await facebookAuth.expressLogin();
       expect(loginResult.status == LoginStatus.success, true);
     });
+
+    test('express login failed', () async {
+      debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+      facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
+      final loginResult = await facebookAuth.expressLogin();
+      print("loginResult.status ${loginResult.status}");
+      expect(loginResult.status == LoginStatus.failed, true);
+    });
+
+    test('set instance', () {
+      FacebookAuthPlatform.instance = MockFacebookAuthPlatform();
+      expect(FacebookAuthPlatform.instance, isA<MockFacebookAuthPlatform>());
+    });
   });
 }
+
+class MockFacebookAuthPlatform extends Mock implements FacebookAuthPlatform {}
