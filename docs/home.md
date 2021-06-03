@@ -52,4 +52,4 @@ dependencies:
 
 <!-- tabs:end -->
 
-!> **IMPORTANT**: When you install this plugin you need configure the plugin on Android before run the project again . If you don't do it you will have a **No implementation found** error because the facebook SDK on Android throws an Exception when the configuration is not defined yet and this locks the other plugins in your project. If you don't need the plugin yet please remove or comment it.
+!> **IMPORTANT**: When you install this plugin you need to configure the plugin on Android before run the project again . If you don't do it you will have a **No implementation found** error because the facebook SDK on Android throws an Exception when the configuration is not defined yet and this locks the other plugins in your project. If you don't need the plugin yet please remove or comment it.
