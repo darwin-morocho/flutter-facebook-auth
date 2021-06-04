@@ -7,7 +7,7 @@ Now you can use `FacebookAuth.instance` to call all the methods of the plugin.
 The `login` method is **asynchronous**.
 
 ```dart
-final LoginResult result = await FacebookAuth.instance.login(); // by default we request the email and the public profile
+final LoginResult result = await FacebookAuth.instance.login(loginBehavior: LoginBehavior.nativeWithFallback); // by default we request the email and the public profile
 if (result.status == LoginStatus.success) {
     // you are logged
     final AccessToken accessToken = result.accessToken!;
@@ -28,6 +28,7 @@ Example:
 ```dart
 final LoginResult result = await FacebookAuth.instance.login(
     permissions: ['public_profile', 'email', 'pages_show_list', 'pages_messaging', 'pages_manage_metadata'],
+    loginBehavior: LoginBehavior.nativeWithFallback, 
 );
 ```
 
