@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
@@ -14,25 +17,30 @@ void main() {
     late bool isLogged;
 
     setUp(() {
+      debugDefaultTargetPlatformOverride = TargetPlatform.android;
       isLogged = false;
       facebookAuth = FacebookAuth.getInstance();
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
           case "login":
             isLogged = true;
-            return MockData.accessToken;
+            return mockAccessToken;
           case "expressLogin":
             isLogged = true;
-            return MockData.accessToken;
+            return mockAccessToken;
           case "getAccessToken":
-            return isLogged ? MockData.accessToken : null;
+            return isLogged ? mockAccessToken : null;
           case "logOut":
             isLogged = false;
             return null;
 
           case "getUserData":
-            final String fields = call.arguments['fields'];
-            return await MockData.getUserData(fields);
+            // final String fields = call.arguments['fields'];
+            final data = mockUserData;
+            if (defaultTargetPlatform == TargetPlatform.android) {
+              return jsonEncode(data);
+            }
+            return data;
         }
       });
     });
@@ -59,6 +67,10 @@ void main() {
       expect(await facebookAuth.accessToken, null);
       final result = await facebookAuth.expressLogin();
       expect(result.status, LoginStatus.success);
+    });
+
+    test('test singleton', () async {
+      expect(await FacebookAuth.i.accessToken, null);
     });
   });
 }

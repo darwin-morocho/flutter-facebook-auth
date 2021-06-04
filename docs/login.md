@@ -7,7 +7,8 @@ Now you can use `FacebookAuth.instance` to call all the methods of the plugin.
 The `login` method is **asynchronous**.
 
 ```dart
-final LoginResult result = await FacebookAuth.instance.login(loginBehavior: LoginBehavior.nativeWithFallback); // by default we request the email and the public profile
+final LoginResult result = await FacebookAuth.instance.login(); // by default we request the email and the public profile
+// or FacebookAuth.i.login()
 if (result.status == LoginStatus.success) {
     // you are logged
     final AccessToken accessToken = result.accessToken!;
@@ -28,8 +29,11 @@ Example:
 ```dart
 final LoginResult result = await FacebookAuth.instance.login(
     permissions: ['public_profile', 'email', 'pages_show_list', 'pages_messaging', 'pages_manage_metadata'],
-    loginBehavior: LoginBehavior.nativeWithFallback, 
 );
+// or 
+// FacebookAuth.i.login(
+//   permissions: ['public_profile', 'email', 'pages_show_list', 'pages_messaging', 'pages_manage_metadata'],
+// )
 ```
 
 The `AccessToken` class has two fields (only Android and iOS, on web these fields will be null) `grantedPermissions` and `declinedPermissions` to check the permissions granted for the user.
@@ -37,6 +41,7 @@ The `AccessToken` class has two fields (only Android and iOS, on web these field
 On web use `FacebookAuth.instance.permissions` to check the permissions granted for the user.
 ```dart
 FacebookPermissions  permissions = await FacebookAuth.instance.permissions;
+// or FacebookAuth.i.permissions
 ```
 
 ---
@@ -44,6 +49,7 @@ FacebookPermissions  permissions = await FacebookAuth.instance.permissions;
 > Just call to `FacebookAuth.instance.accessToken`
 ```dart
 final AccessToken accessToken = await FacebookAuth.instance.accessToken;
+// or FacebookAuth.i.accessToken
 if (accessToken != null) {
     // user is logged
 }
@@ -55,4 +61,5 @@ if (accessToken != null) {
 
 ```dart
 await FacebookAuth.instance.logOut();
+// or FacebookAuth.i.logOut();
 ```

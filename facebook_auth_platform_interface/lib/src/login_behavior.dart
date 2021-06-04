@@ -21,11 +21,9 @@ String getLoginBehaviorAsString(LoginBehavior behavior) {
     case LoginBehavior.webOnly:
       return "WEB_ONLY";
     case LoginBehavior.dialogOnly:
-      return "WEB_VIEW_ONLY";
-
-    case LoginBehavior.webViewOnly:
       return "DIALOG_ONLY";
-
+    case LoginBehavior.webViewOnly:
+      return "WEB_VIEW_ONLY";
     case LoginBehavior.deviceAuth:
       return "DEVICE_AUTH";
   }

@@ -2,6 +2,7 @@ To get the user information just call to `getUserData` method.
 
 ```dart
 final userData = await FacebookAuth.instance.getUserData();
+// or FacebookAuth.i.getUserData()
 ```
 
 > Only call `getUserData` method if you have an user Logged
@@ -29,11 +30,11 @@ Expected response `Map<String,dynamic>`:
 For example if you want to get the user birthday, friends, gender and link you need first make a login request with these permissions.
 
 ```dart
-final result = await FacebookAuth.instance.login(
+final result = await FacebookAuth.i.login(
     permissions: ['email', 'public_profile', 'user_birthday', 'user_friends', 'user_gender', 'user_link'],
 );
 if (result.status == LoginStatus.success) {
-    final userData = await FacebookAuth.instance.getUserData(
+    final userData = await FacebookAuth.i.getUserData(
         fields: "name,email,picture.width(200),birthday,friends,gender,link",
     );
 }

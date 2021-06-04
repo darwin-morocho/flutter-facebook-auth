@@ -1,3 +1,5 @@
+### 2.6.1
+- Fixed login ui webview to dialog on Android.
 ### 2.6.0
 - Removed LoginBehavior and FacebookAuthErrorCode class.
 - Added enum LoginBehavior.

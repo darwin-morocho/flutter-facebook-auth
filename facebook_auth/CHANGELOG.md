@@ -1,4 +1,7 @@
 
+### 3.4.1
+- Updated flutter_facebook_auth_platform_interface: ^2.6.1
+- Fixed login ui webview to dialog on Android.
 ### 3.4.0
 - Updated to `flutter_facebook_auth_platform_interface:^ 2.6.0`
 - Updated to `flutter_facebook_auth_web: ^2.6.0`
