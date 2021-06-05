@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 class Patreons extends StatelessWidget {
   const Patreons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    if (!kIsWeb) return Container();
     return ConstrainedBox(
       constraints: BoxConstraints(maxWidth: 1024),
       child: Container(

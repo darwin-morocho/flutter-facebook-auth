@@ -31,7 +31,7 @@ class LoginView extends StatelessWidget {
                     Text(
                       "Welcome back!".toUpperCase(),
                       style: GoogleFonts.chango(
-                        fontSize: 30,
+                        fontSize: 20,
                         fontWeight: FontWeight.bold,
                         color: Color(0xff29434e),
                       ),
