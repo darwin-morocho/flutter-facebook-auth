@@ -27,3 +27,6 @@ if (status == PermissionStatus.granted) {
 ```
 
 You can use `FacebookAuth.i.isAutoLogAppEventsEnabled` to check if the AutoLogAppEvents are enabled.
+
+
+> For more info check the example folder.
