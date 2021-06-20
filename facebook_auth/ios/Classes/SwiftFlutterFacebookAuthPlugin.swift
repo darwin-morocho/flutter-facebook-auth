@@ -7,7 +7,7 @@ import FBSDKCoreKit
 public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin {
     let facebookAuth = FacebookAuth()
     public static func register(with registrar: FlutterPluginRegistrar) {
-        ApplicationDelegate.initializeSDK(nil)
+        ApplicationDelegate.initialize()
         let channel = FlutterMethodChannel(name: "app.meedu/flutter_facebook_auth", binaryMessenger: registrar.messenger())
         let instance = SwiftFlutterFacebookAuthPlugin()
         registrar.addMethodCallDelegate(instance, channel: channel)

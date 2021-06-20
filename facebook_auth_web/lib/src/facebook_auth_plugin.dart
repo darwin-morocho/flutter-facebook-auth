@@ -289,4 +289,10 @@ or maybe you have a content blocker enabled.
 
   @override
   bool get isWebSdkInitialized => _initialized;
+
+  @override
+  Future<void> autoLogAppEventsEnabled(bool enabled) async {}
+
+  @override
+  Future<bool> get isAutoLogAppEventsEnabled => Future.value(false);
 }

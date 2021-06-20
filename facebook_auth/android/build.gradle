@@ -34,5 +34,5 @@ android {
 
 
 dependencies {
-    implementation 'com.facebook.android:facebook-login:9.1.0'
+    implementation 'com.facebook.android:facebook-login:11.0.0'
 }

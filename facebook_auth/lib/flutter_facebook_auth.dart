@@ -103,4 +103,14 @@ class FacebookAuth implements FacebookAuthPlatform {
   /// on Android and iOS is always true
   @override
   bool get isWebSdkInitialized => _.isWebSdkInitialized;
+
+  /// ONLY FOR iOS: enable or disable AutoLogAppEvents
+  @override
+  Future<void> autoLogAppEventsEnabled(bool enabled) {
+    return _.autoLogAppEventsEnabled(enabled);
+  }
+
+  /// ONLY FOR iOS: check if AutoLogAppEvents are enabled
+  @override
+  Future<bool> get isAutoLogAppEventsEnabled => _.isAutoLogAppEventsEnabled;
 }

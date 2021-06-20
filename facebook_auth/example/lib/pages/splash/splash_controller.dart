@@ -1,5 +1,6 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_facebook_auth_example/main.dart';
 
 class SplashController extends ChangeNotifier {
   final FacebookAuth _facebookAuth;
@@ -18,9 +19,14 @@ class SplashController extends ChangeNotifier {
 
   void _init() async {
     print("isWebSdkInitialized ${this._facebookAuth.isWebSdkInitialized}");
+    print("isAutoLogAppEventsEnabled ${await this._facebookAuth.isAutoLogAppEventsEnabled}");
     _isLogged = await this._facebookAuth.accessToken != null;
     if (_isLogged!) {
-      _userData = await _facebookAuth.getUserData();
+      _userData = await _facebookAuth.getUserData(
+        fields: "name,email,picture.width(200)",
+      );
+      print(_userData);
+      prettyPrint(_userData!);
     }
     notifyListeners();
   }
@@ -28,11 +34,18 @@ class SplashController extends ChangeNotifier {
   Future<bool> login() async {
     _fetching = true;
     notifyListeners();
-    final result = await _facebookAuth.login();
+    final result = await _facebookAuth.login(permissions: [
+      'email',
+      'public_profile',
+      'user_photos',
+    ]);
 
     _isLogged = result.status == LoginStatus.success;
     if (_isLogged!) {
-      _userData = await _facebookAuth.getUserData();
+      _userData = await _facebookAuth.getUserData(
+        fields: "name,email,picture.width(200),photos",
+      );
+      prettyPrint(_userData!);
     }
     _fetching = false;
     notifyListeners();

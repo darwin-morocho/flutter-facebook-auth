@@ -1,3 +1,6 @@
+### 2.7.0
+- Added isAutoLogAppEventsEnabled only iOS.
+
 ### 2.6.1
 - Fixed login ui webview to dialog on Android.
 ### 2.6.0

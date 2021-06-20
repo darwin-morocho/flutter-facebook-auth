@@ -13,6 +13,7 @@ import 'login_behavior.dart';
 class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
   /// check if is running on Android
   bool get isAndroid => defaultTargetPlatform == TargetPlatform.android;
+  bool get isIOS => defaultTargetPlatform == TargetPlatform.iOS;
 
   @visibleForTesting
   MethodChannel channel =
@@ -96,6 +97,7 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     return null;
   }
 
+  /// only available on WEB
   @override
   void webInitialize({
     required String appId,
@@ -104,6 +106,7 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     required String version,
   }) {}
 
+  /// returns the granted and declined permissions
   @override
   Future<FacebookPermissions?> get permissions async {
     final AccessToken? accessToken = await this.accessToken;
@@ -119,5 +122,24 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
   /// use this to know if the facebook sdk was initializated on Web
   /// on Android and iOS is always true
   @override
-  bool get isWebSdkInitialized => true;
+  bool get isWebSdkInitialized => false;
+
+  @override
+  Future<bool> get isAutoLogAppEventsEnabled async {
+    if (isIOS) {
+      final enabled =
+          await channel.invokeMethod<bool>("isAutoLogAppEventsEnabled");
+      return enabled ?? false;
+    }
+    return false;
+  }
+
+  @override
+  Future<void> autoLogAppEventsEnabled(bool enabled) async {
+    if (isIOS) {
+      await channel.invokeMethod("updateAutoLogAppEventsEnabled", {
+        "enabled": enabled,
+      });
+    }
+  }
 }

@@ -11,66 +11,70 @@ import FBSDKLoginKit
 import Foundation
 
 class FacebookAuth: NSObject {
-
+    
     let loginManager : LoginManager = LoginManager()
     var pendingResult: FlutterResult? = nil
-
-
+    
+    
     /*
      handle the platform channel
      */
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         let args = call.arguments as? [String: Any]
         
-        
-      
-        switch call.method{
-        
-        
-
+        switch call.method {
+    
         case "login":
             let permissions = args?["permissions"] as! [String]
             self.login(permissions: permissions, flutterResult: result)
-
-
+            
+            
         case "getAccessToken":
-
+            
             if let token = AccessToken.current, !token.isExpired {
                 let accessToken = getAccessToken(accessToken: token)
                 result(accessToken)
             }else{
                 result(nil)
             }
-
-
+            
+            
         case "getUserData":
             let fields = args?["fields"] as! String
             getUserData(fields: fields, flutterResult: result)
-
+            
         case "logOut":
             loginManager.logOut()
             result(nil)
-
+            
+        case "updateAutoLogAppEventsEnabled":
+            let enabled = args?["enabled"] as! Bool
+            self.updateAutoLogAppEventsEnabled(enabled: enabled, flutterResult: result)
+            
+        case "isAutoLogAppEventsEnabled":
+            let enabled:Bool = Settings.isAutoLogAppEventsEnabled
+            result(enabled)
+            
         default:
             result(FlutterMethodNotImplemented)
         }
     }
-
-
-
+    
+    
+    
     /*
      use the facebook sdk to request a login with some permissions
      */
     private func login(permissions: [String], flutterResult: @escaping FlutterResult){
-
+        
         let isOK = setPendingResult(methodName: "login", flutterResult: flutterResult)
         if(!isOK){
             return
         }
-
+        
         let viewController: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!
-
-
+        
+        
         loginManager.logIn(permissions: permissions, from: viewController, handler: { (result,error)->Void in
             if error != nil{
                 self.finishWithError(errorCode: "FAILED", message: error!.localizedDescription)
@@ -81,23 +85,31 @@ class FacebookAuth: NSObject {
             }
         })
     }
-
-
+    
+    
     /**
      retrive the user data from facebook, this could be fail if you are trying to get data without the user autorization permission
      */
     private func getUserData(fields: String, flutterResult: @escaping FlutterResult) {
         let graphRequest : GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":fields])
-        graphRequest.start(completionHandler: { (connection, result, error) -> Void in
+        graphRequest.start { (connection, result, error) -> Void in
             if (error != nil) {
                 self.sendErrorToClient(result: flutterResult, errorCode: "FAILED", message: error!.localizedDescription)
             } else {
                 let resultDic = result as! NSDictionary
                 flutterResult(resultDic) // sned the response to the client
             }
-        })
+        }
     }
-
+    
+    /**
+     Enable or disable the AutoLogAppEvents
+     */
+    private func updateAutoLogAppEventsEnabled(enabled: Bool,flutterResult: @escaping FlutterResult){
+        Settings.isAutoLogAppEventsEnabled = enabled
+        flutterResult(nil)
+    }
+    
     // define a login task
     private func setPendingResult(methodName: String, flutterResult: @escaping FlutterResult) -> Bool {
         if(pendingResult != nil){// if we have a previous login task
@@ -107,7 +119,7 @@ class FacebookAuth: NSObject {
         pendingResult = flutterResult;
         return true
     }
-
+    
     // send the success response to the client
     private func finishWithResult(data: Any?){
         if (pendingResult != nil) {
@@ -115,7 +127,7 @@ class FacebookAuth: NSObject {
             pendingResult = nil
         }
     }
-
+    
     // handle the login errors
     private func finishWithError(errorCode:String,  message: String){
         if (pendingResult != nil) {
@@ -123,12 +135,12 @@ class FacebookAuth: NSObject {
             pendingResult = nil
         }
     }
-
+    
     // sends a error response to the client
     private func sendErrorToClient(result:FlutterResult,errorCode:String,  message: String){
         result(FlutterError(code: errorCode, message: message, details: nil))
     }
-
+    
     /**
      get the access token data as a Dictionary
      */

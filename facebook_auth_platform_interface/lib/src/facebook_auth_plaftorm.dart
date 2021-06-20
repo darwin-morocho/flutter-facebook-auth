@@ -71,6 +71,12 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     String fields = "name,email,picture.width(200)",
   });
 
+  /// ONLY FOR iOS: enable or disable AutoLogAppEvents
+  Future<void> autoLogAppEventsEnabled(bool enabled);
+
+  /// ONLY FOR iOS: check if AutoLogAppEvents are enabled
+  Future<bool> get isAutoLogAppEventsEnabled;
+
   /// Sign Out from Facebook
   Future<void> logOut();
 

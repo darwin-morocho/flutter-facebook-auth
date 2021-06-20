@@ -14,11 +14,12 @@ void main() {
       'app.meedu/flutter_facebook_auth',
     );
     late FacebookAuth facebookAuth;
-    late bool isLogged;
+    late bool isLogged, isAutoLogAppEventsEnabled;
 
     setUp(() {
       debugDefaultTargetPlatformOverride = TargetPlatform.android;
       isLogged = false;
+      isAutoLogAppEventsEnabled = false;
       facebookAuth = FacebookAuth.getInstance();
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
@@ -41,12 +42,20 @@ void main() {
               return jsonEncode(data);
             }
             return data;
+          case "isAutoLogAppEventsEnabled":
+            return isAutoLogAppEventsEnabled;
+
+          case "updateAutoLogAppEventsEnabled":
+            final isIOS = defaultTargetPlatform == TargetPlatform.iOS;
+            if (isIOS) {
+              isAutoLogAppEventsEnabled = call.arguments['enabled'];
+            }
         }
       });
     });
 
     test('login request', () async {
-      expect(facebookAuth.isWebSdkInitialized, true);
+      expect(facebookAuth.isWebSdkInitialized, false);
       expect(await facebookAuth.accessToken, null);
       facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
       final result = await facebookAuth.login();
@@ -71,6 +80,13 @@ void main() {
 
     test('test singleton', () async {
       expect(await FacebookAuth.i.accessToken, null);
+    });
+
+    test('autoLogAppEventsEnabled', () async {
+      debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+      expect(await facebookAuth.isAutoLogAppEventsEnabled, false);
+      await facebookAuth.autoLogAppEventsEnabled(true);
+      expect(await facebookAuth.isAutoLogAppEventsEnabled, true);
     });
   });
 }

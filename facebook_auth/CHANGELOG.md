@@ -1,4 +1,8 @@
 
+### 3.5.0
+- Added isAutoLogAppEventsEnabled only iOS.
+- Added autoLogAppEventsEnabled method only iOS.
+
 ### 3.4.1
 - Updated flutter_facebook_auth_platform_interface: ^2.6.1
 - Fixed login ui webview to dialog on Android.
