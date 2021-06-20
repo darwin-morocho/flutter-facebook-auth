@@ -1,9 +1,11 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_facebook_auth_example/main.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class SplashController extends ChangeNotifier {
   final FacebookAuth _facebookAuth;
+  final Permission _appTrackingTransparencyPermission;
   bool? _isLogged;
   bool _fetching = false;
 
@@ -13,7 +15,7 @@ class SplashController extends ChangeNotifier {
   Map<String, dynamic>? _userData;
   Map<String, dynamic>? get userData => _userData;
 
-  SplashController(this._facebookAuth) {
+  SplashController(this._facebookAuth, this._appTrackingTransparencyPermission) {
     _init();
   }
 
@@ -59,5 +61,14 @@ class SplashController extends ChangeNotifier {
     _fetching = false;
     _isLogged = false;
     notifyListeners();
+  }
+
+  Future<void> requestAppTrackingTransparencyPermission() async {
+    print("next");
+    final status = await _appTrackingTransparencyPermission.request();
+    if (status == PermissionStatus.granted) {
+      await _facebookAuth.autoLogAppEventsEnabled(true);
+      print("isAutoLogAppEventsEnabled:: ${await _facebookAuth.isAutoLogAppEventsEnabled}");
+    }
   }
 }

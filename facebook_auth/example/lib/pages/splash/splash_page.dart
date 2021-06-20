@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/login_view.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'splash_controller.dart';
@@ -11,7 +12,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (_) => SplashController(FacebookAuth.instance),
+      create: (_) => SplashController(FacebookAuth.instance, Permission.appTrackingTransparency),
       lazy: false,
       builder: (context, _) => Scaffold(
         body: Stack(

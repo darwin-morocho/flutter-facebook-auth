@@ -53,6 +53,8 @@
 	</array>
     <key>FacebookAutoLogAppEventsEnabled</key>
     <false/>
+	<key>NSUserTrackingUsageDescription</key>
+    <string>Your reason, why you want to track the user</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>

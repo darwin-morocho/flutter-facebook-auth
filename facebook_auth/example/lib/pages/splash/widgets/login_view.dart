@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/splash_controller.dart';
@@ -83,6 +85,12 @@ class LoginView extends StatelessWidget {
                                 fontSize: 18,
                               ),
                             ),
+                            SizedBox(height: 40),
+                            if (Platform.isIOS)
+                              ElevatedButton(
+                                onPressed: controller.requestAppTrackingTransparencyPermission,
+                                child: Text("Check App Tracking Transparency"),
+                              ),
                           ],
                           SizedBox(height: 30),
                           LoginButton(),
