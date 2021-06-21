@@ -1,9 +1,9 @@
 # App Tracking Transparency
 
-Since **iOS 14.5** all apps that thay want to track the user activity to share data across others providers needs to request
+Since **iOS 14.5** all apps that they want to track the user activity to share data across others providers needs to request
 the **AppTrackingTransparency** permission. 
 
-If you what to track the user activity after the login process follow the next steps.
+If you want to track the user activity after the login process follow the next steps.
 
 In your `Info.plist` add the `FacebookAutoLogAppEventsEnabled` key only if you don't have it and set the value to `false`
 ```
