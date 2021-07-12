@@ -43,6 +43,11 @@ class FacebookAuth: NSObject {
             let fields = args?["fields"] as! String
             getUserData(fields: fields, flutterResult: result)
             
+        case "graphRequest":
+            let id = args?["id"] as! String
+            let fields = args?["fields"] as! String
+            graphRequest(id: id, fields: fields, flutterResult: result)
+            
         case "logOut":
             loginManager.logOut()
             result(nil)
@@ -101,6 +106,22 @@ class FacebookAuth: NSObject {
             }
         }
     }
+    
+    /**
+     retrive any from facebook.
+     */
+    private func graphRequest(id: String, fields: String, flutterResult: @escaping FlutterResult) {
+        let graphRequest : GraphRequest = GraphRequest(graphPath: id, parameters: ["fields":fields])
+        graphRequest.start { (connection, result, error) -> Void in
+            if (error != nil) {
+                self.sendErrorToClient(result: flutterResult, errorCode: "FAILED", message: error!.localizedDescription)
+            } else {
+                let resultDic = result as! NSDictionary
+                flutterResult(resultDic) // sned the response to the client
+            }
+        }
+    }
+    
     
     /**
      Enable or disable the AutoLogAppEvents
