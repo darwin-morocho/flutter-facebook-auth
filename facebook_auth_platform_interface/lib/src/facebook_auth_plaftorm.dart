@@ -71,6 +71,15 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     String fields = "name,email,picture.width(200)",
   });
 
+  /// request any using the GraphAPI
+  ///
+  /// [id] string of id link 12312321321/media
+  /// [fields] string of fields like birthday,email,hometown
+  Future<Map<String, dynamic>> graphRequest({
+    required String id,
+    required String fields,
+  });
+
   /// ONLY FOR iOS: enable or disable AutoLogAppEvents
   Future<void> autoLogAppEventsEnabled(bool enabled);
 
