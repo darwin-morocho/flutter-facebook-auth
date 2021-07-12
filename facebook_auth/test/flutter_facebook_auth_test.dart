@@ -42,6 +42,12 @@ void main() {
               return jsonEncode(data);
             }
             return data;
+          case "graphRequest":
+            final data = mockUserData;
+            if (defaultTargetPlatform == TargetPlatform.android) {
+              return jsonEncode(data);
+            }
+            return data;
           case "isAutoLogAppEventsEnabled":
             return isAutoLogAppEventsEnabled;
 
@@ -63,6 +69,8 @@ void main() {
       expect(result.accessToken, isNotNull);
       expect(await facebookAuth.accessToken, isA<AccessToken>());
       final Map<String, dynamic> userData = await facebookAuth.getUserData();
+      expect(userData.containsKey("email"), true);
+      final Map<String, dynamic> userDataGraphRequest = await facebookAuth.graphRequest(id: "me", fields: "email");
       expect(userData.containsKey("email"), true);
       final FacebookPermissions? permissions = await facebookAuth.permissions;
       expect(permissions, isNotNull);
