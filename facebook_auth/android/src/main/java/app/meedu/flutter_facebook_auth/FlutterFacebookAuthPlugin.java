@@ -54,12 +54,6 @@ public class FlutterFacebookAuthPlugin implements FlutterPlugin, MethodCallHandl
                 facebookAuth.getUserData(fields, result);
                 break;
 
-            case "graphRequest":
-                String id = call.argument("id");
-                String _fields = call.argument("fields");
-                facebookAuth.graphRequest(id, _fields, result);
-                break;
-
             case "logOut":
                 facebookAuth.logOut(result);
                 break;

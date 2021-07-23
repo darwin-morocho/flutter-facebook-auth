@@ -171,33 +171,6 @@ public class FacebookAuth {
         request.executeAsync();
     }
 
-    /**
-     * Get any data from facebook
-     *
-     * @param id string of fields like "me"
-     * @param fields string of fields like "name,email,picture"
-     * @param result flutter method channel result to send the response to the client
-     */
-    public void graphRequest(String id, String fields, final MethodChannel.Result result) {
-        GraphRequest request = GraphRequest.newGraphPathRequest(
-                AccessToken.getCurrentAccessToken(),
-                id,
-                new GraphRequest.Callback() {
-                    @Override
-                    public void onCompleted(GraphResponse response) {
-                        try {
-                            final JSONObject object = response.getJSONObject();
-                            result.success(object.toString());
-                        } catch (Exception e) {
-                            result.error("FAILED", e.getMessage(), null);
-                        }
-                    }
-                });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", fields);
-        request.setParameters(parameters);
-        request.executeAsync();
-    }
 
     /**
      * @param accessToken an instance of Facebook SDK AccessToken
