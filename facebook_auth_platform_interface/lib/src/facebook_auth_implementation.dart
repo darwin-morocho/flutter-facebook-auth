@@ -81,24 +81,6 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
         : Map<String, dynamic>.from(result); //null  or dynamic data
   }
 
-  /// request any using the GraphAPI
-  ///
-  /// [id] string of id link 12312321321/media
-  /// [fields] string of fields like birthday,email,hometown
-  @override
-  Future<Map<String, dynamic>> graphRequest({
-    required String id,
-    required String fields,
-  }) async {
-    final result = await channel.invokeMethod("graphRequest", {
-      "id": id,
-      "fields": fields,
-    });
-    return isAndroid
-        ? jsonDecode(result)
-        : Map<String, dynamic>.from(result); //null  or dynamic data
-  }
-
   /// Sign Out from Facebook
   @override
   Future<void> logOut() async {
