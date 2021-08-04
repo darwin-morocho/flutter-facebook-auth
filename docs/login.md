@@ -16,7 +16,7 @@ if (result.status == LoginStatus.success) {
 ```
 
 The `LoginResult` class has a field called `status` to check if the login was successful. 
-If your are logged you can get one instance of `AcessToken` class and get a `token`(String) to make requests to the **Graph API**.
+If your are logged you can get one instance of `AccessToken` class and get a `token`(String) to make requests to the **Graph API**.
 
 By default the `login` method makes a request with with the permissions to access `email` and `public_profile`. 
 > The `public_profile` permission allows you read the next fields `id, first_name, last_name, middle_name, name, name_format, picture, short_name`
