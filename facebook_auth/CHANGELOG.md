@@ -1,3 +1,6 @@
+### 3.5.0+1
+- updated 'FBSDKCoreKit' ~> 11.1.0
+- updated 'FBSDKLoginKit' ~> 11.1.0
 
 ### 3.5.0
 - Added isAutoLogAppEventsEnabled only iOS.

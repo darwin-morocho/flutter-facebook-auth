@@ -36,17 +36,11 @@ class SplashController extends ChangeNotifier {
   Future<bool> login() async {
     _fetching = true;
     notifyListeners();
-    final result = await _facebookAuth.login(permissions: [
-      'email',
-      'public_profile',
-      'user_photos',
-    ]);
+    final result = await _facebookAuth.login();
 
     _isLogged = result.status == LoginStatus.success;
     if (_isLogged!) {
-      _userData = await _facebookAuth.getUserData(
-        fields: "name,email,picture.width(200),photos",
-      );
+      _userData = await _facebookAuth.getUserData();
       prettyPrint(_userData!);
     }
     _fetching = false;
