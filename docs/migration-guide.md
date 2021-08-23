@@ -1,6 +1,6 @@
 Now the this flugin uses the swift facebook sdk 9.1.0 and the android facebook sdk 9.1.0
 
-If you have a previous version of `flutter_facebook_auth: 3.2.0` you need remove that version from your `pubspec.yaml`
+If you have a previous version of `flutter_facebook_auth: 3.2.0` you need to remove that version from your `pubspec.yaml`
 
 ```yaml
 dependencies:
