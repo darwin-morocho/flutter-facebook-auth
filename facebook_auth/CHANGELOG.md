@@ -1,3 +1,5 @@
+### 3.5.1
+- updated 'facebook-android-sdk' ~> 11.1.1
 ### 3.5.0+1
 - updated 'FBSDKCoreKit' ~> 11.1.0
 - updated 'FBSDKLoginKit' ~> 11.1.0
