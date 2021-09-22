@@ -36,7 +36,7 @@ class SplashController extends ChangeNotifier {
   Future<bool> login() async {
     _fetching = true;
     notifyListeners();
-    final result = await _facebookAuth.login();
+    final LoginResult result = await _facebookAuth.login();
 
     _isLogged = result.status == LoginStatus.success;
     if (_isLogged!) {

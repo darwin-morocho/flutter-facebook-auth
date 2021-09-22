@@ -1,3 +1,5 @@
+### 3.5.2
+- Updated iOS SDK to 11.2.0
 ### 3.5.1
 - updated 'facebook-android-sdk' ~> 11.1.1
 ### 3.5.0+1

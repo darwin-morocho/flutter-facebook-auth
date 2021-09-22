@@ -33,6 +33,8 @@
 	<string>1329834907365798</string>
 	<key>FacebookDisplayName</key>
 	<string>Flutter FAuth</string>
+	<key>FacebookClientToken</key>
+	<string>a3227435cff010a782b23acbe1ff174f</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>fbapi</string>
@@ -76,5 +78,9 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>NSBonjourServices</key>
+	<array>
+		<string>_dartobservatory._tcp</string>
+	</array>
 </dict>
 </plist>
