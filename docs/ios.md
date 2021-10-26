@@ -1,9 +1,9 @@
 !> **IMPORTANT:** For `Objective-C` projects this plugin won't work because this plugin was written in swift. So you need to use swift as a default language for your flutter project (Check how to change to swift [here](https://github.com/darwin-morocho/flutter-facebook-auth/issues/41#issuecomment-761702248)).
 
-- In your Podfile uncomment the next line (You need set the minimum target to 9.0 or higher)
+- In your Podfile uncomment the next line (You need set the minimum target to 10.0 or higher)
 
 ```
-platform :ios, '9.0'
+platform :ios, '10.0'
 ```
 
 - Go to **[Facebook Login for iOS - Quickstart
@@ -25,6 +25,8 @@ platform :ios, '9.0'
 
   From Xcode you can open your `Info.plist` as `Source Code` now add the next code and replace `{your-app-id}` with your facebook app Id.
 
+  In the key **FacebookClientToken**, replace CLIENT-TOKEN with the value found under Settings > Advanced > Client Token in your App Dashboard.
+
     <img src="https://user-images.githubusercontent.com/15864336/98708650-66433080-234f-11eb-81c6-2297b9e6f7a7.png" width="600"/>
 
     ```xml
@@ -39,6 +41,8 @@ platform :ios, '9.0'
     </array>
     <key>FacebookAppID</key>
     <string>{your-app-id}</string>
+    <key>FacebookClientToken</key>
+    <string>CLIENT-TOKEN</string>
     <key>FacebookDisplayName</key>
     <string>{your-app-name}</string>
     <key>LSApplicationQueriesSchemes</key>

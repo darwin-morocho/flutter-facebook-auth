@@ -1,3 +1,7 @@
+### 3.5.3
+- Updated iOS SDK to 12.0.2
+- Updated Android SDK to 12.0.1
+
 ### 3.5.2
 - Updated iOS SDK to 11.2.0
 ### 3.5.1

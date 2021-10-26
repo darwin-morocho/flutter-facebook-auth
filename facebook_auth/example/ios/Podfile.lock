@@ -1,25 +1,16 @@
 PODS:
-  - FBAEMKit (11.2.0):
-    - FBAEMKit/AEM (= 11.2.0)
-  - FBAEMKit/AEM (11.2.0):
-    - FBSDKCoreKit_Basics (~> 11.2.0)
-  - FBSDKCoreKit (11.2.0):
-    - FBSDKCoreKit/Core (= 11.2.0)
-  - FBSDKCoreKit/Core (11.2.0):
-    - FBAEMKit (~> 11.2.0)
-    - FBSDKCoreKit_Basics (~> 11.2.0)
-  - FBSDKCoreKit_Basics (11.2.0):
-    - FBSDKCoreKit_Basics/Basics (= 11.2.0)
-  - FBSDKCoreKit_Basics/Basics (11.2.0)
-  - FBSDKLoginKit (11.2.0):
-    - FBSDKLoginKit/Login (= 11.2.0)
-  - FBSDKLoginKit/Login (11.2.0):
-    - FBSDKCoreKit (~> 11.2.0)
-    - FBSDKCoreKit_Basics (~> 11.2.0)
+  - FBAEMKit (12.0.2):
+    - FBSDKCoreKit_Basics (= 12.0.2)
+  - FBSDKCoreKit (12.0.2):
+    - FBAEMKit (= 12.0.2)
+    - FBSDKCoreKit_Basics (= 12.0.2)
+  - FBSDKCoreKit_Basics (12.0.2)
+  - FBSDKLoginKit (12.0.2):
+    - FBSDKCoreKit (= 12.0.2)
   - Flutter (1.0.0)
-  - flutter_facebook_auth (3.5.1):
-    - FBSDKCoreKit (~> 11.2.0)
-    - FBSDKLoginKit (~> 11.2.0)
+  - flutter_facebook_auth (3.5.3):
+    - FBSDKCoreKit (~> 12.0.2)
+    - FBSDKLoginKit (~> 12.0.2)
     - Flutter
   - local_auth (0.0.1):
     - Flutter
@@ -60,17 +51,17 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher/ios"
 
 SPEC CHECKSUMS:
-  FBAEMKit: 7abd022abf6ea7789aa95c527bacc23f966a857c
-  FBSDKCoreKit: 28a11d82d74ff44f7af3dc035bffd611bd3d8e7d
-  FBSDKCoreKit_Basics: 69e0acab6b97b7b8cae9d452407050e78795c34d
-  FBSDKLoginKit: f32693d81d5133ddc1c3cf45aaf08bc79a630e26
+  FBAEMKit: c6b8ddf8371640fcd1a3b844d0f8884c8f334cea
+  FBSDKCoreKit: 506c0fd1c09a3075f62be8fa36bdd921c563daa9
+  FBSDKCoreKit_Basics: c0701d1634c944d60dd3c6361d66dbd0e707a456
+  FBSDKLoginKit: d7c9f6ddff20d7b04c94d1f1f065dc7a441d44a0
   Flutter: 50d75fe2f02b26cc09d224853bb45737f8b3214a
-  flutter_facebook_auth: 870a465b1afff3ace7a592bd44665d921991726c
+  flutter_facebook_auth: 5638a1a8cc23016ec6f72945ba879f4482870c69
   local_auth: 25938960984c3a7f6e3253e3f8d962fdd16852bd
   path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   url_launcher: 6fef411d543ceb26efce54b05a0a40bfd74cbbef
 
-PODFILE CHECKSUM: a29ba2423094f671848a37e517efe3bf8144401b
+PODFILE CHECKSUM: e154c64fbed79f967c0065362e6be992864a9a6f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.11.2
