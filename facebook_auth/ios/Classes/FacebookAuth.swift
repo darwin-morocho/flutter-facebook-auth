@@ -14,7 +14,20 @@ class FacebookAuth: NSObject {
     
     let loginManager : LoginManager = LoginManager()
     var pendingResult: FlutterResult? = nil
-    
+    private var mainWindow: UIWindow? {
+        if let applicationWindow = UIApplication.shared.delegate?.window as? UIWindow {
+            return applicationWindow
+        }
+
+        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.session.role == .windowApplication }),
+           let sceneDelegate = scene.delegate as? UIWindowSceneDelegate,
+           let window = sceneDelegate.window as? UIWindow  {
+            return window
+        }
+
+        return nil
+    }
+
     
     /*
      handle the platform channel
@@ -72,8 +85,8 @@ class FacebookAuth: NSObject {
             return
         }
         
-        let viewController: UIViewController = (UIApplication.shared.delegate?.window??.rootViewController)!
         
+        let viewController: UIViewController = (mainWindow?.rootViewController)!
         
         loginManager.logIn(permissions: permissions, from: viewController, handler: { (result,error)->Void in
             if error != nil{
