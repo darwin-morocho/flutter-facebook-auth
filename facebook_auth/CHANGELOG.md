@@ -1,3 +1,5 @@
+### 3.5.4
+- Added minimum support for UIScene on iOS (Thanks to [@marcotta](https://github.com/darwin-morocho/flutter-facebook-auth/pull/181))
 ### 3.5.3
 - Updated iOS SDK to 12.0.2
 - Updated Android SDK to 12.0.1
