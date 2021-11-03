@@ -15,7 +15,7 @@ class FacebookAuth: NSObject {
     let loginManager : LoginManager = LoginManager()
     var pendingResult: FlutterResult? = nil
     private var mainWindow: UIWindow? {
-        if let applicationWindow = UIApplication.shared.delegate?.window {
+        if let applicationWindow = UIApplication.shared.delegate?.window ?? nil {
             return applicationWindow
         }
 
