@@ -1,3 +1,21 @@
+### 3.5.5+1
+- Refactor some code in `FacebookAuth.swift`
+
+before
+```
+if let applicationWindow = UIApplication.shared.delegatewindow {
+    return applicationWindow
+}
+```
+
+now
+```
+let applicationWindow = UIApplication.shared.delegate?.window
+if applicationWindow != nil {
+    return applicationWindow!!
+}
+```
+
 ### 3.5.5
 - Added `if #available(iOS 13.0, *)`on iOS. 
 ### 3.5.4
