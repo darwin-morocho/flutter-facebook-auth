@@ -15,14 +15,16 @@ class FacebookAuth: NSObject {
     let loginManager : LoginManager = LoginManager()
     var pendingResult: FlutterResult? = nil
     private var mainWindow: UIWindow? {
-        if let applicationWindow = UIApplication.shared.delegate?.window as? UIWindow {
+        if let applicationWindow = UIApplication.shared.delegate?.window {
             return applicationWindow
         }
 
-        if let scene = UIApplication.shared.connectedScenes.first(where: { $0.session.role == .windowApplication }),
-           let sceneDelegate = scene.delegate as? UIWindowSceneDelegate,
-           let window = sceneDelegate.window as? UIWindow  {
-            return window
+        if #available(iOS 13.0, *) {
+            if let scene = UIApplication.shared.connectedScenes.first(where: { $0.session.role == .windowApplication }),
+               let sceneDelegate = scene.delegate as? UIWindowSceneDelegate,
+               let window = sceneDelegate.window as? UIWindow  {
+                return window
+            }
         }
 
         return nil

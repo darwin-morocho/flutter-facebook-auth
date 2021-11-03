@@ -1,3 +1,5 @@
+### 3.5.5
+- Added `if #available(iOS 13.0, *)`on iOS. 
 ### 3.5.4
 - Added minimum support for UIScene on iOS (Thanks to [@marcotta](https://github.com/darwin-morocho/flutter-facebook-auth/pull/181))
 ### 3.5.3
