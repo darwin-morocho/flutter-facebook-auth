@@ -1,3 +1,5 @@
+### 3.5.6
+- Updated deprecated code on iOS.
 ### 3.5.5+1
 - Refactor some code in `FacebookAuth.swift`
 

@@ -15,9 +15,8 @@ class FacebookAuth: NSObject {
     let loginManager : LoginManager = LoginManager()
     var pendingResult: FlutterResult? = nil
     private var mainWindow: UIWindow? {
-        let applicationWindow = UIApplication.shared.delegate?.window
-        if applicationWindow != nil {
-            return applicationWindow!!
+        if let applicationWindow = UIApplication.shared.delegate?.window ?? nil {
+            return applicationWindow
         }
         
         
@@ -69,7 +68,7 @@ class FacebookAuth: NSObject {
             self.updateAutoLogAppEventsEnabled(enabled: enabled, flutterResult: result)
             
         case "isAutoLogAppEventsEnabled":
-            let enabled:Bool = Settings.isAutoLogAppEventsEnabled
+            let enabled:Bool = Settings.shared.isAutoLogAppEventsEnabled
             result(enabled)
             
         default:
@@ -123,7 +122,7 @@ class FacebookAuth: NSObject {
      Enable or disable the AutoLogAppEvents
      */
     private func updateAutoLogAppEventsEnabled(enabled: Bool,flutterResult: @escaping FlutterResult){
-        Settings.isAutoLogAppEventsEnabled = enabled
+        Settings.shared.isAutoLogAppEventsEnabled = enabled
         flutterResult(nil)
     }
     
