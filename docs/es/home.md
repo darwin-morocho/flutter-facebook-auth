@@ -38,7 +38,7 @@ Agregue lo siguiente a su `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_facebook_auth: ^3.5.5
+  flutter_facebook_auth: ^3.5.5+1
 ```
 
 #### ** Sin Null Safety **
