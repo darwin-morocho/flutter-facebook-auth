@@ -1,3 +1,5 @@
+### 3.5.6+3
+- revert minSdkVersion on Android.
 ### 3.5.6+2
 - Updated Android SDK to 12.1.0
 ### 3.5.6+1
