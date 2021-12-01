@@ -1,3 +1,5 @@
+### 3.5.6+1
+- Updated iOS SDK to 12.1.0
 ### 3.5.6
 - Updated deprecated code on iOS.
 ### 3.5.5+1
