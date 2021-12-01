@@ -20,11 +20,13 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
 4.  Edit **Your Resources and Manifest** add this config in your android project
 
     - Open your `/android/app/src/main/res/values/strings.xml` file, or create one if it doesn't exists.
-    - Add the following (replace `{your-app-id}` with your facebook app Id):
+    - Add the following (replace `{your-app-id}` with your facebook app Id) and with your client token:
+
 
     ```xml
         <string name="facebook_app_id">{your-app-id}</string>
         <string name="fb_login_protocol_scheme">fb{your-app-id}</string>
+        <string name="facebook_client_token">YOUR_CLIENT_TOKEN</string>
     ```
 
     Here one example of `strings.xml`
@@ -35,8 +37,12 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
         <string name="app_name">Flutter Facebook Auth Example</string>
         <string name="facebook_app_id">1365719610250300</string>
         <string name="fb_login_protocol_scheme">fb1365719610250300</string>
+        <string name="facebook_client_token">YOUR_CLIENT_TOKEN</string>
     </resources>
     ```
+
+    You can find the **client token** in your facebook developers console
+   <img src="https://user-images.githubusercontent.com/15864336/144253037-f1750fbd-62ac-42fb-88a6-2f7ed8113f3e.png" />
 
     - Open the `/android/app/src/main/AndroidManifest.xml` file.
     - Add the following uses-permission element after the application element
@@ -49,6 +55,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
 
     ```xml
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+    <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
 
        <activity android:name="com.facebook.FacebookActivity"
            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
@@ -78,6 +85,9 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
            <meta-data
                android:name="com.facebook.sdk.ApplicationId"
                android:value="@string/facebook_app_id" />
+           <meta-data 
+               android:name="com.facebook.sdk.ClientToken" 
+               android:value="@string/facebook_client_token"/>
            <activity
                android:name="com.facebook.FacebookActivity"
                android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
