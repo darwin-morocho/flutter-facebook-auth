@@ -1,3 +1,8 @@
+import 'dart:math';
+
+const maxMillisecondsSinceEpoch = 8640000000000000;
+const minMillisecondsSinceEpoch = -8640000000000000;
+
 /// Class that contains the facebook access token data
 class AccessToken {
   /// DateTime with the expires date of this token
@@ -46,7 +51,12 @@ class AccessToken {
     return AccessToken(
       userId: json['userId'],
       token: json['token'],
-      expires: DateTime.fromMillisecondsSinceEpoch(json['expires']),
+      expires: DateTime.fromMillisecondsSinceEpoch(
+        json['expires'].clamp(
+          minMillisecondsSinceEpoch,
+          maxMillisecondsSinceEpoch,
+        ),
+      ),
       lastRefresh: DateTime.fromMillisecondsSinceEpoch(json['lastRefresh']),
       applicationId: json['applicationId'],
       graphDomain: json['graphDomain'],
