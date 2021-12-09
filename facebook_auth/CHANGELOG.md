@@ -1,3 +1,5 @@
+### 3.5.7
+- Fixed Parse error for Facebook long-lived tokens. Thanks to [RomainFranceschini](https://github.com/RomainFranceschini)
 ### 3.5.6+3
 - revert minSdkVersion on Android.
 ### 3.5.6+2

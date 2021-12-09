@@ -1,3 +1,5 @@
+### 2.7.1
+- Fixed Parse error for Facebook long-lived tokens. Thanks to [RomainFranceschini](https://github.com/RomainFranceschini)
 ### 2.7.0
 - Added isAutoLogAppEventsEnabled only iOS.
 

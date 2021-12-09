@@ -61,7 +61,7 @@ packages:
       name: flutter_facebook_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.7.0"
+    version: "2.7.1"
   flutter_facebook_auth_web:
     dependency: "direct main"
     description:
