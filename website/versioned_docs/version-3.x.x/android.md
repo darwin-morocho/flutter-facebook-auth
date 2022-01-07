@@ -22,6 +22,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
     - Open your `/android/app/src/main/res/values/strings.xml` file, or create one if it doesn't exists.
     - Add the following (replace `{your-app-id}` with your facebook app Id) and with your client token:
 
+
     ```xml
         <string name="facebook_app_id">{your-app-id}</string>
         <string name="fb_login_protocol_scheme">fb{your-app-id}</string>

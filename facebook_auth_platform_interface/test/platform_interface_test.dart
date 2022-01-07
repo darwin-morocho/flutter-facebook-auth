@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
-import 'package:flutter_facebook_auth_platform_interface/src/login_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 
@@ -105,7 +104,7 @@ void main() {
       Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
-      final loginResult = await facebookAuth.login(loginBehavior: LoginBehavior.webViewOnly);
+      final loginResult = await facebookAuth.login(loginBehavior: LoginBehavior.nativeWithFallback);
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
@@ -154,4 +153,4 @@ void main() {
   });
 }
 
-class MockFacebookAuthPlatform extends Mock implements FacebookAuthPlatform {}
+class MockFacebookAuthPlatform extends FacebookAuthPlatform with Mock {}

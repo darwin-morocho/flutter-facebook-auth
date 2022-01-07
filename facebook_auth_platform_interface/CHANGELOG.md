@@ -1,3 +1,19 @@
+### 3.0.1
+- Removed deprecated `LoginBehavior.webViewOnly`.
+### 3.0.0+1
+* changes in FacebookAuthPlatform:
+
+    ```dart
+    static const _token = Object();
+    ```
+    to 
+    ```dart
+    static final _token = Object();
+    ```
+
+
+    Added `PlatformInterface.verifyToken(instance, _token);` in setter.
+
 ### 2.7.1
 - Fixed Parse error for Facebook long-lived tokens. Thanks to [RomainFranceschini](https://github.com/RomainFranceschini)
 ### 2.7.0

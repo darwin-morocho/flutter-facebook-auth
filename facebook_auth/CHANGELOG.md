@@ -1,3 +1,11 @@
+### 4.0.0
+- Updated Android SDK to 12.2.0
+- Updated iOS SDK to 12.2.1
+- Removed deprecated `LoginBehavior.webViewOnly`.
+- Removed `implements FacebookAuthPlatform` from `FacebookAuth` class.
+- Updated to `flutter_facebook_auth_platform_interface: ^3.0.1`.
+- Updated to `flutter_facebook_auth_web: ^3.0.0+1`.
+
 ### 3.5.7
 - Fixed Parse error for Facebook long-lived tokens. Thanks to [RomainFranceschini](https://github.com/RomainFranceschini)
 ### 3.5.6+3

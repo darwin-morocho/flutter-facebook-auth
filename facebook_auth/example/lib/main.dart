@@ -11,7 +11,7 @@ void main() {
       appId: "1329834907365798",
       cookie: true,
       xfbml: true,
-      version: "v11.0",
+      version: "v12.0",
     );
   }
   runApp(MyApp());

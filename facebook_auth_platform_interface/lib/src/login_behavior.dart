@@ -5,7 +5,6 @@ enum LoginBehavior {
   katanaOnly,
   webOnly,
   dialogOnly,
-  webViewOnly,
   deviceAuth,
 }
 
@@ -22,8 +21,6 @@ String getLoginBehaviorAsString(LoginBehavior behavior) {
       return "WEB_ONLY";
     case LoginBehavior.dialogOnly:
       return "DIALOG_ONLY";
-    case LoginBehavior.webViewOnly:
-      return "WEB_VIEW_ONLY";
     case LoginBehavior.deviceAuth:
       return "DEVICE_AUTH";
   }

@@ -15,7 +15,7 @@ import 'login_result.dart';
 /// platform implementations that `implements` this interface will be broken by newly added
 /// [FacebookAuthPlatform] methods.
 abstract class FacebookAuthPlatform extends PlatformInterface {
-  static const _token = Object();
+  static final _token = Object();
   FacebookAuthPlatform() : super(token: _token);
 
   static FacebookAuthPlatform _instance = FacebookAuthPlatformImplementation();
@@ -28,8 +28,9 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
       FacebookAuthPlatformImplementation();
 
   // ignore: unnecessary_getters_setters
-  static set instance(FacebookAuthPlatform i) {
-    _instance = i;
+  static set instance(FacebookAuthPlatform instance) {
+    PlatformInterface.verifyToken(instance, _token);
+    _instance = instance;
   }
 
   /// initialiaze the facebook javascript sdk

@@ -69,9 +69,6 @@ public class FacebookAuth {
             case "WEB_ONLY":
                 loginBehavior = LoginBehavior.WEB_ONLY;
                 break;
-            case "WEB_VIEW_ONLY":
-                loginBehavior = LoginBehavior.WEB_VIEW_ONLY;
-                break;
             case "DIALOG_ONLY":
                 loginBehavior = LoginBehavior.DIALOG_ONLY;
                 break;
