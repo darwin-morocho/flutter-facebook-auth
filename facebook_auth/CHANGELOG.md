@@ -1,3 +1,5 @@
+### 4.0.1
+- removed `jcenter` from `build.gradle`.
 ### 4.0.0
 - Updated Android SDK to 12.2.0
 - Updated iOS SDK to 12.2.1
