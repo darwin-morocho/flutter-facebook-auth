@@ -33,9 +33,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <resources>
-        <string name="app_name">Flutter Facebook Auth Example</string>
         <string name="facebook_app_id">1365719610250300</string>
-        <string name="fb_login_protocol_scheme">fb1365719610250300</string>
         <string name="facebook_client_token">YOUR_CLIENT_TOKEN</string>
     </resources>
     ```
@@ -55,20 +53,6 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
     ```xml
     <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
     <meta-data android:name="com.facebook.sdk.ClientToken" android:value="@string/facebook_client_token"/>
-
-       <activity android:name="com.facebook.FacebookActivity"
-           android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-           android:label="@string/app_name" />
-       <activity
-           android:name="com.facebook.CustomTabActivity"
-           android:exported="true">
-           <intent-filter>
-               <action android:name="android.intent.action.VIEW" />
-               <category android:name="android.intent.category.DEFAULT" />
-               <category android:name="android.intent.category.BROWSABLE" />
-               <data android:scheme="@string/fb_login_protocol_scheme" />
-           </intent-filter>
-       </activity>
     ```
 
     Here one example of `AndroidManifest.xml`
@@ -77,7 +61,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
         package="app.meedu.flutter_facebook_auth_example">
         <uses-permission android:name="android.permission.INTERNET" />
         <application
-           android:name="io.flutter.app.FlutterApplication"
+           android:name="${applicationName}"
            android:icon="@mipmap/ic_launcher"
            android:label="facebook auth">
 
@@ -87,28 +71,14 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
            <meta-data 
                android:name="com.facebook.sdk.ClientToken" 
                android:value="@string/facebook_client_token"/>
-           <activity
-               android:name="com.facebook.FacebookActivity"
-               android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-               android:label="@string/app_name" />
-           <activity
-               android:name="com.facebook.CustomTabActivity"
-               android:exported="true">
-               <intent-filter>
-                   <action android:name="android.intent.action.VIEW" />
 
-                   <category android:name="android.intent.category.DEFAULT" />
-                   <category android:name="android.intent.category.BROWSABLE" />
-
-                   <data android:scheme="@string/fb_login_protocol_scheme" />
-               </intent-filter>
-           </activity>
             <activity
                android:name=".MainActivity"
                android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
                android:hardwareAccelerated="true"
                android:launchMode="singleTop"
                android:theme="@style/LaunchTheme"
+               android:exported="true"
                android:windowSoftInputMode="adjustResize">
                <meta-data
                    android:name="io.flutter.embedding.android.NormalTheme"
