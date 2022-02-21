@@ -1,8 +1,13 @@
+### 4.1.1
+- Updated Facebook iOS SDK to 12.3.2
+### 4.1.0
+- Updated Facebook Android SDK to 12.3.0
+- Updated Facebook iOS SDK to 12.3.1
 ### 4.0.1
 - removed `jcenter` from `build.gradle`.
 ### 4.0.0
-- Updated Android SDK to 12.2.0
-- Updated iOS SDK to 12.2.1
+- Updated Facebook Android SDK to 12.2.0
+- Updated Facebook iOS SDK to 12.2.1
 - Removed deprecated `LoginBehavior.webViewOnly`.
 - Removed `implements FacebookAuthPlatform` from `FacebookAuth` class.
 - Updated to `flutter_facebook_auth_platform_interface: ^3.0.1`.
@@ -13,9 +18,9 @@
 ### 3.5.6+3
 - revert minSdkVersion on Android.
 ### 3.5.6+2
-- Updated Android SDK to 12.1.0
+- Updated Facebook Android SDK to 12.1.0
 ### 3.5.6+1
-- Updated iOS SDK to 12.1.0
+- Updated Facebook iOS SDK to 12.1.0
 ### 3.5.6
 - Updated deprecated code on iOS.
 ### 3.5.5+1
@@ -41,11 +46,11 @@ if applicationWindow != nil {
 ### 3.5.4
 - Added minimum support for UIScene on iOS (Thanks to [@marcotta](https://github.com/darwin-morocho/flutter-facebook-auth/pull/181))
 ### 3.5.3
-- Updated iOS SDK to 12.0.2
-- Updated Android SDK to 12.0.1
+- Updated Facebook iOS SDK to 12.0.2
+- Updated Facebook Android SDK to 12.0.1
 
 ### 3.5.2
-- Updated iOS SDK to 11.2.0
+- Updated Facebook iOS SDK to 11.2.0
 ### 3.5.1
 - updated 'facebook-android-sdk' ~> 11.1.1
 ### 3.5.0+1
