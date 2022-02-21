@@ -24,7 +24,6 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
 
     ```xml
         <string name="facebook_app_id">{your-app-id}</string>
-        <string name="fb_login_protocol_scheme">fb{your-app-id}</string>
         <string name="facebook_client_token">YOUR_CLIENT_TOKEN</string>
     ```
 
