@@ -7,16 +7,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 String prettyPrint(Map json) {
-  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
+  JsonEncoder encoder = const JsonEncoder.withIndent('  ');
   String pretty = encoder.convert(json);
   return pretty;
 }
 
 class MyApp extends StatefulWidget {
+  const MyApp({Key? key}) : super(key: key);
+
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -99,7 +101,7 @@ class _MyAppState extends State<MyApp> {
           title: const Text('Facebook Auth Example'),
         ),
         body: _checking
-            ? Center(
+            ? const Center(
                 child: CircularProgressIndicator(),
               )
             : SingleChildScrollView(
@@ -111,22 +113,22 @@ class _MyAppState extends State<MyApp> {
                       Text(
                         _userData != null ? prettyPrint(_userData) : "NO LOGGED",
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       _accessToken != null
                           ? Text(
                               prettyPrint(_accessToken.toJson()),
                             )
                           : Container(),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       CupertinoButton(
                         color: Colors.blue,
                         child: Text(
                           _userData != null ? "LOGOUT" : "LOGIN",
-                          style: TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white),
                         ),
                         onPressed: _userData != null ? _logOut : _login,
                       ),
-                      SizedBox(height: 50),
+                      const SizedBox(height: 50),
                     ],
                   ),
                 ),
