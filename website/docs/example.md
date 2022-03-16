@@ -51,7 +51,7 @@ class _MyAppState extends State<MyApp> {
 
   void _printCredentials() {
     print(
-      prettyPrint(_accessToken.toJson()),
+      prettyPrint(_accessToken!.toJson()),
     );
   }
 
@@ -109,12 +109,12 @@ class _MyAppState extends State<MyApp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        _userData != null ? prettyPrint(_userData) : "NO LOGGED",
+                        _userData != null ? prettyPrint(_userData!) : "NO LOGGED",
                       ),
                       SizedBox(height: 20),
                       _accessToken != null
                           ? Text(
-                              prettyPrint(_accessToken.toJson()),
+                              prettyPrint(_accessToken!.toJson()),
                             )
                           : Container(),
                       SizedBox(height: 20),
