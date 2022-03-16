@@ -53,7 +53,7 @@ FacebookPermissions  permissions = await FacebookAuth.instance.permissions;
 ## Check if the user is logged.
 > Just call to `FacebookAuth.instance.accessToken`
 ```dart
-final AccessToken accessToken = await FacebookAuth.instance.accessToken;
+final AccessToken? accessToken = await FacebookAuth.instance.accessToken;
 // or FacebookAuth.i.accessToken
 if (accessToken != null) {
     // user is logged
