@@ -21,11 +21,11 @@ void main() {
       expect(result.status == LoginStatus.failed, true);
     });
 
-    test('is initialized', () {
+    test('is initialized', () async {
       fbMock = FbMock();
       js.context['FB']['init'] = js.allowInterop((js.JsObject options) {});
       final plugin = getPlugin();
-      plugin.webInitialize(
+      await plugin.webInitialize(
         appId: '1234',
         cookie: true,
         xfbml: true,
@@ -60,7 +60,8 @@ void main() {
           );
         });
 
-        js.context['FB']['api'] = js.allowInterop((String request, js.JsFunction fn) {
+        js.context['FB']['api'] =
+            js.allowInterop((String request, js.JsFunction fn) {
           if (request == "/me/permissions") {
             fn.apply(
               [
@@ -102,7 +103,7 @@ void main() {
     );
     test('login request', () async {
       final plugin = getPlugin();
-      plugin.webInitialize(
+      await plugin.webInitialize(
         appId: '1234',
         cookie: true,
         xfbml: true,

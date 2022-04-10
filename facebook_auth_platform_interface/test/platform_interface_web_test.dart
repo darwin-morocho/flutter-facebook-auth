@@ -2,7 +2,6 @@
 
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
-import 'package:flutter_facebook_auth_platform_interface/src/login_result.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'mock_data.dart';

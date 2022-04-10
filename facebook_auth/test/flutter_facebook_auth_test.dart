@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'src/data.dart';
 
 void main() {
@@ -57,7 +57,12 @@ void main() {
     test('login request', () async {
       expect(facebookAuth.isWebSdkInitialized, false);
       expect(await facebookAuth.accessToken, null);
-      facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
+      await facebookAuth.webInitialize(
+        appId: "1233443",
+        cookie: true,
+        xfbml: true,
+        version: "v13.0",
+      );
       final result = await facebookAuth.login();
       expect(result.status, LoginStatus.success);
       expect(result.accessToken, isNotNull);
