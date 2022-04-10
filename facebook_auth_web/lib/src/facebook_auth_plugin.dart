@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:html';
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
 import 'package:js/js.dart';
@@ -134,35 +135,43 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   ///
   /// calls the FB.init interop
   @override
-  void webInitialize({
+  Future<void> webInitialize({
     required String appId,
     required bool cookie,
     required bool xfbml,
     required String version,
-  }) {
+  }) async {
     this._appId = appId;
 
-    try {
-      if (js.context['FB'] == null) {
-        throw Exception(
-          """
-Facebook Javascript SDK not found. Make sure you already have added the facebook script in your index.html
-or maybe you have a content blocker enabled.
-          """,
-        );
-      }
-      fb.init(
-        fb.InitOptions(
-          appId: appId,
-          version: version,
-          cookie: cookie,
-          xfbml: xfbml,
-        ),
-      );
-      _initialized = true;
-    } catch (e) {
-      print(e);
+    if (js.context['FB'] != null) {
+      return;
     }
+
+    await _injectSrcScript();
+
+    fb.init(
+      fb.InitOptions(
+        appId: appId,
+        version: version,
+        cookie: cookie,
+        xfbml: xfbml,
+      ),
+    );
+    _initialized = true;
+  }
+
+  /// Injects a `script` with a `src` dynamically into the head of the current
+  /// document.
+  Future<void> _injectSrcScript() async {
+    final script = ScriptElement()
+      ..type = 'text/javascript'
+      ..src = 'https://connect.facebook.net/en_US/sdk.js'
+      ..async = true
+      ..defer = true
+      ..crossOrigin = 'anonymous';
+    assert(document.head != null);
+    document.head!.append(script);
+    await script.onLoad.first;
   }
 
   /// get the granted and declined permission for the current facebook session

@@ -1,3 +1,7 @@
+### 3.1.0
+- Updated method `webInitialize`
+
+
 ### 3.0.1
 - Removed deprecated `LoginBehavior.webViewOnly`.
 ### 3.0.0+1

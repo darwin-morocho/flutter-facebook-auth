@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'my_app.dart';
 
-void main() {
+void main() async {
   if (kIsWeb) {
     // initialiaze the facebook javascript SDK
-    FacebookAuth.instance.webInitialize(
+    await FacebookAuth.instance.webInitialize(
       appId: "1329834907365798",
       cookie: true,
       xfbml: true,
-      version: "v12.0",
+      version: "v13.0",
     );
   }
   runApp(MyApp());

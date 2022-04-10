@@ -99,12 +99,12 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
 
   /// only available on WEB
   @override
-  void webInitialize({
+  Future<void> webInitialize({
     required String appId,
     required bool cookie,
     required bool xfbml,
     required String version,
-  }) {}
+  }) async {}
 
   /// returns the granted and declined permissions
   @override

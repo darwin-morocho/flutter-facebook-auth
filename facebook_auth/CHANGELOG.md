@@ -1,3 +1,21 @@
+### 4.2.0
+- Updated to `flutter_facebook_auth_platform_interface: ^3.2.0`.
+- **BREAKING on web** now the `webInitialize` methos is asynchronous.
+  the script to add the facebook sdk is not needed any more in the `index.html` file.
+  Now just use asyn/await in your main
+  ```dart
+    void main() async {
+      if (kIsWeb) {
+        await FacebookAuth.instance.webInitialize(
+          appId: "YOUR_FACEBOOK_APP_ID",
+          cookie: true,
+          xfbml: true,
+          version: "v13.0",
+        );
+      }
+      runApp(MyApp());
+    }
+  ```
 ### 4.1.1
 - Updated Facebook iOS SDK to 12.3.2
 ### 4.1.0

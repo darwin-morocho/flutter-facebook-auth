@@ -1,14 +1,10 @@
-import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/splash_controller.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/loading.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/login_button.dart';
-import 'package:flutter_facebook_auth_example/pages/splash/widgets/patreons.dart';
 import 'package:flutter_facebook_auth_example/pages/splash/widgets/supported_platforms.dart';
 import 'package:flutter_facebook_auth_example/utils/max_width.dart';
-
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -58,8 +54,6 @@ class LoginView extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(height: 10),
-                    Patreons(),
                     SizedBox(height: 30),
                     ConstrainedBox(
                       constraints: BoxConstraints(
@@ -86,9 +80,10 @@ class LoginView extends StatelessWidget {
                               ),
                             ),
                             SizedBox(height: 40),
-                            if (Platform.isIOS)
+                            if (defaultTargetPlatform == TargetPlatform.iOS)
                               ElevatedButton(
-                                onPressed: controller.requestAppTrackingTransparencyPermission,
+                                onPressed: controller
+                                    .requestAppTrackingTransparencyPermission,
                                 child: Text("Check App Tracking Transparency"),
                               ),
                           ],
