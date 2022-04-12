@@ -1,3 +1,6 @@
+### 4.2.1
+- Updated Facebook Android SDK to 13.0.0
+- Updated Facebook iOS SDK to 13.0.0
 ### 4.2.0
 - Updated to `flutter_facebook_auth_platform_interface: ^3.2.0`.
 - **BREAKING on web** now the `webInitialize` method is asynchronous.
