@@ -144,6 +144,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     this._appId = appId;
 
     if (js.context['FB'] != null) {
+      _initialized = true;
       return;
     }
 

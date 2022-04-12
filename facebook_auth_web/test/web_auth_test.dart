@@ -23,15 +23,16 @@ void main() {
 
     test('is initialized', () async {
       fbMock = FbMock();
-      js.context['FB']['init'] = js.allowInterop((js.JsObject options) {});
       final plugin = getPlugin();
       await plugin.webInitialize(
         appId: '1234',
         cookie: true,
         xfbml: true,
-        version: 'v10',
+        version: 'v13',
       );
       final initialized = plugin.isWebSdkInitialized;
+      js.context['FB']['init'] = js.allowInterop((js.JsObject options) {});
+
       expect(initialized, true);
     });
   });
