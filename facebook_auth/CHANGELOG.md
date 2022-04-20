@@ -1,3 +1,7 @@
+### 4.3.0
+- Updated Facebook Android SDK to 13.+
+- Updated Facebook iOS SDK to ~> 13
+
 ### 4.2.1
 - Updated Facebook Android SDK to 13.0.0
 - Updated Facebook iOS SDK to 13.0.0
