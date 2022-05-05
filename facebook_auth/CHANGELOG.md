@@ -1,3 +1,5 @@
+### 4.3.3
+- fixed issue on Android due to LoginBehavior.webOnly
 ### 4.3.2
 - Updated to `flutter_facebook_auth_platform_interface: ^3.1.2`.
 - Updated to `flutter_facebook_auth_web: ^3.1.2`.
