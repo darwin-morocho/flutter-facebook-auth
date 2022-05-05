@@ -68,9 +68,14 @@ public class FacebookAuth {
       case "DEVICE_AUTH":
         loginBehavior = LoginBehavior.DEVICE_AUTH;
         break;
+      case "WEB_ONLY":
+        loginBehavior =  LoginBehavior.WEB_ONLY;
+        break;
+        
       default:
         loginBehavior = LoginBehavior.NATIVE_WITH_FALLBACK;
     }
+
     loginManager.setLoginBehavior(loginBehavior);
   }
 

@@ -1,3 +1,8 @@
+### 3.1.2
+- Restored option `LoginBehavior.webOnly`.
+### 3.1.1
+- Removed deprecated option `LoginBehavior.webOnly`.
+
 ### 3.1.0
 - Updated method `webInitialize`
 

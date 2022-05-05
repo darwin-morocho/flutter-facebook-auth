@@ -1,6 +1,6 @@
 name: flutter_facebook_auth_platform_interface
 description: A common platform interface for the flutter_facebook_auth plugin.
-version: 3.1.0
+version: 3.1.2
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_platform_interface
 
 environment:
