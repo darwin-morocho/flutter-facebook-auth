@@ -43,6 +43,20 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.4"
+  facebook_auth_desktop:
+    dependency: transitive
+    description:
+      path: "../../facebook_auth_desktop"
+      relative: true
+    source: path
+    version: "0.0.1"
+  facebook_desktop_webview_auth:
+    dependency: transitive
+    description:
+      name: facebook_desktop_webview_auth
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.2"
   ffi:
     dependency: transitive
     description:
@@ -72,17 +86,59 @@ packages:
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
-      name: flutter_facebook_auth_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../../facebook_auth_platform_interface"
+      relative: true
+    source: path
     version: "3.1.2"
   flutter_facebook_auth_web:
     dependency: transitive
     description:
-      name: flutter_facebook_auth_web
+      path: "../../facebook_auth_web"
+      relative: true
+    source: path
+    version: "3.1.2"
+  flutter_secure_storage:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.1.2"
+    version: "5.0.2"
+  flutter_secure_storage_linux:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_linux
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+  flutter_secure_storage_macos:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_macos
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.0"
+  flutter_secure_storage_platform_interface:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_platform_interface
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  flutter_secure_storage_web:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_web
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
+  flutter_secure_storage_windows:
+    dependency: transitive
+    description:
+      name: flutter_secure_storage_windows
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.1.2"
   flutter_web_plugins:
     dependency: transitive
     description: flutter

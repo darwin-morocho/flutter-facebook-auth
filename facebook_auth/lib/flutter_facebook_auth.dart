@@ -82,13 +82,13 @@ class FacebookAuth {
       );
 
   /// call this method (ONLY FOR WEB) to initialize the facebook javascript sdk
-  Future<void> webInitialize({
+  Future<void> webAndDesktopInitialize({
     required String appId,
     required bool cookie,
     required bool xfbml,
     required String version,
   }) {
-    return _authPlatform.webInitialize(
+    return _authPlatform.webAndDesktopInitialize(
       appId: appId,
       cookie: cookie,
       xfbml: xfbml,

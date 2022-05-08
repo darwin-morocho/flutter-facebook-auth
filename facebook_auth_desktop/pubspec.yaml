@@ -1,0 +1,32 @@
+name: facebook_auth_desktop
+description: A new Flutter package project.
+version: 0.0.1
+homepage:
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+  flutter: ">=2.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^0.13.4
+  facebook_desktop_webview_auth: 0.0.2
+  flutter_secure_storage: ^5.0.2
+  
+  flutter_facebook_auth_platform_interface:
+    path: ../facebook_auth_platform_interface
+
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^1.0.0
+
+
+flutter:
+  plugin:
+    implements: flutter_facebook_auth
+    platforms:
+      macos:
+        dartPluginClass: FlutterFacebookDesktopAuthPlugin

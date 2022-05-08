@@ -133,7 +133,7 @@ void main() {
 
     test('express login failed', () async {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-      facebookAuth.webInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
+      facebookAuth.webAndDesktopInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
       final loginResult = await facebookAuth.expressLogin();
       print("loginResult.status ${loginResult.status}");
       expect(loginResult.status == LoginStatus.failed, true);

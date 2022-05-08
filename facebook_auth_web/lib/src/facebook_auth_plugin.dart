@@ -135,7 +135,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   ///
   /// calls the FB.init interop
   @override
-  Future<void> webInitialize({
+  Future<void> webAndDesktopInitialize({
     required String appId,
     required bool cookie,
     required bool xfbml,
@@ -301,8 +301,12 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   bool get isWebSdkInitialized => _initialized;
 
   @override
-  Future<void> autoLogAppEventsEnabled(bool enabled) async {}
+  Future<void> autoLogAppEventsEnabled(bool enabled) {
+    throw UnimplementedError();
+  }
 
   @override
   Future<bool> get isAutoLogAppEventsEnabled => Future.value(false);
+
+
 }

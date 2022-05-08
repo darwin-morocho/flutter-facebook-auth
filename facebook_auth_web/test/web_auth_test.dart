@@ -24,7 +24,7 @@ void main() {
     test('is initialized', () async {
       fbMock = FbMock();
       final plugin = getPlugin();
-      await plugin.webInitialize(
+      await plugin.webAndDesktopInitialize(
         appId: '1234',
         cookie: true,
         xfbml: true,
@@ -104,7 +104,7 @@ void main() {
     );
     test('login request', () async {
       final plugin = getPlugin();
-      await plugin.webInitialize(
+      await plugin.webAndDesktopInitialize(
         appId: '1234',
         cookie: true,
         xfbml: true,
