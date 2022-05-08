@@ -1,3 +1,5 @@
+### version: 5.0.0-dev.1
+- Added macOS documentation.
 ### version: 5.0.0-dev.0
 - **BREAKING CHANGE**
     Replaced `webInitialize` method for `webAndDesktopInitialize`.
