@@ -35,8 +35,14 @@ jobs:
       - name: Install facebook_auth_web dependencies 
         run: cd facebook_auth_web && flutter pub get
 
-      - name: Run facebook_auth_platform_interface tests 
+      - name: Run facebook_auth_web tests 
         run: cd facebook_auth_web && flutter test --platform chrome
+
+      - name: Install facebook_auth_desktop dependencies 
+        run: cd facebook_auth_desktop && flutter pub get
+
+      - name: Run facebook_auth_desktop tests 
+        run: cd facebook_auth_desktop && flutter test --coverage
 
       - name: Upload coverage to Codecov
         run: curl -s https://codecov.io/bash | bash

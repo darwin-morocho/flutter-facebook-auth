@@ -41,8 +41,6 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     required String version,
   });
 
-
-
   /// use this to know if the facebook sdk was initializated on Web
   /// on Android and iOS is always true
   bool get isWebSdkInitialized;

@@ -214,11 +214,16 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
               }
             }
             c.complete(
-              FacebookPermissions(granted: granted, declined: declined),
+              FacebookPermissions(
+                granted: granted,
+                declined: declined,
+              ),
             );
           } on PlatformException catch (e) {
             print(
-              StackTrace.fromString(e.message ?? 'unknown error'),
+              StackTrace.fromString(
+                e.message ?? 'unknown error',
+              ),
             );
             c.complete(null);
           }
@@ -254,13 +259,17 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
       final String? status = response['status'];
 
       if (status == null) {
-        return LoginResult(status: LoginStatus.failed);
+        return LoginResult(
+          status: LoginStatus.failed,
+        );
       }
       if (status == 'connected') {
         final Map<String, dynamic> authResponse = response['authResponse'];
 
         final expires = DateTime.now().add(
-          Duration(seconds: authResponse['data_access_expiration_time']),
+          Duration(
+            seconds: authResponse['expiresIn'],
+          ),
         );
 
         // create a Login Result with an accessToken
@@ -283,9 +292,15 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
       } else if (status == 'unknown') {
         return LoginResult(status: LoginStatus.cancelled);
       }
-      return LoginResult(status: LoginStatus.failed, message: 'unknown error');
+      return LoginResult(
+        status: LoginStatus.failed,
+        message: 'unknown error',
+      );
     } on PlatformException catch (e) {
-      return LoginResult(status: LoginStatus.failed, message: e.message);
+      return LoginResult(
+        status: LoginStatus.failed,
+        message: e.message,
+      );
     }
   }
 
@@ -293,7 +308,9 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   void _checkResponseError(Map<String, dynamic> response) {
     if (response['error'] != null) {
       throw PlatformException(
-          code: "REQUEST_ERROR", message: response['error']['message']);
+        code: "REQUEST_ERROR",
+        message: response['error']['message'],
+      );
     }
   }
 
@@ -307,6 +324,4 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
 
   @override
   Future<bool> get isAutoLogAppEventsEnabled => Future.value(false);
-
-
 }

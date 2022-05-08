@@ -1,3 +1,7 @@
+### 4.0.0
+- **BREAKING CHANGE**
+    Replaced `webInitialize` method for `webAndDesktopInitialize`.
+
 ### 3.1.2
 - Restored option `LoginBehavior.webOnly`.
 ### 3.1.1

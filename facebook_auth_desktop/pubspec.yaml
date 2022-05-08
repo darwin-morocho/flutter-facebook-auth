@@ -1,5 +1,5 @@
 name: facebook_auth_desktop
-description: A new Flutter package project.
+description: macOS support for flutter_facebook_auth
 version: 0.0.1
 homepage:
 
@@ -11,11 +11,8 @@ dependencies:
   flutter:
     sdk: flutter
   http: ^0.13.4
-  facebook_desktop_webview_auth: 0.0.2
   flutter_secure_storage: ^5.0.2
-  
-  flutter_facebook_auth_platform_interface:
-    path: ../facebook_auth_platform_interface
+  flutter_facebook_auth_platform_interface: ^4.0.0
 
 
 dev_dependencies:
@@ -29,4 +26,5 @@ flutter:
     implements: flutter_facebook_auth
     platforms:
       macos:
-        dartPluginClass: FlutterFacebookDesktopAuthPlugin
+        pluginClass: FacebookAuthDesktopPlugin
+        dartPluginClass: FacebookAuthDesktopPlugin

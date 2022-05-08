@@ -104,7 +104,8 @@ void main() {
       Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(accessToken, null);
       expect(userData.length == 0, true);
-      final loginResult = await facebookAuth.login(loginBehavior: LoginBehavior.nativeWithFallback);
+      final loginResult =
+          await facebookAuth.login(loginBehavior: LoginBehavior.webOnly);
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
@@ -133,7 +134,12 @@ void main() {
 
     test('express login failed', () async {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
-      facebookAuth.webAndDesktopInitialize(appId: "1233443", cookie: true, xfbml: true, version: "v9.0");
+      facebookAuth.webAndDesktopInitialize(
+        appId: "1233443",
+        cookie: true,
+        xfbml: true,
+        version: "v9.0",
+      );
       final loginResult = await facebookAuth.expressLogin();
       print("loginResult.status ${loginResult.status}");
       expect(loginResult.status == LoginStatus.failed, true);

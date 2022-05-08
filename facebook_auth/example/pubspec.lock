@@ -50,13 +50,6 @@ packages:
       relative: true
     source: path
     version: "0.0.1"
-  facebook_desktop_webview_auth:
-    dependency: transitive
-    description:
-      name: facebook_desktop_webview_auth
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.0.2"
   ffi:
     dependency: transitive
     description:
