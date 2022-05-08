@@ -1,0 +1,30 @@
+{
+  "name": "flutter_secure_storage_macos",
+  "version": "3.3.1",
+  "summary": "Flutter Secure Storage",
+  "description": "Flutter Secure Storage Plugin for MacOs",
+  "homepage": "https://github.com/mogol/flutter_secure_storage",
+  "license": {
+    "file": "../LICENSE"
+  },
+  "authors": {
+    "German Saprykin": "saprykin.h@gmail.com"
+  },
+  "source": {
+    "path": "."
+  },
+  "source_files": "Classes/**/*",
+  "dependencies": {
+    "FlutterMacOS": [
+
+    ]
+  },
+  "platforms": {
+    "osx": "10.11"
+  },
+  "pod_target_xcconfig": {
+    "DEFINES_MODULE": "YES"
+  },
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}

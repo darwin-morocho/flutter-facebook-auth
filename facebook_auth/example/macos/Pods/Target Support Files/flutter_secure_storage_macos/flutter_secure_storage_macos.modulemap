@@ -1,0 +1,6 @@
+framework module flutter_secure_storage_macos {
+  umbrella header "flutter_secure_storage_macos-umbrella.h"
+
+  export *
+  module * { export * }
+}

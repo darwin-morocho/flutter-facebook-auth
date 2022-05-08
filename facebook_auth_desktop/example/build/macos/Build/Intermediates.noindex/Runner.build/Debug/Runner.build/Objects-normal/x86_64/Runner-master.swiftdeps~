@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
+options: "37e89e850442ee1a9fbf509cab552733e128f0adba200dcbc0eebce6876aeda7"
+build_start_time: [1652012540, 923070907]
+build_end_time: [1652012547, 281651973]
+inputs:
+  ? "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/macos/Flutter/GeneratedPluginRegistrant.swift"
+  : [1652012511, 631150484]
+  "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/macos/Runner/AppDelegate.swift": [1652008659, 113658905]
+  "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/macos/Runner/MainFlutterWindow.swift": [1652008659, 137984275]
