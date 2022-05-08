@@ -1,3 +1,9 @@
+### version: 5.0.0-dev.0
+- **BREAKING CHANGE**
+    Replaced `webInitialize` method for `webAndDesktopInitialize`.
+- Added macOS support.
+- Updated to `flutter_facebook_auth_platform_interface: ^4.0.0`.
+- Updated to `flutter_facebook_auth_web: ^4.0.0`.
 ### 4.3.3
 - fixed issue on Android due to LoginBehavior.webOnly
 ### 4.3.2

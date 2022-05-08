@@ -8,6 +8,7 @@ abstract class MockData {
     "applicationId": "1329834907365798",
     "graphDomain": "facebook",
     "isExpired": false,
+    "expiresIn": 50000,
   };
 
   static const userData = {

@@ -108,7 +108,7 @@ void main() {
         appId: '1234',
         cookie: true,
         xfbml: true,
-        version: 'v13.0',
+        version: 'v10',
       );
       // check that the user is not logged
       expect(await plugin.accessToken, null);
