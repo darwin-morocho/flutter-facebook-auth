@@ -1,3 +1,6 @@
+### 4.3.4
+- Updated Facebook Android SDK to 13.2.0
+
 ### 4.3.3
 - fixed issue on Android due to LoginBehavior.webOnly
 ### 4.3.2
