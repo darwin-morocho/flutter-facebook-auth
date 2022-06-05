@@ -7,28 +7,25 @@ body:
       value: Thanks for taking the time to file a bug report! Please fill out this form as completely as possible.
   - type: markdown
     attributes:
-      value: If you leave out sections there is a high likelihood it will be moved to the GitHub Discussions ["Help" section](https://github.com/vercel/next.js/discussions/categories/help).
-  - type: checkboxes
+      value: If you leave out sections there is a high likelihood that this issue will be closed
+  - type: input
     attributes:
-      label: Verify canary release
-      description: '`next@canary` is the canary version of Next.js that ships daily. It includes all features and fixes that have not been released to the stable version yet. Think of canary as a public beta. Some issues may already be fixed in the canary version, so please verify that your issue reproduces before opening a new issue.'
+      label: What version are you using? (if relevant)
+      description: 'Please specify the exact version. For example: flutter_facebook_auth:4.3.4'
+  - type: input
+    attributes:
+      label: What SO are you using to local deploy your application? (if relevant)
+      description: 'For example: macOS, windows 11, Ubuntu, etc'
+  - type: dropdown
+    id: platforms
+    attributes:
+      label: What platforms are you seeing the problem on?
+      multiple: true
       options:
-        - label: I verified that the issue exists in Next.js canary release
-          required: true
-  - type: textarea
-    attributes:
-      label: Provide environment information
-      description: Please run `next info` in the root directory of your project and paste the results. You might need to use `npx --no-install next info` if next is not in the current PATH.
-    validations:
-      required: true
-  - type: input
-    attributes:
-      label: What browser are you using? (if relevant)
-      description: 'Please specify the exact version. For example: Chrome 100.0.4878.0'
-  - type: input
-    attributes:
-      label: How are you deploying your application? (if relevant)
-      description: 'For example: next start, next export, Vercel, Other platform'
+        - Android
+        - iOS
+        - web
+        - macOS
   - type: textarea
     attributes:
       label: Describe the Bug
@@ -47,12 +44,64 @@ body:
       description: Steps to reproduce the behavior, please provide a clear code snippets that always reproduces the issue or a GitHub repository. Screenshots can be provided in the issue body below.
     validations:
       required: true
+  - type: textarea
+    attributes:
+      label: Your dart code used to log in.
+      render: dart
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Relevant log output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      render: shell  
+  - type: textarea
+    attributes:
+      label: flutter doctor -v
+      description: Please copy and paste the output `flutter doctor -v`
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Info.plist (iOS)
+      description: Add this only if the problem is happening on iOS.
+      render: xml
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: AndroidManifest.xml
+      description: Add this only if the problem is happening on Android.
+      render: xml
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: MainActivity.java
+      description: Add this only if the problem is happening on Android and if your android project uses java as default language.
+      render: java
+  - type: textarea
+    attributes:
+      label: MainActivity.kt
+      description: Add this only if the problem is happening on Android and if your android project uses kotlin as default language.
+      render: kotlin
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: index.html
+      description: Add this only if the problem is happening on Web.
+      render: html
+    validations:
+      required: false
+  - type: textarea
+    attributes:
+      label: Info.plist (macOS)
+      description: Add this only if the problem is happening on macOS.
+      render: xml
+    validations:
+      required: false
   - type: markdown
     attributes:
       value: Before posting the issue go through the steps you've written down to make sure the steps provided are detailed and clear.
-  - type: markdown
-    attributes:
-      value: Contributors should be able to follow the steps provided in order to reproduce the bug.
-  - type: markdown
-    attributes:
-      value: These steps are used to add integration tests to ensure the same issue does not happen again. Thanks in advance!
