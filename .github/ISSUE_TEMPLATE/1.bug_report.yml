@@ -10,12 +10,16 @@ body:
       value: If you leave out sections there is a high likelihood that this issue will be closed
   - type: input
     attributes:
-      label: What version are you using? (if relevant)
+      label: What version are you using?
       description: 'Please specify the exact version. For example: flutter_facebook_auth:4.3.4'
+    validations:
+      required: true
   - type: input
     attributes:
-      label: What SO are you using to local deploy your application? (if relevant)
+      label: What SO are you using to local deploy your application?
       description: 'For example: macOS, windows 11, Ubuntu, etc'
+    validations:
+      required: true
   - type: dropdown
     id: platforms
     attributes:
@@ -26,6 +30,8 @@ body:
         - iOS
         - web
         - macOS
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Describe the Bug
