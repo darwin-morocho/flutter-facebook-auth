@@ -16,7 +16,7 @@ body:
       required: true
   - type: input
     attributes:
-      label: What SO are you using to local deploy your application?
+      label: What OS are you using to local deploy your application?
       description: 'For example: macOS, windows 11, Ubuntu, etc'
     validations:
       required: true
