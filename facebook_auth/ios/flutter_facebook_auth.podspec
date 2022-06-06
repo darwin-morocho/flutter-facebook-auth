@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_facebook_auth'
-  s.version          = '4.3.0'
+  s.version          = '4.3.4'
   s.summary          = 'Plugin to Facebook authentication for iOS in your Flutter app'
   s.description      = <<-DESC
   Plugin to Facebook authentication for iOS in your Flutter app
@@ -14,14 +14,14 @@ Pod::Spec.new do |s|
   s.author           = { 'meedu.app' => 'contacto@meedu.app' }
   s.source           = { :path => '.' }
   s.source_files = 'Classes/**/*'
+  s.public_header_files = 'Classes/*.h'
   s.dependency 'Flutter'
 
 
-  s.dependency 'FBSDKCoreKit', '~> 13'
-  s.dependency 'FBSDKLoginKit', '~> 13'
+  s.dependency 'FBSDKLoginKit', '~> 13.2.0'
   s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386' }
+  s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'x86_64' }
   s.swift_version = '5.0'
 end

@@ -6,7 +6,6 @@
 //
 
 import Flutter
-import FBSDKCoreKit
 import FBSDKLoginKit
 import Foundation
 
