@@ -16,8 +16,8 @@ body:
       required: true
   - type: input
     attributes:
-      label: What OS are you using to local deploy your application?
-      description: 'For example: macOS, windows 11, Ubuntu, etc'
+      label: What OS and version are you using to local deploy your application?
+      description: 'For example: macOS 14.4, windows 11, Ubuntu 20.04, etc'
     validations:
       required: true
   - type: dropdown
