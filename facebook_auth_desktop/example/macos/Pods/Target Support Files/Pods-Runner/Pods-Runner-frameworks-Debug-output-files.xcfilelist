@@ -1,0 +1,2 @@
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/facebook_auth_desktop.framework
+${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/flutter_secure_storage_macos.framework

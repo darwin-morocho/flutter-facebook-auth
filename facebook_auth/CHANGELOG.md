@@ -6,6 +6,13 @@
 - Added macOS support.
 - Updated to `flutter_facebook_auth_platform_interface: ^4.0.0`.
 - Updated to `flutter_facebook_auth_web: ^4.0.0`.
+### 4.3.4+1
+- Updated Facebook iOS SDK to 13.2.0
+- Removed FBSDKCoreKit on iOS
+
+### 4.3.4
+- Updated Facebook Android SDK to 13.2.0
+
 ### 4.3.3
 - fixed issue on Android due to LoginBehavior.webOnly
 ### 4.3.2
