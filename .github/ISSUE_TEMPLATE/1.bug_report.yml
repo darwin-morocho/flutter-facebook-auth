@@ -71,6 +71,12 @@ body:
       required: false
   - type: textarea
     attributes:
+      label: Podfile (iOS)
+      description: Add this only if the problem is happening on iOS.
+    validations:
+      required: false
+  - type: textarea
+    attributes:
       label: AndroidManifest.xml
       description: Add this only if the problem is happening on Android.
       render: xml
