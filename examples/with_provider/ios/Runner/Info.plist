@@ -45,5 +45,27 @@
 	<false/>
 	<key>CADisableMinimumFrameDurationOnPhone</key>
 	<true/>
+	<key>CFBundleURLTypes</key>
+	<array>
+	  <dict>
+	    <key>CFBundleURLSchemes</key>
+	    <array>
+	      <string>fb1329834907365798</string>
+	    </array>
+	  </dict>
+	</array>
+	<key>FacebookAppID</key>
+	<string>1329834907365798</string>
+	<key>FacebookClientToken</key>
+	<string>a3227435cff010a782b23acbe1ff174f</string>
+	<key>FacebookDisplayName</key>
+	<string>{your-app-name}</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	  <string>fbapi</string>
+	  <string>fb-messenger-share-api</string>
+	  <string>fbauth2</string>
+	  <string>fbshareextension</string>
+	</array>
 </dict>
 </plist>
