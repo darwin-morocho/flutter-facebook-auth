@@ -1,4 +1,4 @@
-### 4.3.4+1
+### 4.3.4+2
 - Updated Facebook iOS SDK to 13.2.0
 - Removed FBSDKCoreKit on iOS
 
