@@ -5,11 +5,15 @@
 For `Objective-C` projects this plugin won't work because this plugin was written in swift. So you need to use swift as a default language for your flutter project (Check how to change to swift [here](https://github.com/darwin-morocho/flutter-facebook-auth/issues/41#issuecomment-761702248)).
 :::
 
-- In your Podfile uncomment the next line (You need set the minimum target to 11.0 or higher)
+- In your Podfile uncomment the next line (You need set the minimum target to 12.0 or higher)
 
 ```
-platform :ios, '11.0'
+platform :ios, '12.0'
 ```
+
+And in xcode you must set your **deployment Info** to `12.0`
+<img src="https://user-images.githubusercontent.com/15864336/172642786-560536ac-a104-4f7c-94fa-49ab29a81d64.png" />
+
 
 - Go to **[Facebook Login for iOS - Quickstart
 ](https://developers.facebook.com/docs/facebook-login/ios)** and select or create your app.
@@ -102,3 +106,8 @@ platform :ios, '11.0'
       <string>fbshareextension</string>
     </array>
     ```
+
+
+:::info 
+check one example of the info.plist [here](https://github.com/darwin-morocho/flutter-facebook-auth/blob/master/examples/with_provider/ios/Runner/Info.plist)
+:::
