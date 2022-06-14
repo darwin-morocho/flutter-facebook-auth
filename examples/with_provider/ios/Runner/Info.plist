@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CADisableMinimumFrameDurationOnPhone</key>
+	<true/>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -20,8 +22,30 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>fb1329834907365798</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>FacebookAppID</key>
+	<string>1329834907365798</string>
+	<key>FacebookClientToken</key>
+	<string>a3227435cff010a782b23acbe1ff174f</string>
+	<key>FacebookDisplayName</key>
+	<string>{your-app-name}</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>fbapi</string>
+		<string>fb-messenger-share-api</string>
+		<string>fbauth2</string>
+		<string>fbshareextension</string>
+	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -43,29 +67,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>CADisableMinimumFrameDurationOnPhone</key>
-	<true/>
-	<key>CFBundleURLTypes</key>
-	<array>
-	  <dict>
-	    <key>CFBundleURLSchemes</key>
-	    <array>
-	      <string>fb1329834907365798</string>
-	    </array>
-	  </dict>
-	</array>
-	<key>FacebookAppID</key>
-	<string>1329834907365798</string>
-	<key>FacebookClientToken</key>
-	<string>a3227435cff010a782b23acbe1ff174f</string>
-	<key>FacebookDisplayName</key>
-	<string>{your-app-name}</string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-	  <string>fbapi</string>
-	  <string>fb-messenger-share-api</string>
-	  <string>fbauth2</string>
-	  <string>fbshareextension</string>
-	</array>
 </dict>
 </plist>

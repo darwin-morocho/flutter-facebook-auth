@@ -2,9 +2,8 @@
     package="com.example.flutter_facebook_auth_example">
 
     <queries>
-        <package android:name="com.facebook.katana" />
-    </queries> 
-
+        <provider android:authorities="com.facebook.katana.provider.PlatformProvider" />
+    </queries>
 
 
    <uses-permission android:name="android.permission.INTERNET"/>
