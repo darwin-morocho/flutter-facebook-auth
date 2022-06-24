@@ -11,7 +11,7 @@
   <img alt="stars" src="https://img.shields.io/github/stars/the-meedu-app/flutter-facebook-auth?style=social"/>
 </p>
 
-<p>The easiest way to add facebook login to your flutter app, get user information, profile picture and more. Web support included.</p>
+<p>A plugin that easily adds Facebook authentication into you Flutter app. Feature includes getting user information, profile picture and more. This plugin also supports Web.</p>
 
 ## Features
 - Login on iOS, Android and Web.
