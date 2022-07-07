@@ -32,6 +32,13 @@ body:
         - macOS
     validations:
       required: true
+
+  - type: textarea
+    attributes:
+      label: pubspec.yaml
+      render: yaml
+    validations:
+      required: true
   - type: textarea
     attributes:
       label: Describe the Bug
@@ -73,6 +80,7 @@ body:
     attributes:
       label: Podfile (iOS)
       description: Add this only if the problem is happening on iOS.
+      render: code
     validations:
       required: false
   - type: textarea
