@@ -11,7 +11,7 @@
   <img alt="stars" src="https://img.shields.io/github/stars/the-meedu-app/flutter-facebook-auth?style=social"/>
 </p>
 
-<p>The easiest way to add facebook login to your flutter app, get user information, profile picture and more. Web support included.</p>
+<p>A plugin that easily adds Facebook authentication into you Flutter app. Feature includes getting user information, profile picture and more. This plugin also supports Web.</p>
 
 ## Features
 - Login on iOS, Android and Web.
@@ -27,10 +27,10 @@ Add the following to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_facebook_auth: ^4.3.2
+  flutter_facebook_auth: ^4.4.0
 ```
 
 
 :::danger IMPORTANT
-When you install this plugin you need to configure the plugin on Android before run the project again . If you don't do it you will have a **No implementation found** error because the facebook SDK on Android throws an Exception when the configuration is not defined yet and this locks the other plugins in your project. If you don't need the plugin yet please remove or comment it.
+Upon installation of this plugin, configuration is needed on Android before running the project again. If this is not done, an error of **No implementation found** would show because the Facebook SDK on Android would throw an Exception error if the configuration is not yet defined. This error also locks the other plugins in your project, so if the plugin is not yet needed, either remove it or comment it out from the pubspec.yaml file.
 :::

@@ -1,3 +1,5 @@
-## 0.0.1
+## 0.0.2
+- flutter_facebook_auth_platform_interface: ^4.0.1
 
-* Added support for macOS
+## 0.0.1
+- Added support for macOS

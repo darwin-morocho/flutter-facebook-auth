@@ -1,3 +1,5 @@
+### version: 5.0.0-dev.3
+- Updated to `flutter_facebook_auth_platform_interface: ^4.0.1`.
 ### version: 5.0.0-dev.1
 - Added macOS documentation.
 ### version: 5.0.0-dev.0
@@ -6,7 +8,13 @@
 - Added macOS support.
 - Updated to `flutter_facebook_auth_platform_interface: ^4.0.0`.
 - Updated to `flutter_facebook_auth_web: ^4.0.0`.
-### 4.3.4+1
+### 4.4.0
+- Updated to `flutter_facebook_auth_platform_interface: ^3.2.0`.
+- Updated to `flutter_facebook_auth_web: ^3.2.0`.
+- Updated Facebook Android SDK to 14.0.0
+- Updated Facebook iOS SDK to 14.0.0
+
+### 4.3.4+2
 - Updated Facebook iOS SDK to 13.2.0
 - Removed FBSDKCoreKit on iOS
 

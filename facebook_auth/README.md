@@ -12,7 +12,7 @@
 
 ## Features
 
-- Login on iOS, Android and Web.
+- Login on Android, iOS, Web and macOS.
 - Express login on Android.
 - Granted and declined permissions.
 - User information, picture profile and more.
@@ -22,27 +22,26 @@ Full documentation 👉 https://facebook.meedu.app
 
 ✅ Don't forget to leave your like if this plugin was useful for you.
 
-
 > **IMPORTANT**: When you install this plugin you need to configure the plugin on Android before run the project again . If you don't do it you will have a **No implementation found** error because the facebook SDK on Android throws an Exception when the configuration is not defined yet and this locks the other plugins in your project. If you don't need the plugin yet please remove or comment it.
 
-
 ---
+
 ## macOS support
 
 in your `macos/runner/info.plist` folder you must add
+
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-Now in `xcode` select the `Runner` target and go to **Signing & Capabilities** and enable 
+Now in `xcode` select the `Runner` target and go to **Signing & Capabilities** and enable
 `Outgoing Connections`
 
 <img width="496" alt="Captura de Pantalla 2022-05-08 a la(s) 17 17 23" src="https://user-images.githubusercontent.com/15864336/167318086-b3812f19-0834-4291-acc8-694b890dfe7e.png">
 
-
 Unlinke ios, android and web for desktop app the facebook session data is not stored by default. In that case this plugin uses `flutter_secure_storage` to
-secure store the session data. 
+secure store the session data.
 
 To use `flutter_secure_storage` on macOS you need to add the `Keychain Sharing` capability
 

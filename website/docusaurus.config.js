@@ -8,7 +8,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 const config = {
   title: "Flutter Facebook Auth",
   tagline:
-    "The easiest way to add facebook login to your flutter app, get user information, profile picture and more. Web support included.",
+    "A plugin that easily adds Facebook authentication into you Flutter app. Feature includes getting user information, profile picture and more. This plugin also supports Web.",
   url: "https://facebook.meedu.app",
   baseUrl: "/",
   onBrokenLinks: "throw",
@@ -29,7 +29,7 @@ const config = {
           lastVersion: "current",
           versions: {
             current: {
-              label: "4.3.2",
+              label: "4.4.0",
               path: "4.x.x",
             },
             "3.x.x": {

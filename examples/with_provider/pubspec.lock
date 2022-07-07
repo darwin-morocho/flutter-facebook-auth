@@ -68,7 +68,7 @@ packages:
       name: flutter_facebook_auth
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.4"
+    version: "4.3.4+2"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
