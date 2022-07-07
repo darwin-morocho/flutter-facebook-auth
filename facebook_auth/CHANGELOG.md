@@ -2,7 +2,7 @@
 - Updated to `flutter_facebook_auth_platform_interface: ^3.2.0`.
 - Updated to `flutter_facebook_auth_web: ^3.2.0`.
 - Updated Facebook Android SDK to 14.0.0
-- Updated Facebook iOS SDK to 14.1.0
+- Updated Facebook iOS SDK to 14.0.0
 
 ### 4.3.4+2
 - Updated Facebook iOS SDK to 13.2.0

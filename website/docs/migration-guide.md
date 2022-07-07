@@ -10,6 +10,5 @@ flutter pub get
 Next for ios 
 ```
 cd ios
-pod repo update
-pod update
+pod update flutter_facebook_auth
 ```
