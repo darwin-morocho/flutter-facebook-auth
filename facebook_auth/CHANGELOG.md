@@ -1,3 +1,5 @@
+### 4.4.0+1
+- Updated plugin description.
 ### 4.4.0
 - Updated to `flutter_facebook_auth_platform_interface: ^3.2.0`.
 - Updated to `flutter_facebook_auth_web: ^3.2.0`.
