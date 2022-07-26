@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:provider/provider.dart';
@@ -6,7 +7,15 @@ import 'src/ui/global/controllers/session_controller.dart';
 import 'src/ui/routes/app_routes.dart';
 import 'src/ui/routes/routes.dart';
 
-void main() {
+void main() async {
+  if (kIsWeb) {
+    await FacebookAuth.i.webInitialize(
+      appId: '1329834907365798',
+      cookie: true,
+      xfbml: true,
+      version: "v14.0",
+    );
+  }
   runApp(const MyApp());
 }
 
