@@ -28,4 +28,9 @@ class SessionRepositoryImpl implements SessionRepository {
     }
     return null;
   }
+  
+  @override
+  Future<void> logOut() {
+    return _auth.logOut();
+  }
 }
