@@ -1,3 +1,6 @@
+### version: 5.0.0-dev.4
+- updated to `facebook_auth_desktop: ^0.0.3`
+
 ### version: 5.0.0-dev.3
 - Updated to `flutter_facebook_auth_platform_interface: ^4.0.1`.
 ### version: 5.0.0-dev.1

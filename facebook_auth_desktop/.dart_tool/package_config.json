@@ -63,19 +63,19 @@
     },
     {
       "name": "flutter_secure_storage",
-      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-5.0.2",
+      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-6.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "flutter_secure_storage_linux",
-      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_linux-1.1.0",
+      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_linux-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
     {
       "name": "flutter_secure_storage_macos",
-      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.0",
+      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -111,7 +111,7 @@
     },
     {
       "name": "http",
-      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.4",
+      "rootUri": "file:///Users/darwinmorocho/development/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.13.5",
       "packageUri": "lib/",
       "languageVersion": "2.14"
     },
@@ -224,7 +224,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2022-09-13T13:08:22.790752Z",
+  "generated": "2022-09-13T13:17:37.839372Z",
   "generator": "pub",
   "generatorVersion": "2.17.6"
 }

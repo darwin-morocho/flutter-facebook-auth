@@ -10,7 +10,7 @@
 		</data>
 		<key>Resources/icudtl.dat</key>
 		<data>
-		1QumeTTkdhWvmY7i40QoJewEapE=
+		5zcJ5BY+w7z+M0to6P+uUWPn04o=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -30,22 +30,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			etrFpvIkvsKk1mlvYXGTBvgwzzE=
+			Qj6OtkzORWI38PIdXyyJc+eribM=
 			</data>
 			<key>hash2</key>
 			<data>
-			3SViazqKyfDFTyiD8JSsNncD/XtsdhhL1bSSPXnfIio=
+			4quj8X+HDK/AVExMhTcqLpIRxe/OjnnNTiON5KEv3hI=
 			</data>
 		</dict>
 		<key>Headers/FlutterChannels.h</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			sHj+Q0IC9IHcDQFEUVW9NjjVwyo=
+			bhEGVRctQGJxYtCb3asK0k4Iq74=
 			</data>
 			<key>hash2</key>
 			<data>
-			mMZONInvJM4ILgC2/EPW99HwFnhDr0K7Qti6QFfqno0=
+			IAJwMIrTpwHKIiP2tBsYBUQe8B8qT6nLVEQzZLi+yFc=
 			</data>
 		</dict>
 		<key>Headers/FlutterCodecs.h</key>
@@ -103,6 +103,17 @@
 			7FrU4ZPRKob2HMUIRVBrtZ/QBRs2QL0JUN4oJmEaZs0=
 			</data>
 		</dict>
+		<key>Headers/FlutterPlatformViews.h</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			1+iRwnU6jf2UGVtBR6Cs+qV6XHY=
+			</data>
+			<key>hash2</key>
+			<data>
+			XzVAwtEmkEc3RhQbtAlhdf/01qrTot2o1cxhWJzYXbM=
+			</data>
+		</dict>
 		<key>Headers/FlutterPluginMacOS.h</key>
 		<dict>
 			<key>hash</key>
@@ -118,11 +129,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			hh/HFE++WIM0BJHijTguKFjfQ8M=
+			3QVvGeIRtXFlVW3lfHS56Z8gZv0=
 			</data>
 			<key>hash2</key>
 			<data>
-			FAzyLRVFT35ohTnWoTHFB7yHnLkMFpU2DBT2Y4GY37I=
+			nTvJBfgYtXEvruiIF2hO9zBpGco4t0CgIP25Eb3e39I=
 			</data>
 		</dict>
 		<key>Headers/FlutterTexture.h</key>
@@ -140,11 +151,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eyv2i0ez1UbBc4WhQhA4E243Ptc=
+			73yRPO6bKNlh9EaWp29PJcRq1Z4=
 			</data>
 			<key>hash2</key>
 			<data>
-			5Xlsqhk3YrZfCs4OdplE/K/bH2uYRNZtOoL26Am97/g=
+			hvTcLkGVkI9PXzYA01nKwb8v5s0+yHbC1NWwAYukJMw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
@@ -173,11 +184,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			1QumeTTkdhWvmY7i40QoJewEapE=
+			5zcJ5BY+w7z+M0to6P+uUWPn04o=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y7sS66zRuTsBvhoY8E7AmSrn+3DMMIOCUocmE2apBcw=
+			yNAOslsdK6e70q88cOrqlKovbuH0GiUDe+ICgawnSrQ=
 			</data>
 		</dict>
 	</dict>
