@@ -15,19 +15,26 @@ class SplashController extends ChangeNotifier {
   Map<String, dynamic>? _userData;
   Map<String, dynamic>? get userData => _userData;
 
-  SplashController(this._facebookAuth, this._appTrackingTransparencyPermission) {
+  SplashController(
+      this._facebookAuth, this._appTrackingTransparencyPermission) {
     _init();
   }
 
   void _init() async {
-    print("isWebSdkInitialized ${this._facebookAuth.isWebSdkInitialized}");
-    print("isAutoLogAppEventsEnabled ${await this._facebookAuth.isAutoLogAppEventsEnabled}");
-    _isLogged = await this._facebookAuth.accessToken != null;
+    print(
+      "isWebSdkInitialized ${this._facebookAuth.isWebSdkInitialized}",
+    );
+    print(
+      "isAutoLogAppEventsEnabled ${await this._facebookAuth.isAutoLogAppEventsEnabled}",
+    );
+    final accessToken = await this._facebookAuth.accessToken;
+    _isLogged = accessToken != null;
     if (_isLogged!) {
       _userData = await _facebookAuth.getUserData(
         fields: "name,email,picture.width(200)",
       );
-      print(_userData);
+
+      print(accessToken!.expires);
       prettyPrint(_userData!);
     }
     notifyListeners();
@@ -62,7 +69,8 @@ class SplashController extends ChangeNotifier {
     final status = await _appTrackingTransparencyPermission.request();
     if (status == PermissionStatus.granted) {
       await _facebookAuth.autoLogAppEventsEnabled(true);
-      print("isAutoLogAppEventsEnabled:: ${await _facebookAuth.isAutoLogAppEventsEnabled}");
+      print(
+          "isAutoLogAppEventsEnabled:: ${await _facebookAuth.isAutoLogAppEventsEnabled}");
     }
   }
 }

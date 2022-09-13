@@ -2,11 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_facebook_auth_example/src/domain/repositories/session_repository.dart';
 import 'package:flutter_facebook_auth_example/src/ui/global/controllers/session_controller.dart';
 import 'package:flutter_facebook_auth_example/src/ui/routes/routes.dart';
 import 'package:provider/provider.dart';
-
-import '../../../../domain/models/user.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -52,23 +51,15 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       _fetching = true;
     });
-    final FacebookAuth auth = context.read();
-    final result = await auth.login();
+    final SessionRepository sessionRepository = context.read();
+    final result = await sessionRepository.logIn();
     if (result.status == LoginStatus.success) {
-      final userData = await auth.getUserData();
-      if (userData.isNotEmpty) {
-        final user = User(
-          userId: userData['id'],
-          name: userData['name'],
-          email: userData['email'],
-          profilePicture: userData['picture']?['data']?['url'],
-        );
-
+      final user = await sessionRepository.user;
+      if (user != null) {
         if (mounted) {
           final SessionController sessionController = context.read();
           sessionController.updateUser(user);
           Navigator.pushReplacementNamed(context, Routes.home);
-
           return;
         }
       }

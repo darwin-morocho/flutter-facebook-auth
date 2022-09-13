@@ -8,6 +8,10 @@
 - Added macOS support.
 - Updated to `flutter_facebook_auth_platform_interface: ^4.0.0`.
 - Updated to `flutter_facebook_auth_web: ^4.0.0`.
+### 4.4.1+1
+- Updated Facebook Android SDK to 14.1.1
+### 4.4.0+1
+- Updated plugin description.
 ### 4.4.0
 - Updated to `flutter_facebook_auth_platform_interface: ^3.2.0`.
 - Updated to `flutter_facebook_auth_web: ^3.2.0`.
