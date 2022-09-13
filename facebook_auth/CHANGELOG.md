@@ -1,3 +1,5 @@
+### 4.4.1+1
+- Updated Facebook Android SDK to 14.1.1
 ### 4.4.0+1
 - Updated plugin description.
 ### 4.4.0
