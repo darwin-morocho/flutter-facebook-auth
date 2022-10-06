@@ -183,6 +183,7 @@ public class FacebookAuth {
         put("isExpired", accessToken.isExpired());
         put("grantedPermissions", new ArrayList<>(accessToken.getPermissions()));
         put("declinedPermissions", new ArrayList<>(accessToken.getDeclinedPermissions()));
+        put("dataAccessExpirationTime", accessToken.getDataAccessExpirationTime().getTime());
       }
     };
   }
