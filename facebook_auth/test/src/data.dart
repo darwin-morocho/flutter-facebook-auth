@@ -10,6 +10,7 @@ const mockAccessToken = {
   "isExpired": false,
   "grantedPermissions": ["email", "user_link"],
   "declinedPermissions": [],
+  "dataAccessExpirationTime": 1610201170749,
 };
 
 const mockUserData = {
