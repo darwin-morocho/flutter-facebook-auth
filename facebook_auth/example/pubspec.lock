@@ -14,7 +14,7 @@ packages:
       name: characters
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.2.0"
+    version: "1.2.1"
   charcode:
     dependency: transitive
     description:
@@ -72,16 +72,16 @@ packages:
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
-      name: flutter_facebook_auth_platform_interface
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../../facebook_auth_platform_interface"
+      relative: true
+    source: path
     version: "3.2.0"
   flutter_facebook_auth_web:
     dependency: transitive
     description:
-      name: flutter_facebook_auth_web
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "../../facebook_auth_web"
+      relative: true
+    source: path
     version: "3.2.0"
   flutter_web_plugins:
     dependency: transitive
@@ -122,14 +122,14 @@ packages:
       name: material_color_utilities
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.4"
+    version: "0.1.5"
   meta:
     dependency: transitive
     description:
       name: meta
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.7.0"
+    version: "1.8.0"
   nested:
     dependency: transitive
     description:
