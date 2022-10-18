@@ -1,13 +1,13 @@
 import 'dart:convert';
-import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'my_app.dart';
 
 void main() async {
-  if (kIsWeb) {
+  if (kIsWeb || defaultTargetPlatform == TargetPlatform.macOS) {
     // initialiaze the facebook javascript SDK
-    await FacebookAuth.instance.webInitialize(
+    await FacebookAuth.instance.webAndDesktopInitialize(
       appId: "1329834907365798",
       cookie: true,
       xfbml: true,

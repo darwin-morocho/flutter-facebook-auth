@@ -1,3 +1,16 @@
+### version: 5.0.0-dev.4
+- updated to `facebook_auth_desktop: ^0.0.3`
+
+### version: 5.0.0-dev.3
+- Updated to `flutter_facebook_auth_platform_interface: ^4.0.1`.
+### version: 5.0.0-dev.1
+- Added macOS documentation.
+### version: 5.0.0-dev.0
+- **BREAKING CHANGE**
+    Replaced `webInitialize` method for `webAndDesktopInitialize`.
+- Added macOS support.
+- Updated to `flutter_facebook_auth_platform_interface: ^4.0.0`.
+- Updated to `flutter_facebook_auth_web: ^4.0.0`.
 ### 4.4.1+1
 - Updated Facebook Android SDK to 14.1.1
 ### 4.4.0+1

@@ -33,8 +33,8 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  /// initialiaze the facebook javascript sdk
-  Future<void> webInitialize({
+  /// initialiaze the facebook javascript sdk or the oauth flow for desktop apps
+  Future<void> webAndDesktopInitialize({
     required String appId,
     required bool cookie,
     required bool xfbml,

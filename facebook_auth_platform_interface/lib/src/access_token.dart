@@ -78,8 +78,8 @@ class AccessToken {
   Map<String, dynamic> toJson() => {
         'userId': userId,
         'token': token,
-        'expires': expires.toIso8601String(),
-        'lastRefresh': lastRefresh.toIso8601String(),
+        'expires': expires.millisecondsSinceEpoch,
+        'lastRefresh': lastRefresh.millisecondsSinceEpoch,
         'applicationId': applicationId,
         'graphDomain': graphDomain,
         'isExpired': isExpired,

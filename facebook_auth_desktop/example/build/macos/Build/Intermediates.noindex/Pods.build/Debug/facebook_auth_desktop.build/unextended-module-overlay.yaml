@@ -4,11 +4,11 @@
   'case-sensitive': 'false',
   'roots': [{
     'type': 'directory',
-    'name': "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Products/Debug/facebook_auth_desktop/facebook_auth_desktop.framework/Modules"
+    'name': "/Users/darwinmorocho/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Products/Debug/facebook_auth_desktop/facebook_auth_desktop.framework/Modules"
     'contents': [{
       'type': 'file',
       'name': "module.modulemap",
-      'external-contents': "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Intermediates.noindex/Pods.build/Debug/facebook_auth_desktop.build/unextended-module.modulemap",
+      'external-contents': "/Users/darwinmorocho/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Intermediates.noindex/Pods.build/Debug/facebook_auth_desktop.build/unextended-module.modulemap",
     }]
   }]
 }

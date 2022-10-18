@@ -99,7 +99,7 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
 
   /// only available on WEB
   @override
-  Future<void> webInitialize({
+  Future<void> webAndDesktopInitialize({
     required String appId,
     required bool cookie,
     required bool xfbml,

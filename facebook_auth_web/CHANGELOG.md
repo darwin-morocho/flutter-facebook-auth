@@ -1,3 +1,11 @@
+### 4.0.1
+- Updated flutter_facebook_auth_platform_interface: ^4.1.0
+### 4.0.1
+- Updated flutter_facebook_auth_platform_interface: ^4.0.1
+
+### 4.0.0
+- Updated flutter_facebook_auth_platform_interface: ^4.0.0
+
 ### 3.2.0
 - Updated flutter_facebook_auth_platform_interface: ^3.2.0
 ### 3.1.2

@@ -1,6 +1,0 @@
-version: "Apple Swift version 5.6 (swiftlang-5.6.0.323.62 clang-1316.0.20.8)"
-options: "683d2a9e3e91da9769c02ab0507b35966856697aa6f4b681123ce1807b62d71a"
-build_start_time: [1652013486, 783126831]
-build_end_time: [1652013487, 532517910]
-inputs:
-  "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/macos/Classes/FacebookAuthDesktopPlugin.swift": [1652013451, 730924129]

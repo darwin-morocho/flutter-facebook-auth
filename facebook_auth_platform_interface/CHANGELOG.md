@@ -1,3 +1,10 @@
+### 4.1.0
+- Added dataAccessExpirationTime to AccessToken.
+### 4.0.1
+- plugin_platform_interface: ^2.1.2
+### 4.0.0
+- **BREAKING CHANGE**
+    Replaced `webInitialize` method for `webAndDesktopInitialize`.
 ### 3.2.0
 - plugin_platform_interface: ^2.1.2
 - mocktail: ^0.3.0

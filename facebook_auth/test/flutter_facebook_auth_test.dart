@@ -21,6 +21,7 @@ void main() {
       isLogged = false;
       isAutoLogAppEventsEnabled = false;
       facebookAuth = FacebookAuth.getInstance();
+
       channel.setMockMethodCallHandler((MethodCall call) async {
         switch (call.method) {
           case "login":
@@ -57,7 +58,7 @@ void main() {
     test('login request', () async {
       expect(facebookAuth.isWebSdkInitialized, false);
       expect(await facebookAuth.accessToken, null);
-      await facebookAuth.webInitialize(
+      await facebookAuth.webAndDesktopInitialize(
         appId: "1233443",
         cookie: true,
         xfbml: true,
