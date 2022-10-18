@@ -260,7 +260,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
         final Map<String, dynamic> authResponse = response['authResponse'];
 
         final expires = DateTime.now().add(
-          Duration(seconds: authResponse['data_access_expiration_time']),
+          Duration(seconds: authResponse['expiresIn']),
         );
 
         // create a Login Result with an accessToken
@@ -278,6 +278,8 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
             token: authResponse['accessToken'],
             isExpired: false,
             graphDomain: authResponse['graphDomain'],
+            dataAccessExpirationTime: DateTime.fromMillisecondsSinceEpoch(
+                authResponse['data_access_expiration_time'] * 1000),
           ),
         );
       } else if (status == 'unknown') {

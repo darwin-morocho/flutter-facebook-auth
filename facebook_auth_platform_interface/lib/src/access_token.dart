@@ -30,6 +30,9 @@ class AccessToken {
   /// is `true` when the token is expired
   final bool isExpired;
 
+  /// DateTime with the date at which user data access expires
+  final DateTime dataAccessExpirationTime;
+
   AccessToken({
     required this.declinedPermissions,
     required this.grantedPermissions,
@@ -40,6 +43,7 @@ class AccessToken {
     required this.applicationId,
     this.graphDomain,
     required this.isExpired,
+    required this.dataAccessExpirationTime,
   });
 
   /// convert the data provided for the platform channel to one instance of AccessToken
@@ -65,6 +69,8 @@ class AccessToken {
       grantedPermissions: json['grantedPermissions'] != null
           ? List<String>.from(json['grantedPermissions'])
           : null,
+      dataAccessExpirationTime:
+          DateTime.fromMillisecondsSinceEpoch(json['dataAccessExpirationTime']),
     );
   }
 
@@ -79,5 +85,6 @@ class AccessToken {
         'isExpired': isExpired,
         'grantedPermissions': grantedPermissions,
         'declinedPermissions': declinedPermissions,
+        'dataAccessExpirationTime': dataAccessExpirationTime.toIso8601String(),
       };
 }

@@ -169,6 +169,7 @@ class FacebookAuth: NSObject {
             "isExpired":accessToken.isExpired,
             "grantedPermissions":accessToken.permissions.map {item in item.name},
             "declinedPermissions":accessToken.declinedPermissions.map {item in item.name},
+            "dataAccessExpirationTime":Int64((accessToken.dataAccessExpirationDate.timeIntervalSince1970*1000).rounded()),
         ] as [String : Any]
         return data;
     }

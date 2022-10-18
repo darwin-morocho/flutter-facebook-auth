@@ -12,6 +12,7 @@ abstract class MockData {
     "isExpired": false,
     "grantedPermissions": ["email", "user_link"],
     "declinedPermissions": [],
+    "dataAccessExpirationTime": 1610201170749,
   };
 
   static Map<String, dynamic> get userData {
