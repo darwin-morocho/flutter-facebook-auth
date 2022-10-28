@@ -11,7 +11,7 @@ import 'package:provider/provider.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   if (kIsWeb) {
-    await FacebookAuth.i.webInitialize(
+    await FacebookAuth.i.webAndDesktopInitialize(
       appId: '1329834907365798',
       cookie: true,
       xfbml: true,
