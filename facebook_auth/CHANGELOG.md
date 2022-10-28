@@ -1,3 +1,5 @@
+### version: 5.0.0+2
+- Updated min dart sdk version to 2.14.0.
 ### version: 5.0.0+1
 - Updated readme.
 ### version: 5.0.0
