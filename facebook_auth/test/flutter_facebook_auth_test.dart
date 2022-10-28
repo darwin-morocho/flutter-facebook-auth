@@ -1,61 +1,94 @@
-import 'dart:convert';
+// ignore_for_file: dead_code
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:mocktail/mocktail.dart';
 
 import 'src/data.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();
+
+  final accessToken = AccessToken.fromJson(
+    mockAccessToken,
+  );
   group('authentication', () {
-    const MethodChannel channel = MethodChannel(
-      'app.meedu/flutter_facebook_auth',
-    );
     late FacebookAuth facebookAuth;
-    late bool isLogged, isAutoLogAppEventsEnabled;
 
-    setUp(() {
-      debugDefaultTargetPlatformOverride = TargetPlatform.android;
-      isLogged = false;
-      isAutoLogAppEventsEnabled = false;
-      facebookAuth = FacebookAuth.getInstance();
+    setUp(
+      () {
+        debugDefaultTargetPlatformOverride = TargetPlatform.android;
+        facebookAuth = MockFacebookAuth();
+        when(
+          () => facebookAuth.webAndDesktopInitialize(
+            appId: any(named: 'appId'),
+            cookie: any(named: 'cookie'),
+            xfbml: any(named: 'xfbml'),
+            version: any(named: 'version'),
+          ),
+        ).thenAnswer(
+          (_) => Future.value(),
+        );
 
-      channel.setMockMethodCallHandler((MethodCall call) async {
-        switch (call.method) {
-          case "login":
-            isLogged = true;
-            return mockAccessToken;
-          case "expressLogin":
-            isLogged = true;
-            return mockAccessToken;
-          case "getAccessToken":
-            return isLogged ? mockAccessToken : null;
-          case "logOut":
-            isLogged = false;
-            return null;
+        when(
+          () => facebookAuth.getUserData(),
+        ).thenAnswer(
+          (_) => Future.value(
+            mockUserData,
+          ),
+        );
 
-          case "getUserData":
-            // final String fields = call.arguments['fields'];
-            final data = mockUserData;
-            if (defaultTargetPlatform == TargetPlatform.android) {
-              return jsonEncode(data);
-            }
-            return data;
-          case "isAutoLogAppEventsEnabled":
-            return isAutoLogAppEventsEnabled;
-
-          case "updateAutoLogAppEventsEnabled":
-            final isIOS = defaultTargetPlatform == TargetPlatform.iOS;
-            if (isIOS) {
-              isAutoLogAppEventsEnabled = call.arguments['enabled'];
-            }
-        }
-      });
-    });
+        when(
+          () => facebookAuth.permissions,
+        ).thenAnswer(
+          (_) async {
+            return FacebookPermissions(
+              granted: [
+                ...?accessToken.grantedPermissions,
+              ],
+              declined: [
+                ...?accessToken.declinedPermissions,
+              ],
+            );
+          },
+        );
+      },
+    );
 
     test('login request', () async {
+      bool logged = false;
+      when(
+        () => facebookAuth.isWebSdkInitialized,
+      ).thenReturn(false);
+
+      when(
+        () => facebookAuth.accessToken,
+      ).thenAnswer(
+        (_) async => logged ? accessToken : null,
+      );
+
+      when(
+        () => facebookAuth.login(),
+      ).thenAnswer(
+        (_) async {
+          logged = true;
+          return LoginResult(
+            status: LoginStatus.success,
+            accessToken: accessToken,
+          );
+        },
+      );
+
+      when(
+        () => facebookAuth.logOut(),
+      ).thenAnswer(
+        (_) async {
+          logged = false;
+          return Future.value();
+        },
+      );
+
       expect(facebookAuth.isWebSdkInitialized, false);
       expect(await facebookAuth.accessToken, null);
       await facebookAuth.webAndDesktopInitialize(
@@ -79,20 +112,53 @@ void main() {
     });
 
     test('express login', () async {
+      bool logged = false;
+      when(
+        () => facebookAuth.expressLogin(),
+      ).thenAnswer(
+        (_) async {
+          logged = true;
+          return LoginResult(
+            status: LoginStatus.success,
+            accessToken: accessToken,
+          );
+        },
+      );
+
+      when(
+        () => facebookAuth.accessToken,
+      ).thenAnswer(
+        (_) async => logged ? accessToken : null,
+      );
+
       expect(await facebookAuth.accessToken, null);
       final result = await facebookAuth.expressLogin();
       expect(result.status, LoginStatus.success);
     });
 
-    test('test singleton', () async {
-      expect(await FacebookAuth.i.accessToken, null);
-    });
-
     test('autoLogAppEventsEnabled', () async {
       debugDefaultTargetPlatformOverride = TargetPlatform.iOS;
+
+      bool isAutoLogAppEventsEnabled = false;
+      when(
+        () => facebookAuth.isAutoLogAppEventsEnabled,
+      ).thenAnswer(
+        (_) async => isAutoLogAppEventsEnabled,
+      );
+
+      when(
+        () => facebookAuth.autoLogAppEventsEnabled(true),
+      ).thenAnswer(
+        (_) async {
+          isAutoLogAppEventsEnabled = true;
+        },
+      );
+
       expect(await facebookAuth.isAutoLogAppEventsEnabled, false);
       await facebookAuth.autoLogAppEventsEnabled(true);
       expect(await facebookAuth.isAutoLogAppEventsEnabled, true);
     });
   });
 }
+
+class MockFacebookAuth extends Mock implements FacebookAuth {}

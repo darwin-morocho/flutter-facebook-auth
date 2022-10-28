@@ -23,6 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  mocktail: ^0.3.0
 
 flutter:
   plugin:
