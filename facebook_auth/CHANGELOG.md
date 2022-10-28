@@ -1,5 +1,8 @@
-### version: 5.0.0-dev.4
-- updated to `facebook_auth_desktop: ^0.0.3`
+### version: 5.0.0
+- Added macOS support.
+- Updated to `facebook_auth_desktop: ^0.0.4`
+- Updated Facebook iOS SDK to 15.0.0
+- Updated Facebook Android SDK to 15.0.2
 
 ### version: 5.0.0-dev.3
 - Updated to `flutter_facebook_auth_platform_interface: ^4.0.1`.

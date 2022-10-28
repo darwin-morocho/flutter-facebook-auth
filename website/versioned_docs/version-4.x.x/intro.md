@@ -14,7 +14,7 @@
 <p>A plugin that easily adds Facebook authentication into you Flutter app. Feature includes getting user information, profile picture and more. This plugin also supports Web.</p>
 
 ## Features
-- Login on iOS, Android, Web and macOS.
+- Login on iOS, Android and Web.
 - Express login on Android.
 - Granted and declined permissions.
 - User information, picture profile and more.
@@ -27,7 +27,7 @@ Add the following to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_facebook_auth: ^5.0.0
+  flutter_facebook_auth: ^4.4.1+1
 ```
 
 

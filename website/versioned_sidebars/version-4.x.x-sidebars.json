@@ -1,0 +1,14 @@
+{
+  "tutorialSidebar": [
+    "intro",
+    "android",
+    "ios",
+    "web",
+    "login",
+    "app-tracking-transparency",
+    "user-information",
+    "example",
+    "migration-guide",
+    "firebase-auth"
+  ]
+}

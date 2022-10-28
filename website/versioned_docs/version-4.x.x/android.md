@@ -5,19 +5,6 @@
 Upon installation of this plugin, configuration is needed on Android before running the project again. If this is not done, an error of **No implementation found** would show because the Facebook SDK on Android would throw an Exception error if the configuration is not yet defined. This error also locks the other plugins in your project, so if the plugin is not yet needed, either remove it or comment it out from the pubspec.yaml file.
 :::
 
-:::danger IMPORTANT
-Since the native facebook sdk 15.0.0 the `minSdkVersion` required is `21`.
-You must go to `android/app/build.gradle` and define `minSdkVersion` to `21`
-```
-    defaultConfig {
-        ...
-        minSdkVersion 21
-        targetSdkVersion 33
-        ...
-    }
-```
-:::
-
 
 
 Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/docs/facebook-login/android/?locale=en)
@@ -138,29 +125,3 @@ Apps that target Android API 30+ (Android 11+) cannot call Facebook native apps 
     ...
 </manifest>
 ```
-
-
-:::danger KEEP IN MIND
-- If your app is still in developing mode in your `facebook console` to test the `login flow` you only can use [test accounts](https://developers.facebook.com/docs/development/build-and-test/test-users/) or use the facebook account witch is the owner of the app in the facebook developer console.
-- If want to test the login flow with the native facebook app and your app is in developing mode your account must be added to the developer team https://developers.facebook.com/docs/development/build-and-test/app-roles
-
-- If you want to get the user email and public profile you must check in your facebook developers console
-that you have that permissions enabled.
-![image](https://user-images.githubusercontent.com/15864336/198648412-201fcd9b-8c24-440f-893e-23c5c6efc664.png)
-
-
-- Starting with Android 11 the facebook `ClientToken` is mandatory (check the above example).
-- Facebook app to perform the login request when it is installed. The native Facebook app compare your app signing(key hash) with the key hash registered in your Facebook developers console. If the login flow doesn't works with the Facebook app that means that you have problems with your hash. Make sure that you have added the correct key hashes in your console.
-
-- If you get error like this:
-`Missing 'package' key attribute on element package at ...` 
-
- This issue happens for the combination of:
-
- ```
- Using Android-SDK's API level 31 (or later),
- With old Gradle version(s).
- ```
-
- Check your `com.android.tools.build:gradle` version in `android/build.gradle`. It's should be `3.5.4` or `higher`.
-:::

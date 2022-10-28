@@ -68,7 +68,7 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "5.0.0"
+    version: "5.0.0+1"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:

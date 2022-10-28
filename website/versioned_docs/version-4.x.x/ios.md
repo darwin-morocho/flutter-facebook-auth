@@ -58,6 +58,8 @@ And in xcode you must set your **deployment Info** to `12.0`
     <array>
       <string>fbapi</string>
       <string>fb-messenger-share-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
     </array>
     ```
 
@@ -82,25 +84,30 @@ And in xcode you must set your **deployment Info** to `12.0`
     </array>
     ```
 
+    To use any of the Facebook dialogs (e.g., Login, Share, App Invites, etc.) that can perform an app switch to Facebook apps, your application's Info.plist also needs to include: `<dict>...</dict>`)
+
+    ```xml
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>fbapi</string>
+      <string>fbapi20130214</string>
+      <string>fbapi20130410</string>
+      <string>fbapi20130702</string>
+      <string>fbapi20131010</string>
+      <string>fbapi20131219</string>
+      <string>fbapi20140410</string>
+      <string>fbapi20140116</string>
+      <string>fbapi20150313</string>
+      <string>fbapi20150629</string>
+      <string>fbapi20160328</string>
+      <string>fbauth</string>
+      <string>fb-messenger-share-api</string>
+      <string>fbauth2</string>
+      <string>fbshareextension</string>
+    </array>
+    ```
 
 
 :::info 
 check one example of the info.plist [here](https://github.com/darwin-morocho/flutter-facebook-auth/blob/master/examples/with_provider/ios/Runner/Info.plist)
-:::
-
-
-:::danger KEEP IN MIND
-- If the login callback doesn't works check that you are not overriding the next function in your `AppDelegate.swift`
-
-```
-override func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-...
-    }
-```
-
-For more info check
-
-https://github.com/darwin-morocho/flutter-facebook-auth/issues/261
-
-https://github.com/darwin-morocho/flutter-facebook-auth/issues/6
 :::

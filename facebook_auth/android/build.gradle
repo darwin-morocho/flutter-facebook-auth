@@ -26,7 +26,7 @@ android {
     compileSdkVersion 29
 
     defaultConfig {
-        minSdkVersion 16
+        minSdkVersion 21
     }
     lintOptions {
         disable 'InvalidPackage'
@@ -34,5 +34,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.facebook.android:facebook-login:14.1.1'
+    implementation 'com.facebook.android:facebook-login:15.0.2'
 }

@@ -74,7 +74,7 @@ class FacebookAuth {
   /// like webview, native app, or a dialog.
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
-    LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
+    LoginBehavior loginBehavior = LoginBehavior.nativeWithFallback,
   }) =>
       _authPlatform.login(
         permissions: permissions,
