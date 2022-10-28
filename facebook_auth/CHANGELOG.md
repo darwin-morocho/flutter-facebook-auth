@@ -1,3 +1,5 @@
+### version: 5.0.0+1
+- Updated readme.
 ### version: 5.0.0
 - Added macOS support.
 - Updated to `facebook_auth_desktop: ^0.0.4`
