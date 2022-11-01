@@ -1,3 +1,7 @@
+### version: 5.0.2
+- Added FBSDKCoreKit on iOS.
+- Updated Facebook iOS SDK to 15.1.0
+
 ### version: 5.0.1
 - Android -> Replaced `jcenter` repository for `mavenCentral`.
 ### version: 5.0.0+2
