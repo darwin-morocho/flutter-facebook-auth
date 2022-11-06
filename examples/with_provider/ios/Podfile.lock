@@ -1,15 +1,15 @@
 PODS:
-  - FBAEMKit (15.0.0):
-    - FBSDKCoreKit_Basics (= 15.0.0)
-  - FBSDKCoreKit (15.0.0):
-    - FBAEMKit (= 15.0.0)
-    - FBSDKCoreKit_Basics (= 15.0.0)
-  - FBSDKCoreKit_Basics (15.0.0)
-  - FBSDKLoginKit (15.0.0):
-    - FBSDKCoreKit (= 15.0.0)
+  - FBAEMKit (15.1.0):
+    - FBSDKCoreKit_Basics (= 15.1.0)
+  - FBSDKCoreKit (15.1.0):
+    - FBAEMKit (= 15.1.0)
+    - FBSDKCoreKit_Basics (= 15.1.0)
+  - FBSDKCoreKit_Basics (15.1.0)
+  - FBSDKLoginKit (15.1.0):
+    - FBSDKCoreKit (= 15.1.0)
   - Flutter (1.0.0)
-  - flutter_facebook_auth (5.0.0):
-    - FBSDKLoginKit (= 15.0.0)
+  - flutter_facebook_auth (5.0.4):
+    - FBSDKLoginKit (~> 15.1.0)
     - Flutter
   - flutter_secure_storage (3.3.1):
     - Flutter
@@ -35,12 +35,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
 
 SPEC CHECKSUMS:
-  FBAEMKit: d8312d8451ead46282adc7f3565ffc4965e3a4a7
-  FBSDKCoreKit: 81879058dd06208c0820fc713d054ca54903e8ba
-  FBSDKCoreKit_Basics: eebc9bb69a0e5d133b92dca53a20716227faa454
-  FBSDKLoginKit: 11995469cd7da16fd4d5245e8d2ec61060479270
+  FBAEMKit: c7f82b5145d446bcbbcd50485c032689032fc6a2
+  FBSDKCoreKit: 7542746fc63a2a38dd6a865eeb54268341f37b83
+  FBSDKCoreKit_Basics: 92d6b26c0bed30ab09bbdd96dccaa26e6c9978d1
+  FBSDKLoginKit: 4e275d30cf90e92bdf3a7c82857a8642abf23037
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_facebook_auth: ad30745952f77ef167ec2ca5ddf29143c2c8c2e0
+  flutter_facebook_auth: c69f4e643b1d9cc9063ec87c9411bd9ec268108f
   flutter_secure_storage: 7953c38a04c3fdbb00571bcd87d8e3b5ceb9daec
 
 PODFILE CHECKSUM: 4e8f8b2be68aeea4c0d5beb6ff1e79fface1d048

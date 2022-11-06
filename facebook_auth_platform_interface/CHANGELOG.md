@@ -1,3 +1,5 @@
+### 4.1.1
+- Fixed bug parsing `dataAccessExpirationTime` throws `String is not a subtype of int` on macOS.
 ### 4.1.0
 - Added dataAccessExpirationTime to AccessToken.
 ### 4.0.1

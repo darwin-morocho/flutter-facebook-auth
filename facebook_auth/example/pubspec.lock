@@ -42,7 +42,7 @@ packages:
       name: facebook_auth_desktop
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   ffi:
     dependency: transitive
     description:
@@ -68,21 +68,21 @@ packages:
       path: ".."
       relative: true
     source: path
-    version: "5.0.2"
+    version: "5.0.4"
   flutter_facebook_auth_platform_interface:
     dependency: transitive
     description:
       name: flutter_facebook_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.1.1"
   flutter_facebook_auth_web:
     dependency: transitive
     description:
       name: flutter_facebook_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.1.1"
   flutter_secure_storage:
     dependency: transitive
     description:

@@ -1,3 +1,10 @@
+### version: 5.0.4
+- Removed FBSDKCoreKit from ios.
+### version: 5.0.3
+- Fixed bug parsing `dataAccessExpirationTime` throws `String is not a subtype of int` on macOS.
+- Updated to `flutter_facebook_auth_platform_interface: ^4.1.1`.
+- Updated to `flutter_facebook_auth_web: ^4.1.1`.
+- Updated to `facebook_auth_desktop: ^0.0.5`
 ### version: 5.0.2
 - Added FBSDKCoreKit on iOS.
 - Updated Facebook iOS SDK to 15.1.0

@@ -50,6 +50,18 @@ class AccessToken {
   ///
   /// [json] data returned by the platform channel
   factory AccessToken.fromJson(Map<String, dynamic> json) {
+    late final DateTime dataAccessExpirationTime;
+
+    if (json['dataAccessExpirationTime'] is String) {
+      dataAccessExpirationTime = DateTime.parse(
+        json['dataAccessExpirationTime'],
+      );
+    } else {
+      dataAccessExpirationTime = DateTime.fromMillisecondsSinceEpoch(
+        json['dataAccessExpirationTime'],
+      );
+    }
+
     return AccessToken(
       userId: json['userId'],
       token: json['token'],
@@ -69,8 +81,7 @@ class AccessToken {
       grantedPermissions: json['grantedPermissions'] != null
           ? List<String>.from(json['grantedPermissions'])
           : null,
-      dataAccessExpirationTime:
-          DateTime.fromMillisecondsSinceEpoch(json['dataAccessExpirationTime']),
+      dataAccessExpirationTime: dataAccessExpirationTime,
     );
   }
 

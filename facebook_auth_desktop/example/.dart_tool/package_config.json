@@ -63,7 +63,7 @@
     },
     {
       "name": "flutter_facebook_auth_platform_interface",
-      "rootUri": "file:///Users/darwin/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth_platform_interface-4.1.0",
+      "rootUri": "file:///Users/darwin/development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_facebook_auth_platform_interface-4.1.1",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -236,7 +236,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-10-28T12:06:21.792345Z",
+  "generated": "2022-11-06T19:25:13.917842Z",
   "generator": "pub",
   "generatorVersion": "2.18.2"
 }

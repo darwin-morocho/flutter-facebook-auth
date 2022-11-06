@@ -84,7 +84,7 @@ packages:
       name: facebook_auth_desktop
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.4"
+    version: "0.0.5"
   fake_async:
     dependency: transitive
     description:
@@ -110,14 +110,14 @@ packages:
       name: flutter_facebook_auth_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.1.1"
   flutter_facebook_auth_web:
     dependency: "direct main"
     description:
       name: flutter_facebook_auth_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.1.0"
+    version: "4.1.1"
   flutter_secure_storage:
     dependency: transitive
     description:

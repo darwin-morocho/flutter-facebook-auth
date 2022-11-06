@@ -13,7 +13,7 @@ Now in `xcode` select the `Runner` target and go to **Signing & Capabilities** a
 
 <img width="496" alt="Captura de Pantalla 2022-05-08 a la(s) 17 17 23" src="https://user-images.githubusercontent.com/15864336/167318086-b3812f19-0834-4291-acc8-694b890dfe7e.png"/>
 
-Unlinke ios, android and web for desktop app the facebook session data is not stored by default. In that case this plugin uses `flutter_secure_storage` to
+Unlinke ios, android and web for desktop apps the facebook session data is not stored by default. In that case this plugin uses `flutter_secure_storage` to
 secure store the session data.
 
 To use `flutter_secure_storage` on macOS you need to add the `Keychain Sharing` capability
@@ -31,7 +31,7 @@ void main() async {
       appId: "1329834907365798",
       cookie: true,
       xfbml: true,
-      version: "v13.0",
+      version: "v14.0",
     );
   }
   runApp(MyApp());
@@ -55,3 +55,8 @@ void main() async {
   runApp(MyApp());
 }
 ```
+
+Now in your facebook console > Facebook Login > Settings and make sure you have enabled `Login from Devices` ,
+`Login with the JavaScript SDK` and finally check that `https://www.facebook.com/` is added in your `Allowed Domains for the JavaScript SDK`
+
+![](https://user-images.githubusercontent.com/15864336/200191538-435b722b-190a-4d30-b684-cf448e192366.png)

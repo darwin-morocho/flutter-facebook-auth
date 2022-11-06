@@ -1,3 +1,5 @@
+## 0.0.5
+- flutter_facebook_auth_platform_interface: ^4.1.1
 ## 0.0.4
 - flutter_facebook_auth_platform_interface: ^4.1.0
 
