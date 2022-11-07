@@ -20,6 +20,7 @@
 - User information, picture profile and more.
 - Provide an access token to make request to the Graph API.
 
+
 ## Install
 
 Add the following to your `pubspec.yaml`
