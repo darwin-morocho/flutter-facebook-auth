@@ -6,5 +6,5 @@ framework module facebook_auth_desktop {
 }
 
 module facebook_auth_desktop.__Swift {
-    exclude header "facebook_auth_desktop-Swift.h"
+  exclude header "facebook_auth_desktop-Swift.h"
 }

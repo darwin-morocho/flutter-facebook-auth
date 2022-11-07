@@ -132,7 +132,22 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
     if (callbackUrl != null) {
       final fragment = Uri.parse(callbackUrl).fragment;
       final arguments = Uri.splitQueryString(fragment);
-      final token = arguments['long_lived_token']!;
+
+      String? token = arguments['long_lived_token'];
+      bool isLoginLiveToken = token != null;
+
+      late final DateTime expiresIn;
+
+      if (!isLoginLiveToken) {
+        token = arguments['access_token']!;
+        expiresIn = DateTime.fromMillisecondsSinceEpoch(
+          int.parse(arguments['expires_in']!) * 1000,
+        );
+      } else {
+        expiresIn = DateTime.now().add(
+          const Duration(days: 90),
+        );
+      }
 
       final grantedScopes = arguments['granted_scopes']!.split(',');
       final deniedScopes = arguments['denied_scopes']!.split(',');
@@ -147,9 +162,7 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
           declinedPermissions: deniedScopes,
           grantedPermissions: grantedScopes,
           userId: userData['id'],
-          expires: DateTime.now().add(
-            const Duration(days: 59),
-          ),
+          expires: expiresIn,
           lastRefresh: DateTime.now(),
           token: token,
           applicationId: _appId,

@@ -1,3 +1,5 @@
+### version: 5.0.5
+- fixed `long_lived_token` is null on macOS.
 ### version: 5.0.4
 - Removed FBSDKCoreKit from ios.
 ### version: 5.0.3

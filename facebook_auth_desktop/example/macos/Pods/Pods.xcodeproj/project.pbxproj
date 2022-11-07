@@ -825,7 +825,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_secure_storage_macos/flutter_secure_storage_macos-prefix.pch";
@@ -950,7 +950,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_secure_storage_macos/flutter_secure_storage_macos-prefix.pch";
@@ -1135,7 +1135,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
@@ -1177,7 +1177,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/facebook_auth_desktop/facebook_auth_desktop-prefix.pch";
@@ -1220,7 +1220,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
@@ -1262,7 +1262,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/facebook_auth_desktop/facebook_auth_desktop-prefix.pch";
@@ -1303,7 +1303,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_secure_storage_macos/flutter_secure_storage_macos-prefix.pch";
@@ -1362,7 +1362,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/facebook_auth_desktop/facebook_auth_desktop-prefix.pch";
@@ -1405,7 +1405,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";

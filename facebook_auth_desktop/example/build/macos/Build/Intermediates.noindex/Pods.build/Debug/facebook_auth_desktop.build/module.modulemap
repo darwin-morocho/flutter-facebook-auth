@@ -6,6 +6,6 @@ framework module facebook_auth_desktop {
 }
 
 module facebook_auth_desktop.Swift {
-    header "facebook_auth_desktop-Swift.h"
-    requires objc
+  header "facebook_auth_desktop-Swift.h"
+  requires objc
 }

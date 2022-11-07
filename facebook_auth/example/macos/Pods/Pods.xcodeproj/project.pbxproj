@@ -22,15 +22,15 @@
 		0A13A1B3ECD64D378DA01E4A10C756BC /* flutter_secure_storage_macos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7C1471DA630DBE47DEF2AD7E949F3FBF /* flutter_secure_storage_macos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B00608FC48559C1C3D429201B4A6772 /* FlutterSecureStorageMacosPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = CD2DE8A850E45AAF038B9564905ED16A /* FlutterSecureStorageMacosPlugin.m */; };
 		44170419DCBD12D737967A6C1C72598E /* Pods-Runner-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 96BF45FBE2BC9AD7B2D7E56D01B5EE46 /* Pods-Runner-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		46306A366E00B2312259FB1AE6A86A6E /* FacebookAuthDesktopPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E112462EB6C91B3C27AAB6F5AEDE3F4 /* FacebookAuthDesktopPlugin.swift */; };
 		476F0D5CB687F14D57196B1D4B02D79F /* url_launcher_macos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 55C6446B4235B45D1451F75CD652BC88 /* url_launcher_macos-dummy.m */; };
 		4BDEB0FE3DF26A3132D5FF44CC47A83D /* FlutterSecureStorageMacosPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 188C697CC88FD6D057E3743932258D50 /* FlutterSecureStorageMacosPlugin.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4DF8F3E8658A69A17316D542F1D2A94A /* facebook_auth_desktop-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 82DAF0F40379D9A311CE0755DA21828D /* facebook_auth_desktop-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4DF8F3E8658A69A17316D542F1D2A94A /* facebook_auth_desktop-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C8A2E54FF16026A1CC68E9FE185C3B50 /* facebook_auth_desktop-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5974AB4940BA058B6B2FBEEB3435B31E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */; };
 		5B239FE3C52ED09EEF5AB5278E4884A2 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */; };
 		5F8CC55CA6BD62D69BA9A3D64B9A5104 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */; };
-		6D5AA647842389E128A7677C18C9FAE4 /* facebook_auth_desktop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6CF0F1F0745C02C15FE941D929A2C7 /* facebook_auth_desktop-dummy.m */; };
+		6D5AA647842389E128A7677C18C9FAE4 /* facebook_auth_desktop-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E9E97FFC68A6D0875FEB3327EF10C00 /* facebook_auth_desktop-dummy.m */; };
 		7AECC9A92C218E76DB33BBCE501E2D30 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B3C932BD54DBB963102A89E0F9E3948 /* Pods-Runner-dummy.m */; };
+		7D45C415FB1103BD1678485BA7D25A8B /* FacebookAuthDesktopPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36BA00E7DEE51A451EEC22B4D9E4013 /* FacebookAuthDesktopPlugin.swift */; };
 		A27E461352F18140606E9E08A1B20FE8 /* flutter_secure_storage_macos-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8870785407F53381066DCBCAD2DC4A07 /* flutter_secure_storage_macos-dummy.m */; };
 		A5C29EF528710035ACC8A13E86E0290C /* url_launcher_macos-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 34C37F4115E57F0F40A8049441324EFD /* url_launcher_macos-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BB40CC612BA0BE9FD9E7F984CBFAA81F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */; };
@@ -111,17 +111,19 @@
 		0412F382F395CB2E452162894AFC1612 /* url_launcher_macos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "url_launcher_macos-prefix.pch"; sourceTree = "<group>"; };
 		05CCB7BC88FB4C63228E3E9B0DB6E7F6 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-3.0.1/LICENSE"; sourceTree = "<group>"; };
 		072122A18CADFB45FEDCC4B6B0E5A79A /* facebook_auth_desktop */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = facebook_auth_desktop; path = facebook_auth_desktop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		097F924965967C305D0915BD4D5FA02F /* facebook_auth_desktop-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "facebook_auth_desktop-Info.plist"; sourceTree = "<group>"; };
 		135802844156B427B5480AD625E705CD /* flutter_secure_storage_macos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = flutter_secure_storage_macos.modulemap; sourceTree = "<group>"; };
 		188C697CC88FD6D057E3743932258D50 /* FlutterSecureStorageMacosPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterSecureStorageMacosPlugin.h; path = "../../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.1/macos/Classes/FlutterSecureStorageMacosPlugin.h"; sourceTree = "<group>"; };
 		1A591EDBA371C66B40EA5752D7B80CFB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6/LICENSE"; sourceTree = "<group>"; };
 		1A99C520B7A96F9A01EDB01E43B08775 /* path_provider_macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_macos.release.xcconfig; sourceTree = "<group>"; };
+		1FDD21CC5C2F16ECD5C810ECE93E8245 /* facebook_auth_desktop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "facebook_auth_desktop-prefix.pch"; sourceTree = "<group>"; };
 		247008BFC2ED2402726F4B904E876E7F /* path_provider_macos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "path_provider_macos-dummy.m"; sourceTree = "<group>"; };
-		26F5B2B74BC8EE3392E8C4C947515D33 /* facebook_auth_desktop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = facebook_auth_desktop.modulemap; sourceTree = "<group>"; };
 		317C26B9A7CEDD34ADE8F37FAAB7AC20 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
-		31E7C2CD5FAF774E31B1898DC7656567 /* facebook_auth_desktop.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = facebook_auth_desktop.podspec; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.3/macos/facebook_auth_desktop.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		34C37F4115E57F0F40A8049441324EFD /* url_launcher_macos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "url_launcher_macos-umbrella.h"; sourceTree = "<group>"; };
+		362B2219E8D6AA3E81EC7CEBCEFC37DF /* facebook_auth_desktop.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = facebook_auth_desktop.podspec; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.5/macos/facebook_auth_desktop.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		409D83F500789BC9CDFC7F7D37EBA954 /* FlutterMacOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FlutterMacOS.release.xcconfig; sourceTree = "<group>"; };
-		4E112462EB6C91B3C27AAB6F5AEDE3F4 /* FacebookAuthDesktopPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FacebookAuthDesktopPlugin.swift; path = "../../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.3/macos/Classes/FacebookAuthDesktopPlugin.swift"; sourceTree = "<group>"; };
+		4E9E97FFC68A6D0875FEB3327EF10C00 /* facebook_auth_desktop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "facebook_auth_desktop-dummy.m"; sourceTree = "<group>"; };
+		4F6EAF6EC6572C22E42E05BFEB7520EB /* facebook_auth_desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = facebook_auth_desktop.debug.xcconfig; sourceTree = "<group>"; };
 		51825CD8F0558EFA53D9510F0E5BFA16 /* Pods-Runner-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-Info.plist"; sourceTree = "<group>"; };
 		55C6446B4235B45D1451F75CD652BC88 /* url_launcher_macos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "url_launcher_macos-dummy.m"; sourceTree = "<group>"; };
 		5A765225A1E7B66BEDAA43D1CDDE17A5 /* flutter_secure_storage_macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_secure_storage_macos.debug.xcconfig; sourceTree = "<group>"; };
@@ -132,20 +134,17 @@
 		7B3C932BD54DBB963102A89E0F9E3948 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
 		7C1471DA630DBE47DEF2AD7E949F3FBF /* flutter_secure_storage_macos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_secure_storage_macos-umbrella.h"; sourceTree = "<group>"; };
 		7F9D5480EA05C0D5C6A693A81AB2DF33 /* path_provider_macos */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = path_provider_macos; path = path_provider_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		829A53DE020A244C960E7EC1D37DEB72 /* facebook_auth_desktop-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "facebook_auth_desktop-prefix.pch"; sourceTree = "<group>"; };
-		82DAF0F40379D9A311CE0755DA21828D /* facebook_auth_desktop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "facebook_auth_desktop-umbrella.h"; sourceTree = "<group>"; };
 		85C38D7356118DD18F5E38E435C55C8F /* path_provider_macos.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = path_provider_macos.podspec; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6/macos/path_provider_macos.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		8870785407F53381066DCBCAD2DC4A07 /* flutter_secure_storage_macos-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_secure_storage_macos-dummy.m"; sourceTree = "<group>"; };
 		8895C9E5F80212A6B04895FD11E95773 /* url_launcher_macos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "url_launcher_macos-Info.plist"; sourceTree = "<group>"; };
 		897609A44D0FF8E06C3EB64B3E21A664 /* path_provider_macos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_macos-prefix.pch"; sourceTree = "<group>"; };
-		8B64706CBB4D45FDE069FD3A15730701 /* facebook_auth_desktop-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "facebook_auth_desktop-Info.plist"; sourceTree = "<group>"; };
 		8F1FF0F560AEAE7D0C7193F839BAEFC0 /* path_provider_macos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "path_provider_macos-Info.plist"; sourceTree = "<group>"; };
 		96BF45FBE2BC9AD7B2D7E56D01B5EE46 /* Pods-Runner-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Runner-umbrella.h"; sourceTree = "<group>"; };
+		9829D2C727834642FE7DABD9E95A8695 /* facebook_auth_desktop.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = facebook_auth_desktop.modulemap; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9F79F8269DC34AC56BB3D1D9652C0D86 /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
 		A1879E16A5545F6E92596A3D40E25315 /* path_provider_macos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = path_provider_macos.modulemap; sourceTree = "<group>"; };
 		A5DEDDCD541825388ACA7A6AF69E4553 /* flutter_secure_storage_macos */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = flutter_secure_storage_macos; path = flutter_secure_storage_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AF8895E7DE6C653AB28D64C1D66ED5EB /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.3/LICENSE"; sourceTree = "<group>"; };
 		B1ECBD0970D2C820861D988A8D478895 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.1/LICENSE"; sourceTree = "<group>"; };
 		B41DB54B7C896BE14D6385027FE5D106 /* PathProviderPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = PathProviderPlugin.swift; path = "../../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/path_provider_macos-2.0.6/macos/Classes/PathProviderPlugin.swift"; sourceTree = "<group>"; };
 		BAC05AA7ABCB156477A8D5CF82DF1598 /* path_provider_macos-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "path_provider_macos-umbrella.h"; sourceTree = "<group>"; };
@@ -153,19 +152,20 @@
 		C0C9A074EEF12F27AC2F536567F9FAE1 /* url_launcher_macos */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = url_launcher_macos; path = url_launcher_macos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1430F003D39D9906881A6AC724B7931 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		C2BDB24F367ED51279C9C3D393BD2952 /* url_launcher_macos.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = url_launcher_macos.modulemap; sourceTree = "<group>"; };
-		C51D153E46AD70E25DE193A196D4555B /* facebook_auth_desktop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = facebook_auth_desktop.debug.xcconfig; sourceTree = "<group>"; };
 		C67D4E5EDC13CD1995A4422A8F35A479 /* flutter_secure_storage_macos.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_secure_storage_macos.podspec; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.1/macos/flutter_secure_storage_macos.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C6EA98402A94995D022D330B64B5203D /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C6FD8778F53865F90EF74FE4B088A6A3 /* flutter_secure_storage_macos-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_secure_storage_macos-prefix.pch"; sourceTree = "<group>"; };
-		C7D570A4236F86773DD049CE7461847D /* facebook_auth_desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = facebook_auth_desktop.release.xcconfig; sourceTree = "<group>"; };
+		C8A2E54FF16026A1CC68E9FE185C3B50 /* facebook_auth_desktop-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "facebook_auth_desktop-umbrella.h"; sourceTree = "<group>"; };
+		C8C2BCA2073A5F6169F7ECD8C7EBB07F /* facebook_auth_desktop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = facebook_auth_desktop.release.xcconfig; sourceTree = "<group>"; };
 		C97867D9B026B5160ACF120485E5104E /* flutter_secure_storage_macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_secure_storage_macos.release.xcconfig; sourceTree = "<group>"; };
 		CD2DE8A850E45AAF038B9564905ED16A /* FlutterSecureStorageMacosPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterSecureStorageMacosPlugin.m; path = "../../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.1/macos/Classes/FlutterSecureStorageMacosPlugin.m"; sourceTree = "<group>"; };
 		CDAECCF4B5E08124ED410F09FD5A5DF9 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
-		CE6CF0F1F0745C02C15FE941D929A2C7 /* facebook_auth_desktop-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "facebook_auth_desktop-dummy.m"; sourceTree = "<group>"; };
 		D2FA70CA298C392CB8332ADEEDD1CE85 /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		D36BA00E7DEE51A451EEC22B4D9E4013 /* FacebookAuthDesktopPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FacebookAuthDesktopPlugin.swift; path = "../../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.5/macos/Classes/FacebookAuthDesktopPlugin.swift"; sourceTree = "<group>"; };
 		D56591E546CF47A2346D892D96047911 /* flutter_secure_storage_macos-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "flutter_secure_storage_macos-Info.plist"; sourceTree = "<group>"; };
 		D5C0F6AA9DF8F0B2B9B356D1CCF24817 /* FlutterMacOS.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FlutterMacOS.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D9F2B4CB813B4BDC4D164C6E0868930A /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
+		DCA6421E374434CB2E6FE6F5EA75EA9C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.5/LICENSE"; sourceTree = "<group>"; };
 		E7EC05FFC34F58CF53086F3DDC143530 /* path_provider_macos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = path_provider_macos.debug.xcconfig; sourceTree = "<group>"; };
 		F49C32B3B8CF59AB437BFD7314674868 /* Pods-Runner.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Runner.modulemap"; sourceTree = "<group>"; };
 		F881307AACA778F34585C804CD31A062 /* url_launcher_macos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = url_launcher_macos.release.xcconfig; sourceTree = "<group>"; };
@@ -233,6 +233,15 @@
 			path = example;
 			sourceTree = "<group>";
 		};
+		00BFAF6967360A9A06F4C3287A82D619 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				9A19565FA88D7E8F81C75E2C3BA5A9BC /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		019DEBF5C50B13CD1EED475311DF6A9E /* ephemeral */ = {
 			isa = PBXGroup;
 			children = (
@@ -240,21 +249,6 @@
 			);
 			name = ephemeral;
 			path = ephemeral;
-			sourceTree = "<group>";
-		};
-		04A1338BF982D0C818D4159654E9A41C /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				26F5B2B74BC8EE3392E8C4C947515D33 /* facebook_auth_desktop.modulemap */,
-				CE6CF0F1F0745C02C15FE941D929A2C7 /* facebook_auth_desktop-dummy.m */,
-				8B64706CBB4D45FDE069FD3A15730701 /* facebook_auth_desktop-Info.plist */,
-				829A53DE020A244C960E7EC1D37DEB72 /* facebook_auth_desktop-prefix.pch */,
-				82DAF0F40379D9A311CE0755DA21828D /* facebook_auth_desktop-umbrella.h */,
-				C51D153E46AD70E25DE193A196D4555B /* facebook_auth_desktop.debug.xcconfig */,
-				C7D570A4236F86773DD049CE7461847D /* facebook_auth_desktop.release.xcconfig */,
-			);
-			name = "Support Files";
-			path = "../../../../../../Pods/Target Support Files/facebook_auth_desktop";
 			sourceTree = "<group>";
 		};
 		04D730849B18DCC2CB9548B90D15B133 /* .. */ = {
@@ -290,6 +284,15 @@
 			path = "../../../../../../Pods/Target Support Files/url_launcher_macos";
 			sourceTree = "<group>";
 		};
+		1152EFF27973AED28F111153F9FC51FB /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				37B5EDB51E44887469AC633011ECA898 /* Flutter */,
+			);
+			name = macos;
+			path = macos;
+			sourceTree = "<group>";
+		};
 		15AAD1495D796D427B881366226969B9 /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
@@ -323,6 +326,15 @@
 			path = "../../../../../../Pods/Target Support Files/flutter_secure_storage_macos";
 			sourceTree = "<group>";
 		};
+		19CE4ADBE24A253FD7C569A5B682E752 /* ephemeral */ = {
+			isa = PBXGroup;
+			children = (
+				DF30823DF5A98C77C9B482B70B039C06 /* .symlinks */,
+			);
+			name = ephemeral;
+			path = ephemeral;
+			sourceTree = "<group>";
+		};
 		19D6BE80AB6304ACC58F2EF339E1F551 /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
@@ -330,15 +342,6 @@
 			);
 			name = Flutter;
 			path = Flutter;
-			sourceTree = "<group>";
-		};
-		1A59C759B35289C83FF19406F7055E80 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				6368CB71E483E0BC5A9C30E03F908706 /* .. */,
-			);
-			name = ..;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		1D8B6B31A157E31862BE3E50FB53B575 /* macos */ = {
@@ -359,6 +362,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		2494806D3D1CFDF28DCB4757D94DE677 /* facebook_auth */ = {
+			isa = PBXGroup;
+			children = (
+				4A3C188E7EDD5BFAB089F3AACE315516 /* example */,
+			);
+			name = facebook_auth;
+			path = facebook_auth;
+			sourceTree = "<group>";
+		};
 		28E6AC60C10BB6E23D09B5EB56BAC506 /* url_launcher_macos */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,22 +382,13 @@
 			path = ../Flutter/ephemeral/.symlinks/plugins/url_launcher_macos/macos;
 			sourceTree = "<group>";
 		};
-		295A907C4A1ABD279C6E0959DE2BCE15 /* .. */ = {
+		2BA04D73337E01C5797D482390C621D2 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				4222D368304D4C102C60B22BB7D41307 /* .. */,
+				E462E8FADF9C9EAD04FB4514F5953698 /* .. */,
 			);
 			name = ..;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		2AAF718B7B456737CE741FB37BF61111 /* flutter-facebook-auth */ = {
-			isa = PBXGroup;
-			children = (
-				9AF3C1BAA1FCAA6843992F381C9AFF9F /* facebook_auth */,
-			);
-			name = "flutter-facebook-auth";
-			path = "flutter-facebook-auth";
 			sourceTree = "<group>";
 		};
 		2E56197A99D557249AE28F44919E75E4 /* Documents */ = {
@@ -424,13 +427,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		36E5F6957EAB04FBDEBC1DB529EA6358 /* Documents */ = {
+		37B5EDB51E44887469AC633011ECA898 /* Flutter */ = {
 			isa = PBXGroup;
 			children = (
-				5B8768971EC26668D76A555BA5891DA2 /* flutter */,
+				19CE4ADBE24A253FD7C569A5B682E752 /* ephemeral */,
 			);
-			name = Documents;
-			path = Documents;
+			name = Flutter;
+			path = Flutter;
 			sourceTree = "<group>";
 		};
 		37FAC29836CA9B6B462A731CBCC9E11E /* .. */ = {
@@ -442,31 +445,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		3DB9DB7B977D831048FE93D62A8CA640 /* ephemeral */ = {
+		3B56CE51440601AE384809BBD6238535 /* flutter-facebook-auth */ = {
 			isa = PBXGroup;
 			children = (
-				95A1555B834C671B9495A047D01FC798 /* .symlinks */,
+				2494806D3D1CFDF28DCB4757D94DE677 /* facebook_auth */,
 			);
-			name = ephemeral;
-			path = ephemeral;
-			sourceTree = "<group>";
-		};
-		3F9EFA58B3A09C26CD7E0AB3B178A6FB /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				F308C3301EA7E00ABD409CC4C99F6D19 /* .. */,
-			);
-			name = ..;
-			path = ..;
-			sourceTree = "<group>";
-		};
-		4222D368304D4C102C60B22BB7D41307 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				36E5F6957EAB04FBDEBC1DB529EA6358 /* Documents */,
-			);
-			name = ..;
-			path = ..;
+			name = "flutter-facebook-auth";
+			path = "flutter-facebook-auth";
 			sourceTree = "<group>";
 		};
 		430BBA0EA9CD2EA519C15CEA670543F5 /* .. */ = {
@@ -487,17 +472,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		44DDDFE4B12755FE2B28C69841DB6907 /* facebook_auth_desktop */ = {
-			isa = PBXGroup;
-			children = (
-				D77D936033BB0C8C89430882FB8DEF0E /* .. */,
-				E8CA4E036CA5B3D48B5B32B2B0863EC3 /* Pod */,
-				04A1338BF982D0C818D4159654E9A41C /* Support Files */,
-			);
-			name = facebook_auth_desktop;
-			path = ../Flutter/ephemeral/.symlinks/plugins/facebook_auth_desktop/macos;
-			sourceTree = "<group>";
-		};
 		46CA1EB813C6362BFB6637F5E127C4EB /* .symlinks */ = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +489,15 @@
 			);
 			name = "Support Files";
 			path = "../../Pods/Target Support Files/FlutterMacOS";
+			sourceTree = "<group>";
+		};
+		4A3C188E7EDD5BFAB089F3AACE315516 /* example */ = {
+			isa = PBXGroup;
+			children = (
+				1152EFF27973AED28F111153F9FC51FB /* macos */,
+			);
+			name = example;
+			path = example;
 			sourceTree = "<group>";
 		};
 		4E03361E57D3CC7012266E2D2A721CBF /* macos */ = {
@@ -562,24 +545,6 @@
 			path = ephemeral;
 			sourceTree = "<group>";
 		};
-		5629FB96588AFBFC32099364B5F7265D /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				4E112462EB6C91B3C27AAB6F5AEDE3F4 /* FacebookAuthDesktopPlugin.swift */,
-			);
-			name = Classes;
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		5694AFF14297B00AABA1DC4300A66E3A /* facebook_auth_desktop */ = {
-			isa = PBXGroup;
-			children = (
-				6F440798352B058098805B02FD6D5A9A /* macos */,
-			);
-			name = facebook_auth_desktop;
-			path = facebook_auth_desktop;
-			sourceTree = "<group>";
-		};
 		57AEAF2DB484BB9FAB68632944C637CC /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,7 +557,7 @@
 		57D7F7ED5AEBF0CB9CBA7977D34F30B0 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				44DDDFE4B12755FE2B28C69841DB6907 /* facebook_auth_desktop */,
+				7AD49ECB0803ECA3800F21F3C1657C0A /* facebook_auth_desktop */,
 				D0962FA91CD19C5CC622276E48EB8053 /* flutter_secure_storage_macos */,
 				815243EE5391BCCB41DAE08FB87C99CC /* FlutterMacOS */,
 				DAA53A38C0732B0DA07D35AC08A6669E /* path_provider_macos */,
@@ -619,15 +584,6 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		5B8768971EC26668D76A555BA5891DA2 /* flutter */ = {
-			isa = PBXGroup;
-			children = (
-				2AAF718B7B456737CE741FB37BF61111 /* flutter-facebook-auth */,
-			);
-			name = flutter;
-			path = flutter;
-			sourceTree = "<group>";
-		};
 		5D400DB3FAD56F1C0D1E7B3E0DFE7D77 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -644,24 +600,6 @@
 				B1ECBD0970D2C820861D988A8D478895 /* LICENSE */,
 			);
 			name = Pod;
-			sourceTree = "<group>";
-		};
-		633C03328CB328B00724FF6132D2889D /* macos */ = {
-			isa = PBXGroup;
-			children = (
-				B20345E56060676A000283F1B91BED09 /* Flutter */,
-			);
-			name = macos;
-			path = macos;
-			sourceTree = "<group>";
-		};
-		6368CB71E483E0BC5A9C30E03F908706 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				295A907C4A1ABD279C6E0959DE2BCE15 /* .. */,
-			);
-			name = ..;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		64CD032BF27BC2C55D6F42DA69B820BA /* .. */ = {
@@ -682,13 +620,19 @@
 			path = plugins;
 			sourceTree = "<group>";
 		};
-		6F440798352B058098805B02FD6D5A9A /* macos */ = {
+		723E134F178F29874BA493E1E95EAC4F /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				5629FB96588AFBFC32099364B5F7265D /* Classes */,
+				9829D2C727834642FE7DABD9E95A8695 /* facebook_auth_desktop.modulemap */,
+				4E9E97FFC68A6D0875FEB3327EF10C00 /* facebook_auth_desktop-dummy.m */,
+				097F924965967C305D0915BD4D5FA02F /* facebook_auth_desktop-Info.plist */,
+				1FDD21CC5C2F16ECD5C810ECE93E8245 /* facebook_auth_desktop-prefix.pch */,
+				C8A2E54FF16026A1CC68E9FE185C3B50 /* facebook_auth_desktop-umbrella.h */,
+				4F6EAF6EC6572C22E42E05BFEB7520EB /* facebook_auth_desktop.debug.xcconfig */,
+				C8C2BCA2073A5F6169F7ECD8C7EBB07F /* facebook_auth_desktop.release.xcconfig */,
 			);
-			name = macos;
-			path = macos;
+			name = "Support Files";
+			path = "../../../../../../Pods/Target Support Files/facebook_auth_desktop";
 			sourceTree = "<group>";
 		};
 		724B4D4DFAE4142C13BE5E211C413E76 /* .. */ = {
@@ -707,6 +651,15 @@
 			);
 			name = example;
 			path = example;
+			sourceTree = "<group>";
+		};
+		7722AF7B488AE86AF162A58F55C4C202 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				D36BA00E7DEE51A451EEC22B4D9E4013 /* FacebookAuthDesktopPlugin.swift */,
+			);
+			name = Classes;
+			path = Classes;
 			sourceTree = "<group>";
 		};
 		791C6E4B424AF06279F8918FA67B8ED6 /* Targets Support Files */ = {
@@ -733,6 +686,17 @@
 			);
 			name = ..;
 			path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/url_launcher_macos-3.0.1/macos";
+			sourceTree = "<group>";
+		};
+		7AD49ECB0803ECA3800F21F3C1657C0A /* facebook_auth_desktop */ = {
+			isa = PBXGroup;
+			children = (
+				E686931EB0C73BAD5FA03A126A91EC89 /* .. */,
+				B7FD93581C6A2BD09F9894377B496C08 /* Pod */,
+				723E134F178F29874BA493E1E95EAC4F /* Support Files */,
+			);
+			name = facebook_auth_desktop;
+			path = ../Flutter/ephemeral/.symlinks/plugins/facebook_auth_desktop/macos;
 			sourceTree = "<group>";
 		};
 		7B0D67477903E1EB8D6A9F9AF51BC5CC /* Pods-Runner */ = {
@@ -799,15 +763,6 @@
 			path = "flutter-facebook-auth";
 			sourceTree = "<group>";
 		};
-		9043FED2694696BA39BAC0AAB31368A0 /* example */ = {
-			isa = PBXGroup;
-			children = (
-				633C03328CB328B00724FF6132D2889D /* macos */,
-			);
-			name = example;
-			path = example;
-			sourceTree = "<group>";
-		};
 		90F001B6AAE59533B2FEC71B67D3D39C /* .. */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +790,15 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
+		9368EE7DA7D1B4E160D3E3DE6ECB5079 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				D678F76507BA66F3C5AC3B013F004407 /* Documents */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		948E2D4B01F0BAA75CE052173FC119E6 /* .. */ = {
 			isa = PBXGroup;
 			children = (
@@ -844,22 +808,31 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		95A1555B834C671B9495A047D01FC798 /* .symlinks */ = {
+		9A0E9A2BBFB132E3760BABFAE67FFD3E /* plugins */ = {
 			isa = PBXGroup;
 			children = (
-				C11FFEB45475A07CDC84BF7D3F1AA8BF /* plugins */,
+				E6C6B6EF2F62F8693474F11250A9C26C /* facebook_auth_desktop */,
 			);
-			name = .symlinks;
-			path = .symlinks;
+			name = plugins;
+			path = plugins;
 			sourceTree = "<group>";
 		};
-		9AF3C1BAA1FCAA6843992F381C9AFF9F /* facebook_auth */ = {
+		9A19565FA88D7E8F81C75E2C3BA5A9BC /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				9043FED2694696BA39BAC0AAB31368A0 /* example */,
+				BB33B6B1720C460EB851CABA2F0EDD6A /* .. */,
 			);
-			name = facebook_auth;
-			path = facebook_auth;
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		9FDB685907CB8B5EC33CCACA74907A8D /* macos */ = {
+			isa = PBXGroup;
+			children = (
+				7722AF7B488AE86AF162A58F55C4C202 /* Classes */,
+			);
+			name = macos;
+			path = macos;
 			sourceTree = "<group>";
 		};
 		A24C7379F36B5CAD5ED6BC3B909E1C63 /* flutter-facebook-auth */ = {
@@ -929,15 +902,6 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		B20345E56060676A000283F1B91BED09 /* Flutter */ = {
-			isa = PBXGroup;
-			children = (
-				3DB9DB7B977D831048FE93D62A8CA640 /* ephemeral */,
-			);
-			name = Flutter;
-			path = Flutter;
-			sourceTree = "<group>";
-		};
 		B5FC3BF4D43E73EBD157FD22A44EC40B /* Pod */ = {
 			isa = PBXGroup;
 			children = (
@@ -962,6 +926,24 @@
 			);
 			name = example;
 			path = example;
+			sourceTree = "<group>";
+		};
+		B7FD93581C6A2BD09F9894377B496C08 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				362B2219E8D6AA3E81EC7CEBCEFC37DF /* facebook_auth_desktop.podspec */,
+				DCA6421E374434CB2E6FE6F5EA75EA9C /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		BB33B6B1720C460EB851CABA2F0EDD6A /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				C2DDD90C5B6D05673C839C9724405885 /* .. */,
+			);
+			name = ..;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		BB764D9DF74652137A9F462138CE667A /* .. */ = {
@@ -991,22 +973,13 @@
 			path = facebook_auth;
 			sourceTree = "<group>";
 		};
-		C0AC41820F3B51749160B2D55A1E15A3 /* .. */ = {
+		C2DDD90C5B6D05673C839C9724405885 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				1A59C759B35289C83FF19406F7055E80 /* .. */,
+				2BA04D73337E01C5797D482390C621D2 /* .. */,
 			);
 			name = ..;
 			path = ..;
-			sourceTree = "<group>";
-		};
-		C11FFEB45475A07CDC84BF7D3F1AA8BF /* plugins */ = {
-			isa = PBXGroup;
-			children = (
-				5694AFF14297B00AABA1DC4300A66E3A /* facebook_auth_desktop */,
-			);
-			name = plugins;
-			path = plugins;
 			sourceTree = "<group>";
 		};
 		CE5D0551E822E4B7EA4473F638A66F91 /* path_provider_macos */ = {
@@ -1049,6 +1022,15 @@
 			path = ../Flutter/ephemeral/.symlinks/plugins/flutter_secure_storage_macos/macos;
 			sourceTree = "<group>";
 		};
+		D0B53A9DF2E1B2E786576C36F4060B9A /* flutter */ = {
+			isa = PBXGroup;
+			children = (
+				3B56CE51440601AE384809BBD6238535 /* flutter-facebook-auth */,
+			);
+			name = flutter;
+			path = flutter;
+			sourceTree = "<group>";
+		};
 		D199B87845557C25F1E5AC3C904A56E0 /* macos */ = {
 			isa = PBXGroup;
 			children = (
@@ -1067,13 +1049,13 @@
 			path = ..;
 			sourceTree = "<group>";
 		};
-		D77D936033BB0C8C89430882FB8DEF0E /* .. */ = {
+		D678F76507BA66F3C5AC3B013F004407 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
-				3F9EFA58B3A09C26CD7E0AB3B178A6FB /* .. */,
+				D0B53A9DF2E1B2E786576C36F4060B9A /* flutter */,
 			);
-			name = ..;
-			path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.3/macos";
+			name = Documents;
+			path = Documents;
 			sourceTree = "<group>";
 		};
 		DAA53A38C0732B0DA07D35AC08A6669E /* path_provider_macos */ = {
@@ -1114,6 +1096,15 @@
 			path = url_launcher_macos;
 			sourceTree = "<group>";
 		};
+		DF30823DF5A98C77C9B482B70B039C06 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				9A0E9A2BBFB132E3760BABFAE67FFD3E /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
 		E0A1E60606E0BF6E2E10F1F01350DFE8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1130,13 +1121,31 @@
 			name = "OS X";
 			sourceTree = "<group>";
 		};
-		E8CA4E036CA5B3D48B5B32B2B0863EC3 /* Pod */ = {
+		E462E8FADF9C9EAD04FB4514F5953698 /* .. */ = {
 			isa = PBXGroup;
 			children = (
-				31E7C2CD5FAF774E31B1898DC7656567 /* facebook_auth_desktop.podspec */,
-				AF8895E7DE6C653AB28D64C1D66ED5EB /* LICENSE */,
+				9368EE7DA7D1B4E160D3E3DE6ECB5079 /* .. */,
 			);
-			name = Pod;
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		E686931EB0C73BAD5FA03A126A91EC89 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				00BFAF6967360A9A06F4C3287A82D619 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../../../../../development/flutter/.pub-cache/hosted/pub.dartlang.org/facebook_auth_desktop-0.0.5/macos";
+			sourceTree = "<group>";
+		};
+		E6C6B6EF2F62F8693474F11250A9C26C /* facebook_auth_desktop */ = {
+			isa = PBXGroup;
+			children = (
+				9FDB685907CB8B5EC33CCACA74907A8D /* macos */,
+			);
+			name = facebook_auth_desktop;
+			path = facebook_auth_desktop;
 			sourceTree = "<group>";
 		};
 		EA73DB029801A7ABEB853F6830EB600B /* Documents */ = {
@@ -1155,15 +1164,6 @@
 			);
 			name = plugins;
 			path = plugins;
-			sourceTree = "<group>";
-		};
-		F308C3301EA7E00ABD409CC4C99F6D19 /* .. */ = {
-			isa = PBXGroup;
-			children = (
-				C0AC41820F3B51749160B2D55A1E15A3 /* .. */,
-			);
-			name = ..;
-			path = ..;
 			sourceTree = "<group>";
 		};
 		F4CEDCA63D719C2B3B72CD998AA18C8B /* Flutter */ = {
@@ -1465,7 +1465,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5AA647842389E128A7677C18C9FAE4 /* facebook_auth_desktop-dummy.m in Sources */,
-				46306A366E00B2312259FB1AE6A86A6E /* FacebookAuthDesktopPlugin.swift in Sources */,
+				7D45C415FB1103BD1678485BA7D25A8B /* FacebookAuthDesktopPlugin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1555,7 +1555,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_secure_storage_macos/flutter_secure_storage_macos-prefix.pch";
@@ -1598,7 +1598,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
@@ -1724,7 +1724,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/url_launcher_macos/url_launcher_macos-prefix.pch";
@@ -1765,7 +1765,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_secure_storage_macos/flutter_secure_storage_macos-prefix.pch";
@@ -1808,7 +1808,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
@@ -1869,7 +1869,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/path_provider_macos/path_provider_macos-prefix.pch";
@@ -1972,7 +1972,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/url_launcher_macos/url_launcher_macos-prefix.pch";
@@ -2077,7 +2077,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Target Support Files/Pods-Runner/Pods-Runner-Info.plist";
@@ -2104,7 +2104,7 @@
 		};
 		8CDE888D7A8BB37EA6CD3F06BD55B3A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7D570A4236F86773DD049CE7461847D /* facebook_auth_desktop.release.xcconfig */;
+			baseConfigurationReference = C8C2BCA2073A5F6169F7ECD8C7EBB07F /* facebook_auth_desktop.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2119,7 +2119,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/facebook_auth_desktop/facebook_auth_desktop-prefix.pch";
@@ -2145,7 +2145,7 @@
 		};
 		AA0EAABCC41E33992571EE505DFB95D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C51D153E46AD70E25DE193A196D4555B /* facebook_auth_desktop.debug.xcconfig */;
+			baseConfigurationReference = 4F6EAF6EC6572C22E42E05BFEB7520EB /* facebook_auth_desktop.debug.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2160,7 +2160,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/facebook_auth_desktop/facebook_auth_desktop-prefix.pch";
@@ -2201,7 +2201,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/flutter_secure_storage_macos/flutter_secure_storage_macos-prefix.pch";
@@ -2243,7 +2243,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/path_provider_macos/path_provider_macos-prefix.pch";
@@ -2303,7 +2303,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/path_provider_macos/path_provider_macos-prefix.pch";
@@ -2329,7 +2329,7 @@
 		};
 		BD7C220D91902E49B7C6A63F6F87E878 /* Profile */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7D570A4236F86773DD049CE7461847D /* facebook_auth_desktop.release.xcconfig */;
+			baseConfigurationReference = C8C2BCA2073A5F6169F7ECD8C7EBB07F /* facebook_auth_desktop.release.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
@@ -2344,7 +2344,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/facebook_auth_desktop/facebook_auth_desktop-prefix.pch";
@@ -2385,7 +2385,7 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_SEARCH_PATHS = (
-					"\"/Users/darwinmorocho/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
+					"\"/Users/darwin/development/flutter/bin/cache/artifacts/engine/darwin-x64-release\"",
 					"$(inherited)",
 				);
 				GCC_PREFIX_HEADER = "Target Support Files/url_launcher_macos/url_launcher_macos-prefix.pch";

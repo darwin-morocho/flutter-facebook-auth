@@ -1,10 +1,10 @@
 {
   "name": "FlutterMacOS",
   "version": "1.0.0",
-  "summary": "High-performance, high-fidelity mobile apps.",
-  "homepage": "https://flutter.io",
+  "summary": "A UI toolkit for beautiful and fast apps.",
+  "homepage": "https://flutter.dev",
   "license": {
-    "type": "MIT"
+    "type": "BSD"
   },
   "authors": {
     "Flutter Dev Team": "flutter-dev@googlegroups.com"
