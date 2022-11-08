@@ -56,7 +56,20 @@ void main() async {
 }
 ```
 
+
+
 Now in your facebook console > Facebook Login > Settings and make sure you have enabled `Login from Devices` ,
 `Login with the JavaScript SDK` and finally check that `https://www.facebook.com/` is added in your `Allowed Domains for the JavaScript SDK`
 
 ![](https://user-images.githubusercontent.com/15864336/200191538-435b722b-190a-4d30-b684-cf448e192366.png)
+
+Here one example of my configuration in the facebook console to be able to use the facebook login flow
+in macOS
+![](https://user-images.githubusercontent.com/15864336/200200865-6adb18e7-dfc0-4a23-8e48-d29d58e4fefb.jpg)
+
+
+:::
+NOTE (macOS): keep in mind that this plugin uses the oauth flow facebook login
+and in some cases if the graph api doesn't return a `long_lived_token`
+the token stored in the keychain will have a sort live time (80 minutes or less).
+:::

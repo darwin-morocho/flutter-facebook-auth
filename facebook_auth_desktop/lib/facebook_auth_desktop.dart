@@ -140,12 +140,14 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
 
       if (!isLoginLiveToken) {
         token = arguments['access_token']!;
-        expiresIn = DateTime.fromMillisecondsSinceEpoch(
-          int.parse(arguments['expires_in']!) * 1000,
+        expiresIn = DateTime.now().add(
+          Duration(
+            seconds: int.parse(arguments['expires_in']!),
+          ),
         );
       } else {
         expiresIn = DateTime.now().add(
-          const Duration(days: 90),
+          const Duration(days: 59),
         );
       }
 

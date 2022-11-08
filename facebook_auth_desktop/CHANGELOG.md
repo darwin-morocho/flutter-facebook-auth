@@ -1,3 +1,5 @@
+## 0.0.7
+- fixed `expires_in` time.
 ## 0.0.6
 - fixed `long_lived_token` is null on macOs.
 ## 0.0.5

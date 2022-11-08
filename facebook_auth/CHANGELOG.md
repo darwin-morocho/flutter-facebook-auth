@@ -1,3 +1,8 @@
+### version: 5.0.6
+- fixed `expires_in` time on macOS.
+NOTE (macOS): keep in mind that this plugin uses the oauth flow facebook login
+and in some cases if the graph api doesn't return a `long_lived_token`
+the token stored in the keychain will have a sort live time (80 minutes aprox).
 ### version: 5.0.5
 - fixed `long_lived_token` is null on macOS.
 ### version: 5.0.4
