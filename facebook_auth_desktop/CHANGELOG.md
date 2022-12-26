@@ -1,3 +1,5 @@
+## 0.0.8
+- flutter_secure_storage: ^7.0.1
 ## 0.0.7
 - fixed `expires_in` time.
 ## 0.0.6
