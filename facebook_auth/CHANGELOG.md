@@ -1,3 +1,6 @@
+### version: 5.0.8
+- Updated to `facebook_auth_desktop: ^0.0.8`
+
 ### version: 5.0.6
 - fixed `expires_in` time on macOS.
 NOTE (macOS): keep in mind that this plugin uses the oauth flow facebook login
