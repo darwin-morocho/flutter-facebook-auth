@@ -11,6 +11,8 @@ export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_p
 
 /// this class implements the FacebookAuthPlatform interface
 /// and calls to the native APIs on Android, iOS and web.
+///
+// coverage:ignore-start
 class FacebookAuth {
   FacebookAuth._(); // private constructor for singletons
   /// return the same instance of FacebookAuth
@@ -115,3 +117,4 @@ class FacebookAuth {
   Future<bool> get isAutoLogAppEventsEnabled =>
       _authPlatform.isAutoLogAppEventsEnabled;
 }
+// coverage:ignore-end
