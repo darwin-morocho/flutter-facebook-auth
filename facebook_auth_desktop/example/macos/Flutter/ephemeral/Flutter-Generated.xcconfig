@@ -1,13 +1,11 @@
 // This is a generated file; do not edit or check into version control.
-FLUTTER_ROOT=/Users/darwin/development/flutter
-FLUTTER_APPLICATION_PATH=/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example
+FLUTTER_ROOT=/Users/darwinmorocho/development/flutter
+FLUTTER_APPLICATION_PATH=/Users/darwinmorocho/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example
 COCOAPODS_PARALLEL_CODE_SIGN=true
-FLUTTER_TARGET=/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/lib/main.dart
 FLUTTER_BUILD_DIR=build
 FLUTTER_BUILD_NAME=1.0.0
 FLUTTER_BUILD_NUMBER=1
-DART_DEFINES=RkxVVFRFUl9XRUJfQVVUT19ERVRFQ1Q9dHJ1ZQ==
 DART_OBFUSCATION=false
 TRACK_WIDGET_CREATION=true
 TREE_SHAKE_ICONS=false
-PACKAGE_CONFIG=/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/.dart_tool/package_config.json
+PACKAGE_CONFIG=.dart_tool/package_config.json
