@@ -1,4 +1,6 @@
 ### version: 5.0.8
+- Updated to `facebook_auth_desktop: ^0.0.9`
+### version: 5.0.7
 - Updated to `facebook_auth_desktop: ^0.0.8`
 
 ### version: 5.0.6
