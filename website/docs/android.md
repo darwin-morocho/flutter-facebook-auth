@@ -141,7 +141,7 @@ Apps that target Android API 30+ (Android 11+) cannot call Facebook native apps 
 
 
 :::danger KEEP IN MIND
-- If your app is still in developing mode in your `facebook console` to test the `login flow` you only can use [test accounts](https://developers.facebook.com/docs/development/build-and-test/test-users/) or use the facebook account witch is the owner of the app in the facebook developer console.
+- If your app is still in developing mode in your `facebook console` to test the `login flow` you only can use [test accounts](https://developers.facebook.com/docs/development/build-and-test/test-users/) or use the facebook account which is the owner of the app in the facebook developer console.
 - If want to test the login flow with the native facebook app and your app is in developing mode your account must be added to the developer team https://developers.facebook.com/docs/development/build-and-test/app-roles
 
 - If you want to get the user email and public profile you must check in your facebook developers console
