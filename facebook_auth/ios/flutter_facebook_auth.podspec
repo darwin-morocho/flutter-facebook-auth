@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_facebook_auth'
-  s.version          = '5.0.4'
+  s.version          = '5.0.9'
   s.summary          = 'Plugin to Facebook authentication for iOS in your Flutter app'
   s.description      = <<-DESC
   Plugin to Facebook authentication for iOS in your Flutter app
@@ -18,7 +18,7 @@ Pod::Spec.new do |s|
 
 
   # s.dependency 'FBSDKCoreKit', '~> 15.1.0'
-  s.dependency 'FBSDKLoginKit', '~> 15.1.0'
+  s.dependency 'FBSDKLoginKit', '~> 16.0.1'
   s.platform = :ios, '11.0'
 
   # Flutter.framework does not contain a i386 slice.
