@@ -28,7 +28,7 @@ Add the following to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_facebook_auth: ^5.0.9
+  flutter_facebook_auth: ^5.0.10
 ```
 
 
