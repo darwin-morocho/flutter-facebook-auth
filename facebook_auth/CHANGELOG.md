@@ -1,3 +1,6 @@
+### version: 5.0.10
+- Removed java constraints.
+
 ### version: 5.0.9
 - Updated Facebook iOS SDK to 16.0.1
 - Updated Facebook Android SDK to 16.0.1
