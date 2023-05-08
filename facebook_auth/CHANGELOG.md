@@ -1,3 +1,5 @@
+### version: 5.0.11
+- Android (Add support of namespace property to support AGP 8)
 ### version: 5.0.10
 - Removed java constraints.
 
