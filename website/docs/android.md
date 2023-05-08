@@ -139,6 +139,12 @@ Apps that target Android API 30+ (Android 11+) cannot call Facebook native apps 
 </manifest>
 ```
 
+7. (Optional)
+To opt out of the Advertising ID Permission, add a uses-permission element to the manifest after the application element
+```xml
+<uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
+```
+
 
 :::danger KEEP IN MIND
 - If your app is still in developing mode in your `facebook console` to test the `login flow` you only can use [test accounts](https://developers.facebook.com/docs/development/build-and-test/test-users/) or use the facebook account which is the owner of the app in the facebook developer console.
