@@ -1,3 +1,6 @@
+### 5.0.0
+- Use dart >=3.0.0 <4.0.0
+
 ### 4.1.1
 - Fixed bug parsing `dataAccessExpirationTime` throws `String is not a subtype of int` on macOS.
 ### 4.1.0

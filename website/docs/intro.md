@@ -28,8 +28,16 @@ Add the following to your `pubspec.yaml`
 
 ```yaml
 dependencies:
-  flutter_facebook_auth: ^5.0.11
+  flutter_facebook_auth: ^6.0.0
 ```
+
+
+- **BREAKING CHANGE**  since 6.x version your project must use dart 3.x or or higher.
+In your `pubspec.yaml` make sure that you are using dart 3.x or or higher.
+ ```yaml 
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+ ```
 
 
 :::danger IMPORTANT

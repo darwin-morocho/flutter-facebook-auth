@@ -1,3 +1,16 @@
+### 6.0.0
+- **BREAKING CHANGE**  since 6.x version your project must use dart 3.x or or higher.
+In your `pubspec.yaml` make sure that you are using dart 3.x or or higher.
+ ```yaml 
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+ ```
+
+- Updated to `flutter_facebook_auth_platform_interface: ^5.0.0`.
+- Updated to `flutter_facebook_auth_web: ^5.0.0`.
+- Updated to `facebook_auth_desktop: ^1.0.0`
+
+
 ### version: 5.0.11
 - Android (Add support of namespace property to support AGP 8)
 ### version: 5.0.10
