@@ -4,7 +4,7 @@ version: 5.0.11
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth
 
 environment:
-  sdk: ">=2.14.0 <3.0.0"
+  sdk: ">=2.18.0 <4.0.0"
   flutter: ">=2.0.0"
 
 dependencies:

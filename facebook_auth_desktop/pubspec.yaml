@@ -4,13 +4,13 @@ version: 0.0.9
 homepage:
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.18.0 <4.0.0"
   flutter: ">=2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  http: ^0.13.5
+  http: ^1.0.0
   flutter_secure_storage: ^8.0.0
   flutter_facebook_auth_platform_interface: ^4.1.1
 
