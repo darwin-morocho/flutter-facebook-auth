@@ -1,3 +1,7 @@
+### 6.0.1
+- Updated Facebook iOS SDK to 16.1.3
+- Updated Facebook Android SDK to 16.1.3
+
 ### 6.0.0
 - **BREAKING CHANGE**  since 6.x version your project must use dart 3.x or or higher.
 In your `pubspec.yaml` make sure that you are using dart 3.x or or higher.

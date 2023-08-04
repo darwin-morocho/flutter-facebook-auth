@@ -26,7 +26,7 @@ void main() async {
       appId: "YOUR_FACEBOOK_APP_ID",
       cookie: true,
       xfbml: true,
-      version: "v14.0",
+      version: "v15.0",
     );
   }
   runApp(MyApp());

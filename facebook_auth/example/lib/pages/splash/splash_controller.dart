@@ -70,7 +70,8 @@ class SplashController extends ChangeNotifier {
     if (status == PermissionStatus.granted) {
       await _facebookAuth.autoLogAppEventsEnabled(true);
       print(
-          "isAutoLogAppEventsEnabled:: ${await _facebookAuth.isAutoLogAppEventsEnabled}");
+        "isAutoLogAppEventsEnabled:: ${await _facebookAuth.isAutoLogAppEventsEnabled}",
+      );
     }
   }
 }
