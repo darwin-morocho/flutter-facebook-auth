@@ -1,3 +1,6 @@
+## 1.0.1
+- flutter_secure_storage: ^9.0.0
+
 ### 1.0.0
 - Use dart >=3.0.0 <4.0.0
 - http > 1.0.0

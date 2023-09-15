@@ -33,7 +33,7 @@
     },
     {
       "name": "collection",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/collection-1.17.1",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/collection-1.17.2",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -56,6 +56,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "ffi",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/ffi-2.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
       "name": "flutter",
       "rootUri": "file:///Users/darwin/development/flutter/packages/flutter",
       "packageUri": "lib/",
@@ -75,7 +81,7 @@
     },
     {
       "name": "flutter_secure_storage",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/flutter_secure_storage-8.0.0",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/flutter_secure_storage-9.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -105,7 +111,7 @@
     },
     {
       "name": "flutter_secure_storage_windows",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/flutter_secure_storage_windows-2.0.0",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/flutter_secure_storage_windows-3.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -147,15 +153,15 @@
     },
     {
       "name": "matcher",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/matcher-0.12.15",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/matcher-0.12.16",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
     {
       "name": "material_color_utilities",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/material_color_utilities-0.2.0",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/material_color_utilities-0.5.0",
       "packageUri": "lib/",
-      "languageVersion": "2.13"
+      "languageVersion": "2.17"
     },
     {
       "name": "meta",
@@ -168,6 +174,48 @@
       "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path-1.8.3",
       "packageUri": "lib/",
       "languageVersion": "2.12"
+    },
+    {
+      "name": "path_provider",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path_provider-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "path_provider_android",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path_provider_android-2.2.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "path_provider_foundation",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path_provider_foundation-2.3.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "path_provider_linux",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path_provider_linux-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "path_provider_platform_interface",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path_provider_platform_interface-2.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "path_provider_windows",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/path_provider_windows-2.2.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
+      "name": "platform",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/platform-3.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
     },
     {
       "name": "plugin_platform_interface",
@@ -183,9 +231,9 @@
     },
     {
       "name": "source_span",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/source_span-1.9.1",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/source_span-1.10.0",
       "packageUri": "lib/",
-      "languageVersion": "2.14"
+      "languageVersion": "2.18"
     },
     {
       "name": "stack_trace",
@@ -213,7 +261,7 @@
     },
     {
       "name": "test_api",
-      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/test_api-0.5.1",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/test_api-0.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     },
@@ -230,13 +278,31 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "web",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/web-0.1.4-beta",
+      "packageUri": "lib/",
+      "languageVersion": "3.1"
+    },
+    {
+      "name": "win32",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/win32-5.0.7",
+      "packageUri": "lib/",
+      "languageVersion": "3.0"
+    },
+    {
+      "name": "xdg_directories",
+      "rootUri": "file:///Users/darwin/.pub-cache/hosted/pub.dev/xdg_directories-1.0.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.19"
+    },
+    {
       "name": "facebook_auth_desktop_example",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2023-06-09T12:32:36.288429Z",
+  "generated": "2023-09-15T15:38:24.421415Z",
   "generator": "pub",
-  "generatorVersion": "3.0.3"
+  "generatorVersion": "3.1.1"
 }

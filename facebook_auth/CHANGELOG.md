@@ -1,3 +1,6 @@
+### 6.0.2
+- Updated to `facebook_auth_desktop: ^1.0.1`
+
 ### 6.0.1
 - Updated Facebook iOS SDK to 16.1.3
 - Updated Facebook Android SDK to 16.1.3
