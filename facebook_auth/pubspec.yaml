@@ -17,7 +17,7 @@ dependencies:
   # flutter_facebook_auth_web:
   #   path: ../facebook_auth_web
 
-  facebook_auth_desktop: ^1.0.0
+  facebook_auth_desktop: ^1.0.1
     # path: ../facebook_auth_desktop
 
 dev_dependencies:
