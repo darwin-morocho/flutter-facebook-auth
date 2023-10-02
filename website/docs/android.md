@@ -54,7 +54,7 @@ Go to [Facebook Login for Android - Quickstart](https://developers.facebook.com/
    <img src="https://user-images.githubusercontent.com/15864336/144253037-f1750fbd-62ac-42fb-88a6-2f7ed8113f3e.png" />
 
     - Open the `/android/app/src/main/AndroidManifest.xml` file.
-    - Add the following uses-permission element after the application element
+    - Add the following uses-permission element before the application element
 
     ```xml
     <uses-permission android:name="android.permission.INTERNET"/>
