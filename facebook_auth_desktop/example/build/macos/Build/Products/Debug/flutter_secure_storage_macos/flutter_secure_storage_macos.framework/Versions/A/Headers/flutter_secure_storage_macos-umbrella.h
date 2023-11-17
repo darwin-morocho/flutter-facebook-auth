@@ -10,7 +10,6 @@
 #endif
 #endif
 
-#import "FlutterSecureStorageMacosPlugin.h"
 
 FOUNDATION_EXPORT double flutter_secure_storage_macosVersionNumber;
 FOUNDATION_EXPORT const unsigned char flutter_secure_storage_macosVersionString[];

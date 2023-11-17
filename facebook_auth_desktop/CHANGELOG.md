@@ -1,3 +1,6 @@
+## 1.0.2
+- Fixed null saved access token due to a flutter_secure_storage bug.
+
 ## 1.0.1
 - flutter_secure_storage: ^9.0.0
 

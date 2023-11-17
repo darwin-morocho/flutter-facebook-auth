@@ -37,7 +37,6 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
     final data = await _secureStorage.read(
       key: _facebookAccessTokenKey,
     );
-
     if (data != null) {
       final accessToken = AccessToken.fromJson(
         jsonDecode(data),
@@ -173,6 +172,8 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
             const Duration(days: 90),
           ),
         );
+
+        await _secureStorage.delete(key: _facebookAccessTokenKey);
 
         await _secureStorage.write(
           key: _facebookAccessTokenKey,

@@ -4,3 +4,8 @@ framework module flutter_secure_storage_macos {
   export *
   module * { export * }
 }
+
+module flutter_secure_storage_macos.Swift {
+  header "flutter_secure_storage_macos-Swift.h"
+  requires objc
+}

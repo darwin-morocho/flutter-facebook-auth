@@ -6,13 +6,15 @@
 #define FLUTTER_FLUTTERDARTPROJECT_H_
 
 #import <Foundation/Foundation.h>
+#import <TargetConditionals.h>
 
 #import "FlutterMacros.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
  * A set of Flutter and Dart assets used by a `FlutterEngine` to initialize execution.
  *
- * TODO(stuartmorgan): Align API with FlutterDartProject, and combine.
  */
 FLUTTER_DARWIN_EXPORT
 @interface FlutterDartProject : NSObject
@@ -26,15 +28,18 @@ FLUTTER_DARWIN_EXPORT
  * @param bundle The bundle containing the Flutter assets directory. If nil, the App framework
  *               created by Flutter will be used.
  */
-- (nonnull instancetype)initWithPrecompiledDartBundle:(nullable NSBundle*)bundle
-    NS_DESIGNATED_INITIALIZER;
+- (instancetype)initWithPrecompiledDartBundle:(nullable NSBundle*)bundle NS_DESIGNATED_INITIALIZER;
+/**
+ * Unavailable - use `init` instead.
+ */
+- (instancetype)initFromDefaultSourceForConfiguration API_UNAVAILABLE(macos)
+    FLUTTER_UNAVAILABLE("Use -init instead.");
 
 /**
- * If set, allows the Flutter project to use the dart:mirrors library.
- *
- * Deprecated: This function is temporary and will be removed in a future release.
+ * Returns the default identifier for the bundle where we expect to find the Flutter Dart
+ * application.
  */
-@property(nonatomic) bool enableMirrors;
++ (NSString*)defaultBundleIdentifier;
 
 /**
  * An NSArray of NSStrings to be passed as command line arguments to the Dart entrypoint.
@@ -44,8 +49,55 @@ FLUTTER_DARWIN_EXPORT
  *
  * Set this to nil to pass no arguments to the Dart entrypoint.
  */
-@property(nonatomic, nullable) NSArray<NSString*>* dartEntrypointArguments;
+@property(nonatomic, nullable, copy)
+    NSArray<NSString*>* dartEntrypointArguments API_UNAVAILABLE(ios);
+
+/**
+ * Returns the file name for the given asset. If the bundle with the identifier
+ * "io.flutter.flutter.app" exists, it will try use that bundle; otherwise, it
+ * will use the main bundle.  To specify a different bundle, use
+ * `+lookupKeyForAsset:fromBundle`.
+ *
+ * @param asset The name of the asset. The name can be hierarchical.
+ * @return the file name to be used for lookup in the main bundle.
+ */
++ (NSString*)lookupKeyForAsset:(NSString*)asset;
+
+/**
+ * Returns the file name for the given asset.
+ * The returned file name can be used to access the asset in the supplied bundle.
+ *
+ * @param asset The name of the asset. The name can be hierarchical.
+ * @param bundle The `NSBundle` to use for looking up the asset.
+ * @return the file name to be used for lookup in the main bundle.
+ */
++ (NSString*)lookupKeyForAsset:(NSString*)asset fromBundle:(nullable NSBundle*)bundle;
+
+/**
+ * Returns the file name for the given asset which originates from the specified package.
+ * The returned file name can be used to access the asset in the application's main bundle.
+ *
+ * @param asset The name of the asset. The name can be hierarchical.
+ * @param package The name of the package from which the asset originates.
+ * @return the file name to be used for lookup in the main bundle.
+ */
++ (NSString*)lookupKeyForAsset:(NSString*)asset fromPackage:(NSString*)package;
+
+/**
+ * Returns the file name for the given asset which originates from the specified package.
+ * The returned file name can be used to access the asset in the specified bundle.
+ *
+ * @param asset The name of the asset. The name can be hierarchical.
+ * @param package The name of the package from which the asset originates.
+ * @param bundle The bundle to use when doing the lookup.
+ * @return the file name to be used for lookup in the main bundle.
+ */
++ (NSString*)lookupKeyForAsset:(NSString*)asset
+                   fromPackage:(NSString*)package
+                    fromBundle:(nullable NSBundle*)bundle;
 
 @end
+
+NS_ASSUME_NONNULL_END
 
 #endif  // FLUTTER_FLUTTERDARTPROJECT_H_

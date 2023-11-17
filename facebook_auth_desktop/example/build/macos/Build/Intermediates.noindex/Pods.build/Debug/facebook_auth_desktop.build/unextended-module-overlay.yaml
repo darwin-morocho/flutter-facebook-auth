@@ -10,5 +10,14 @@
       'name': "module.modulemap",
       'external-contents': "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Intermediates.noindex/Pods.build/Debug/facebook_auth_desktop.build/unextended-module.modulemap",
     }]
-  }]
+    },
+    {
+    'type': 'directory',
+    'name': "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Products/Debug/facebook_auth_desktop/facebook_auth_desktop.framework/Headers"
+    'contents': [{
+      'type': 'file',
+      'name': "facebook_auth_desktop-Swift.h",
+      'external-contents': "/Users/darwin/Documents/flutter/flutter-facebook-auth/facebook_auth_desktop/example/build/macos/Build/Intermediates.noindex/Pods.build/Debug/facebook_auth_desktop.build/unextended-interface-header.h",
+    }]
+    }]
 }
