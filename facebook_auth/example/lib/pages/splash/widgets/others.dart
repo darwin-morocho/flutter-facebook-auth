@@ -1,66 +1,29 @@
-// import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_bloc_social_login/flutter_bloc_social_login.dart';
 
 
-// class AuthenticationScreen extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('Social Media Login'),
-//       ),
-//       body: Center(
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             ElevatedButton(
-//               onPressed: () async {
-//                 final result = await FlutterSocialLogin.loginToFacebook(
-//                   appId: 'YOUR_FACEBOOK_APP_ID',
-//                   redirectUri: 'YOUR_FACEBOOK_REDIRECT_URI',
-//                   permissions: ['email'],
-//                 );
+class SocialMediaConstants {
+  static final facebookConfig = SocialConfig.facebook(
+    appId: 'YOUR_FACEBOOK_APP_ID',
+    appSecret: 'YOUR_FACEBOOK_APP_SECRET',
+    redirectUri: 'YOUR_FACEBOOK_REDIRECT_URI',
+  );
 
-//                 print(result);
-//               },
-//               child: Text('Login with Facebook'),
-//             ),
-//             ElevatedButton(
-//               onPressed: () async {
-//                 final result = await FlutterSocialLogin.loginToTwitter(
-//                   consumerKey: 'YOUR_TWITTER_CONSUMER_KEY',
-//                   consumerSecret: 'YOUR_TWITTER_CONSUMER_SECRET',
-//                   redirectUri: 'YOUR_TWITTER_REDIRECT_URI',
-//                 );
+  static final twitterConfig = SocialConfig.twitter(
+    consumerKey: 'YOUR_TWITTER_CONSUMER_KEY',
+    consumerSecret: 'YOUR_TWITTER_CONSUMER_SECRET',
+    redirectUri: 'YOUR_TWITTER_REDIRECT_URI',
+  );
 
-//                 print(result);
-//               },
-//               child: Text('Login with Twitter'),
-//             ),
-//             ElevatedButton(
-//               onPressed: () async {
-//                 final result = await FlutterSocialLogin.loginToGoogle(
-//                   clientId: 'YOUR_GOOGLE_CLIENT_ID',
-//                   redirectUri: 'YOUR_GOOGLE_REDIRECT_URI',
-//                 );
+  static final googleConfig = SocialConfig.google(
+    clientId: 'YOUR_GOOGLE_CLIENT_ID',
+    clientSecret: 'YOUR_GOOGLE_CLIENT_SECRET',
+    redirectUri: 'YOUR_GOOGLE_REDIRECT_URI',
+  );
 
-//                 print(result);
-//               },
-//               child: Text('Login with Google'),
-//             ),
-//             ElevatedButton(
-//               onPressed: () async {
-//                 final result = await FlutterSocialLogin.loginToInstagram(
-//                   clientId: 'YOUR_INSTAGRAM_CLIENT_ID',
-//                   redirectUri: 'YOUR_INSTAGRAM_REDIRECT_URI',
-//                 );
-
-//                 print(result);
-//               },
-//               child: Text('Login with Instagram'),
-//             ),
-//           ],
-//         ),
-//       ),
-//     );
-//   }
-// }
+  static final instagramConfig = SocialConfig.instagram(
+    clientId: 'YOUR_INSTAGRAM_CLIENT_ID',
+    clientSecret: 'YOUR_INSTAGRAM_CLIENT_SECRET',
+    redirectUri: 'YOUR_INSTAGRAM_REDIRECT_URI',
+  );
+}
