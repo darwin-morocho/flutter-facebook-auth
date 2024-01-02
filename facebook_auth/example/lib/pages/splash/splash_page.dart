@@ -27,7 +27,11 @@ class SplashPage extends StatelessWidget {
                     ),
                   );
                 }
-                return LoginView();
+                Future.delayed(Duration(seconds: 5), () {
+                    return LoginView();
+                  });
+
+                  return LoginView(); // Placeholder widget, as LoginView will be displayed after the delay
               },
             ),
             Positioned(

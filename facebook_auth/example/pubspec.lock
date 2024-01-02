@@ -45,10 +45,10 @@ packages:
     dependency: transitive
     description:
       name: facebook_auth_desktop
-      sha256: "6df63a8882c2113fc76b5a09a26291bd2d6b2350593b53ace6c26ade5e090fee"
+      sha256: "2e652a1dec2841f6043abea0e773b9de0caadada78ef8804d57ede6d09c7a8c2"
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.1"
+    version: "1.0.2"
   ffi:
     dependency: transitive
     description:
