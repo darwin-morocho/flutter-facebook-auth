@@ -33,7 +33,7 @@ class LoginButton extends StatelessWidget {
           fullWidth: false,
           backgroundColor: Color(0xff29434e),
           borderColor: Color(0xff29434e),
-          label: isLogged ? "Log Out" : "Sign In with Facebook",
+          label: isLogged ? "Log Out" : "Sign In",
         );
       },
     );
