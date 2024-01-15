@@ -1,7 +1,7 @@
 abstract class MockData {
   static const accessToken = {
-    "userId": "136742241592917",
-    "token":
+    "userID": "136742241592917",
+    "accessToken":
         "EAAS5elFDcaYBAB4KyXaxBtEBjkgYpAEZAZAFuV6VHxxfC29l6ZCjgEmYKVguY3Uos5fQ0blVON2WccIvLCQ72EFHDa0ZAmludHCbGN3jNDpzq2L78X74dYTYBAokZAzFWZBwg2biPlEboXkZCWjNWubmE3TES5er3yxZArstszCbQtfue1ECxkjzHhwUkdYNuMJgzo1WVUa4Cc7z2M029srT",
     "data_access_expiration_time": 1610201170749,
     "lastRefresh": 1610051315980,

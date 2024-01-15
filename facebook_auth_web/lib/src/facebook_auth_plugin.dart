@@ -299,7 +299,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
         status: LoginStatus.failed,
         message: 'unknown error',
       );
-    } on PlatformException catch (e) {
+    } on PlatformException catch (e, s) {
       return LoginResult(
         status: LoginStatus.failed,
         message: e.message,

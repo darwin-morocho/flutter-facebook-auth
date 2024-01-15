@@ -112,7 +112,7 @@ class FacebookAuth: NSObject {
                 self.sendErrorToClient(result: flutterResult, errorCode: "FAILED", message: error!.localizedDescription)
             } else {
                 let resultDic = result as! NSDictionary
-                flutterResult(resultDic) // sned the response to the client
+                flutterResult(resultDic) // send the response to the client
             }
         }
     }

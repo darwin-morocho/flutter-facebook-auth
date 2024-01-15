@@ -31,7 +31,7 @@ class SplashController extends ChangeNotifier {
     _isLogged = accessToken != null;
     if (_isLogged!) {
       _userData = await _facebookAuth.getUserData(
-        fields: "name,email,picture.width(200)",
+        fields: "name,email,picture.width(200),birthday,friends",
       );
 
       print(accessToken!.expires);
