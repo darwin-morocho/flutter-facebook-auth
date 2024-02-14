@@ -58,7 +58,8 @@ public class WebViewController: NSViewController, WKNavigationDelegate {
     var targetUriFragment: String?
     var onComplete: ((String?) -> Void)?
     var onDismissed: (() -> Void)?
-    
+    var window: NSWindow?
+
     public override func loadView() {
         self.title = ""
         let webView = WKWebView(frame: NSMakeRect(0, 0,  980, 720))
@@ -67,6 +68,10 @@ public class WebViewController: NSViewController, WKNavigationDelegate {
         webView.allowsBackForwardNavigationGestures = true
         
         view = webView
+    }
+
+    public override func viewDidAppear() {
+        window = self.view.window!
     }
     
     func loadUrl(_ url: String) {
@@ -99,7 +104,7 @@ public class WebViewController: NSViewController, WKNavigationDelegate {
         if uriString.contains(targetUriFragment!) {
             decisionHandler(.cancel)
             onComplete!(uriString)
-            dismiss(self)
+            window?.performClose(nil);
         } else {
             decisionHandler(.allow)
         }
