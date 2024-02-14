@@ -1,3 +1,5 @@
 .DS_Store
 .fvm/
 coverage/
+.dart_tool
+pubspec.lock
