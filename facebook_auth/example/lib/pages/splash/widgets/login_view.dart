@@ -63,7 +63,7 @@ class LoginView extends StatelessWidget {
                         children: [
                           if (!isLogged)
                             Image.asset(
-                              'assets/typing.png',
+                              'assets/social_media.png',
                             ),
                           if (isLogged && controller.userData != null) ...[
                             ClipOval(

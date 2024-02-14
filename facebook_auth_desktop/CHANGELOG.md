@@ -1,3 +1,6 @@
+## 1.0.3
+- Fixed [issue #389](https://github.com/darwin-morocho/flutter-facebook-auth/issues/389)
+
 ## 1.0.2
 - Fixed null saved access token due to a flutter_secure_storage bug.
 

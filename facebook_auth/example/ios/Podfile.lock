@@ -1,17 +1,15 @@
 PODS:
-  - FBAEMKit (16.2.1):
-    - FBSDKCoreKit_Basics (= 16.2.1)
-  - FBSDKCoreKit (16.2.1):
-    - FBAEMKit (= 16.2.1)
-    - FBSDKCoreKit_Basics (= 16.2.1)
-  - FBSDKCoreKit_Basics (16.2.1)
-  - FBSDKLoginKit (16.2.1):
-    - FBSDKCoreKit (= 16.2.1)
+  - FBAEMKit (16.3.1):
+    - FBSDKCoreKit_Basics (= 16.3.1)
+  - FBSDKCoreKit (16.3.1):
+    - FBAEMKit (= 16.3.1)
+    - FBSDKCoreKit_Basics (= 16.3.1)
+  - FBSDKCoreKit_Basics (16.3.1)
+  - FBSDKLoginKit (16.3.1):
+    - FBSDKCoreKit (= 16.3.1)
   - Flutter (1.0.0)
-  - flutter_facebook_auth (6.0.3):
-    - FBSDKLoginKit (~> 16.2.0)
-    - Flutter
-  - flutter_secure_storage (6.0.0):
+  - flutter_facebook_auth (6.0.4):
+    - FBSDKLoginKit (~> 16.3.1)
     - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
@@ -24,7 +22,6 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
-  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -41,8 +38,6 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_facebook_auth:
     :path: ".symlinks/plugins/flutter_facebook_auth/ios"
-  flutter_secure_storage:
-    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler:
@@ -51,13 +46,12 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  FBAEMKit: 4763aa27b8f69eb9d2c274189e91388de1dbd88a
-  FBSDKCoreKit: 40ae989ca1da1bbeba56acd4671dde64ad415506
-  FBSDKCoreKit_Basics: 1257d71d2d692661290bf2af4bea5f9a101387af
-  FBSDKLoginKit: bf4f96d0ce475de2da4b1800ce150bd8a6f120f3
+  FBAEMKit: 6c7b5eb77c96861bb59e040842c6e55bf39512ce
+  FBSDKCoreKit: 5e4dd478947ab1bcc887e8cfadeae0727af1a942
+  FBSDKCoreKit_Basics: cd7b5f5d1e8868c26706917919d058999ca672c3
+  FBSDKLoginKit: 572cca0bc6c90067ef197187697cb3b584310c52
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_facebook_auth: 24f9040e28e60ef2a8a93fdd1848e18a9cacb148
-  flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
+  flutter_facebook_auth: c8700ab1770f3d8e5e7456220e4f3bbcdb831454
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
   url_launcher_ios: 68d46cc9766d0c41dbdc884310529557e3cd7a86

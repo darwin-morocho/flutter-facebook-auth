@@ -1,7 +1,7 @@
 name: facebook_auth_desktop
 description: macOS support for flutter_facebook_auth
-version: 1.0.2
-homepage:
+version: 1.0.3
+homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_desktop
 
 environment:
   sdk: ">=3.0.0 <4.0.0"

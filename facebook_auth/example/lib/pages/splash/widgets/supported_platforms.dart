@@ -29,7 +29,7 @@ class SupportedPlatforms extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "Android",
+                  "Gmail",
                   style: TextStyle(color: Colors.lightGreen),
                 ),
               ],
@@ -45,7 +45,7 @@ class SupportedPlatforms extends StatelessWidget {
                 ),
                 SizedBox(height: 5),
                 Text(
-                  "iOS",
+                  "Twitter",
                   style: TextStyle(color: Colors.grey),
                 ),
               ],

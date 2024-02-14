@@ -1,5 +1,5 @@
 group 'app.meedu.flutter_facebook_auth'
-version '5.0.10'
+version '6.0.4'
 
 buildscript {
     repositories {
@@ -37,5 +37,5 @@ android {
 }
 
 dependencies {
-    implementation 'com.facebook.android:facebook-login:16.2.0'
+    implementation 'com.facebook.android:facebook-login:16.3.0'
 }
