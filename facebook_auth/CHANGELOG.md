@@ -1,3 +1,6 @@
+### 6.1.1
+- Fixed [issue #383](https://github.com/darwin-morocho/flutter-facebook-auth/issues/383)
+
 ### 6.1.0
 - Fixed [issue #389](https://github.com/darwin-morocho/flutter-facebook-auth/issues/389). Thanks to [potatojoayo](https://github.com/potatojoayo)
 
