@@ -62,8 +62,10 @@ class FacebookAuth {
   ///The above JSON could be change, it depends of your [fields] argument.
   Future<Map<String, dynamic>> getUserData({
     String fields = "name,email,picture.width(200)",
-  }) =>
-      _authPlatform.getUserData(fields: fields);
+  }) async {
+    final result = await _authPlatform.getUserData(fields: fields);
+    return Map<String, dynamic>.from(result);
+  }
 
   /// Sign Out from Facebook
   Future<void> logOut() => _authPlatform.logOut();
