@@ -11,7 +11,7 @@ void main() async {
       appId: "1329834907365798",
       cookie: true,
       xfbml: true,
-      version: "v15.0",
+      version: "v19.0",
     );
   }
   runApp(MyApp());

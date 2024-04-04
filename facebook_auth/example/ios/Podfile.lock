@@ -1,15 +1,17 @@
 PODS:
-  - FBAEMKit (16.3.1):
-    - FBSDKCoreKit_Basics (= 16.3.1)
-  - FBSDKCoreKit (16.3.1):
-    - FBAEMKit (= 16.3.1)
-    - FBSDKCoreKit_Basics (= 16.3.1)
-  - FBSDKCoreKit_Basics (16.3.1)
-  - FBSDKLoginKit (16.3.1):
-    - FBSDKCoreKit (= 16.3.1)
+  - FBAEMKit (17.0.0):
+    - FBSDKCoreKit_Basics (= 17.0.0)
+  - FBSDKCoreKit (17.0.0):
+    - FBAEMKit (= 17.0.0)
+    - FBSDKCoreKit_Basics (= 17.0.0)
+  - FBSDKCoreKit_Basics (17.0.0)
+  - FBSDKLoginKit (17.0.0):
+    - FBSDKCoreKit (= 17.0.0)
   - Flutter (1.0.0)
-  - flutter_facebook_auth (6.0.4):
-    - FBSDKLoginKit (~> 16.3.1)
+  - flutter_facebook_auth (6.2.0):
+    - FBSDKLoginKit (~> 17.0.0)
+    - Flutter
+  - flutter_secure_storage (6.0.0):
     - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
@@ -22,6 +24,7 @@ PODS:
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
+  - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
@@ -38,6 +41,8 @@ EXTERNAL SOURCES:
     :path: Flutter
   flutter_facebook_auth:
     :path: ".symlinks/plugins/flutter_facebook_auth/ios"
+  flutter_secure_storage:
+    :path: ".symlinks/plugins/flutter_secure_storage/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   permission_handler:
@@ -46,16 +51,17 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
 SPEC CHECKSUMS:
-  FBAEMKit: 6c7b5eb77c96861bb59e040842c6e55bf39512ce
-  FBSDKCoreKit: 5e4dd478947ab1bcc887e8cfadeae0727af1a942
-  FBSDKCoreKit_Basics: cd7b5f5d1e8868c26706917919d058999ca672c3
-  FBSDKLoginKit: 572cca0bc6c90067ef197187697cb3b584310c52
-  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_facebook_auth: c8700ab1770f3d8e5e7456220e4f3bbcdb831454
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
+  FBAEMKit: 31a20c2d8744d8c57d3a5b7ae4e27b4fdd819193
+  FBSDKCoreKit: dac911b656816f8d0b06e5fa4bac60e89505bb3b
+  FBSDKCoreKit_Basics: 92b7b7458d57091370b0b6cc197578874c3b4b16
+  FBSDKLoginKit: 5d5271ebfd1e39c6b071de8db5c4bd6255be3561
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  flutter_facebook_auth: 66188df7905bfcaf3d6d2bd6527302c56448f04d
+  flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
+  path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
   permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
-  url_launcher_ios: 68d46cc9766d0c41dbdc884310529557e3cd7a86
+  url_launcher_ios: bbd758c6e7f9fd7b5b1d4cde34d2b95fcce5e812
 
 PODFILE CHECKSUM: 3abe3ee81d8e1bcf71c9b55258bce7758dc971eb
 
-COCOAPODS: 1.13.0
+COCOAPODS: 1.14.3

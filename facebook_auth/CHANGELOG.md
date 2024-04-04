@@ -1,3 +1,7 @@
+### 6.2.0
+- Updated Facebook iOS SDK to 17.0.0
+- Updated Facebook Android SDK to 17.0.0
+
 ### 6.1.1
 - Fixed [issue #383](https://github.com/darwin-morocho/flutter-facebook-auth/issues/383)
 
