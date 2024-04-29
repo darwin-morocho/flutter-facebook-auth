@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart'
     show visibleForTesting, defaultTargetPlatform, TargetPlatform;
 
 import 'facebook_auth_plaftorm.dart';
-import 'facebook_permissions.dart';
 import 'login_result.dart';
 import 'access_token.dart';
 import 'login_behavior.dart';
@@ -32,14 +31,17 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     LoginTracking loginTracking = LoginTracking.enabled,
   }) async {
     try {
-      print(loginTracking);
       final result = await channel.invokeMethod("login", {
         "permissions": permissions,
         "loginBehavior": getLoginBehaviorAsString(loginBehavior),
         "tracking": loginTracking.name,
       });
-      print(result);
-      final token = AccessToken.fromJson(Map<String, dynamic>.from(result));
+      final map = Map<String, dynamic>.from(result);
+
+      final token = map['type'] == 'limited'
+          ? LimitedToken.fromJson(map)
+          : ClassicToken.fromJson(map);
+
       return LoginResult(status: LoginStatus.success, accessToken: token);
     } on PlatformException catch (e) {
       return LoginResult.getResultFromException(e);
@@ -58,7 +60,7 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     if (isAndroid) {
       try {
         final result = await channel.invokeMethod("expressLogin");
-        final token = AccessToken.fromJson(Map<String, dynamic>.from(result));
+        final token = ClassicToken.fromJson(Map<String, dynamic>.from(result));
         return LoginResult(status: LoginStatus.success, accessToken: token);
       } on PlatformException catch (e) {
         return LoginResult.getResultFromException(e);
@@ -96,7 +98,11 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
   Future<AccessToken?> get accessToken async {
     final result = await channel.invokeMethod("getAccessToken");
     if (result != null) {
-      return AccessToken.fromJson(Map<String, dynamic>.from(result));
+      final map = Map<String, dynamic>.from(result);
+
+      return map['type'] == 'limited'
+          ? LimitedToken.fromJson(map)
+          : ClassicToken.fromJson(map);
     }
     return null;
   }
@@ -109,19 +115,6 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     required bool xfbml,
     required String version,
   }) async {}
-
-  /// returns the granted and declined permissions
-  @override
-  Future<FacebookPermissions?> get permissions async {
-    final AccessToken? accessToken = await this.accessToken;
-    if (accessToken != null) {
-      return FacebookPermissions(
-        granted: accessToken.grantedPermissions!,
-        declined: accessToken.declinedPermissions!,
-      );
-    }
-    return null;
-  }
 
   /// use this to know if the facebook sdk was initializated on Web
   /// on Android and iOS is always true

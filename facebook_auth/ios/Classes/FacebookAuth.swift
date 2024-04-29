@@ -54,7 +54,14 @@ class FacebookAuth: NSObject {
                     isLimitedLogin: isLimitedLogin()
                 )
                 result(accessToken)
-            } else {
+            } else if let authToken = AuthenticationToken.current {
+                let accessToken = getAccessToken(
+                    accessToken: nil,
+                    authenticationToken: authToken,
+                    isLimitedLogin: isLimitedLogin()
+                )
+                result(accessToken)
+            }else {
                 result(nil)
             }
             
@@ -103,33 +110,34 @@ class FacebookAuth: NSObject {
             return
         }
         
-        print(permissions)
+        let viewController: UIViewController = (mainWindow?.rootViewController)!
         
         loginManager.logIn(
-            configuration: configuration, completion: {
-                result in
+            viewController: viewController,
+            configuration: configuration ,
+            completion: {
+                [weak self] result in
+                guard let self else {
+                    return
+                }
+                
                 switch result {
-                case .failed:
-                    self.finishWithError(errorCode: "FAILED", message: "Facebook login failed")
+                case .failed(let error):
+                    finishWithError(errorCode: "FAILED", message: error.localizedDescription)
                 case .cancelled:
-                    self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
+                    finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
                
                 case .success(granted: let granted, declined: let declined, token: let token):
-                
-                    guard token != nil else {
-                        self.finishWithError(errorCode: "FAILED", message: "Facebook login failed")
-                        return
-                    }
-                    
-                    self.setIsLimitedLogin(isLimitedLogin)
-                    self.finishWithResult(
+                    setIsLimitedLogin(isLimitedLogin)
+                    finishWithResult(
                         data: self.getAccessToken(
-                            accessToken: token!,
+                            accessToken: token,
                             authenticationToken: AuthenticationToken.current,
                             isLimitedLogin: isLimitedLogin
                         )
                     )
                 }
+                
             }
         )
     }
@@ -192,17 +200,31 @@ class FacebookAuth: NSObject {
      get the access token data as a Dictionary
      */
     private func getAccessToken(
-        accessToken: AccessToken,
+        accessToken: AccessToken?,
         authenticationToken: AuthenticationToken?,
         isLimitedLogin: Bool
     ) -> [String: Any] {
+        print(isLimitedLogin)
+        if isLimitedLogin || accessToken == nil {
+            return [
+                "type": "limited",
+                "userId": Profile.current?.userID,
+                "userEmail": Profile.current?.email,
+                "userName": Profile.current?.name,
+                "token": authenticationToken?.tokenString,
+                "nonce": authenticationToken?.nonce,
+            ]
+        }
+       
+        
         return [
-            "token": accessToken.tokenString,
-            "userId": accessToken.userID,
-            "expires": Int64((accessToken.expirationDate.timeIntervalSince1970 * 1000).rounded()),
-            "applicationId": accessToken.appID,
-            "grantedPermissions": accessToken.permissions.map { item in item.name },
-            "declinedPermissions": accessToken.declinedPermissions.map { item in item.name },
+            "type": "classic",
+            "token": accessToken!.tokenString,
+            "userId": accessToken!.userID,
+            "expires": Int64((accessToken!.expirationDate.timeIntervalSince1970 * 1000).rounded()),
+            "applicationId": accessToken!.appID,
+            "grantedPermissions": accessToken!.permissions.map { item in item.name },
+            "declinedPermissions": accessToken!.declinedPermissions.map { item in item.name },
             "authenticationToken": authenticationToken?.tokenString,
         ] as [String: Any]
     }

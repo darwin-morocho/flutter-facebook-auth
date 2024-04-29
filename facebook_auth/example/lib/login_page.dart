@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
@@ -29,7 +30,7 @@ class _LoginPageState extends State<LoginPage> {
     final accessToken = await _auth.accessToken;
 
     if (accessToken != null) {
-      await _getUserProfile(accessToken.token);
+      await _getUserProfile(accessToken);
     } else {
       setState(() {
         _state = LoginNotAuthenticated();
@@ -37,7 +38,13 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
-  Future<void> _getUserProfile(String accessToken) async {
+  Future<void> _getUserProfile(AccessToken accessToken) async {
+    if (accessToken is LimitedToken) {
+      log('nonce: ${accessToken.nonce}');
+    } else {
+       log('accessToken is ClassicToken');
+    }
+
     final data = await _auth.getUserData();
     if (data.isEmpty) {
       await _logout();
@@ -75,9 +82,12 @@ class _LoginPageState extends State<LoginPage> {
 
     switch (result.status) {
       case LoginStatus.success:
-        await _getUserProfile(result.accessToken!.token);
+        await _getUserProfile(result.accessToken!);
       case LoginStatus.cancelled:
       case _:
+        log(
+          '${result.status.name}: ${result.message}',
+        );
         setState(() {
           _state = LoginNotAuthenticated();
         });
@@ -90,19 +100,30 @@ class _LoginPageState extends State<LoginPage> {
       body: SizedBox(
         width: double.infinity,
         height: double.infinity,
-        child: Center(
-          child: switch (_state) {
-            LoginLoading() => CircularProgressIndicator(),
-            LoginNotAuthenticated() => ElevatedButton(
-                onPressed: _login,
-                child: Text('Login'),
-              ),
-            LoginSuccessful(user: final user) => Text(
-                prettyPrint(
-                  user.toJson(),
+        child: SafeArea(
+          child: Center(
+            child: switch (_state) {
+              LoginLoading() => CircularProgressIndicator(),
+              LoginNotAuthenticated() => ElevatedButton(
+                  onPressed: _login,
+                  child: Text('Login'),
                 ),
-              ),
-          },
+              LoginSuccessful(user: final user) => ListView(
+                  padding: EdgeInsets.all(20),
+                  children: [
+                    ElevatedButton(
+                      onPressed: _logout,
+                      child: Text('Log Out'),
+                    ),
+                    Text(
+                      prettyPrint(
+                        user.toJson(),
+                      ),
+                    ),
+                  ],
+                ),
+            },
+          ),
         ),
       ),
     );
@@ -127,7 +148,7 @@ class LoginSuccessful extends LoginPageState {
 
 class User {
   final String userId;
-  final String accessToken;
+  final AccessToken accessToken;
   final String name;
   final String? pictureProfile;
   final String? email;
@@ -143,7 +164,7 @@ class User {
   Map<String, dynamic> toJson() => {
         'userId': userId,
         'name': name,
-        'accessToken': accessToken,
+        'accessToken': accessToken.toJson(),
         'pictureProfile': pictureProfile,
         'email': email,
       };

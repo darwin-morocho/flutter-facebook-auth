@@ -1,5 +1,14 @@
-### 6.2.1-dev.0
-- Added `LoginTracking` enum.
+### 7.0.0-dev.3
+
+- **BREAKING CHANGE** Removed the `grantedPermissions` getter.
+- **BREAKING CHANGE** Added support for limited login:
+  - iOS: If the user has not granted the AdvertiserTracking permission, the login process will now enter a [Limited Login mode](https://developers.facebook.com/docs/facebook-login/limited-login).
+  - Added enum `AccessTokenType`.
+  - Added `LoginTracking` enum in the `login` function.
+  - The `AccessToken` class is now abstract and now has 2 properties: `type` and `tokenString`.
+  - Added subtypes `ClassicToken` and `LimitedToken` of `AccessToken`.
+  - Please check the example project `facebook_auth/example/lib/login_page.dart`.
+
 
 ### 6.2.0
 - Updated Facebook iOS SDK to 17.0.0

@@ -38,7 +38,7 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
       key: _facebookAccessTokenKey,
     );
     if (data != null) {
-      final accessToken = AccessToken.fromJson(
+      final accessToken = ClassicToken.fromJson(
         jsonDecode(data),
       );
 
@@ -65,7 +65,7 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
   Future<Map<String, dynamic>> getUserData({
     String fields = "name,email,picture.width(200)",
   }) async {
-    final token = (await accessToken)?.token;
+    final token = (await accessToken)?.tokenString;
 
     final response = await _httpClient.get(
       Uri.parse(
@@ -160,13 +160,13 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
       if (response.statusCode == 200) {
         final userData = jsonDecode(response.body);
 
-        final accessToken = AccessToken(
+        final accessToken = ClassicToken(
           declinedPermissions: deniedScopes,
           grantedPermissions: grantedScopes,
           userId: userData['id'],
           expires: expiresIn,
           lastRefresh: DateTime.now(),
-          token: token,
+          tokenString: token,
           applicationId: _appId,
           isExpired: false,
           dataAccessExpirationTime: DateTime.now().add(
@@ -196,18 +196,6 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
     }
 
     return LoginResult(status: LoginStatus.cancelled);
-  }
-
-  @override
-  Future<FacebookPermissions?> get permissions async {
-    final savedToken = await accessToken;
-    if (savedToken != null) {
-      return FacebookPermissions(
-        granted: savedToken.grantedPermissions!,
-        declined: savedToken.declinedPermissions!,
-      );
-    }
-    return null;
   }
 
   @override

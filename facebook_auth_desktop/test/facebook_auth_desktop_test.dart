@@ -149,8 +149,6 @@ void main() {
 
       final accessToken = await plugin.accessToken;
       expect(accessToken, isNotNull);
-      final permissions = await plugin.permissions;
-      expect(permissions?.granted, isNotNull);
       final userData = await plugin.getUserData();
       expect(userData.isNotEmpty, true);
       i++;

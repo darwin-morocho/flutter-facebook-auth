@@ -8,7 +8,10 @@ export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_p
         FacebookPermissions,
         LoginBehavior,
         LoginTracking,
-        LoginStatus;
+        LoginStatus,
+        LimitedToken,
+        ClassicToken,
+        AccessTokenType;
 
 /// this class implements the FacebookAuthPlatform interface
 /// and calls to the native APIs on Android, iOS and web.
@@ -102,11 +105,6 @@ class FacebookAuth {
       version: version,
     );
   }
-
-  /// returns one instance of FacebookPermission with the granted and declined permissions
-  ///
-  /// It could be null if you exceed the request limit
-  Future<FacebookPermissions?> get permissions => _authPlatform.permissions;
 
   /// use this to know if the facebook sdk was initializated on Web
   /// on Android and iOS is always true

@@ -119,12 +119,6 @@ void main() {
       expect(result.status, LoginStatus.success);
       expect(result.accessToken != null, true);
 
-      // check the granted and declined permissions
-      final FacebookPermissions? permissions = await plugin.permissions;
-      expect(permissions, isNotNull);
-      expect(permissions!.granted.length == 1, true);
-      expect(permissions.declined.length == 1, true);
-
       // get the user data
       Map<String, dynamic> userData = await plugin.getUserData();
       expect(userData.containsKey('name'), true); // check the key name

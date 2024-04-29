@@ -109,8 +109,6 @@ void main() {
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
-        final accessTokenAsJson = accessToken!.toJson();
-        expect(accessTokenAsJson.containsKey('token'), true);
         expect(await facebookAuth.accessToken, isA<AccessToken>());
         expect((await facebookAuth.expressLogin()), isA<LoginResult>());
         userData = await facebookAuth.getUserData();
@@ -119,14 +117,6 @@ void main() {
         expect(await facebookAuth.accessToken, null);
       }
     });
-
-    test('permissions test', () async {
-      await facebookAuth.login(loginBehavior: LoginBehavior.deviceAuth);
-      final grantedPermissions = (await facebookAuth.permissions)!.granted;
-      expect(grantedPermissions.contains("email"), true);
-      expect(grantedPermissions.contains("user_link"), true);
-    });
-
     test('express login sucess', () async {
       final loginResult = await facebookAuth.expressLogin();
       expect(loginResult.status == LoginStatus.success, true);

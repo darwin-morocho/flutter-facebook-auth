@@ -76,10 +76,6 @@ void main() {
       expect(await facebookAuth.accessToken, isA<AccessToken>());
       final Map<String, dynamic> userData = await facebookAuth.getUserData();
       expect(userData.containsKey("email"), true);
-      final FacebookPermissions? permissions = await facebookAuth.permissions;
-      expect(permissions, isNotNull);
-      expect(permissions!.granted.length > 0, true);
-      expect(permissions.declined.length == 0, true);
       await facebookAuth.logOut();
       expect(await facebookAuth.accessToken, null);
     });

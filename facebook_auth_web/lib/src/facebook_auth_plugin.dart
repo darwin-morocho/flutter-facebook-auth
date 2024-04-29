@@ -176,64 +176,6 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     await script.onLoad.first;
   }
 
-  /// get the granted and declined permission for the current facebook session
-  ///
-  /// The facebook SDK will return a JSON like
-  /// ```
-  /// {
-  ///  'data': [
-  ///    {
-  ///      "permission": "email",
-  ///      "status": "granted",
-  ///    },
-  ///    {
-  ///      "permission": "photos",
-  ///      "status": "declined",
-  ///    }
-  ///  ],
-  ///}
-  /// ```
-  @override
-  Future<FacebookPermissions?> get permissions async {
-    if (!_initialized) return null;
-    Completer<FacebookPermissions?> c = Completer();
-    fb.api(
-      "/me/permissions",
-      allowInterop(
-        (_) {
-          try {
-            List<String> granted = [];
-            List<String> declined = [];
-            final response = convert(_);
-            _checkResponseError(response);
-            for (final item in response['data'] as List) {
-              final String permission = item['permission'];
-              if (item['status'] == 'granted') {
-                granted.add(permission);
-              } else {
-                declined.add(permission);
-              }
-            }
-            c.complete(
-              FacebookPermissions(
-                granted: granted,
-                declined: declined,
-              ),
-            );
-          } on PlatformException catch (e) {
-            print(
-              StackTrace.fromString(
-                e.message ?? 'unknown error',
-              ),
-            );
-            c.complete(null);
-          }
-        },
-      ),
-    );
-    return c.future;
-  }
-
   /// handle the login or getLoginStatus response
   ///
   /// this method convert the javascript response a valid dart Map and the status
@@ -276,7 +218,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
         // create a Login Result with an accessToken
         return LoginResult(
           status: LoginStatus.success,
-          accessToken: AccessToken(
+          accessToken: ClassicToken(
             applicationId: this._appId,
             grantedPermissions:
                 null, // on web we don't have this data in the login response
@@ -285,7 +227,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
             userId: authResponse['userID'],
             expires: expires,
             lastRefresh: DateTime.now(),
-            token: authResponse['accessToken'],
+            tokenString: authResponse['accessToken'],
             isExpired: false,
             graphDomain: authResponse['graphDomain'],
             dataAccessExpirationTime: DateTime.fromMillisecondsSinceEpoch(

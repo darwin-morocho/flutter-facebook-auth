@@ -1,6 +1,6 @@
 name: flutter_facebook_auth
 description: The easiest way to add facebook login to your flutter app. Feature includes getting user information, profile picture and more. This plugin also supports Web and macOS.
-version: 6.2.1-dev.0
+version: 7.0.0-dev.3
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth
 
 environment:
@@ -11,16 +11,17 @@ dependencies:
   flutter:
     sdk: flutter
     
-  # flutter_facebook_auth_platform_interface: ^5.0.1-dev.0
-  flutter_facebook_auth_platform_interface:
-    path: ../facebook_auth_platform_interface
-  # flutter_facebook_auth_web: ^5.1.0-dev.0
-  flutter_facebook_auth_web:
-    path: ../facebook_auth_web
+  flutter_facebook_auth_platform_interface: ^6.0.0-dev.1
+  # flutter_facebook_auth_platform_interface:
+    # path: ../facebook_auth_platform_interface
+    
+  flutter_facebook_auth_web: ^6.0.0-dev.1
+  # flutter_facebook_auth_web:
+  #   path: ../facebook_auth_web
 
-  # facebook_auth_desktop: ^1.0.4-dev.0
-  facebook_auth_desktop:
-    path: ../facebook_auth_desktop
+  facebook_auth_desktop: ^2.0.0-dev.1
+  # facebook_auth_desktop:
+  #   path: ../facebook_auth_desktop
 
 dev_dependencies:
   flutter_test:

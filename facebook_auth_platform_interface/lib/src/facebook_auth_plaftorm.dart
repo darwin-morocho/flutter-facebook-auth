@@ -3,7 +3,6 @@ import 'package:plugin_platform_interface/plugin_platform_interface.dart';
 
 import 'access_token.dart';
 import 'facebook_auth_implementation.dart';
-import 'facebook_permissions.dart';
 import 'login_behavior.dart';
 import 'login_result.dart';
 
@@ -86,7 +85,4 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
 
   /// if the user is logged return one instance of AccessToken
   Future<AccessToken?> get accessToken;
-
-  /// get the permissions for the current access token
-  Future<FacebookPermissions?> get permissions;
 }

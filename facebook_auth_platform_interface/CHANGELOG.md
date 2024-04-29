@@ -1,5 +1,6 @@
-### 5.0.1-dev.0
+### 6.0.0-dev.1
 - Added `LoginTracking` enum.
+- Added `ClassicToken` and `LimitedToken` classes.
 
 ### 5.0.0
 - Use dart >=3.0.0 <4.0.0

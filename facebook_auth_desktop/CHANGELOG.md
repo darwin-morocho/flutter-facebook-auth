@@ -1,5 +1,6 @@
-## 1.0.4-dev.0
-- Added `LoginTracking` enum.
+## 2.0.0-dev.1
+- flutter_facebook_auth_platform_interface: ^6.0.0-dev.1
+
 
 ## 1.0.3
 - Fixed [issue #389](https://github.com/darwin-morocho/flutter-facebook-auth/issues/389)

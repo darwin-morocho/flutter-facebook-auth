@@ -43,8 +43,6 @@ void main() {
       if (loginResult.status == LoginStatus.success) {
         accessToken = loginResult.accessToken;
         expect(accessToken, isNotNull);
-        final accessTokenAsJson = accessToken!.toJson();
-        expect(accessTokenAsJson.containsKey('token'), true);
         userData = await instance.getUserData();
         expect(userData.containsKey("email"), true);
         await instance.logOut();
