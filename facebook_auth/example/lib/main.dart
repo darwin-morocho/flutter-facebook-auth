@@ -1,8 +1,7 @@
-import 'dart:convert';
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb;
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
-import 'my_app.dart';
+import 'package:flutter_facebook_auth_example/login_page.dart';
 
 void main() async {
   if (kIsWeb || defaultTargetPlatform == TargetPlatform.macOS) {
@@ -17,8 +16,14 @@ void main() async {
   runApp(MyApp());
 }
 
-String prettyPrint(Map json) {
-  JsonEncoder encoder = new JsonEncoder.withIndent('  ');
-  String pretty = encoder.convert(json);
-  return pretty;
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: LoginPage(),
+      debugShowCheckedModeBanner: false,
+    );
+  }
 }

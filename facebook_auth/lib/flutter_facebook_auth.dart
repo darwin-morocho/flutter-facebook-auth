@@ -7,6 +7,7 @@ export 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_p
         LoginResult,
         FacebookPermissions,
         LoginBehavior,
+        LoginTracking,
         LoginStatus;
 
 /// this class implements the FacebookAuthPlatform interface
@@ -79,10 +80,12 @@ class FacebookAuth {
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.nativeWithFallback,
+    LoginTracking loginTracking = LoginTracking.limited,
   }) =>
       _authPlatform.login(
         permissions: permissions,
         loginBehavior: loginBehavior,
+        loginTracking: loginTracking,
       );
 
   /// call this method (ONLY FOR WEB) to initialize the facebook javascript sdk

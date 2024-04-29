@@ -5,31 +5,29 @@
 //  Created by Darwin Morocho on 11/10/20.
 //
 
-import Flutter
 import FBSDKLoginKit
+import Flutter
 import Foundation
 
 class FacebookAuth: NSObject {
-    
-    let loginManager : LoginManager = LoginManager()
+    let loginManager: LoginManager = .init()
     var pendingResult: FlutterResult? = nil
     private var mainWindow: UIWindow? {
         if let applicationWindow = UIApplication.shared.delegate?.window ?? nil {
             return applicationWindow
         }
         
-        
         if #available(iOS 13.0, *) {
             if let scene = UIApplication.shared.connectedScenes.first(where: { $0.session.role == .windowApplication }),
                let sceneDelegate = scene.delegate as? UIWindowSceneDelegate,
-               let window = sceneDelegate.window as? UIWindow  {
+               let window = sceneDelegate.window as? UIWindow
+            {
                 return window
             }
         }
         
         return nil
     }
-    
     
     /*
      handle the platform channel
@@ -38,21 +36,27 @@ class FacebookAuth: NSObject {
         let args = call.arguments as? [String: Any]
         
         switch call.method {
-            
         case "login":
             let permissions = args?["permissions"] as! [String]
-            self.login(permissions: permissions, flutterResult: result)
-            
+            let tracking = args?["tracking"] as! String
+            login(
+                permissions: permissions,
+                flutterResult: result,
+                tracking: tracking == "limited" ? .limited : .enabled
+            )
             
         case "getAccessToken":
             
             if let token = AccessToken.current, !token.isExpired {
-                let accessToken = getAccessToken(accessToken: token)
+                let accessToken = getAccessToken(
+                    accessToken: token,
+                    authenticationToken: AuthenticationToken.current,
+                    isLimitedLogin: isLimitedLogin()
+                )
                 result(accessToken)
-            }else{
+            } else {
                 result(nil)
             }
-            
             
         case "getUserData":
             let fields = args?["fields"] as! String
@@ -64,10 +68,10 @@ class FacebookAuth: NSObject {
             
         case "updateAutoLogAppEventsEnabled":
             let enabled = args?["enabled"] as! Bool
-            self.updateAutoLogAppEventsEnabled(enabled: enabled, flutterResult: result)
+            updateAutoLogAppEventsEnabled(enabled: enabled, flutterResult: result)
             
         case "isAutoLogAppEventsEnabled":
-            let enabled:Bool = Settings.shared.isAutoLogAppEventsEnabled
+            let enabled: Bool = Settings.shared.isAutoLogAppEventsEnabled
             result(enabled)
             
         default:
@@ -75,40 +79,68 @@ class FacebookAuth: NSObject {
         }
     }
     
-    
-    
     /*
      use the facebook sdk to request a login with some permissions
      */
-    private func login(permissions: [String], flutterResult: @escaping FlutterResult){
-        
+    private func login(
+        permissions: [String],
+        flutterResult: @escaping FlutterResult,
+        tracking: LoginTracking
+    ) {
         let isOK = setPendingResult(methodName: "login", flutterResult: flutterResult)
-        if(!isOK){
+        if !isOK {
             return
         }
         
+        let isLimitedLogin = _DomainHandler.sharedInstance().isDomainHandlingEnabled() && !Settings.shared.isAdvertiserTrackingEnabled
         
-        let viewController: UIViewController = (mainWindow?.rootViewController)!
+        guard let configuration = LoginConfiguration(
+            permissions: permissions,
+            tracking: isLimitedLogin ? .limited : tracking,
+            nonce: UUID().uuidString
+        )
+        else {
+            return
+        }
         
-        loginManager.logIn(permissions: permissions, from: viewController, handler: { (result,error)->Void in
-            if error != nil{
-                self.finishWithError(errorCode: "FAILED", message: error!.localizedDescription)
-            }else if result!.isCancelled{
-                self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
-            }else{
-                self.finishWithResult(data:self.getAccessToken(accessToken:  result!.token! ))
+        print(permissions)
+        
+        loginManager.logIn(
+            configuration: configuration, completion: {
+                result in
+                switch result {
+                case .failed:
+                    self.finishWithError(errorCode: "FAILED", message: "Facebook login failed")
+                case .cancelled:
+                    self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
+               
+                case .success(granted: let granted, declined: let declined, token: let token):
+                
+                    guard token != nil else {
+                        self.finishWithError(errorCode: "FAILED", message: "Facebook login failed")
+                        return
+                    }
+                    
+                    self.setIsLimitedLogin(isLimitedLogin)
+                    self.finishWithResult(
+                        data: self.getAccessToken(
+                            accessToken: token!,
+                            authenticationToken: AuthenticationToken.current,
+                            isLimitedLogin: isLimitedLogin
+                        )
+                    )
+                }
             }
-        })
+        )
     }
-    
     
     /**
      retrive the user data from facebook, this could be fail if you are trying to get data without the user autorization permission
      */
     private func getUserData(fields: String, flutterResult: @escaping FlutterResult) {
-        let graphRequest : GraphRequest = GraphRequest(graphPath: "me", parameters: ["fields":fields])
-        graphRequest.start { (connection, result, error) -> Void in
-            if (error != nil) {
+        let graphRequest = GraphRequest(graphPath: "me", parameters: ["fields": fields])
+        graphRequest.start { _, result, error in
+            if error != nil {
                 self.sendErrorToClient(result: flutterResult, errorCode: "FAILED", message: error!.localizedDescription)
             } else {
                 let resultDic = result as! NSDictionary
@@ -120,58 +152,66 @@ class FacebookAuth: NSObject {
     /**
      Enable or disable the AutoLogAppEvents
      */
-    private func updateAutoLogAppEventsEnabled(enabled: Bool,flutterResult: @escaping FlutterResult){
+    private func updateAutoLogAppEventsEnabled(enabled: Bool, flutterResult: @escaping FlutterResult) {
         Settings.shared.isAutoLogAppEventsEnabled = enabled
         flutterResult(nil)
     }
     
     // define a login task
     private func setPendingResult(methodName: String, flutterResult: @escaping FlutterResult) -> Bool {
-        if(pendingResult != nil){// if we have a previous login task
+        if pendingResult != nil { // if we have a previous login task
             sendErrorToClient(result: pendingResult!, errorCode: "OPERATION_IN_PROGRESS", message: "The method \(methodName) called while another Facebook login operation was in progress.")
             return false
         }
-        pendingResult = flutterResult;
+        pendingResult = flutterResult
         return true
     }
     
     // send the success response to the client
-    private func finishWithResult(data: Any?){
-        if (pendingResult != nil) {
+    private func finishWithResult(data: Any?) {
+        if pendingResult != nil {
             pendingResult!(data)
             pendingResult = nil
         }
     }
     
     // handle the login errors
-    private func finishWithError(errorCode:String,  message: String){
-        if (pendingResult != nil) {
+    private func finishWithError(errorCode: String, message: String) {
+        if pendingResult != nil {
             sendErrorToClient(result: pendingResult!, errorCode: errorCode, message: message)
             pendingResult = nil
         }
     }
     
     // sends a error response to the client
-    private func sendErrorToClient(result:FlutterResult,errorCode:String,  message: String){
+    private func sendErrorToClient(result: FlutterResult, errorCode: String, message: String) {
         result(FlutterError(code: errorCode, message: message, details: nil))
     }
     
     /**
      get the access token data as a Dictionary
      */
-    private func getAccessToken(accessToken: AccessToken) -> [String : Any] {
-        let data = [
+    private func getAccessToken(
+        accessToken: AccessToken,
+        authenticationToken: AuthenticationToken?,
+        isLimitedLogin: Bool
+    ) -> [String: Any] {
+        return [
             "token": accessToken.tokenString,
             "userId": accessToken.userID,
-            "expires": Int64((accessToken.expirationDate.timeIntervalSince1970*1000).rounded()),
-            "lastRefresh":Int64((accessToken.refreshDate.timeIntervalSince1970*1000).rounded()),
-            "applicationId":accessToken.appID,
-            "isExpired":accessToken.isExpired,
-            "grantedPermissions":accessToken.permissions.map {item in item.name},
-            "declinedPermissions":accessToken.declinedPermissions.map {item in item.name},
-            "dataAccessExpirationTime":Int64((accessToken.dataAccessExpirationDate.timeIntervalSince1970*1000).rounded()),
-        ] as [String : Any]
-        return data;
+            "expires": Int64((accessToken.expirationDate.timeIntervalSince1970 * 1000).rounded()),
+            "applicationId": accessToken.appID,
+            "grantedPermissions": accessToken.permissions.map { item in item.name },
+            "declinedPermissions": accessToken.declinedPermissions.map { item in item.name },
+            "authenticationToken": authenticationToken?.tokenString,
+        ] as [String: Any]
+    }
+    
+    private func setIsLimitedLogin(_ value: Bool) {
+        UserDefaults.standard.set(value, forKey: "facebook_limited_login")
+    }
+        
+    private func isLimitedLogin() -> Bool {
+        return UserDefaults.standard.bool(forKey: "facebook_limited_login")
     }
 }
-

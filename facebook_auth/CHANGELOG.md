@@ -1,3 +1,6 @@
+### 6.2.1-dev.0
+- Added `LoginTracking` enum.
+
 ### 6.2.0
 - Updated Facebook iOS SDK to 17.0.0
 - Updated Facebook Android SDK to 17.0.0

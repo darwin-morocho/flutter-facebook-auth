@@ -4,7 +4,7 @@
 #
 Pod::Spec.new do |s|
   s.name             = 'flutter_facebook_auth'
-  s.version          = '6.2.0'
+  s.version          = '7.0.0-dev.1'
   s.summary          = 'Plugin to Facebook authentication for iOS in your Flutter app'
   s.description      = <<-DESC
   Plugin to Facebook authentication for iOS in your Flutter app

@@ -7,6 +7,8 @@ import 'facebook_permissions.dart';
 import 'login_behavior.dart';
 import 'login_result.dart';
 
+enum LoginTracking { limited, enabled }
+
 /// The interface that implementations of flutter_facebook_auth must implement.
 ///
 /// Platform implementations should extend this class rather than implement it as `flutter_facebook_auth`
@@ -54,6 +56,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
+    LoginTracking loginTracking = LoginTracking.enabled,
   });
 
   /// Express login logs people in with their Facebook account across devices and platform.

@@ -1,7 +1,6 @@
 
-### 5.0.1
-- Updated js: ^0.7.1
-
+### 5.0.2-dev.1
+- Added `LoginTracking` enum.
 
 ### 5.0.0
 - Use dart >=3.0.0 <4.0.0

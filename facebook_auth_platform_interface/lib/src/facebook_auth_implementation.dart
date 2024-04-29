@@ -29,12 +29,16 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
   Future<LoginResult> login({
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
+    LoginTracking loginTracking = LoginTracking.enabled,
   }) async {
     try {
+      print(loginTracking);
       final result = await channel.invokeMethod("login", {
         "permissions": permissions,
         "loginBehavior": getLoginBehaviorAsString(loginBehavior),
+        "tracking": loginTracking.name,
       });
+      print(result);
       final token = AccessToken.fromJson(Map<String, dynamic>.from(result));
       return LoginResult(status: LoginStatus.success, accessToken: token);
     } on PlatformException catch (e) {

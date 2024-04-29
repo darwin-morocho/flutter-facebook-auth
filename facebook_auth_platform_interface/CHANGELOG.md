@@ -1,3 +1,6 @@
+### 5.0.1-dev.0
+- Added `LoginTracking` enum.
+
 ### 5.0.0
 - Use dart >=3.0.0 <4.0.0
 

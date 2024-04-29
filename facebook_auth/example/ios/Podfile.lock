@@ -8,7 +8,7 @@ PODS:
   - FBSDKLoginKit (17.0.0):
     - FBSDKCoreKit (= 17.0.0)
   - Flutter (1.0.0)
-  - flutter_facebook_auth (6.2.0):
+  - flutter_facebook_auth (7.0.0-dev.1):
     - FBSDKLoginKit (~> 17.0.0)
     - Flutter
   - flutter_secure_storage (6.0.0):
@@ -16,7 +16,7 @@ PODS:
   - path_provider_foundation (0.0.1):
     - Flutter
     - FlutterMacOS
-  - "permission_handler (5.1.0+2)":
+  - permission_handler_apple (9.3.0):
     - Flutter
   - url_launcher_ios (0.0.1):
     - Flutter
@@ -26,7 +26,7 @@ DEPENDENCIES:
   - flutter_facebook_auth (from `.symlinks/plugins/flutter_facebook_auth/ios`)
   - flutter_secure_storage (from `.symlinks/plugins/flutter_secure_storage/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
-  - permission_handler (from `.symlinks/plugins/permission_handler/ios`)
+  - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - url_launcher_ios (from `.symlinks/plugins/url_launcher_ios/ios`)
 
 SPEC REPOS:
@@ -45,8 +45,8 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/flutter_secure_storage/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
-  permission_handler:
-    :path: ".symlinks/plugins/permission_handler/ios"
+  permission_handler_apple:
+    :path: ".symlinks/plugins/permission_handler_apple/ios"
   url_launcher_ios:
     :path: ".symlinks/plugins/url_launcher_ios/ios"
 
@@ -56,10 +56,10 @@ SPEC CHECKSUMS:
   FBSDKCoreKit_Basics: 92b7b7458d57091370b0b6cc197578874c3b4b16
   FBSDKLoginKit: 5d5271ebfd1e39c6b071de8db5c4bd6255be3561
   Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
-  flutter_facebook_auth: 66188df7905bfcaf3d6d2bd6527302c56448f04d
+  flutter_facebook_auth: 04b96c6d76be2080de9b4c266302e562f97b68a6
   flutter_secure_storage: 23fc622d89d073675f2eaa109381aefbcf5a49be
   path_provider_foundation: 3784922295ac71e43754bd15e0653ccfd36a147c
-  permission_handler: ccb20a9fad0ee9b1314a52b70b76b473c5f8dab0
+  permission_handler_apple: 9878588469a2b0d0fc1e048d9f43605f92e6cec2
   url_launcher_ios: bbd758c6e7f9fd7b5b1d4cde34d2b95fcce5e812
 
 PODFILE CHECKSUM: 3abe3ee81d8e1bcf71c9b55258bce7758dc971eb
