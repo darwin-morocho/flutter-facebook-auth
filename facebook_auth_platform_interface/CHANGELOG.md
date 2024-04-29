@@ -1,3 +1,6 @@
+### 6.0.0-dev.2
+- Fixed null values in `ClassicToken`.
+
 ### 6.0.0-dev.1
 - Added `LoginTracking` enum.
 - Added `ClassicToken` and `LimitedToken` classes.

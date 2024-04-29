@@ -229,10 +229,6 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
             lastRefresh: DateTime.now(),
             tokenString: authResponse['accessToken'],
             isExpired: false,
-            graphDomain: authResponse['graphDomain'],
-            dataAccessExpirationTime: DateTime.fromMillisecondsSinceEpoch(
-              authResponse['data_access_expiration_time'] * 1000,
-            ),
           ),
         );
       } else if (status == 'unknown') {

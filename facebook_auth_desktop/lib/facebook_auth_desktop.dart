@@ -169,9 +169,6 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
           tokenString: token,
           applicationId: _appId,
           isExpired: false,
-          dataAccessExpirationTime: DateTime.now().add(
-            const Duration(days: 90),
-          ),
         );
 
         await _secureStorage.delete(key: _facebookAccessTokenKey);

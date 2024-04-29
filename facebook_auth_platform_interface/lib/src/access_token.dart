@@ -65,9 +65,6 @@ class ClassicToken extends AccessToken {
   /// the facebook application Id
   final String applicationId;
 
-  /// the graph Domain name returned by facebook
-  final String? graphDomain;
-
   /// list of string with the rejected permission by the user (on Web is null)
   final List<String>? declinedPermissions;
 
@@ -77,8 +74,7 @@ class ClassicToken extends AccessToken {
   /// is `true` when the token is expired
   final bool isExpired;
 
-  /// DateTime with the date at which user data access expires
-  final DateTime dataAccessExpirationTime;
+  final String? authenticationToken;
 
   ClassicToken({
     required this.declinedPermissions,
@@ -88,9 +84,8 @@ class ClassicToken extends AccessToken {
     required this.lastRefresh,
     required super.tokenString,
     required this.applicationId,
-    this.graphDomain,
     required this.isExpired,
-    required this.dataAccessExpirationTime,
+    this.authenticationToken,
     super.type = AccessTokenType.classic,
   });
 
@@ -98,18 +93,6 @@ class ClassicToken extends AccessToken {
   ///
   /// [json] data returned by the platform channel
   factory ClassicToken.fromJson(Map<String, dynamic> json) {
-    late final DateTime dataAccessExpirationTime;
-
-    if (json['dataAccessExpirationTime'] is String) {
-      dataAccessExpirationTime = DateTime.parse(
-        json['dataAccessExpirationTime'],
-      );
-    } else {
-      dataAccessExpirationTime = DateTime.fromMillisecondsSinceEpoch(
-        json['dataAccessExpirationTime'],
-      );
-    }
-
     return ClassicToken(
       userId: json['userId'],
       tokenString: json['token'],
@@ -119,9 +102,9 @@ class ClassicToken extends AccessToken {
           maxMillisecondsSinceEpoch,
         ),
       ),
+      authenticationToken: json['authenticationToken'],
       lastRefresh: DateTime.fromMillisecondsSinceEpoch(json['lastRefresh']),
       applicationId: json['applicationId'],
-      graphDomain: json['graphDomain'],
       isExpired: json['isExpired'],
       declinedPermissions: json['declinedPermissions'] != null
           ? List<String>.from(json['declinedPermissions'])
@@ -129,7 +112,6 @@ class ClassicToken extends AccessToken {
       grantedPermissions: json['grantedPermissions'] != null
           ? List<String>.from(json['grantedPermissions'])
           : null,
-      dataAccessExpirationTime: dataAccessExpirationTime,
     );
   }
 
@@ -142,10 +124,9 @@ class ClassicToken extends AccessToken {
         'expires': expires.millisecondsSinceEpoch,
         'lastRefresh': lastRefresh.millisecondsSinceEpoch,
         'applicationId': applicationId,
-        'graphDomain': graphDomain,
         'isExpired': isExpired,
         'grantedPermissions': grantedPermissions,
         'declinedPermissions': declinedPermissions,
-        'dataAccessExpirationTime': dataAccessExpirationTime.toIso8601String(),
+        'authenticationToken': authenticationToken,
       };
 }
