@@ -18,10 +18,10 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 .
 .
 .
-void main() async {
+Future<void> main() async {
   // check if is running on Web
   if (kIsWeb) {
-    // initialiaze the facebook javascript SDK
+    // initialize the facebook javascript SDK
    await FacebookAuth.i.webAndDesktopInitialize(
       appId: "YOUR_FACEBOOK_APP_ID",
       cookie: true,
