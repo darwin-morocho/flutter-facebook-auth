@@ -1,3 +1,6 @@
+### 7.0.0-dev.6
+- iOS: Added `nonce` parameter in `login` function.
+
 ### 7.0.0-dev.3
 
 - **BREAKING CHANGE** Removed the `grantedPermissions` getter.

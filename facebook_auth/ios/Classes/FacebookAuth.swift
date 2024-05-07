@@ -39,10 +39,13 @@ class FacebookAuth: NSObject {
         case "login":
             let permissions = args?["permissions"] as! [String]
             let tracking = args?["tracking"] as! String
+            let customNonce = args?["nonce"] as? String
+            
             login(
                 permissions: permissions,
                 flutterResult: result,
-                tracking: tracking == "limited" ? .limited : .enabled
+                tracking: tracking == "limited" ? .limited : .enabled,
+                nonce: customNonce
             )
             
         case "getAccessToken":
@@ -92,7 +95,8 @@ class FacebookAuth: NSObject {
     private func login(
         permissions: [String],
         flutterResult: @escaping FlutterResult,
-        tracking: LoginTracking
+        tracking: LoginTracking,
+        nonce: String?
     ) {
         let isOK = setPendingResult(methodName: "login", flutterResult: flutterResult)
         if !isOK {
@@ -104,7 +108,7 @@ class FacebookAuth: NSObject {
         guard let configuration = LoginConfiguration(
             permissions: permissions,
             tracking: isLimitedLogin ? .limited : tracking,
-            nonce: UUID().uuidString
+            nonce: nonce ?? UUID().uuidString
         )
         else {
             return

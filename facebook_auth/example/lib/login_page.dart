@@ -1,8 +1,19 @@
 import 'dart:convert';
 import 'dart:developer';
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+
+/// Generates a cryptographically secure random nonce of the specified length.
+/// Defaults to 32 characters, which is recommended for most use cases.
+String generateNonce([int length = 32]) {
+  final charset =
+      '0123456789ABCDEFGHIJKLMNOPQRSTUVXYZabcdefghijklmnopqrstuvwxyz-._';
+  final random = math.Random.secure();
+  return List.generate(length, (_) => charset[random.nextInt(charset.length)])
+      .join();
+}
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -13,6 +24,7 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends State<LoginPage> {
   final _auth = FacebookAuth.instance;
+  String? _nonce;
 
   late LoginPageState _state;
 
@@ -40,9 +52,10 @@ class _LoginPageState extends State<LoginPage> {
 
   Future<void> _getUserProfile(AccessToken accessToken) async {
     if (accessToken is LimitedToken) {
-      log('nonce: ${accessToken.nonce}');
+      log('token nonce: ${accessToken.nonce}');
+      log('_nonce: $_nonce');
     } else {
-       log('accessToken is ClassicToken');
+      log('accessToken is ClassicToken');
     }
 
     final data = await _auth.getUserData();
@@ -73,11 +86,14 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   Future<void> _login() async {
+    _nonce = generateNonce();
+
     setState(() {
       _state = LoginLoading();
     });
     final result = await _auth.login(
       loginTracking: LoginTracking.limited,
+      nonce: _nonce,
     );
 
     switch (result.status) {
