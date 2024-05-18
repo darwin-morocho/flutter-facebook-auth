@@ -2,5 +2,5 @@ import React from 'react';
 import { Redirect } from "react-router-dom";
 
 export default function Home() {
-  return <Redirect to="/docs/6.x.x/intro" />;
+  return <Redirect to="/docs/7.x.x/intro" />;
 }
