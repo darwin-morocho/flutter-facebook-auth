@@ -106,6 +106,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
     LoginTracking loginTracking = LoginTracking.enabled,
+    String? nonce,
   }) async {
     if (!_initialized) {
       return LoginResult(
@@ -226,9 +227,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
                 null, // on web we don't have this data in the login response
             userId: authResponse['userID'],
             expires: expires,
-            lastRefresh: DateTime.now(),
             tokenString: authResponse['accessToken'],
-            isExpired: false,
           ),
         );
       } else if (status == 'unknown') {

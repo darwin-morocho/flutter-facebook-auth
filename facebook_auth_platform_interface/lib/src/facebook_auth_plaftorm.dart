@@ -56,6 +56,7 @@ abstract class FacebookAuthPlatform extends PlatformInterface {
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
     LoginTracking loginTracking = LoginTracking.enabled,
+    String? nonce,
   });
 
   /// Express login logs people in with their Facebook account across devices and platform.

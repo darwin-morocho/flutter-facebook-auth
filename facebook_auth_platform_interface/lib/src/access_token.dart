@@ -56,9 +56,6 @@ class ClassicToken extends AccessToken {
   /// DateTime with the expires date of this token
   final DateTime expires;
 
-  /// DateTime with the last refresh date of this token
-  final DateTime lastRefresh;
-
   /// the facebook user id
   final String userId;
 
@@ -71,9 +68,6 @@ class ClassicToken extends AccessToken {
   /// list of string with the approved permission by the user (on Web is null)
   final List<String>? grantedPermissions;
 
-  /// is `true` when the token is expired
-  final bool isExpired;
-
   final String? authenticationToken;
 
   ClassicToken({
@@ -81,10 +75,8 @@ class ClassicToken extends AccessToken {
     required this.grantedPermissions,
     required this.userId,
     required this.expires,
-    required this.lastRefresh,
     required super.tokenString,
     required this.applicationId,
-    required this.isExpired,
     this.authenticationToken,
     super.type = AccessTokenType.classic,
   });
@@ -103,9 +95,7 @@ class ClassicToken extends AccessToken {
         ),
       ),
       authenticationToken: json['authenticationToken'],
-      lastRefresh: DateTime.fromMillisecondsSinceEpoch(json['lastRefresh']),
       applicationId: json['applicationId'],
-      isExpired: json['isExpired'],
       declinedPermissions: json['declinedPermissions'] != null
           ? List<String>.from(json['declinedPermissions'])
           : null,
@@ -122,9 +112,7 @@ class ClassicToken extends AccessToken {
         'userId': userId,
         'tokenString': tokenString,
         'expires': expires.millisecondsSinceEpoch,
-        'lastRefresh': lastRefresh.millisecondsSinceEpoch,
         'applicationId': applicationId,
-        'isExpired': isExpired,
         'grantedPermissions': grantedPermissions,
         'declinedPermissions': declinedPermissions,
         'authenticationToken': authenticationToken,

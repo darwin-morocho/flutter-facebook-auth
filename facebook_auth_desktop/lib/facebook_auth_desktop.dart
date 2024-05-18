@@ -100,6 +100,7 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
     LoginTracking loginTracking = LoginTracking.enabled,
+    String? nonce,
   }) async {
     assert(
       _appId.isNotEmpty,
@@ -165,10 +166,8 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
           grantedPermissions: grantedScopes,
           userId: userData['id'],
           expires: expiresIn,
-          lastRefresh: DateTime.now(),
           tokenString: token,
           applicationId: _appId,
-          isExpired: false,
         );
 
         await _secureStorage.delete(key: _facebookAccessTokenKey);

@@ -29,12 +29,14 @@ class FacebookAuthPlatformImplementation extends FacebookAuthPlatform {
     List<String> permissions = const ['email', 'public_profile'],
     LoginBehavior loginBehavior = LoginBehavior.dialogOnly,
     LoginTracking loginTracking = LoginTracking.enabled,
+    String? nonce,
   }) async {
     try {
       final result = await channel.invokeMethod("login", {
         "permissions": permissions,
         "loginBehavior": getLoginBehaviorAsString(loginBehavior),
         "tracking": loginTracking.name,
+        "nonce": nonce,
       });
       final map = Map<String, dynamic>.from(result);
 
