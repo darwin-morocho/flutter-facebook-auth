@@ -18,7 +18,7 @@ abstract class AccessToken {
 class LimitedToken extends AccessToken {
   final String userId;
   final String userName;
-  final String userEmail;
+  final String? userEmail;
   final String nonce;
 
   LimitedToken({
