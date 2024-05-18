@@ -1,5 +1,5 @@
-## 2.0.0-dev.1
-- flutter_facebook_auth_platform_interface: ^6.0.0-dev.1
+## 2.0.0
+- flutter_facebook_auth_platform_interface: ^6.0.0
 
 
 ## 1.0.3

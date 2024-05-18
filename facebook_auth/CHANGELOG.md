@@ -1,8 +1,5 @@
-### 7.0.0-dev.6
+### 7.0.0
 - iOS: Added `nonce` parameter in `login` function.
-
-### 7.0.0-dev.3
-
 - **BREAKING CHANGE** Removed the `grantedPermissions` getter.
 - **BREAKING CHANGE** Added support for limited login:
   - iOS: If the user has not granted the AdvertiserTracking permission, the login process will now enter a [Limited Login mode](https://developers.facebook.com/docs/facebook-login/limited-login).

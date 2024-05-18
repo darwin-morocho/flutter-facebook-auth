@@ -1,6 +1,5 @@
-
-### 6.0.0-dev.1
-- Updated flutter_facebook_auth_platform_interface: ^6.0.0-dev.1
+### 6.0.0
+- Updated flutter_facebook_auth_platform_interface: ^6.0.0
 
 ### 5.0.0
 - Use dart >=3.0.0 <4.0.0
