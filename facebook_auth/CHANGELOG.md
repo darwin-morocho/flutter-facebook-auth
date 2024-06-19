@@ -1,3 +1,11 @@
+### 7.0.1
+- Updated Facebook iOS SDK to 17.0.2
+- IMPORTANT: If you are upgrading from a previous version 
+  on iOS you must update your pod dependencies:
+  ```shell
+  cd ios && pod update flutter_facebook_auth
+  ```
+
 ### 7.0.0
 - iOS: Added `nonce` parameter in `login` function.
 - **BREAKING CHANGE** Removed the `grantedPermissions` getter.

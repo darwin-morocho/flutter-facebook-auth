@@ -104,3 +104,4 @@ https://github.com/darwin-morocho/flutter-facebook-auth/issues/261
 
 https://github.com/darwin-morocho/flutter-facebook-auth/issues/6
 :::
+
