@@ -165,6 +165,7 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
           declinedPermissions: deniedScopes,
           grantedPermissions: grantedScopes,
           userId: userData['id'],
+          dataAccessExpirationTime: DateTime.fromMicrosecondsSinceEpoch(0),
           expires: expiresIn,
           tokenString: token,
           applicationId: _appId,
