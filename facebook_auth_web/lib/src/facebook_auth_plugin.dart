@@ -1,12 +1,14 @@
 import 'dart:async';
-import 'dart:html';
+import 'dart:js_interop';
+import 'dart:js_interop_unsafe';
+
 import 'package:flutter/services.dart';
 import 'package:flutter_facebook_auth_platform_interface/flutter_facebook_auth_platform_interface.dart';
-import 'package:js/js.dart';
-import 'dart:js' as js;
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
-import 'interop/facebook_auth_interop.dart' as fb;
+import 'package:web/web.dart';
+
 import 'interop/convert_interop.dart';
+import 'interop/facebook_auth_interop.dart' as fb;
 
 /// A web implementation of the FlutterFacebookAuth plugin.
 class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
@@ -27,15 +29,11 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     if (!_initialized) return null;
 
     Completer<LoginResult> completer = Completer();
-    fb.getLoginStatus(
-      allowInterop(
-        (jsResponse) {
-          this._handleResponse(jsResponse).then(
-                (result) => completer.complete(result),
-              );
-        },
-      ),
-    );
+    fb.getLoginStatus((JSAny jsResponse) {
+      this._handleResponse(jsResponse).then(
+            (result) => completer.complete(result),
+          );
+    }.toJS);
     final LoginResult result = await completer.future;
     return result.accessToken;
   }
@@ -73,15 +71,14 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     if (!_initialized) return {"error": "window.FB is undefined"};
     Completer<Map<String, dynamic>> c = Completer();
     fb.api(
-      "/me?fields=$fields",
-      allowInterop(
-        (_) => c.complete(
-          Map<String, dynamic>.from(
-            convert(_),
-          ),
-        ),
-      ),
-    );
+        "/me?fields=$fields",
+        (JSAny _) {
+          c.complete(
+            Map<String, dynamic>.from(
+              convert(_),
+            ),
+          );
+        }.toJS);
     return c.future;
   }
 
@@ -90,13 +87,11 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   Future<void> logOut() async {
     if (!_initialized) return;
     Completer<void> c = Completer();
-    fb.logout(allowInterop(
-      (_) {
-        if (!c.isCompleted) {
-          c.complete();
-        }
-      },
-    ));
+    fb.logout((JSAny _) {
+      if (!c.isCompleted) {
+        c.complete();
+      }
+    }.toJS);
     return c.future;
   }
 
@@ -117,13 +112,11 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
     String scope = permissions.join(",");
     Completer<LoginResult> completer = Completer();
     fb.login(
-      allowInterop(
-        (jsResponse) {
-          this._handleResponse(jsResponse).then(
-                (result) => completer.complete(result),
-              );
-        },
-      ),
+      (JSAny jsResponse) {
+        this._handleResponse(jsResponse).then(
+              (result) => completer.complete(result),
+            );
+      }.toJS,
       fb.LoginOptions(
         scope: scope,
         return_scopes: true,
@@ -145,7 +138,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   }) async {
     this._appId = appId;
 
-    if (js.context['FB'] != null) {
+    if (globalContext.has("FB")) {
       _initialized = true;
       return;
     }
@@ -166,7 +159,7 @@ class FlutterFacebookAuthPlugin extends FacebookAuthPlatform {
   /// Injects a `script` with a `src` dynamically into the head of the current
   /// document.
   Future<void> _injectSrcScript() async {
-    final script = ScriptElement()
+    final script = HTMLScriptElement()
       ..type = 'text/javascript'
       ..src = 'https://connect.facebook.net/en_US/sdk.js'
       ..async = true

@@ -1,7 +1,7 @@
 @JS()
 library mock_facebook_auth;
 
-import 'package:js/js.dart';
+import 'dart:js_interop';
 
 @JS()
 @anonymous

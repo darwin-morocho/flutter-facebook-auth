@@ -1,28 +1,28 @@
 @JS('FB')
 library facebook_auth.js;
 
-import 'package:js/js.dart';
+import 'dart:js_interop';
 
-typedef FbCallback = void Function(dynamic response);
+typedef FbCallback = JSExportedDartFunction;
 
 @JS('init')
-external init(InitOptions options);
+external void init(InitOptions options);
 
 @JS('login')
-external login(FbCallback fn, LoginOptions options);
+external void login(FbCallback fn, LoginOptions options);
 
 @JS('getLoginStatus')
-external getLoginStatus(FbCallback fn);
+external void getLoginStatus(FbCallback fn);
 
 @JS('api')
-external api(String request, FbCallback fn);
+external void api(String request, FbCallback fn);
 
 @JS('logout')
-external logout(FbCallback fn);
+external void logout(FbCallback fn);
 
 @JS()
 @anonymous
-class InitOptions {
+extension type InitOptions._(JSObject _) implements JSObject {
   external factory InitOptions({
     required String appId,
     required String version,
@@ -37,7 +37,7 @@ class InitOptions {
 
 @JS()
 @anonymous
-class LoginOptions {
+extension type LoginOptions._(JSObject _) implements JSObject {
   external factory LoginOptions({
     required String scope,
     // ignore: non_constant_identifier_names
