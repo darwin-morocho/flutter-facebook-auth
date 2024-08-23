@@ -4,8 +4,8 @@ version: 2.0.0
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_desktop
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=2.0.0"
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.2"
 
 dependencies:
   flutter:

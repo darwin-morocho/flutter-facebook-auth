@@ -5,7 +5,7 @@ import 'dart:js_interop';
 
 @JS()
 @anonymous
-class FbMock {
+extension type FbMock._(JSObject _) implements JSObject {
   external factory FbMock();
 }
 
