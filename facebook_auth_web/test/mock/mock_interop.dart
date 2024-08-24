@@ -1,11 +1,11 @@
 @JS()
 library mock_facebook_auth;
 
-import 'package:js/js.dart';
+import 'dart:js_interop';
 
 @JS()
 @anonymous
-class FbMock {
+extension type FbMock._(JSObject _) implements JSObject {
   external factory FbMock();
 }
 
