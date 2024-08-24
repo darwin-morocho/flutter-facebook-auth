@@ -1,3 +1,10 @@
+### 6.1.0
+- Migrate to package:web.
+- environment:
+  Use dart sdk: '>=3.3.0 <4.0.0'
+  Use flutter: ">=3.19.2"
+
+
 ### 6.0.0
 - Updated flutter_facebook_auth_platform_interface: ^6.0.0
 

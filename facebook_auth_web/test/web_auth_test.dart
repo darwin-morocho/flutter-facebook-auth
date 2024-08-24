@@ -6,7 +6,6 @@ import 'package:flutter_facebook_auth_web/flutter_facebook_auth_web.dart';
 
 import 'package:flutter_test/flutter_test.dart';
 import 'mock/mock_data.dart';
-import 'mock/mock_interop.dart';
 
 /// create a new instance of FacebookAuthPlugin with Mock Data
 FlutterFacebookAuthPlugin getPlugin() => FlutterFacebookAuthPlugin();
@@ -22,7 +21,6 @@ void main() {
     });
 
     test('is initialized', () async {
-      fbMock = FbMock();
       final plugin = getPlugin();
       await plugin.webAndDesktopInitialize(
         appId: '1234',
@@ -40,7 +38,6 @@ void main() {
     late bool isLogged = false;
     setUp(
       () {
-        fbMock = FbMock();
         js.context['FB']['init'] = js.allowInterop((js.JsObject options) {});
         js.context['FB']['login'] = js.allowInterop((js.JsFunction fn, _) {
           isLogged = true;
