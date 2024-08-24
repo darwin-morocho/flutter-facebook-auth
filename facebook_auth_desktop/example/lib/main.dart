@@ -48,6 +48,7 @@ class _HomePageState extends State<HomePage> {
 
   void _signIn(BuildContext context) async {
     final result = await plugin.login();
+
     if (result.status.name == 'success') {
       final userData = await plugin.getUserData();
       showDialog(

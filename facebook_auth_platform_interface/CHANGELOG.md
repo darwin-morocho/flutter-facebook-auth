@@ -1,3 +1,6 @@
+### 6.1.0
+- Use dart >=3.3.0 <4.0.0
+
 ### 6.0.0
 - Added `LoginTracking` enum.
 - Added `ClassicToken` and `LimitedToken` classes.

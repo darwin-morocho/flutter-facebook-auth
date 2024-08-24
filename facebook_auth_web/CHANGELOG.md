@@ -1,3 +1,6 @@
+### 6.1.1
+- Updated flutter_facebook_auth_platform_interface: ^6.1.0
+
 ### 6.1.0
 - Migrate to package:web.
 - environment:

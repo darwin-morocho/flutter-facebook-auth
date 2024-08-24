@@ -1,3 +1,8 @@
+### 7.1.0
+- Updated to `flutter_facebook_auth_platform_interface: ^6.1.0`.
+- Updated to `flutter_facebook_auth_web: ^6.1.1`.
+- Updated to `facebook_auth_desktop: ^2.1.0`
+
 ### 7.0.1
 - Updated Facebook iOS SDK to 17.0.2
 - IMPORTANT: If you are upgrading from a previous version 
