@@ -14,7 +14,7 @@
   "source": {
     "http": "https://github.com/flutter/packages/tree/main/packages/url_launcher/url_launcher_macos"
   },
-  "source_files": "Classes/**/*",
+  "source_files": "url_launcher_macos/Sources/url_launcher_macos/**/*.swift",
   "dependencies": {
     "FlutterMacOS": [
 

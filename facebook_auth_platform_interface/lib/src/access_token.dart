@@ -87,7 +87,7 @@ class ClassicToken extends AccessToken {
   factory ClassicToken.fromJson(Map<String, dynamic> json) {
     return ClassicToken(
       userId: json['userId'],
-      tokenString: json['token'],
+      tokenString: json['token'] ?? json['tokenString'],
       expires: DateTime.fromMillisecondsSinceEpoch(
         json['expires'].clamp(
           minMillisecondsSinceEpoch,

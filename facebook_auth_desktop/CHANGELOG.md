@@ -1,4 +1,7 @@
 ## 2.1.0
+- flutter_facebook_auth_platform_interface: ^6.1.2
+
+## 2.1.0
 - Fixed login canceled catch.
 - flutter_facebook_auth_platform_interface: ^6.1.0
 - flutter_secure_storage: ^9.2.2

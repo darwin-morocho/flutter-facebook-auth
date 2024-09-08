@@ -1,3 +1,9 @@
+### 6.1.2
+- mocktail: ^1.0.4
+
+### 6.1.1
+- Fixed AccessToken.fromJson on MacOS.
+
 ### 6.1.0
 - Use dart >=3.3.0 <4.0.0
 
