@@ -31,11 +31,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   facebook_auth_desktop: 0ec755e3b01669ec14776af18b6945671a788916
-  flutter_secure_storage_macos: d56e2d218c1130b262bef8b4a7d64f88d7f9c9ea
+  flutter_secure_storage_macos: 59459653abe1adb92abbc8ea747d79f8d19866c9
   FlutterMacOS: 8f6f14fa908a6fb3fba0cd85dbd81ec4b251fb24
-  path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
-  url_launcher_macos: d2691c7dd33ed713bf3544850a623080ec693d95
+  path_provider_foundation: 2b6b4c569c0fb62ec74538f866245ac84301af46
+  url_launcher_macos: 5f437abeda8c85500ceb03f5c1938a8c5a705399
 
 PODFILE CHECKSUM: 353c8bcc5d5b0994e508d035b5431cfe18c1dea7
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

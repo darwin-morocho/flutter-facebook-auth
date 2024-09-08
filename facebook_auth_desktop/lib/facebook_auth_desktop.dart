@@ -131,8 +131,24 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
     );
 
     if (callbackUrl != null) {
-      final fragment = Uri.parse(callbackUrl).fragment;
+      final uri = Uri.parse(callbackUrl);
+      final fragment = uri.fragment;
       final arguments = Uri.splitQueryString(fragment);
+
+      final error = uri.queryParameters['error'];
+      if (error != null) {
+        if (error == 'access_denied') {
+          return LoginResult(
+            status: LoginStatus.cancelled,
+            message: 'Login canceled by user.',
+          );
+        }
+
+        return LoginResult(
+          status: LoginStatus.failed,
+          message: 'Login failed.',
+        );
+      }
 
       String? token = arguments['long_lived_token'];
       bool isLoginLiveToken = token != null;

@@ -1,18 +1,18 @@
 name: facebook_auth_desktop
 description: macOS support for flutter_facebook_auth
-version: 2.0.0
+version: 2.1.1
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_desktop
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=2.0.0"
+  sdk: ">=3.3.0 <4.0.0"
+  flutter: ">=3.19.2"
 
 dependencies:
   flutter:
     sdk: flutter
-  http: ^1.0.0
-  flutter_secure_storage: ^9.0.0
-  flutter_facebook_auth_platform_interface: ^6.0.0
+  http: ^1.2.2
+  flutter_secure_storage: ^9.2.2
+  flutter_facebook_auth_platform_interface: ^6.1.2
 
   # flutter_facebook_auth_platform_interface:
   #   path: ../facebook_auth_platform_interface
@@ -20,7 +20,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^4.0.0
 
 flutter:
   plugin:

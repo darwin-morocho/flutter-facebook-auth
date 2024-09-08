@@ -26,5 +26,10 @@
     "DEFINES_MODULE": "YES"
   },
   "swift_versions": "5.0",
+  "resource_bundles": {
+    "flutter_secure_storage_macos": [
+      "Resources/PrivacyInfo.xcprivacy"
+    ]
+  },
   "swift_version": "5.0"
 }

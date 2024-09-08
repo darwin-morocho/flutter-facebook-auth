@@ -1,21 +1,20 @@
 name: flutter_facebook_auth_web
 description: web support for flutter_facebook_auth
-version: 6.0.0
+version: 6.1.2
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_web
 
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
-  flutter: ">=2.0.0"
+  sdk: '>=3.3.0 <4.0.0'
+  flutter: ">=3.19.2"
 
 dependencies:
   flutter:
     sdk: flutter
   flutter_web_plugins:
     sdk: flutter
-  js: ^0.6.3
-  flutter_facebook_auth_platform_interface: ^6.0.0
-  
+  flutter_facebook_auth_platform_interface: ^6.1.2
+  web: ^1.0.0
   # flutter_facebook_auth_platform_interface:
     # path: ../facebook_auth_platform_interface
   
