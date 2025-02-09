@@ -127,13 +127,13 @@ class FacebookAuth: NSObject {
                 
                 switch result {
                 case .failed(let error):
-                    finishWithError(errorCode: "FAILED", message: error.localizedDescription)
+                    self.finishWithError(errorCode: "FAILED", message: error.localizedDescription)
                 case .cancelled:
-                    finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
+                    self.finishWithError(errorCode: "CANCELLED", message: "User has cancelled login with facebook")
                
                 case .success(granted: let granted, declined: let declined, token: let token):
-                    setIsLimitedLogin(isLimitedLogin)
-                    finishWithResult(
+                    self.setIsLimitedLogin(isLimitedLogin)
+                    self.finishWithResult(
                         data: self.getAccessToken(
                             accessToken: token,
                             authenticationToken: AuthenticationToken.current,
