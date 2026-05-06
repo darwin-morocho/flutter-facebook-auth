@@ -1,3 +1,12 @@
+## 7.1.5+uiscene.1
+- feat(iOS): Adopt `FlutterSceneLifeCycleDelegate` so the native Facebook app
+  login callback (the `fb<APP_ID>://` URL scheme) reaches the SDK on apps that
+  have migrated to the UIScene lifecycle. Without this, the OS routes URL
+  openings to the scene delegate, which the plugin previously did not observe,
+  causing native FB-app logins to silently fail.
+- Bumps minimum Flutter version to 3.38.0 (required by
+  `FlutterSceneLifeCycleDelegate`).
+
 ## 7.1.5
 - Use fixed version of `FBSDKLoginKit` to avoid issues on iOS.
 
