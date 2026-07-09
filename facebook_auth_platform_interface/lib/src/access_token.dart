@@ -42,19 +42,22 @@ class LimitedToken extends AccessToken {
 
   @override
   Map<String, dynamic> toJson() => {
-        'type': type.name,
-        'userId': userId,
-        'tokenString': tokenString,
-        'nonce': nonce,
-        'userEmail': userEmail,
-        'userName': userName,
-      };
+    'type': type.name,
+    'userId': userId,
+    'tokenString': tokenString,
+    'nonce': nonce,
+    'userEmail': userEmail,
+    'userName': userName,
+  };
 }
 
 /// Class that contains the facebook access token data
 class ClassicToken extends AccessToken {
   /// DateTime with the expires date of this token
   final DateTime expires;
+
+  /// DateTime with data access expiration time
+  final DateTime dataAccessExpirationTime;
 
   /// the facebook user id
   final String userId;
@@ -75,6 +78,7 @@ class ClassicToken extends AccessToken {
     required this.grantedPermissions,
     required this.userId,
     required this.expires,
+    required this.dataAccessExpirationTime,
     required super.tokenString,
     required this.applicationId,
     this.authenticationToken,
@@ -94,6 +98,12 @@ class ClassicToken extends AccessToken {
           maxMillisecondsSinceEpoch,
         ),
       ),
+      dataAccessExpirationTime: DateTime.fromMillisecondsSinceEpoch(
+        json['dataAccessExpirationTime'].clamp(
+          minMillisecondsSinceEpoch,
+          maxMillisecondsSinceEpoch,
+        ),
+      ),
       authenticationToken: json['authenticationToken'],
       applicationId: json['applicationId'],
       declinedPermissions: json['declinedPermissions'] != null
@@ -108,13 +118,14 @@ class ClassicToken extends AccessToken {
   /// convert this instance to one Map
   @override
   Map<String, dynamic> toJson() => {
-        'type': type.name,
-        'userId': userId,
-        'tokenString': tokenString,
-        'expires': expires.millisecondsSinceEpoch,
-        'applicationId': applicationId,
-        'grantedPermissions': grantedPermissions,
-        'declinedPermissions': declinedPermissions,
-        'authenticationToken': authenticationToken,
-      };
+    'type': type.name,
+    'userId': userId,
+    'tokenString': tokenString,
+    'expires': expires.millisecondsSinceEpoch,
+    'dataAccessExpirationTime': dataAccessExpirationTime.millisecondsSinceEpoch,
+    'applicationId': applicationId,
+    'grantedPermissions': grantedPermissions,
+    'declinedPermissions': declinedPermissions,
+    'authenticationToken': authenticationToken,
+  };
 }
