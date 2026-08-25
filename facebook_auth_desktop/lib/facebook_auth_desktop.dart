@@ -150,16 +150,39 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
         );
       }
 
+      // Facebook reports app configuration problems -- a redirect URI missing
+      // from the app's allow list, embedded browser login turned off -- with
+      // `error_code`/`error_message` rather than `error`, and sends no token.
+      // Without this the flow would fall through to the token handling below
+      // and turn a reportable failure into an unhandled exception.
+      final errorCode = uri.queryParameters['error_code'];
+      if (errorCode != null) {
+        return LoginResult(
+          status: LoginStatus.failed,
+          message: uri.queryParameters['error_message'] ??
+              'Login failed with error $errorCode.',
+        );
+      }
+
       String? token = arguments['long_lived_token'];
       bool isLoginLiveToken = token != null;
 
       late final DateTime expiresIn;
 
       if (!isLoginLiveToken) {
-        token = arguments['access_token']!;
+        token = arguments['access_token'];
+        if (token == null) {
+          return LoginResult(
+            status: LoginStatus.failed,
+            message: 'Facebook did not return an access token.',
+          );
+        }
         expiresIn = DateTime.now().add(
           Duration(
-            seconds: int.parse(arguments['expires_in']!),
+            // A token always arrives with its lifetime; fall back to the
+            // length of a short-lived token rather than throwing if it does
+            // not, since the token itself is still usable.
+            seconds: int.tryParse(arguments['expires_in'] ?? '') ?? 3600,
           ),
         );
       } else {
@@ -168,8 +191,8 @@ class FacebookAuthDesktopPlugin extends FacebookAuthPlatform {
         );
       }
 
-      final grantedScopes = arguments['granted_scopes']!.split(',');
-      final deniedScopes = arguments['denied_scopes']!.split(',');
+      final grantedScopes = arguments['granted_scopes']?.split(',') ?? const [];
+      final deniedScopes = arguments['denied_scopes']?.split(',') ?? const [];
 
       final response = await _httpClient.get(
         Uri.parse('https://graph.facebook.com/me?access_token=$token'),
