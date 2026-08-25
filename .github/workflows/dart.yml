@@ -40,3 +40,26 @@ jobs:
 
       - name: Upload coverage to Codecov
         run: curl -s https://codecov.io/bash | bash
+
+  # The Dart tests above mock the method channel, so the native Windows code is
+  # only ever exercised by an actual compile.
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3.1.0
+      - uses: subosito/flutter-action@v2.7.1
+        with:
+          channel: 'stable'
+
+      - name: Install facebook_auth_desktop dependencies
+        working-directory: facebook_auth_desktop
+        run: flutter pub get
+
+      - name: Run facebook_auth_desktop tests
+        working-directory: facebook_auth_desktop
+        run: flutter test
+
+      - name: Build the Windows example app
+        working-directory: facebook_auth_desktop/example
+        run: flutter build windows --debug

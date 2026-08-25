@@ -20,6 +20,7 @@ const sidebars = {
     "ios",
     "web",
     "macos",
+    "windows",
     "login",
     "app-tracking-transparency",
     "user-information",
