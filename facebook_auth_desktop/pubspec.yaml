@@ -1,6 +1,6 @@
 name: facebook_auth_desktop
-description: macOS support for flutter_facebook_auth
-version: 2.2.0
+description: macOS and Windows support for flutter_facebook_auth
+version: 2.3.0
 homepage: https://github.com/darwin-morocho/flutter-facebook-auth/tree/master/facebook_auth_desktop
 
 environment:
@@ -28,4 +28,7 @@ flutter:
     platforms:
       macos:
         pluginClass: FacebookAuthDesktopPlugin
+        dartPluginClass: FacebookAuthDesktopPlugin
+      windows:
+        pluginClass: FacebookAuthDesktopPluginCApi
         dartPluginClass: FacebookAuthDesktopPlugin

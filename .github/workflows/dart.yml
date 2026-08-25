@@ -40,3 +40,32 @@ jobs:
 
       - name: Upload coverage to Codecov
         run: curl -s https://codecov.io/bash | bash
+
+  # The Dart tests above mock the method channel, so the native Windows code is
+  # only ever exercised by an actual compile.
+  windows:
+    runs-on: windows-latest
+
+    steps:
+      # The repository carries committed iOS Pods whose paths are longer than
+      # the 260 character Windows MAX_PATH, so checkout aborts without this.
+      # It has to run before actions/checkout, which is what does the cloning.
+      - name: Allow long paths
+        run: git config --system core.longpaths true
+
+      - uses: actions/checkout@v3.1.0
+      - uses: subosito/flutter-action@v2.7.1
+        with:
+          channel: 'stable'
+
+      - name: Install facebook_auth_desktop dependencies
+        working-directory: facebook_auth_desktop
+        run: flutter pub get
+
+      - name: Run facebook_auth_desktop tests
+        working-directory: facebook_auth_desktop
+        run: flutter test
+
+      - name: Build the Windows example app
+        working-directory: facebook_auth_desktop/example
+        run: flutter build windows --debug

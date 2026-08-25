@@ -1,3 +1,7 @@
+## 7.3.0
+- feat(Windows): Windows is now a supported platform. The login dialog runs in an embedded WebView2 window, mirroring the existing macOS flow.
+- Requires `facebook_auth_desktop` 2.3.0 or newer for the Windows platform.
+
 ## 7.2.0
 - feat(Android): Forward `nonce` to native login to support OIDC ID tokens (`AuthenticationToken`).
 - Android now extracts the `AuthenticationToken` from the login result and includes it in `ClassicToken.authenticationToken`, matching iOS behavior.

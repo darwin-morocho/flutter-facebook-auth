@@ -1,3 +1,7 @@
+## 2.3.0
+- Added Windows support. `signIn` opens the Facebook OAuth dialog in an embedded Microsoft Edge WebView2 window and intercepts the redirect the same way the macOS implementation does.
+- The WebView2 SDK is fetched from NuGet at build time and linked statically, so no extra DLL has to be shipped with the app. End users need the WebView2 Runtime, which is preinstalled on Windows 11 and current Windows 10.
+
 ## 2.2.0
 - Added Swift Package Manager (SPM) support for macOS. The plugin now ships a `Package.swift` (sources under `macos/facebook_auth_desktop/Sources/`) while keeping the podspec for CocoaPods compatibility.
 

@@ -12,7 +12,7 @@
 
 ## Features
 
-- Login on Android, iOS, Web and macOS.
+- Login on Android, iOS, Web, macOS and Windows.
 - Express login on Android.
 - Granted and declined permissions.
 - User information, picture profile and more.
