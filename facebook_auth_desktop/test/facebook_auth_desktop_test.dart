@@ -120,6 +120,65 @@ void main() {
   );
 
   test(
+    'login > app misconfigured reports failed rather than throwing',
+    () async {
+      // Facebook signals configuration problems -- an unlisted redirect URI,
+      // embedded browser login disabled -- with error_code/error_message and
+      // no token at all.
+      channel.setMockMethodCallHandler((MethodCall call) async {
+        switch (call.method) {
+          case "signIn":
+            return 'https://www.facebook.com/connect/login_success.html'
+                '?error_code=191'
+                '&error_message=Can%27t+load+URL%3A+the+domain+of+this+URL'
+                '+is+not+included+in+the+app%27s+domains';
+        }
+      });
+
+      final plugin = FacebookAuthDesktopPlugin(
+        httpClient: MockHttpClient(),
+      );
+
+      plugin.webAndDesktopInitialize(
+        appId: 'appId',
+        cookie: true,
+        xfbml: true,
+        version: 'v13.0',
+      );
+
+      final result = await plugin.login();
+      expect(result.status, LoginStatus.failed);
+      expect(result.message, contains("Can't load URL"));
+    },
+  );
+
+  test(
+    'login > redirect without an access token reports failed',
+    () async {
+      channel.setMockMethodCallHandler((MethodCall call) async {
+        switch (call.method) {
+          case "signIn":
+            return 'https://www.facebook.com/connect/login_success.html#state=abc';
+        }
+      });
+
+      final plugin = FacebookAuthDesktopPlugin(
+        httpClient: MockHttpClient(),
+      );
+
+      plugin.webAndDesktopInitialize(
+        appId: 'appId',
+        cookie: true,
+        xfbml: true,
+        version: 'v13.0',
+      );
+
+      final result = await plugin.login();
+      expect(result.status, LoginStatus.failed);
+    },
+  );
+
+  test(
     'login > logged',
     () async {
       int i = 0;
