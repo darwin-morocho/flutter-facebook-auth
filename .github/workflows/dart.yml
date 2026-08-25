@@ -47,6 +47,12 @@ jobs:
     runs-on: windows-latest
 
     steps:
+      # The repository carries committed iOS Pods whose paths are longer than
+      # the 260 character Windows MAX_PATH, so checkout aborts without this.
+      # It has to run before actions/checkout, which is what does the cloning.
+      - name: Allow long paths
+        run: git config --system core.longpaths true
+
       - uses: actions/checkout@v3.1.0
       - uses: subosito/flutter-action@v2.7.1
         with:
