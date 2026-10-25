@@ -1,5 +1,7 @@
 ## 7.3.0
 - feat(Windows): Windows is now a supported platform. The login dialog runs in an embedded WebView2 window, mirroring the existing macOS flow.
+- fix(iOS): Return `Bool` from `scene(_:openURLContexts:)` to properly claim Facebook login callback URLs.
+- chore(iOS): Update Facebook iOS SDK to 18.1.1 (fixes Meta Developer Dashboard warning).
 - Requires `facebook_auth_desktop` 2.3.0 or newer for the Windows platform.
 
 ## 7.2.0

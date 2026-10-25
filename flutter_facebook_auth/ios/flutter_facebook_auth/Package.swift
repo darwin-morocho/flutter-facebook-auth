@@ -14,7 +14,7 @@ let package = Package(
   dependencies: [
     .package(
       url: "https://github.com/facebook/facebook-ios-sdk",
-      "18.0.2" ..< "19.0.0"
+      "18.1.1" ..< "19.0.0"
     ),
     .package(name: "FlutterFramework", path: "../FlutterFramework")
   ],
