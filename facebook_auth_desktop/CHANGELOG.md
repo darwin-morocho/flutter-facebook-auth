@@ -1,3 +1,6 @@
+## 2.2.1
+- Fixed an unhandled exception when Facebook rejects the login for a configuration reason. Those failures arrive as `error_code`/`error_message` with no token, which fell through to a null check operator instead of returning `LoginStatus.failed`.
+
 ## 2.2.0
 - Added Swift Package Manager (SPM) support for macOS. The plugin now ships a `Package.swift` (sources under `macos/facebook_auth_desktop/Sources/`) while keeping the podspec for CocoaPods compatibility.
 
