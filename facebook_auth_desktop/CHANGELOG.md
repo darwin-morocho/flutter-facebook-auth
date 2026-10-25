@@ -1,3 +1,6 @@
+## 2.3.1
+- Bumped `flutter_secure_storage` dependency to `^11.0.0`, which raises the minimum SDK to Dart `>=3.8.0` / Flutter `>=3.32.0`.
+
 ## 2.3.0
 - Added Windows support. `signIn` opens the Facebook OAuth dialog in an embedded Microsoft Edge WebView2 window and intercepts the redirect the same way the macOS implementation does.
 - The WebView2 SDK is fetched from NuGet at build time and linked statically, so no extra DLL has to be shipped with the app. End users need the WebView2 Runtime, which is preinstalled on Windows 11 and current Windows 10.
