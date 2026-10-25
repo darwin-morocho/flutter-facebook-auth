@@ -1,3 +1,6 @@
+## 7.3.1
+- Bump dependency constraints to `facebook_auth_desktop: ^2.3.0` (required for Windows platform) and `flutter_facebook_auth_platform_interface: ^6.1.3`.
+
 ## 7.3.0
 - feat(Windows): Windows is now a supported platform. The login dialog runs in an embedded WebView2 window, mirroring the existing macOS flow.
 - fix(iOS): Return `Bool` from `scene(_:openURLContexts:)` to properly claim Facebook login callback URLs.
