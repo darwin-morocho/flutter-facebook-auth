@@ -44,9 +44,11 @@ public class SwiftFlutterFacebookAuthPlugin: NSObject, FlutterPlugin, FlutterSce
     // Scene lifecycle equivalent of `application(_:open:options:)`. iOS 13+
     // routes URL openings (including the native Facebook app callback via the
     // fb<APP_ID>:// scheme) here when UIApplicationSceneManifest is enabled.
-    public func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        for context in URLContexts {
-            _ = ApplicationDelegate.shared.application(
+    public func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) -> Bool {
+        return URLContexts.contains { context in
+            guard context.url.scheme?.hasPrefix("fb") == true else { return false }
+            
+            return ApplicationDelegate.shared.application(
                 UIApplication.shared,
                 open: context.url,
                 sourceApplication: context.options.sourceApplication,
