@@ -1,3 +1,6 @@
+### 6.1.3
+- Support both `token` and `tokenString` keys in `LimitedToken.fromJson`.
+
 ### 6.1.2
 - mocktail: ^1.0.4
 

@@ -35,7 +35,7 @@ class LimitedToken extends AccessToken {
       userId: json['userId'],
       userName: json['userName'],
       userEmail: json['userEmail'],
-      tokenString: json['token'],
+      tokenString: json['token'] ?? json['tokenString'],
       nonce: json['nonce'],
     );
   }

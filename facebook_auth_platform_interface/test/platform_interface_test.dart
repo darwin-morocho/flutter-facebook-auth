@@ -210,6 +210,25 @@ void main() {
       expect((token as ClassicToken).authenticationToken, isNotNull);
       expect(token.authenticationToken, MockData.accessTokenWithAuthenticationToken['authenticationToken']);
     });
+    test('LimitedToken fromJson supports both token and tokenString', () {
+      final tokenFromToken = LimitedToken.fromJson({
+        'userId': '123',
+        'userName': 'John',
+        'userEmail': 'john@example.com',
+        'token': 'abc-token',
+        'nonce': 'nonce-123',
+      });
+      expect(tokenFromToken.tokenString, 'abc-token');
+
+      final tokenFromTokenString = LimitedToken.fromJson({
+        'userId': '123',
+        'userName': 'John',
+        'userEmail': 'john@example.com',
+        'tokenString': 'abc-token-string',
+        'nonce': 'nonce-123',
+      });
+      expect(tokenFromTokenString.tokenString, 'abc-token-string');
+    });
   });
 }
 
