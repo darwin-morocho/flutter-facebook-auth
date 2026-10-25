@@ -1,3 +1,7 @@
+## 7.3.2
+- docs: Comprehensive documentation consolidation into README (Android, iOS, Web, macOS, Windows setup guides, App Tracking Transparency, Limited Login, and Firebase Auth integration).
+- docs: Removed external documentation website dependency.
+
 ## 7.3.1
 - Bump dependency constraints to `facebook_auth_desktop: ^2.3.0` (required for Windows platform) and `flutter_facebook_auth_platform_interface: ^6.1.3`.
 
