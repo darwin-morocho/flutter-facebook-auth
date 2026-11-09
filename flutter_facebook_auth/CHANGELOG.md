@@ -1,3 +1,7 @@
+## 7.3.3
+- Bump `facebook_auth_desktop` constraint to `^2.3.1` to support `flutter_secure_storage` `^11.0.0`.
+- Update minimum Dart SDK to `>=3.8.0`.
+
 ## 7.3.2
 - docs: Comprehensive documentation consolidation into README (Android, iOS, Web, macOS, Windows setup guides, App Tracking Transparency, Limited Login, and Firebase Auth integration).
 - docs: Removed external documentation website dependency.
